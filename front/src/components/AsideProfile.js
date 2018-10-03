@@ -6,7 +6,7 @@ class AsideProfile extends Component {
   render() {
     return (
       <div className="container">
-        <div className="col-lg-3 col-sm-12 mt-5">
+        <div className="col-lg-3 col-sm-12 my-5">
 
           <div className="row mx-auto d-flex justify-content-center ">
             <img className="profileAvatar mb-3 rounded-circle img-fluid" src="https://img.discogs.com/6qX3QdIoDiUwGpCO5Bwv3XyIgGI=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-790952-1162171782.jpeg.jpg" alt="Avatar" />
