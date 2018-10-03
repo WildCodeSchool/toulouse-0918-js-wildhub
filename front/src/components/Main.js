@@ -5,9 +5,13 @@ import PillsList from './listProjet'
 class Main extends Component {
     render() {
         return (
-            <div>
-                <AsideProfile/>
-                <PillsList/>
+            <div className='container'>
+                <div className='row'>
+                    <AsideProfile/>
+                    <div className='col-9'>
+                        <PillsList/>
+                    </div>
+                </div>
             </div>
         );
     }

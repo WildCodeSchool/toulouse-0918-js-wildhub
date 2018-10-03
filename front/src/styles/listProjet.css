@@ -1,20 +1,22 @@
 
-/*Style navbar pills (active et non active)*/
+/*Margin Global*/
+.containerGlobal {
+    margin-top: 5em;
+}
 
-.nav-pills .nav-item a.active {
-    background-color: transparent;
-    color: red;
-    text-decoration: underline;
+/*Titre section projet*/
+.titreProjet {
+    margin-bottom: 1em;
 }
-.nav-pills .nav-link{
-    color: black;
-}
+
 
 /*Favorite heart icon*/
-
 .emptyIconHeart {
     position: absolute;
     right : 0.75em;
     top : 0.75em;
     line-height: 0;
 }
+
+
+/*Card style*/

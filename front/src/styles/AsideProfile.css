@@ -1,15 +1,15 @@
-ul{
+.ulEva{
     list-style: none;
 }
 
-h1{
+.h1Eva{
     font-size: 1.7em;
 }
 
-h2{
+.h2Eva{
     font-size: 1em;
 }
-h3, h4{
+.h3Eva, .h4Eva{
     font-size: 1.2em;
 }
 .logoTechno{
