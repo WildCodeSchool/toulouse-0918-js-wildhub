@@ -1,0 +1,9 @@
+{
+  "name": "toulouse-0918-js-wildhub-back",
+  "version": "0.1.0",
+  "main": "server.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
