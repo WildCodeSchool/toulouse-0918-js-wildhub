@@ -7,8 +7,10 @@ class Main extends Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <AsideProfile/>
-                    <div className='col-9'>
+                    <div className="col-lg-3 my-5">
+                        <AsideProfile/>
+                    </div>
+                    <div className='col-lg-8 ml-auto my-5'>
                         <PillsList/>
                     </div>
                 </div>

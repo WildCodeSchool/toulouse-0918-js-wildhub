@@ -1,57 +1,69 @@
-import React from "react";
+import React, {Component} from "react";
 import '../styles/listProjet.css';
 
 const Liste = [
     {
         urlImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1024px-HTML5_logo_and_wordmark.svg.png',
         altImage: 'placeholder',
-        spanClass: 'far fa-heart',
         pTitre: 'Titre1',
         pDescription: 'Description1'
     },
     {
         urlImage: 'https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/14/thumb_bigger_formation-node-js.png',
         altImage: 'placeholder',
-        spanClass: 'far fa-heart',
         pTitre: 'Titre2',
         pDescription: 'Description2'
     },
     {
         urlImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png',
         altImage: 'placeholder',
-        spanClass: 'far fa-heart',
         pTitre: 'Titre3',
         pDescription: 'Description3'
     },
     {
         urlImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png',
         altImage: 'placeholder',
-        spanClass: 'far fa-heart',
         pTitre: 'Titre4',
         pDescription: 'Description4'
     },
     {
         urlImage: 'https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/14/thumb_bigger_formation-node-js.png',
         altImage: 'placeholder',
-        spanClass: 'far fa-heart',
         pTitre: 'Titre5',
         pDescription: 'Description5'
     },
 ];
 
+class Projet extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            isFavorite: false,
+        };
+    }
 
-const Projet = ({urlImage, altImage, spanClass, pTitre, pDescription}) => (
-    <div className="col-4">
-        <div className="card projetsCard">
-            <img className="card-img-top" src={urlImage} alt={altImage}/>
-            <span className="emptyIconHeart"><i className={spanClass}></i></span>
-            <div className="card-body">
-                <h5 className="card-title">{pTitre}</h5>
-                <p className="card-text">{pDescription}</p>
+    handleClick = () => {
+        this.setState({
+            isFavorite: !this.state.isFavorite,
+        });
+    }
+
+    render(){
+        const icoHeart = this.state.isFavorite ? 'fas fa-heart' : 'far fa-heart';
+        return(
+            <div className="col-md-6 mb-4">
+                <div className="card projetsCard">
+                    <img className="card-img-top" src={this.props.urlImage} alt={this.props.altImage}/>
+                    <span className="IconHeart" onClick={this.handleClick}><i className={icoHeart}></i></span>
+                    <div className="card-body">
+                        <h5 className="card-title">{this.props.pTitre}</h5>
+                        <p className="card-text">{this.props.pDescription}</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-)
+        );
+    }
+}
 
 
 const PillsList = () => (
@@ -63,7 +75,6 @@ const PillsList = () => (
                     <Projet
                         urlImage = {projet.urlImage}
                         altImage = {projet.altImage}
-                        spanClass = {projet.spanClass}
                         pTitre = {projet.pTitre}
                         pDescription = {projet.pDescription}
                     />

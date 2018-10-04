@@ -1,23 +1,45 @@
-.ulEva{
-    list-style: none;
-}
-
-.h1Eva{
+.profile-name{
     font-size: 1.7em;
 }
 
-.h2Eva{
+.profile-location{
     font-size: 1em;
 }
-.h3Eva, .h4Eva{
-    font-size: 1.2em;
+
+.profile-profession{
+    font-size: 1em;
 }
-.logoTechno{
+
+.profile-technos h4, .profile-desc h4{
+    font-size: 1.4em;
+}
+
+.techno-list{
+    list-style-type: none;
+    padding: 0;
+}
+
+.techno{
     width: 40px;
+    display: inline-block;
 }
 
-.profileAvatar{
-    max-width: 200px;
-    max-height: 200px;
+.techno + .techno{
+    margin-left: 1em;
+}
 
+.techno-img{
+    width: 100%;
+}
+
+@media (max-width: 992px){
+    .profile-pic{
+        width: 110px;
+        vertical-align: top;
+        margin-right: 1em;
+    }
+
+    .profile-infos{
+        display: inline-block;
+    }
 }

@@ -1,9 +1,4 @@
 
-/*Margin Global*/
-.containerGlobal {
-    margin-top: 5em;
-}
-
 /*Titre section projet*/
 .titreProjet {
     margin-bottom: 1em;
@@ -11,11 +6,13 @@
 
 
 /*Favorite heart icon*/
-.emptyIconHeart {
+.IconHeart {
     position: absolute;
     right : 0.75em;
     top : 0.75em;
     line-height: 0;
+    color: crimson;
+    font-size: 18px;
 }
 
 
