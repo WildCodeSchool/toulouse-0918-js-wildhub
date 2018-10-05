@@ -30,13 +30,17 @@
 .language-gage{
     position: absolute;
     bottom: 0; left: 0;
-    /* height: 5px; */
     width: 100%;
+    line-height: 0;
+    overflow: hidden;
+    border-bottom-left-radius: .25em;
+    border-bottom-right-radius: .25em;
 }
 
 .language-gage > span{
     display: inline-block;
     height: 5px;
+    line-height: 0;
 }
 
 
