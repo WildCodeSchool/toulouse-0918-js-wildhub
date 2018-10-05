@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-
 import "../styles/AsideProfile.css";
+import html from "../images/icons/html.png";
+import js from "../images/icons/js.png";
+import nodejs from "../images/icons/nodejs.png";
 
 class AsideProfile extends Component {
   render() {
@@ -9,13 +11,13 @@ class AsideProfile extends Component {
 
     const technos = [
         {
-            img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1024px-HTML5_logo_and_wordmark.svg.png'
+            img: html
         },
         {
-            img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png'
+            img: js
         },
         {
-            img: 'https://humancoders-formations.s3.amazonaws.com/uploads/course/logo/14/thumb_bigger_formation-node-js.png'
+            img: nodejs
         }
     ]
 
