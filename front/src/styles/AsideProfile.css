@@ -1,0 +1,45 @@
+.profile-name{
+    font-size: 1.7em;
+}
+
+.profile-location{
+    font-size: 1em;
+}
+
+.profile-profession{
+    font-size: 1em;
+}
+
+.profile-technos h4, .profile-desc h4{
+    font-size: 1.4em;
+}
+
+.techno-list{
+    list-style-type: none;
+    padding: 0;
+}
+
+.techno{
+    width: 40px;
+    display: inline-block;
+}
+
+.techno + .techno{
+    margin-left: 1em;
+}
+
+.techno-img{
+    width: 100%;
+}
+
+@media (max-width: 992px){
+    .profile-pic{
+        width: 110px;
+        vertical-align: top;
+        margin-right: 1em;
+    }
+
+    .profile-infos{
+        display: inline-block;
+    }
+}
