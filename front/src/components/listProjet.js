@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from "react";
+import ReactTooltip from 'react-tooltip';
 import '../styles/listProjet.css';
 import langColors from '../data/colors.js';
 
@@ -46,6 +47,22 @@ class Projet extends Component{
             return(
               <div key={index} className='col-md-6 mb-4'>
                 <div className="card repoCard">
+                    <a
+                        href='#!'
+                        className="ghIcon"
+                        data-tip data-for={`tip-repo-${index}`}
+                    >
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <ReactTooltip
+                        id={`tip-repo-${index}`}
+                        place="left"
+                        type="dark"
+                        effect="solid"
+                    >
+                        Voir dans GitHub
+                    </ReactTooltip>
+
                     <h5 className="repo-name">{repo.name}</h5>
                     <div className="repo-desc">
                         <small className='text-muted'>
@@ -65,15 +82,25 @@ class Projet extends Component{
                       })
                     }
                     {
-                      langArr.map(lanSingleArr => {
+                      langArr.map((lanSingleArr, index) => {
                           return(
-                              <span
-                                style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
-                                  height: 5,
-                                  background: langColors[lanSingleArr[0]],
-                                  display: 'inline-block'
-                                }}
-                              ></span>
+                            <Fragment>
+                                <span
+                                    key={index}
+                                    style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
+                                    background: langColors[lanSingleArr[0]]
+                                    }}
+                                    data-tip data-for={`tip-lang-${index}`}
+                                    ></span>
+                                    <ReactTooltip
+                                    id={`tip-lang-${index}`}
+                                    place="top"
+                                    type="dark"
+                                    effect="float"
+                                >
+                                    {lanSingleArr[0]}
+                                </ReactTooltip>
+                            </Fragment>
                           )
                       })
                     }

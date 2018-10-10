@@ -9,18 +9,19 @@
     box-shadow: 0 0 0.35em #CCC;
 }
 
-/*Favorite heart icon*/
-.IconHeart {
+
+.ghIcon {
     position: absolute;
     right : 0.75em;
     top : 0.75em;
     line-height: 0;
-    color: crimson;
     font-size: 18px;
+    color: #222;
 }
 
-.pIcon{
-    width: 40px;
+.ghIcon:hover{
+    text-shadow: 0 0 0.35em #AAA;
+    color: #2e2e2e;
 }
 
 .repoCard{
@@ -42,6 +43,11 @@
     display: inline-block;
     height: 5px;
     line-height: 0;
+    transition: all .15s ease-out;
+}
+
+.language-bar:hover > span{
+    height: 10px;
 }
 
 
