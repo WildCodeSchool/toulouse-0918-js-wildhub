@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from "react";
 import '../styles/listProjet.css';
+import langColors from '../data/colors.js';
+
 
 class Projet extends Component{
     constructor(props){
@@ -35,7 +37,6 @@ class Projet extends Component{
 
     render(){
       const {reposList} = this.state;
-
       return (
         (reposList.length !== 0) &&
         <Fragment>
@@ -57,18 +58,16 @@ class Projet extends Component{
                     {
                       langArr.map(lanSingleArr => {
                           return(
-                              <span style={{width: (lanSingleArr[1] / sumCarac)*100 + '%', height: 5, background:'red', display: 'inline-block'}}></span>
+                              <span
+                                style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
+                                  height: 5,
+                                  background: langColors[lanSingleArr[0]],
+                                  display: 'inline-block'
+                                }}
+                              ></span>
                           )
                       })
                     }
-
-
-                      {/*
-                        {this.props.pLanguages.map(percent => (
-                          <span className={color[percent.name]} style={{width: percent.percentage}}></span>
-                          ))
-                      }
-                      */}
                   </div>
                 </div>
               </div>
