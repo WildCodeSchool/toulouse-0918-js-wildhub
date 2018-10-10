@@ -45,9 +45,18 @@ class Projet extends Component{
             let sumCarac = 0;
             return(
               <div key={index} className='col-md-6 mb-4'>
-                <div className="card projetsCard">
-                  <div className="repo-name">{repo.name}</div>
-                  <div className="repo-desc">{repo.description}</div>
+                <div className="card repoCard">
+                    <h5 className="repo-name">{repo.name}</h5>
+                    <div className="repo-desc">
+                        <small className='text-muted'>
+                            {repo.description}
+                        </small>
+                    </div>
+                    <div className="date">
+                        <small className='text-muted font-italic'>
+                            {`Dernière activité le ${repo.updated_at}`}
+                        </small>
+                    </div>
                   <div className="language-bar">
                     {
                       Object.entries(repo.language_stat).map(([key, value]) => {
