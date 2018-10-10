@@ -1,138 +1,82 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import '../styles/listProjet.css';
-
-const Liste = [
-    {
-        pTitre: 'Titre1',
-        pDescription: 'Description1',
-        pLanguages: [
-            {
-                name: "JavaScript",
-                percentage: "60%"
-            },
-            {
-                name: "HTML",
-                percentage: "40%"
-            }
-        ]
-    },
-    {
-        pTitre: 'Titre2',
-        pDescription: 'Description2',
-        pLanguages: [
-            {
-                name: "JavaScript",
-                percentage: "60%"
-            },
-            {
-                name: "HTML",
-                percentage: "40%"
-            }
-        ]
-    },
-    {
-        pTitre: 'Titre3',
-        pDescription: 'Description3',
-        pLanguages: [
-            {
-                name: "JavaScript",
-                percentage: "60%"
-            },
-            {
-                name: "HTML",
-                percentage: "40%"
-            }
-        ]
-    },
-    {
-        pTitre: 'Titre4',
-        pDescription: 'Description4',
-        pLanguages: [
-            {
-                name: "JavaScript",
-                percentage: "60%"
-            },
-            {
-                name: "HTML",
-                percentage: "40%"
-            }
-        ]
-    },
-    {
-        pTitre: 'Titre5',
-        pDescription: 'Description5',
-        pLanguages: [
-            {
-                name: "JavaScript",
-                percentage: "60%"
-            },
-            {
-                name: "HTML",
-                percentage: "40%"
-            }
-        ]
-    },
-];
-
-const color = {
-    JavaScript: "bg-warning",
-    HTML: "bg-danger"
-}
 
 class Projet extends Component{
     constructor(props){
         super(props);
         this.state = {
-            isFavorite: false,
+            reposList: []
         };
     }
 
-    handleClick = () => {
-        this.setState({
-            isFavorite: !this.state.isFavorite,
-        });
+    componentWillMount = () => {
+      this.getRepos();
+    }
+
+    getRepos = () => {
+      fetch ('https://api.github.com/users/NelsonHui123/repos')
+
+      .then(result => result.json())
+
+      .then(repoArr => {
+          const promises = repoArr.map(
+            repoSingle => fetch(repoSingle.languages_url)
+
+              .then(result => result.json())
+          )
+
+          return Promise.all(promises)
+            .then(languages => languages.map(
+              (language, idx) => Object.assign(repoArr[idx], {language_stat: language})
+            ))
+            .then(repos => this.setState({reposList:repos}))
+      })
     }
 
     render(){
-        const icoHeart = this.state.isFavorite ? 'fas fa-heart' : 'far fa-heart';
-        return(
-            <div className="col-md-6 mb-4">
+      const {reposList} = this.state;
+
+      return (
+        (reposList.length !== 0) &&
+        <Fragment>
+          {reposList.map( (repo, index) => {
+            let langArr = [];
+            let sumCarac = 0;
+            return(
+              <div key={index} className='col-md-6 mb-4'>
                 <div className="card projetsCard">
-                    <span className="IconHeart" onClick={this.handleClick}><i className={icoHeart}></i></span>
-                    <div className="card-body">
-                        <h5 className="card-title">{this.props.pTitre}</h5>
-                        <p className="card-text">{this.props.pDescription}</p>
-                        <div className="language-gage">
-                            {this.props.pLanguages.map(percent => (
-                                <span className={color[percent.name]} style={{width: percent.percentage}}></span>
-                                ))
-                            }
-                        </div>
-                    </div>
+                  <div className="repo-name">{repo.name}</div>
+                  <div className="repo-desc">{repo.description}</div>
+                  <div className="language-bar">
+                    {
+                      Object.entries(repo.language_stat).map(([key, value]) => {
+                        sumCarac += value;
+                        langArr.push([key, value])
+                      })
+                    }
+                    {
+                      langArr.map(lanSingleArr => {
+                          return(
+                              <span style={{width: (lanSingleArr[1] / sumCarac)*100 + '%', height: 5, background:'red', display: 'inline-block'}}></span>
+                          )
+                      })
+                    }
+
+
+                      {/*
+                        {this.props.pLanguages.map(percent => (
+                          <span className={color[percent.name]} style={{width: percent.percentage}}></span>
+                          ))
+                      }
+                      */}
+                  </div>
                 </div>
-            </div>
-        );
+              </div>
+            )
+          })}
+        </Fragment>
+      );
     }
 }
 
-
-const PillsList = () => (
-    <div className='containerGlobal'>
-        <div className="container">
-            <h2 className='titreProjet'>Projet de Jacky-Tuning</h2>
-            <div className="row projetsRow">
-                {Liste.map(projet =>
-                    <Projet
-                        urlImage = {projet.urlImage}
-                        altImage = {projet.altImage}
-                        pTitre = {projet.pTitre}
-                        pDescription = {projet.pDescription}
-                        pLanguages = {projet.pLanguages}
-                    />
-                )}
-            </div>
-        </div>
-    </div>
-);
-
-export default PillsList;
+export default Projet;
