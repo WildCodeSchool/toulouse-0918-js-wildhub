@@ -7,6 +7,11 @@
 .card{
     border: none;
     box-shadow: 0 0 0.35em #CCC;
+    transition: all .125s ease-out;
+}
+
+.card:hover{
+    box-shadow: 0 0 0.75em #8e8e8e;
 }
 
 
@@ -27,6 +32,7 @@
 .repoCard{
     position: relative;
     padding: 1em .75em;
+    height: 100%;
 }
 
 .language-bar{
@@ -41,12 +47,20 @@
 
 .language-bar > span{
     display: inline-block;
-    height: 5px;
+    height: 8px;
     line-height: 0;
     transition: all .15s ease-out;
 }
 
-.language-bar:hover > span{
+.lang-empty{
+    display: inline-block;
+    height: 10px;
+    width: 100%;
+    background: purple;
+    line-height: 0;
+}
+
+.language-bar > span:hover{
     height: 10px;
 }
 

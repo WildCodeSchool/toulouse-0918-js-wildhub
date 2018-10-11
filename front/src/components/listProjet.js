@@ -37,18 +37,25 @@ class Projet extends Component{
     }
 
     render(){
+      let countIdSpan = -1;
       const {reposList} = this.state;
       return (
-        (reposList.length !== 0) &&
-        <Fragment>
+        reposList.length !== 0 &&
+        <div className='row'>
           {reposList.map( (repo, index) => {
             let langArr = [];
             let sumCarac = 0;
+            // var isEmptyLang = false;
+            
+            // if(Object.keys(repo.language_stat).length === 0){
+            //     isEmptyLang = true;
+            // }
             return(
               <div key={index} className='col-md-6 mb-4'>
                 <div className="card repoCard">
                     <a
-                        href='#!'
+                        href={repo.html_url}
+                        target='_blank'
                         className="ghIcon"
                         data-tip data-for={`tip-repo-${index}`}
                     >
@@ -75,41 +82,71 @@ class Projet extends Component{
                         </small>
                     </div>
                   <div className="language-bar">
+
+{/*placer le test sur isEmptyLang ici*/}
+
                     {
                       Object.entries(repo.language_stat).map(([key, value]) => {
                         sumCarac += value;
-                        langArr.push([key, value])
+                        langArr.push([key, value]);
+
+
+                        // Pour afficher la barre grise (marche pas)
+                        // if (isEmptyLang) {
+                        //     return (
+                        //       <Fragment>
+                        //         <span
+                        //             className="lang-empty"
+                        //             style={{boxShadow: 'inset 0 0 .25em'}}
+                        //             data-tip data-for={'tip-lang-none'}
+                        //         >
+                        //         </span>
+                        //         <ReactTooltip
+                        //             id={`tip-lang-none`}
+                        //             place="top"
+                        //             type="dark"
+                        //             effect="float"
+                        //         >
+                        //             Pas de langages
+                        //         </ReactTooltip>                                
+                        //       </Fragment>
+                        //     )
+                        //
+                        // }
                       })
                     }
-                    {
-                      langArr.map((lanSingleArr, index) => {
-                          return(
-                            <Fragment>
-                                <span
-                                    key={index}
-                                    style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
-                                    background: langColors[lanSingleArr[0]]
-                                    }}
-                                    data-tip data-for={`tip-lang-${index}`}
+
+                    { 
+                        langArr.map((lanSingleArr, index) => {
+                            countIdSpan += 1
+                            return(
+                                <Fragment>
+                                    <span
+                                        key={index}
+                                        style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
+                                        background: langColors[lanSingleArr[0]]
+                                        }}
+                                        data-tip data-for={`tip-lang-${countIdSpan}`}
                                     ></span>
                                     <ReactTooltip
-                                    id={`tip-lang-${index}`}
-                                    place="top"
-                                    type="dark"
-                                    effect="float"
-                                >
-                                    {lanSingleArr[0]}
-                                </ReactTooltip>
-                            </Fragment>
-                          )
-                      })
+                                        id={`tip-lang-${countIdSpan}`}
+                                        place="top"
+                                        type="dark"
+                                        effect="float"
+                                    >
+                                        {lanSingleArr[0]}
+                                    </ReactTooltip>
+                                </Fragment>
+                            )
+                            
+                        })
                     }
                   </div>
                 </div>
               </div>
             )
           })}
-        </Fragment>
+        </div>
       );
     }
 }

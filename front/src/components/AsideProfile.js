@@ -36,7 +36,7 @@ class AsideProfile extends Component {
                 <h4>Technologies utilisées:</h4>
                 <ul className="techno-list">
                     {technos.map((techno, index) => (
-                        <li key={index} class="techno"><img src={techno.img} alt="" className="techno-img"/></li>
+                        <li key={index} className="techno"><img src={techno.img} alt="" className="techno-img"/></li>
                     ))}
                 </ul>
             </div>
