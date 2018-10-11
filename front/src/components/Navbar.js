@@ -28,7 +28,7 @@ class Navbar extends Component {
                         <div>
                             <img src={img} alt="logo" />
                         </div>
-                        <div className="d-none d-md-block ml-5 boutton">
+                        <div className="wrapper d-none d-md-block ml-5 boutton">
                             <span className="mr-4"><a className="text-white" href="#!">Explore</a></span>
                             <span className="ml-4"><a className="text-white" href="#!">Sign in</a></span>
                         </div>
