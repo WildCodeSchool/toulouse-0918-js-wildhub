@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from "react";
 import ReactTooltip from 'react-tooltip';
-import '../styles/listProjet.css';
+import '../styles/listProjet.scss';
 import langColors from '../data/colors.js';
 
 
@@ -17,7 +17,7 @@ class Projet extends Component{
     }
 
     getRepos = () => {
-      fetch ('https://api.github.com/users/NelsonHui123/repos')
+      fetch ('https://api.github.com/users/JulesGrenier/repos')
 
       .then(result => result.json())
 
@@ -56,10 +56,11 @@ class Projet extends Component{
                     <a
                         href={repo.html_url}
                         target='_blank'
+                        rel="noopener noreferrer"
                         className="ghIcon"
                         data-tip data-for={`tip-repo-${index}`}
                     >
-                        <i class="fab fa-github"></i>
+                        <i className="fab fa-github"></i>
                     </a>
                     <ReactTooltip
                         id={`tip-repo-${index}`}
@@ -89,7 +90,7 @@ class Projet extends Component{
                       Object.entries(repo.language_stat).map(([key, value]) => {
                         sumCarac += value;
                         langArr.push([key, value]);
-
+                        return null;
 
                         // Pour afficher la barre grise (marche pas)
                         // if (isEmptyLang) {
@@ -120,9 +121,8 @@ class Projet extends Component{
                         langArr.map((lanSingleArr, index) => {
                             countIdSpan += 1
                             return(
-                                <Fragment>
+                                <Fragment key={index}>
                                     <span
-                                        key={index}
                                         style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
                                         background: langColors[lanSingleArr[0]]
                                         }}

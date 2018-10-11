@@ -10,7 +10,7 @@ class Main extends Component {
                     <div className="col-lg-3 my-5">
                         <AsideProfile/>
                     </div>
-                    <div className='col-lg-8 ml-auto my-5'>
+                    <div id='list-projects' className='col-lg-8 ml-auto my-5'>
                         <PillsList/>
                     </div>
                 </div>

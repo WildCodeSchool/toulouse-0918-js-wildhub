@@ -4,9 +4,9 @@ import logo from '../img/logo.png'
 class Loading extends Component {
     render() {
         return (
-        <path className="wrap">
+        <div className="wrap">
             <img className="circles" src={logo} alt={logo} />
-        </path>
+        </div>
   
         );
     }
