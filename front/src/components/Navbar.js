@@ -35,11 +35,11 @@ class Navbar extends Component {
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
                         <span href="#!" className="closebtn" onClick={this.handleClick}>&times;</span>
-                        <a href="#!"><i className="fas fa-book mr-2"></i> Catalogue d'idées</a>
-                        <a href="#!"><i className="fas fa-folder-open mr-2"></i> Mes projets</a>
-                        <a href="#!"><i className="fas fa-cog mr-2"></i> Paramètre profil</a>
-                        <a className="d-md-none d-block" href="#!"><i className="fas fa-book-open mr-2"></i> Explore</a>
-                        <a className="d-md-none d-block" href="#!"><i className="fas fa-sign-in-alt mr-2"></i> Sign in</a>
+                        <a href="#!"><i className="fas fa-book mr-2"></i> {"Catalogue d'idées"}</a>
+                        <a href="#!"><i className="fas fa-folder-open mr-2"></i> {"Mes projets"}</a>
+                        <a href="#!"><i className="fas fa-cog mr-2"></i> {"Paramètre profil"}</a>
+                        <a className="d-md-none d-block" href="#!"><i className="fas fa-book-open mr-2"></i> {"Explore"}</a>
+                        <a className="d-md-none d-block" href="#!"><i className="fas fa-sign-in-alt mr-2"></i> {"Sign in"}</a>
                     </div>
                     <span style={{ fontSize: '30px', cursor: 'pointer' }} onClick={this.handleClick}>&#9776;</span>
                 </nav>

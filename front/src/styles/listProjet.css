@@ -7,36 +7,61 @@
 .card{
     border: none;
     box-shadow: 0 0 0.35em #CCC;
+    transition: all .125s ease-out;
 }
 
-/*Favorite heart icon*/
-.IconHeart {
+.card:hover{
+    box-shadow: 0 0 0.75em #8e8e8e;
+}
+
+
+.ghIcon {
     position: absolute;
     right : 0.75em;
     top : 0.75em;
     line-height: 0;
-    color: crimson;
     font-size: 18px;
+    color: #222;
 }
 
-.pIcon{
-    width: 40px;
+.ghIcon:hover{
+    text-shadow: 0 0 0.35em #AAA;
+    color: #2e2e2e;
 }
 
-.projetsCard{
+.repoCard{
     position: relative;
+    padding: 1em .75em;
+    height: 100%;
 }
 
-.language-gage{
+.language-bar{
     position: absolute;
     bottom: 0; left: 0;
-    /* height: 5px; */
     width: 100%;
+    line-height: 0;
+    overflow: hidden;
+    border-bottom-left-radius: .25em;
+    border-bottom-right-radius: .25em;
 }
 
-.language-gage > span{
+.language-bar > span{
     display: inline-block;
-    height: 5px;
+    height: 8px;
+    line-height: 0;
+    transition: all .15s ease-out;
+}
+
+.lang-empty{
+    display: inline-block;
+    height: 10px;
+    width: 100%;
+    background: purple;
+    line-height: 0;
+}
+
+.language-bar > span:hover{
+    height: 10px;
 }
 
 
