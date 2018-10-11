@@ -2,32 +2,42 @@
 
     .repoCard{
         position: relative;
-        padding: 1em .75em;
         height: 100%;
         border: none;
-        box-shadow: 0 0 0.35em #CCC;
         transition: all .125s ease-out;
 
         &:hover{
             box-shadow: 0 0 0.75em #8e8e8e;
         }
+        .card-body {
+            padding-bottom: 0;
 
-        .ghIcon {
-            position: absolute;
-            right : 0.75em;
-            top : 0.75em;
-            line-height: 0;
-            font-size: 18px;
-            color: #222;
+            .repo-title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
 
-            &:hover{
-                text-shadow: 0 0 0.35em #AAA;
-                color: #2e2e2e;
+                .repo-name{
+                    margin-bottom: 0;
+                }
+
+                .ghIcon {
+                    font-size: 20px;
+                    color: #222;
+        
+                    &:hover{
+                        text-shadow: 0 0 0.35em #AAA;
+                        color: #2e2e2e;
+                    }
+                }
             }
         }
 
-        .titreProjet {
-            margin-bottom: 1em;
+        .card-footer {
+            background-color: white;
+            border-top: none;
+            border-bottom-left-radius: .25em;
+            border-bottom-right-radius: .25em;
         }
 
         .language-bar{

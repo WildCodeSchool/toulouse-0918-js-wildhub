@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import '../styles/navbar.css'
-import img from '../images/logo-light.png'
+import img from '../images/logo-light.png';
+import { Fa } from 'mdbreact';
 
 class Navbar extends Component {
 
@@ -35,13 +36,37 @@ class Navbar extends Component {
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
                         <span href="#!" className="closebtn" onClick={this.handleClick}>&times;</span>
-                        <a href="#!"><i className="fas fa-book mr-2"></i> {"Catalogue d'idées"}</a>
-                        <a href="#!"><i className="fas fa-folder-open mr-2"></i> {"Mes projets"}</a>
-                        <a href="#!"><i className="fas fa-cog mr-2"></i> {"Paramètre profil"}</a>
-                        <a className="d-md-none d-block" href="#!"><i className="fas fa-book-open mr-2"></i> {"Explore"}</a>
-                        <a className="d-md-none d-block" href="#!"><i className="fas fa-sign-in-alt mr-2"></i> {"Sign in"}</a>
+                        <a href="#!">
+                            <Fa icon="book mr-2" />
+                            {"Catalogue d'idées"}
+                        </a>
+
+                        <a href="#!">
+                            <Fa icon="folder-open mr-2" />
+                            {"Mes projets"}
+                        </a>
+
+                        <a href="#!">
+                            <Fa icon="cog mr-2" />
+                            {"Paramètre profil"}
+                        </a>
+
+                        <a className="d-md-none d-block" href="#!">
+                            <Fa icon="book-open mr-2" />
+                            {"Explore"}
+                        </a>
+
+                        <a className="d-md-none d-block" href="#!">
+                            <Fa icon="sign-in-alt mr-2" />
+                            {"Sign in"}
+                        </a>
                     </div>
-                    <span style={{ fontSize: '30px', cursor: 'pointer' }} onClick={this.handleClick}>&#9776;</span>
+                    <span 
+                        className='toggle-nav'
+                        onClick={this.handleClick}
+                    >
+                        &#9776;
+                    </span>
                 </nav>
             </div>)
     }

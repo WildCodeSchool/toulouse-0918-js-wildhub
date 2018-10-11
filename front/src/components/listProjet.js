@@ -2,6 +2,7 @@ import React, {Component, Fragment} from "react";
 import ReactTooltip from 'react-tooltip';
 import '../styles/listProjet.scss';
 import langColors from '../data/colors.js';
+import { Row, Col, Card, CardTitle, CardBody, CardFooter, Fa } from 'mdbreact';
 
 
 class Projet extends Component{
@@ -40,8 +41,23 @@ class Projet extends Component{
       let countIdSpan = -1;
       const {reposList} = this.state;
       return (
-        reposList.length !== 0 &&
-        <div className='row'>
+        
+        
+//         reposList.length !== 0 &&
+//         <div class="card text-center">
+//              <div class="card-header">
+//              </div>
+//              <div class="card-body">
+//                  <h5 class="card-title">Special title treatment</h5>
+//                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+//                  <a href="#" class="btn btn-primary">Go somewhere</a>
+//              </div>
+//              <div class="card-footer text-muted">
+//                  2 days ago
+//              </div>
+//         </div>
+
+        <Row>
           {reposList.map( (repo, index) => {
             let langArr = [];
             let sumCarac = 0;
@@ -51,37 +67,40 @@ class Projet extends Component{
             //     isEmptyLang = true;
             // }
             return(
-              <div key={index} className='col-md-6 mb-4'>
-                <div className="card repoCard">
-                    <a
-                        href={repo.html_url}
-                        target='_blank'
-                        rel="noopener noreferrer"
-                        className="ghIcon"
-                        data-tip data-for={`tip-repo-${index}`}
-                    >
-                        <i className="fab fa-github"></i>
-                    </a>
-                    <ReactTooltip
-                        id={`tip-repo-${index}`}
-                        place="left"
-                        type="dark"
-                        effect="solid"
-                    >
-                        Voir dans GitHub
-                    </ReactTooltip>
-
-                    <h5 className="repo-name">{repo.name}</h5>
-                    <div className="repo-desc">
+              <Col md="6" key={index} className="mb-4">
+                <Card className="repoCard">
+                    <CardBody>
+                        <div className="repo-title">
+                            <CardTitle className="repo-name">{repo.name}</CardTitle>
+                            <a
+                                href={repo.html_url}
+                                target='_blank'
+                                rel="noopener noreferrer"
+                                className="ghIcon"
+                                data-tip data-for={`tip-repo-${index}`}
+                            >
+                                <Fa icon="github"/>
+                            </a>
+                            <ReactTooltip
+                            id={`tip-repo-${index}`}
+                            place="left"
+                            type="dark"
+                            effect="solid"
+                            >
+                            Voir dans GitHub
+                            </ReactTooltip>
+                            </div>
+                            <hr/>
                         <small className='text-muted'>
                             {repo.description}
                         </small>
-                    </div>
-                    <div className="date">
+                    </CardBody>
+
+                    <CardFooter>
                         <small className='text-muted font-italic'>
                             {`Dernière activité le ${repo.updated_at}`}
                         </small>
-                    </div>
+                    </CardFooter>
                   <div className="language-bar">
 
 {/*placer le test sur isEmptyLang ici*/}
@@ -142,11 +161,11 @@ class Projet extends Component{
                         })
                     }
                   </div>
-                </div>
-              </div>
+                </Card>
+              </Col>
             )
           })}
-        </div>
+        </Row>
       );
     }
 }
