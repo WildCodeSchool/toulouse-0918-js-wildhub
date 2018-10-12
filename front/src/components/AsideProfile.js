@@ -3,6 +3,7 @@ import "../styles/AsideProfile.css";
 import html from "../images/icons/html.png";
 import js from "../images/icons/js.png";
 import nodejs from "../images/icons/nodejs.png";
+import { Row, Col } from 'mdbreact';
 
 class AsideProfile extends Component {
   render() {
@@ -22,32 +23,32 @@ class AsideProfile extends Component {
     ]
 
     return (
-        <div className="row justify-content-center">
-            <div className="col-12 mb-3">
+        <Row className="justify-content-center">
+            <Col xs='12' className="mb-3">
                 <img src={profilePic} alt="" className="profile-pic rounded mb-3"/>
                 <div className="profile-infos">
                     <h1 className="profile-name">@Jacky-Tunning</h1>
                     <p className="profile-location">Toulouse, France</p>
                     <p className="profile-profession">Développeur React.js</p>
                 </div>
-            </div>
+            </Col>
 
-            <div className="col-12 mb-3 profile-technos">
+            <Col xs='12' className="mb-3 profile-technos">
                 <h4>Technologies utilisées:</h4>
                 <ul className="techno-list">
                     {technos.map((techno, index) => (
                         <li key={index} className="techno"><img src={techno.img} alt="" className="techno-img"/></li>
                     ))}
                 </ul>
-            </div>
+            </Col>
 
-            <div className="col-12 mb-3 profile-desc">
+            <Col xs='12' className="mb-3 profile-desc">
                 <h4>Description: </h4>
                 <div className="desc">
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae sed quae in maxime! Repellendus veniam, quos nisi excepturi iure aut reprehenderit accusantium molestias numquam sunt molestiae quaerat provident ab neque.</p>
                 </div>
-            </div>
-        </div>
+            </Col>
+        </Row>
     );
   }
 }

@@ -4,6 +4,7 @@
 
 body {
     font-family: "Lato", sans-serif;
+    /*?*/
     transition: background-color .5s;
 }
 
@@ -44,6 +45,11 @@ body {
 
 a:link{
     text-decoration: none;
+}
+
+.toggle-nav{
+    font-size: 26px;
+    cursor: pointer;
 }
 
 .sidenav .closebtn {
@@ -88,6 +94,7 @@ a:link{
     height: 3px;
     bottom: -5px;
     left: 0;
+    
     background: linear-gradient(to left, #5600ff 0%,#ff0000 50%,#00ff28 100%);
     visibility: hidden;
     -webkit-transform: scaleX(0);
