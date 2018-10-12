@@ -1,17 +1,27 @@
+
+
 .profile-name{
-    font-size: 1.7em;
+    font-size: 2em;
+    font-family: "Gotham";
 }
 
 .profile-location{
-    font-size: 1em;
+    font-size: 1.2em;
+    font-family: "SourceSans";
 }
 
-.profile-profession{
-    font-size: 1em;
+.profile-blog{
+    font-size: 1.2em;
+    font-family: "SourceSans";
 }
 
-.profile-technos h4, .profile-desc h4{
-    font-size: 1.4em;
+.profile-desc .desc{
+    font-size: 1.2em;
+    font-family: "SourceSans";
+}
+
+.profile-technos h5, .profile-desc h5{
+    font-family: "Fedra";
 }
 
 .techno-list{

@@ -20,7 +20,7 @@ class Profile extends Component {
     }
 
     getRepos = () => {
-      fetch ('https://api.github.com/users/JulesGrenier/repos')
+      fetch ('https://api.github.com/users/EvaSpessotto/repos')
 
       .then(result => result.json())
 
@@ -46,7 +46,10 @@ class Profile extends Component {
                 <Container>
                     <Row>
                         <Col className='col-lg-3 my-5'>
-                            <AsideProfile getReposList={this.state.reposList} />
+                           { this.state.reposList.length > 0 
+                           ? <AsideProfile  />
+                           : ''
+                        } 
                         </Col>
                         <Col className='col-lg-8 ml-auto my-5'>
                             <ListProjects getReposList={this.state.reposList} />
