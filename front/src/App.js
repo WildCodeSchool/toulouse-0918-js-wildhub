@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Loading from './components/Loading'
+import LoginPage from './components/LoginPage'
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
@@ -18,14 +19,10 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.loading){
-      return <Loading/>
-    }
+
     return (
         <Fragment>
-            <Header />
-            <Main />
-            <Footer />
+            <LoginPage/>
         </Fragment>
     );
   }
