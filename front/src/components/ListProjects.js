@@ -5,40 +5,9 @@ import langColors from '../data/colors.js';
 
 
 class Projet extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            reposList: []
-        };
-    }
-
-    componentWillMount = () => {
-      this.getRepos();
-    }
-
-    getRepos = () => {
-      fetch ('https://api.github.com/users/JulesGrenier/repos')
-
-      .then(result => result.json())
-
-      .then(repoArr => {
-          const promises = repoArr.map(
-            repoSingle => fetch(repoSingle.languages_url)
-
-              .then(result => result.json())
-          )
-
-          return Promise.all(promises)
-            .then(languages => languages.map(
-              (language, idx) => Object.assign(repoArr[idx], {language_stat: language})
-            ))
-            .then(repos => this.setState({reposList:repos}))
-      })
-    }
-
     render(){
       let countIdSpan = -1;
-      const {reposList} = this.state;
+      const reposList = this.props.getReposList;
       return (
         
         
