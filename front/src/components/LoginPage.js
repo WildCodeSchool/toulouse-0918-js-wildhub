@@ -5,6 +5,8 @@ import img from '../images/logo-accueil.png'
 import imgAccueil1 from '../images/img-accueil1.jpg'
 import imgAccueil2 from '../images/img-accueil2.jpg'
 import '../styles/loginPage.css'
+import {NavLink} from 'react-router-dom';
+import { Button, Fa } from 'mdbreact';
 
 class LoginPage extends Component {
     render() {
@@ -23,7 +25,14 @@ class LoginPage extends Component {
                                 <p className="text-white">Bonne visite !</p>
                             </div>
                             <div className="pt-5 pb-5">
-                                <button>LOG IN</button>
+                              <NavLink to='/profile' className='text-white'>
+                                  <Button variant='contained' color='blue-grey'>
+                                      <span style={{verticalAlign: 'middle'}}>
+                                        Se connecter
+                                        <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
+                                      </span>
+                                  </Button>
+                              </NavLink>
                             </div>
                         </div>
                     </div>
