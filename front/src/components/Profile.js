@@ -46,13 +46,13 @@ class Profile extends Component {
                 <main>
                   <Container>
                       <Row>
-                          <Col className='col-lg-3 my-5'>
+                          <Col xs='12' lg='3' className='my-5'>
                              { this.state.reposList.length > 0
                              ? <AsideProfile  />
                              : ''
                           }
                           </Col>
-                          <Col className='col-lg-8 ml-auto my-5'>
+                          <Col xs='12' lg='8' className=' ml-auto my-5'>
                               <ListProjects getReposList={this.state.reposList} />
                           </Col>
                       </Row>
