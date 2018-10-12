@@ -1,4 +1,6 @@
-
+#profile-page{
+    background: #fcfcfc;
+}
 
 .profile-name{
     font-size: 2em;
@@ -15,13 +17,20 @@
     font-family: "SourceSans";
 }
 
+
+.profile-blog a:hover{
+    color: black;
+}
+
 .profile-desc .desc{
     font-size: 1.2em;
     font-family: "SourceSans";
+
 }
 
 .profile-technos h5, .profile-desc h5{
-    font-family: "Fedra";
+    font-family: "Gotham";
+
 }
 
 .techno-list{
