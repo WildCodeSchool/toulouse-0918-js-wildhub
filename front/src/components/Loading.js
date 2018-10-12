@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from '../img/logo.png'
+import '../index.css';
+import logo from '../images/loading.png'
 
 class Loading extends Component {
     render() {
         return (
-        <path className="wrap">
-            <img className="circles" src={logo} />
-        </path>
+        <div className="wrap">
+            <img className="circles" src={logo} alt={logo} />
+        </div>
   
         );
     }
