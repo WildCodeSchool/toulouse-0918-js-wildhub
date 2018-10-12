@@ -16,9 +16,13 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-
+                
+                
                 .repo-name{
                     margin-bottom: 0;
+                    font-size: 1.3em;
+                    font-family: "Fedra";
+                   
                 }
 
                 .ghIcon {
@@ -30,6 +34,11 @@
                         color: #2e2e2e;
                     }
                 }
+
+            }
+            .text-muted{
+                font-family: "SourceSans";
+                font-size: 1.1em;
             }
         }
 
@@ -38,6 +47,11 @@
             border-top: none;
             border-bottom-left-radius: .25em;
             border-bottom-right-radius: .25em;
+
+            .text-muted{
+                font-family: "SourceSans";
+                font-size: 0.9em;
+            }
         }
 
         .language-bar{
