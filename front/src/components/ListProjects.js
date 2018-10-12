@@ -1,140 +1,178 @@
 import React, {Component, Fragment} from "react";
 import ReactTooltip from 'react-tooltip';
-import { Row, Col, Card, CardTitle, CardBody, CardFooter, Fa } from 'mdbreact';
+import { Row, Col, Card, CardHeader, CardTitle, CardBody, CardFooter, Button, Fa } from 'mdbreact';
 import langColors from '../data/colors.js';
 
 
 class Projet extends Component{
-    render(){
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isRepoSelect: false,
+            selectedRepo: {}
+        }
+
+    }
+
+    handleClick = (repo, langArr, sumCarac) => {
+        this.setState({
+            isRepoSelect: !this.state.isRepoSelect,
+            selectedRepo: repo,
+            arrayLanguage: langArr,
+            sumCaracLang: sumCarac
+        })
+    }
+
+    render() {
+      let isSelect = this.state.isRepoSelect;
       let countIdSpan = -1;
       const reposList = this.props.getReposList;
-      return (
-        
-        
-//         reposList.length !== 0 &&
-//         <div class="card text-center">
-//              <div class="card-header">
-//              </div>
-//              <div class="card-body">
-//                  <h5 class="card-title">Special title treatment</h5>
-//                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-//                  <a href="#" class="btn btn-primary">Go somewhere</a>
-//              </div>
-//              <div class="card-footer text-muted">
-//                  2 days ago
-//              </div>
-//         </div>
 
-        <Row>
-          {reposList.map( (repo, index) => {
-            let langArr = [];
-            let sumCarac = 0;
-            // var isEmptyLang = false;
-            
-            // if(Object.keys(repo.language_stat).length === 0){
-            //     isEmptyLang = true;
-            // }
-            return(
-              <Col md="6" key={index} id='list-projects' className="mb-4">
-                <Card className="repoCard">
-                    <CardBody>
-                        <div className="repo-title">
-                            <CardTitle className="repo-name">{repo.name}</CardTitle>
-                            <a
-                                href={repo.html_url}
-                                target='_blank'
-                                rel="noopener noreferrer"
-                                className="ghIcon"
-                                data-tip data-for={`tip-repo-${index}`}
-                            >
-                                <Fa icon="github"/>
-                            </a>
-                            <ReactTooltip
-                            id={`tip-repo-${index}`}
-                            place="left"
-                            type="dark"
-                            effect="solid"
-                            >
-                            Voir dans GitHub
-                            </ReactTooltip>
-                            </div>
-                            <hr/>
-                        <small className='text-muted'>
-                            {repo.description}
-                        </small>
-                    </CardBody>
+      if (!isSelect) {
+        return (
 
-                    <CardFooter>
-                        <small className='text-muted font-italic'>
-                            {`Dernière activité le ${repo.updated_at}`}
-                        </small>
-                    </CardFooter>
-                  <div className="language-bar">
+          <Row id='list-projects'>
+            {reposList.map( (repo, index) => {
+                let langArr = [];
+                let sumCarac = 0;
 
-{/*placer le test sur isEmptyLang ici*/}
+                return(
+                <Col md="6" key={index} className="mb-4">
+                    <Card
+                    className="repoCard"
+                    onClick={() => this.handleClick(repo, langArr, sumCarac)}
+                    >
+                        <CardBody>
+                            <div className="repo-title">
+                                <CardTitle className="repo-name">{repo.name}</CardTitle>
+                                <a
+                                    href={repo.html_url}
+                                    target='_blank'
+                                    rel="noopener noreferrer"
+                                    className="ghIcon"
+                                    data-tip data-for={`tip-repo-${index}`}
+                                >
+                                    <Fa icon="github"/>
+                                </a>
+                                <ReactTooltip
+                                id={`tip-repo-${index}`}
+                                place="left"
+                                type="dark"
+                                effect="solid"
+                                >
+                                Voir dans GitHub
+                                </ReactTooltip>
+                                </div>
+                                <hr/>
+                            <small className='text-muted'>
+                                {repo.description}
+                            </small>
+                        </CardBody>
 
-                    {
-                      Object.entries(repo.language_stat).map(([key, value]) => {
-                        sumCarac += value;
-                        langArr.push([key, value]);
-                        return null;
+                        <CardFooter>
+                            <small className='text-muted font-italic'>
+                                {`Dernière activité le ${repo.updated_at}`}
+                            </small>
+                        </CardFooter>
+                    <div className="language-bar">
 
-                        // Pour afficher la barre grise (marche pas)
-                        // if (isEmptyLang) {
-                        //     return (
-                        //       <Fragment>
-                        //         <span
-                        //             className="lang-empty"
-                        //             style={{boxShadow: 'inset 0 0 .25em'}}
-                        //             data-tip data-for={'tip-lang-none'}
-                        //         >
-                        //         </span>
-                        //         <ReactTooltip
-                        //             id={`tip-lang-none`}
-                        //             place="top"
-                        //             type="dark"
-                        //             effect="float"
-                        //         >
-                        //             Pas de langages
-                        //         </ReactTooltip>                                
-                        //       </Fragment>
-                        //     )
-                        //
-                        // }
-                      })
-                    }
-
-                    { 
-                        langArr.map((lanSingleArr, index) => {
-                            countIdSpan += 1
-                            return(
-                                <Fragment key={index}>
-                                    <span
-                                        style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
-                                        background: langColors[lanSingleArr[0]]
-                                        }}
-                                        data-tip data-for={`tip-lang-${countIdSpan}`}
-                                    ></span>
-                                    <ReactTooltip
-                                        id={`tip-lang-${countIdSpan}`}
-                                        place="top"
-                                        type="dark"
-                                        effect="float"
-                                    >
-                                        {lanSingleArr[0]}
-                                    </ReactTooltip>
-                                </Fragment>
-                            )
-                            
+                        {
+                        Object.entries(repo.language_stat).map(([key, value]) => {
+                            sumCarac += value;
+                            langArr.push([key, value]);
+                            return null;
                         })
-                    }
-                  </div>
-                </Card>
+                        }
+
+                        {
+                            langArr.map((lanSingleArr, index2) => {
+                                countIdSpan += 1
+                                return(
+                                    <Fragment key={index2}>
+                                        <span
+                                            style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
+                                            background: langColors[lanSingleArr[0]]
+                                            }}
+                                            data-tip data-for={`tip-lang-${countIdSpan}`}
+                                        ></span>
+                                        <ReactTooltip
+                                            id={`tip-lang-${countIdSpan}`}
+                                            place="top"
+                                            type="dark"
+                                            effect="float"
+                                        >
+                                            {lanSingleArr[0]}
+                                        </ReactTooltip>
+                                    </Fragment>
+                                )
+
+                            })
+                        }
+                    </div>
+                    </Card>
+                </Col>
+                )
+            })}
+            </Row>
+        );
+    } else {
+      const { selectedRepo, arrayLanguage, sumCaracLang } = this.state;
+      const { name, created_at, updated_at, html_url, description} = selectedRepo;
+      const { handleClick } = this;
+        return (
+            <Row id='list-projects'>
+              <Col xs='12' className='mb-3'>
+                <Button
+                  size='sm'
+                  variant='contained'
+                  color='elegant'
+                  onClick={handleClick}
+                >
+                  <Fa icon='caret-left' className='mr-2' /> Retour
+                </Button>
               </Col>
-            )
-          })}
-        </Row>
-      );
+              <Col xs='12'>
+                <Card>
+                  <CardHeader>
+                    <div className='mb-3'>
+                      <h3>{name}</h3>
+                      <small className='text-muted font-italic d-block'>
+                         {`Créé le ${created_at}`}
+                      </small>
+                      <small className='text-muted font-italic d-block'>
+                        {`Dernière modification le ${updated_at}`}
+                      </small>
+                    </div>
+                  </CardHeader>
+
+                  <CardBody>
+                    <div className='mb-5'>
+                      {arrayLanguage}
+                      {sumCaracLang}
+                    </div>
+
+                    <div className='mb-5'>
+                     <h4>Description du Projet</h4>
+                     <p className='pl-3'>{description}</p>
+                    </div>
+
+                    <div className='mb-5'>
+                      <h4>Liens vers le dépot GitHub</h4>
+                      <a
+                        href={html_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >{html_url}</a>
+                    </div>
+
+                 </CardBody>
+               </Card>
+              </Col>
+
+            </Row>
+        )
+    }
     }
 }
 

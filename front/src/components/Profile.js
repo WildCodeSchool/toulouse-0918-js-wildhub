@@ -43,16 +43,18 @@ class Profile extends Component {
         return (
             <div id='profile-page'>
                 <Navbar />
-                <Container>
-                    <Row>
-                        <Col className='col-lg-3 my-5'>
-                            <AsideProfile getReposList={this.state.reposList} />
-                        </Col>
-                        <Col className='col-lg-8 ml-auto my-5'>
-                            <ListProjects getReposList={this.state.reposList} />
-                        </Col>
-                    </Row>
-                </Container>
+                <main>
+                  <Container>
+                      <Row>
+                          <Col className='col-lg-3 my-5'>
+                              <AsideProfile getReposList={this.state.reposList} />
+                          </Col>
+                          <Col className='col-lg-8 ml-auto my-5'>
+                              <ListProjects getReposList={this.state.reposList} />
+                          </Col>
+                      </Row>
+                  </Container>
+                </main>
                 <Footer />
             </div>
         );
