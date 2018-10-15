@@ -15,7 +15,7 @@ class LoginPage extends Component {
                 <div id="homePage">
                   <header className="container-fluid">
                       <div className="row mainAccueil">
-                          <div className="col-6 mx-auto text-center">
+                          <div className="col-10 col-md-8 col-lg-6 mx-auto text-center">
                               <div className="pt-5">
                                   <img className="img-fluid logo" src={img} alt="logo" />
                               </div>
