@@ -11,3 +11,14 @@ header{
 .mainPresentation{
     background-color: rgb(26,26,26);
 }
+
+.logo:hover{
+    animation: spin linear infinite 2s;
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+  }
