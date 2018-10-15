@@ -56,6 +56,10 @@ a:link{
     cursor: pointer;
 }
 
+@media screen and (min-width: 768px){
+  .toggle-nav {font-size: 0px;}
+}
+
 .sidenav .closebtn {
     position: absolute;
     top: 0;

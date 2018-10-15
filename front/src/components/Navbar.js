@@ -30,35 +30,30 @@ class Navbar extends Component {
                             <img src={img} alt="logo" />
                         </div>
                         <div className="wrapper d-none d-md-block ml-5 boutton">
-                            <span className="mr-4"><a className="text-white" href="#!">Explore</a></span>
-                            <span className="ml-4"><a className="text-white" href="#!">Sign in</a></span>
+                            <span className="mr-4"><a className="text-white" href="#!">Explorer</a></span>
+                            <span className="ml-4"><a className="text-white" href="#!">Se connecter</a></span>
                         </div>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
                         <span href="#!" className="closebtn" onClick={this.handleClick}>&times;</span>
                         <a href="#!">
                             <Fa icon="book mr-2" />
-                            {"Catalogue d'idées"}
+                            {"Explorer"}
                         </a>
 
                         <a href="#!">
                             <Fa icon="folder-open mr-2" />
-                            {"Mes projets"}
+                            {"Mes dépôts"}
                         </a>
 
                         <a href="#!">
                             <Fa icon="cog mr-2" />
-                            {"Paramètre profil"}
-                        </a>
-
-                        <a className="d-md-none d-block" href="#!">
-                            <Fa icon="book-open mr-2" />
-                            {"Explore"}
+                            {"Paramètres"}
                         </a>
 
                         <a className="d-md-none d-block" href="#!">
                             <Fa icon="sign-in-alt mr-2" />
-                            {"Sign in"}
+                            {"Se connecter"}
                         </a>
                     </div>
                     <span 

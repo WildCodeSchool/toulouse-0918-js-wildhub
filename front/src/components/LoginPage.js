@@ -15,12 +15,12 @@ class LoginPage extends Component {
                 <Navbar />
                 <header className="container-fluid">
                     <div className="row mainAccueil">
-                        <div className="col-6 mx-auto text-center">
+                        <div className="col-10 col-md-8 col-lg-6 mx-auto text-center">
                             <div className="pt-5">
                                 <img className="img-fluid" src={img} alt="logo" />
                             </div>
                             <div className="pt-5">
-                                <h1 className="text-white pb-5">Welcome in WildHub !</h1>
+                                <h1 className="text-white pb-5">Welcome to WildHub !</h1>
                                 <p className="text-white text-left">Wild Hub est un outil de partage de projets personnels à disposition des actuels et anciens élèves de la Wild Code School. Après une simple inscription, partagez votre code sur l'espace dédié par l'intermédiaire de Git Hub. Vous ne souhaitez pas vous inscrire sur Wild Hub? Pas de problèmes, vous pourrez quand même consulter les projets diffusés par les Wilders.</p>
                                 <p className="text-white">Bonne visite !</p>
                             </div>
@@ -40,7 +40,7 @@ class LoginPage extends Component {
                 <div className="container-fluid">
                     <div className="row pt-5 pb-5">
                         <div className="col-md-6 mx-auto text-center pt-5 pb-5">
-                            <img className="img-fluid rounded z-depth-1" src={imgAccueil1} alt="placeHolder"></img>
+                            <img className="img-fluid rounded z-depth-1" src={imgAccueil2} alt="placeHolder"></img>
                         </div>
                         <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
                             <h2>Utilisez Wild Hub !</h2>
@@ -57,7 +57,7 @@ class LoginPage extends Component {
                         </p>
                         </div>
                         <div className="col-md-6 mx-auto text-center pb-5 pt-5">
-                            <img className="img-fluid rounded z-depth-1" src={imgAccueil2}  alt="placeHolder"></img>
+                            <img className="img-fluid rounded z-depth-1" src={imgAccueil1}  alt="placeHolder"></img>
                         </div>
                     </div>
                     <div className="row pt-5 pb-5 mr-5 ml-5">
