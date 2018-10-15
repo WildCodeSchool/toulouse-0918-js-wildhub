@@ -51,7 +51,7 @@ class AsideProfile extends Component {
 
                     <p className="profile-location">{this.state.profileInfos.location}</p>
                     
-                    <p className="profile-blog"><a href={'/blog/' + this.state.profileInfos.blog} target="_blank">{this.state.profileInfos.blog}</a></p>
+                    <p className="profile-blog"><a href={'/blog/' + this.state.profileInfos.blog} rel="noopener noreferrer" target="_blank">{this.state.profileInfos.blog}</a></p>
                     
                     
                 </div>

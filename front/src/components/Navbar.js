@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import '../styles/navbar.css'
 import img from '../images/logo-light.png';
 import { Fa } from 'mdbreact';
+import { NavLink } from 'react-router-dom';
 
 class Navbar extends Component {
 
@@ -27,7 +28,9 @@ class Navbar extends Component {
                 <nav className="navbar navbar-light bg-dark text-light">
                     <div className="d-flex justify-content-start align-items-center">
                         <div>
-                            <img src={img} alt="logo" />
+                            <NavLink to='/'>
+                                <img src={img} alt="logo" />
+                            </NavLink>
                         </div>
                         <div className="wrapper d-none d-md-block ml-5 boutton">
                             <span className="mr-4"><a className="text-white" href="#!">Explore</a></span>

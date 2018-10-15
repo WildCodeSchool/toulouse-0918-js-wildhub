@@ -17,7 +17,7 @@ class LoginPage extends Component {
                     <div className="row mainAccueil">
                         <div className="col-6 mx-auto text-center">
                             <div className="pt-5">
-                                <img className="img-fluid" src={img} alt="logo" />
+                                <img className="img-fluid logo" src={img} alt="logo" />
                             </div>
                             <div className="pt-5">
                                 <h1 className="text-white pb-5">Welcome in WildHub !</h1>
