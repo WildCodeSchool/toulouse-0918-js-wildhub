@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import html from "../images/icons/html.png";
-import js from "../images/icons/js.png";
-import nodejs from "../images/icons/nodejs.png";
+import html from "../../images/icons/html.png";
+import js from "../../images/icons/js.png";
+import nodejs from "../../images/icons/nodejs.png";
 import { Row, Col } from 'mdbreact';
 
 class AsideProfile extends Component {

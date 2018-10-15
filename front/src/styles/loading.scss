@@ -1,0 +1,22 @@
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .circles {
+        width: 160px;
+        max-width: 70%;
+        transform-origin: center;
+        animation: spin 4s linear infinite;
+
+    }
+
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

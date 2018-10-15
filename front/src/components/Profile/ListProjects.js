@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import ReactTooltip from 'react-tooltip';
 import { Row, Col, Card, CardHeader, CardTitle, CardBody, CardFooter, Button, Fa } from 'mdbreact';
-import langColors from '../data/colors.js';
+import langColors from '../../data/colors.js';
 
 
 class Projet extends Component{

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-import AsideProfile from './AsideProfile';
-import ListProjects from './ListProjects';
+import AsideProfile from './Profile/AsideProfile';
+import ListProjects from './Profile/ListProjects';
 import Footer from './Footer';
 import { Container, Row, Col } from 'mdbreact';
 

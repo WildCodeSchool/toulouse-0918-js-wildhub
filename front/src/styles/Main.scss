@@ -1,4 +1,6 @@
+@import 'loading';
 @import 'home';
+@import 'navbar';
 @import 'profile';
 
 ::-webkit-scrollbar {
@@ -26,13 +28,34 @@
 ::-webkit-resizer{
     width: 20px;
 }
-
-#profile-page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  main {
-    flex: 1;
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
   }
-}
+  
+  /* //////////////////// TYPOS /////////////////////////////////// */
+  /* TYPO POUR LES TITRES */
+  @font-face {
+    font-family: 'Gotham';
+    src: url("../fonts/Gotham-Bold.otf");
+    src: local('Gotham'), 
+            url('../fonts/Gotham-Bold.otf');
+  }
+  
+  /* TYPO POUR LE TEXTE */
+  @font-face{
+    font-family: 'SourceSans';
+    src: url("../fonts/SourceSansPro-Light_0.ttf");
+    src: local('SourceSans'), 
+            url('../fonts/SourceSansPro-Light_0.ttf');
+  }
+  
+  /* TYPO EN PIXEL */
+  @font-face{
+    font-family: 'Fedra';
+    src: url("../fonts/Fedra09-Normal.otf");
+    src: local('Fedra'), 
+            url('../fonts/Fedra09-Normal.otf')
+  }
+  /* //////////////////// FIN TYPOS /////////////////////////////////// */
