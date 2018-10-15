@@ -4,7 +4,6 @@ import Footer from './Footer'
 import img from '../images/logo-accueil.png'
 import imgAccueil1 from '../images/img-accueil1.jpg'
 import imgAccueil2 from '../images/img-accueil2.jpg'
-import '../styles/loginPage.scss'
 import {NavLink} from 'react-router-dom';
 import { Button, Fa } from 'mdbreact';
 

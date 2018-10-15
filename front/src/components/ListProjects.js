@@ -32,7 +32,7 @@ class Projet extends Component{
       if (!isSelect) {
         return (
 
-          <Row id='list-projects'>
+          <Row>
             {reposList.map( (repo, index) => {
                 let langArr = [];
                 let sumCarac = 0;

@@ -4,7 +4,6 @@ import AsideProfile from './AsideProfile';
 import ListProjects from './ListProjects';
 import Footer from './Footer';
 import { Container, Row, Col } from 'mdbreact';
-import '../styles/ListProjects.scss';
 
 
 class Profile extends Component {
@@ -46,13 +45,13 @@ class Profile extends Component {
                 <main>
                   <Container>
                       <Row>
-                          <Col xs='12' lg='3' className='my-5'>
+                          <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                              { this.state.reposList.length > 0
                              ? <AsideProfile  />
                              : ''
                           }
                           </Col>
-                          <Col xs='12' lg='8' className=' ml-auto my-5'>
+                          <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
                               <ListProjects getReposList={this.state.reposList} />
                           </Col>
                       </Row>

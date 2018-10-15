@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "../styles/AsideProfile.css";
 import html from "../images/icons/html.png";
 import js from "../images/icons/js.png";
 import nodejs from "../images/icons/nodejs.png";
