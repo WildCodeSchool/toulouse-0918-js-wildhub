@@ -38,38 +38,38 @@ class LoginPage extends Component {
                           </div>
                       </div>
                   </header>
-                </div>
-                <div className="container-fluid">
-                    <div className="row pt-5 pb-5">
-                        <div className="col-md-6 mx-auto text-center pt-5 pb-5">
-                            <img className="img-fluid rounded z-depth-1" src={imgAccueil2} alt="placeHolder"></img>
-                        </div>
-                        <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                            <h2>Utilisez Wild Hub !</h2>
-                            <p>
-                                {"Un espace de partage sans limites pour tous les élèves de la Wild Code School. La plateforme Wild Hub rassemble tous les outils pour mettre en avant vos projets personnels."}
-                        </p>
-                        </div>
-                    </div>
-                    <div className="row pt-5 pb-5 mainPresentation">
-                        <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                            <h2 className="text-white">{"La Plateforme d'échange des Wilders !"}</h2>
-                            <p className="text-white">
-                                {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
-                        </p>
-                        </div>
-                        <div className="col-md-6 mx-auto text-center pb-5 pt-5">
-                            <img className="img-fluid rounded z-depth-1" src={imgAccueil1}  alt="placeHolder"></img>
-                        </div>
-                    </div>
-                    <div className="row pt-5 pb-5 mr-5 ml-5">
-                        <div className="col-12 mx-auto text-center pb-5">
-                            <img className="img-fluid rounded z-depth-1" src="https://via.placeholder.com/350x350" alt="placeHolder"></img>
-                        </div>
-                        <div className="col-12 mx-auto text-center pr-5 pl-5">
-                            <p>{"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea eius voluptatum perspiciatis magni quisquam inventore velit repudiandae culpa nesciunt ex ipsa totam, quae nam beatae odit quod, sed iusto aliquid!In delectus iure architecto nesciunt reiciendis alias aliquid dolorem, natus quas placeat nemo, voluptatibus autem ducimus rem officiis aperiam laudantium itaque molestiae saepe eveniet, nostrum totam molestias eum. Consectetur, dolorem."}</p>
-                        </div>
-                    </div>
+                  <div className="container-fluid">
+                      <div className="row pt-5 pb-5">
+                          <div className="col-md-6 mx-auto text-center pt-5 pb-5">
+                              <img className="img-fluid rounded z-depth-1" src={imgAccueil2} alt="placeHolder"></img>
+                          </div>
+                          <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
+                              <h2>Utilisez Wild Hub !</h2>
+                              <p>
+                                  {"Un espace de partage sans limites pour tous les élèves de la Wild Code School. La plateforme Wild Hub rassemble tous les outils pour mettre en avant vos projets personnels."}
+                          </p>
+                          </div>
+                      </div>
+                      <div className="row pt-5 pb-5 mainPresentation">
+                          <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
+                              <h2 className="text-white">{"La Plateforme d'échange des Wilders !"}</h2>
+                              <p className="text-white">
+                                  {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
+                          </p>
+                          </div>
+                          <div className="col-md-6 mx-auto text-center pb-5 pt-5">
+                              <img className="img-fluid rounded z-depth-1" src={imgAccueil1}  alt="placeHolder"></img>
+                          </div>
+                      </div>
+                      <div className="row pt-5 pb-5 mr-5 ml-5">
+                          <div className="col-12 mx-auto text-center pb-5">
+                              <img className="img-fluid rounded z-depth-1" src="https://via.placeholder.com/350x350" alt="placeHolder"></img>
+                          </div>
+                          <div className="col-12 mx-auto text-center pr-5 pl-5">
+                              <p>{"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea eius voluptatum perspiciatis magni quisquam inventore velit repudiandae culpa nesciunt ex ipsa totam, quae nam beatae odit quod, sed iusto aliquid!In delectus iure architecto nesciunt reiciendis alias aliquid dolorem, natus quas placeat nemo, voluptatibus autem ducimus rem officiis aperiam laudantium itaque molestiae saepe eveniet, nostrum totam molestias eum. Consectetur, dolorem."}</p>
+                          </div>
+                      </div>
+                  </div>
                 </div>
                 <Footer />
             </Fragment>
