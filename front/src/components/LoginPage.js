@@ -4,7 +4,7 @@ import Footer from './Footer'
 import img from '../images/logo-accueil.png'
 import imgAccueil1 from '../images/img-accueil1.jpg'
 import imgAccueil2 from '../images/img-accueil2.jpg'
-import '../styles/loginPage.css'
+import '../styles/loginPage.scss'
 import {NavLink} from 'react-router-dom';
 import { Button, Fa } from 'mdbreact';
 
@@ -13,30 +13,32 @@ class LoginPage extends Component {
         return (
             <Fragment>
                 <Navbar />
-                <header className="container-fluid">
-                    <div className="row mainAccueil">
-                        <div className="col-6 mx-auto text-center">
-                            <div className="pt-5">
-                                <img className="img-fluid logo" src={img} alt="logo" />
-                            </div>
-                            <div className="pt-5">
-                                <h1 className="text-white pb-5">Welcome in WildHub !</h1>
-                                <p className="text-white text-left">Wild Hub est un outil de partage de projets personnels à disposition des actuels et anciens élèves de la Wild Code School. Après une simple inscription, partagez votre code sur l'espace dédié par l'intermédiaire de Git Hub. Vous ne souhaitez pas vous inscrire sur Wild Hub? Pas de problèmes, vous pourrez quand même consulter les projets diffusés par les Wilders.</p>
-                                <p className="text-white">Bonne visite !</p>
-                            </div>
-                            <div className="pt-5 pb-5">
-                              <NavLink to='/profile' className='text-white'>
-                                  <Button variant='contained' color='blue-grey'>
-                                      <span style={{verticalAlign: 'middle'}}>
-                                        Se connecter
-                                        <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
-                                      </span>
-                                  </Button>
-                              </NavLink>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+                <div id="homePage">
+                  <header className="container-fluid">
+                      <div className="row mainAccueil">
+                          <div className="col-6 mx-auto text-center">
+                              <div className="pt-5">
+                                  <img className="img-fluid logo" src={img} alt="logo" />
+                              </div>
+                              <div className="pt-5">
+                                  <h1 className="text-white pb-5">Welcome in WildHub !</h1>
+                                  <p className="text-white text-left">Wild Hub est un outil de partage de projets personnels à disposition des actuels et anciens élèves de la Wild Code School. Après une simple inscription, partagez votre code sur l'espace dédié par l'intermédiaire de Git Hub. Vous ne souhaitez pas vous inscrire sur Wild Hub? Pas de problèmes, vous pourrez quand même consulter les projets diffusés par les Wilders.</p>
+                                  <p className="text-white">Bonne visite !</p>
+                              </div>
+                              <div className="pt-5 pb-5">
+                                <NavLink to='/profile' className='text-white'>
+                                    <Button variant='contained' color='blue-grey'>
+                                        <span style={{verticalAlign: 'middle'}}>
+                                          Se connecter
+                                          <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
+                                        </span>
+                                    </Button>
+                                </NavLink>
+                              </div>
+                          </div>
+                      </div>
+                  </header>
+                </div>
                 <div className="container-fluid">
                     <div className="row pt-5 pb-5">
                         <div className="col-md-6 mx-auto text-center pt-5 pb-5">
