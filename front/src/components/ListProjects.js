@@ -24,6 +24,19 @@ class Projet extends Component{
         })
     }
 
+
+    //Arbre
+    showTree = () => {
+      fetch(this.state.selectedRepo.url+'/contents', {
+          headers: {
+            Authorization: `Bearer ${'6915ea5a6bdf7bfb42a54a7e66c9d42ee1c74ef6'}`
+          }
+        })
+
+          .then(result => result.json())
+          .then(tree => this.setState({tree:tree}))
+    }
+
     render() {
       let isSelect = this.state.isRepoSelect;
       let countIdSpan = -1;
@@ -166,6 +179,11 @@ class Projet extends Component{
                         className='text-dark'
                         >Voir sur github</a>
                     </Button>
+
+                    {/*Arbre*/}
+                    <Button onClick={this.showTree} outline color='blue-grey' size='sm'>Voir l'arbre</Button>
+
+
                     </div>
 
                  </CardBody>
