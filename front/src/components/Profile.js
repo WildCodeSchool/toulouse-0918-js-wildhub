@@ -4,6 +4,7 @@ import AsideProfile from './Profile/AsideProfile';
 import ListProjects from './Profile/ListProjects';
 import Footer from './Footer';
 import { Container, Row, Col } from 'mdbreact';
+import token from '../config';
 
 
 class Profile extends Component {
@@ -19,13 +20,21 @@ class Profile extends Component {
     }
 
     getRepos = () => {
-      fetch ('https://api.github.com/users/EvaSpessotto/repos')
+      fetch ('https://api.github.com/users/EvaSpessotto/repos', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
 
       .then(result => result.json())
 
       .then(repoArr => {
           const promises = repoArr.map(
-            repoSingle => fetch(repoSingle.languages_url)
+            repoSingle => fetch(repoSingle.languages_url, {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            })
 
               .then(result => result.json())
           )

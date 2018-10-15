@@ -12,18 +12,6 @@ class Projet extends Component{
 
     }
 
-    handleClick = (repo, langArr, sumCarac) => {
-        this.setState({
-            isRepoSelect: !this.state.isRepoSelect,
-            selectedRepo: repo,
-            arrayLanguage: langArr,
-            sumCaracLang: sumCarac
-        })
-    }
-
-
-
-
     render() {
       let isSelect = this.state.isRepoSelect;
       let countIdSpan = -1;

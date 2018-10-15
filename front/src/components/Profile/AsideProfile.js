@@ -3,6 +3,7 @@ import html from "../../images/icons/html.png";
 import js from "../../images/icons/js.png";
 import nodejs from "../../images/icons/nodejs.png";
 import { Row, Col } from 'mdbreact';
+import token from '../../config';
 
 class AsideProfile extends Component {
     constructor(props){
@@ -17,7 +18,11 @@ class AsideProfile extends Component {
     }
 
     getProfile = () => {
-        fetch('https://api.github.com/users/EvaSpessotto')
+        fetch('https://api.github.com/users/EvaSpessotto', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
             .then(results  =>  results.json())
             .then(profile  => {
                 this.setState({

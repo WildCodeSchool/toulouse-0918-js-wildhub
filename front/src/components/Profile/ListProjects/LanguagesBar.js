@@ -7,7 +7,7 @@ class LanguagesBar extends Component {
     let sumCarac = 0, countIdSpan = 0;
     const { repo, idx } = this.props;
     let langArr = [];
-    
+
     Object.entries(repo.language_stat).map(([key, value]) => {
         sumCarac += value;
         langArr.push([key, value]);
