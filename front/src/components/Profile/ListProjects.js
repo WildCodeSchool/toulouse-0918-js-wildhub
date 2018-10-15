@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import ReactTooltip from 'react-tooltip';
 import { Row, Col, Card, CardHeader, CardTitle, CardBody, CardFooter, Button, Fa } from 'mdbreact';
-import langColors from '../data/colors.js';
+import langColors from '../../data/colors.js';
 
 
 class Projet extends Component{
@@ -45,7 +45,7 @@ class Projet extends Component{
       if (!isSelect) {
         return (
 
-          <Row id='list-projects'>
+          <Row>
             {reposList.map( (repo, index) => {
                 let langArr = [];
                 let sumCarac = 0;

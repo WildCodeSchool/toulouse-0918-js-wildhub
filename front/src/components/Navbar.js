@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import '../styles/navbar.css'
 import img from '../images/logo-light.png';
 import { Fa } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
@@ -23,48 +22,43 @@ class Navbar extends Component {
 
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
+        const toggler = this.state.isOpen ? 'times' : 'bars';
         return (
-            <div className="navBar">
+            <div className="navigation">
                 <nav className="navbar navbar-light bg-dark text-light">
-                    <div className="d-flex justify-content-start align-items-center">
-                        <div>
-                            <NavLink to='/'>
-                                <img src={img} alt="logo" />
-                            </NavLink>
-                        </div>
-                        <div className="wrapper d-none d-md-block ml-5 boutton">
-                            <span className="mr-4"><a className="text-white" href="#!">Explorer</a></span>
-                            <span className="ml-4"><a className="text-white" href="#!">Se connecter</a></span>
-                        </div>
+                <span
+                    onClick={this.handleClick}
+                    className="toggle-nav">
+                    <Fa icon={toggler} size='lg' />
+                </span>
+                    <div className="nav-links d-flex justify-content-start align-items-center">
+                        <NavLink to='/' className='navbar-brand'>
+                            <img src={img} alt="logo" />
+                        </NavLink>
+                        <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
+                        <NavLink to="/" className='nav-item d-none d-md-inline'>Se connecter</NavLink>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
-                        <span href="#!" className="closebtn" onClick={this.handleClick}>&times;</span>
-                        <a href="#!">
+                        <NavLink to="/explore" className='nav-item'>
                             <Fa icon="book mr-2" />
                             {"Explorer"}
-                        </a>
+                        </NavLink>
 
-                        <a href="#!">
+                        <NavLink to="/profile" className='nav-item'>
                             <Fa icon="folder-open mr-2" />
                             {"Mes dépôts"}
-                        </a>
+                        </NavLink>
 
-                        <a href="#!">
+                        <NavLink to="/settings" className='nav-item'>
                             <Fa icon="cog mr-2" />
                             {"Paramètres"}
-                        </a>
+                        </NavLink>
 
-                        <a className="d-md-none d-block" href="#!">
-                            <Fa icon="sign-in-alt mr-2" />
+                        <NavLink to="/" className="nav-item">
+                            <Fa icon="sign-in mr-2" />
                             {"Se connecter"}
-                        </a>
+                        </NavLink>
                     </div>
-                    <span 
-                        className='toggle-nav'
-                        onClick={this.handleClick}
-                    >
-                        &#9776;
-                    </span>
                 </nav>
             </div>)
     }
