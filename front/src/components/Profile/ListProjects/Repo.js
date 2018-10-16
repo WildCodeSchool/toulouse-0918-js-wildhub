@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import token from '../../../config';
+import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter } from 'mdbreact';
 
 class Repo extends Component {
 
@@ -29,9 +30,19 @@ class Repo extends Component {
     const { repoName } = this.props.match.params;
     const { name } = this.state.repo;
     return (
-      <Fragment>
-        <div>{name}</div>
-      </Fragment>
+      <Container>
+        <Row>
+          <Col>
+            <Card>
+              <CardTitle>
+                <div>{name}</div>
+              </CardTitle>
+              <CardBody></CardBody>
+              <CardFooter></CardFooter>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

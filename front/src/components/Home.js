@@ -11,7 +11,7 @@ class Home extends Component {
     render() {
         return (
             <div id='home-page'>
-                <Navbar />
+              <Navbar />
                 <div id="homePage">
                   <header className="container-fluid">
                       <div className="row mainAccueil">
