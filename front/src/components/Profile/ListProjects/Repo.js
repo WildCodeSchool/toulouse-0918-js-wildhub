@@ -9,7 +9,8 @@ class Repo extends Component {
   constructor(props){
     super(props);
     this.state = {
-      repo: {}
+      repo: {},
+      files: [],
     }
   }
 
@@ -26,19 +27,36 @@ class Repo extends Component {
             repo: repo
           })
         });
+        fetch(`https://api.github.com/repos/${ownerName}/${repoName}/contents`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+          .then(results  =>  results.json())
+          .then(files => {
+            this.setState({
+              files: files
+            })
+          })
   }
 
   render() {
     const { repoName } = this.props.match.params;
     const { name, html_url, description, created_at, updated_at, url } = this.state.repo;
+    const readmeObj = this.state.files.filter(x=>x.name==='README.md')
     return (
       <Container>
+
         <Row>
+
           <Col>
+
             <Card>
+
               <CardTitle>
                 <div>{ name }</div>
               </CardTitle>
+
               <CardBody>
                 <a
                   href={ html_url }
@@ -58,11 +76,16 @@ class Repo extends Component {
                   Voir dans GitHub
                 </ReactTooltip>
                 <div>{ description }</div>
+
+
+                {/*Affichage du README RAW COLOR SYNTAX*/}
+                {
+                  this.state.files.length &&
+                  <Raw readmeObj={readmeObj[0]}/>
+                }
+
+
               </CardBody>
-
-
-            {/*Affichage du README RAW COLOR SYNTAX*/}
-              {url && <Raw url={ url } />}
 
               <CardFooter>
                 <div>
@@ -70,9 +93,13 @@ class Repo extends Component {
                   { updated_at }
                 </div>
               </CardFooter>
+
             </Card>
+
           </Col>
+
         </Row>
+
       </Container>
     );
   }
