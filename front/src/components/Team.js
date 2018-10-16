@@ -21,7 +21,7 @@ class Team extends Component {
                         {
                           const { name, job, social, avatar } = member;
                           return(
-                            <Col key={key} lg="3" md="6"  className="mb-lg-0 mb-5">
+                            <Col key={key} lg="3" md="6" sm='8' className="mb-lg-0 mb-5 mx-auto">
                               <Card className='pt-4 pb-2'>
                                 <img src={avatar} className="rounded-circle w-50 mx-auto z-depth-1 img-fluid" alt={name}/>
                                 <h5 className="font-weight-bold mt-4 mb-3">{name}</h5>
