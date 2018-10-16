@@ -6,17 +6,42 @@
 
       .mainAccueil{
             min-height: calc(100vh - 56px);
-
+            
             .logo{
+              width: 100px;
               &:hover{
                     animation: spin linear infinite 2s;
               }
             }
+
+            h1{
+              font-family: "Gotham";
+            }
+
+            p{
+              font-family: "SourceSans";
+              font-size: 1.1em;
+            }
+
+            .fedra-text{
+              font-family: "Fedra";
+              font-size: 1.3em;
+            }
       }
   }
-  .mainPresentation{
-        background-color: rgb(26,26,26);
+  .under-accueil{
+    h2{
+      font-family: "Gotham";
+    }
+    p{
+      font-family: "SourceSans";
+      font-size: 1.1em;
+    }
+    .mainPresentation{
+      background-color: rgb(26,26,26);
+    }
   }
+  
 }
 
 @keyframes spin {
