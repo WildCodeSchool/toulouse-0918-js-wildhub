@@ -26,7 +26,7 @@ class Home extends Component {
                               </div>
                               <div className="pt-5 pb-5">
                                 <NavLink to='/profile' className='text-white'>
-                                    <Button variant='contained' color='blue-grey'>
+                                    <Button variant='contained' color='mdb' className="black-text">
                                         <span style={{verticalAlign: 'middle'}}>
                                           Se connecter
                                           <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
