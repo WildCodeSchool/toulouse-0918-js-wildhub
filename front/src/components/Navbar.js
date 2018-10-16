@@ -36,7 +36,8 @@ class Navbar extends Component {
                             <img src={img} alt="logo" />
                         </NavLink>
                         <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
-                        <NavLink to="/" className='nav-item d-none d-md-inline'>Se connecter</NavLink>
+                        <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
+                        <NavLink to="/" className='nav-item d-none d-md-inline'>Se Connecter</NavLink>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
                         <NavLink to="/explore" className='nav-item'>
@@ -44,9 +45,14 @@ class Navbar extends Component {
                             {"Explorer"}
                         </NavLink>
 
+                        <NavLink to="/team" className='nav-item'>
+                            <Fa icon="users mr-2" />
+                            {"La Team"}
+                        </NavLink>
+
                         <NavLink to="/profile" className='nav-item'>
                             <Fa icon="folder-open mr-2" />
-                            {"Mes dépôts"}
+                            {"Mes Dépôts"}
                         </NavLink>
 
                         <NavLink to="/settings" className='nav-item'>
@@ -56,7 +62,7 @@ class Navbar extends Component {
 
                         <NavLink to="/" className="nav-item">
                             <Fa icon="sign-in mr-2" />
-                            {"Se connecter"}
+                            {"Se Connecter"}
                         </NavLink>
                     </div>
                 </nav>
