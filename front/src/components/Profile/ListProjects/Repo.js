@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import token from '../../../config';
-import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter } from 'mdbreact';
+import ReactTooltip from 'react-tooltip';
+import Raw from './DisplayCode/Raw';
+import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter, Button, Fa } from 'mdbreact';
 
 class Repo extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      repo: []
+      repo: {}
     }
   }
 
@@ -28,17 +30,46 @@ class Repo extends Component {
 
   render() {
     const { repoName } = this.props.match.params;
-    const { name } = this.state.repo;
+    const { name, html_url, description, created_at, updated_at, url } = this.state.repo;
     return (
       <Container>
         <Row>
           <Col>
             <Card>
               <CardTitle>
-                <div>{name}</div>
+                <div>{ name }</div>
               </CardTitle>
-              <CardBody></CardBody>
-              <CardFooter></CardFooter>
+              <CardBody>
+                <a
+                  href={ html_url }
+                  target='_blank'
+                  rel="noopener noreferrer"
+                  className="ghIcon"
+                  data-tip data-for={`tip-repo-1`}
+                >
+                  <Fa icon="github"/>
+                </a>
+                <ReactTooltip
+                  id={`tip-repo-1`}
+                  place="left"
+                  type="dark"
+                  effect="solid"
+                >
+                  Voir dans GitHub
+                </ReactTooltip>
+                <div>{ description }</div>
+              </CardBody>
+
+
+            {/*Affichage du README RAW COLOR SYNTAX*/}
+              {url && <Raw url={ url } />}
+
+              <CardFooter>
+                <div>
+                  { created_at }
+                  { updated_at }
+                </div>
+              </CardFooter>
             </Card>
           </Col>
         </Row>
