@@ -1,34 +1,41 @@
-import React, { Component, Fragment } from 'react';
-import Loading from './components/Loading'
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import React, { Component } from 'react';
+import Loading from './components/Loading';
+import Home from './components/Home';
+import Profile from './components/Profile';
+import Repo from './components/Profile/ListProjects/Repo';
+import Error404 from './components/Error404';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   state = {
     loading: true
   }
 
-  componentWillMount (){
+  componentDidMount (){
     setTimeout(() => {
       this.setState({
         loading: false
       })
-    }, 2000);
+    }, 1000);
   }
 
   render() {
-    if (this.state.loading){
-      return <Loading/>
+    if(this.state.loading){
+        return <Loading />;
     }
+
     return (
-        <Fragment>
-            <Header />
-            <Main />
-            <Footer />
-        </Fragment>
-    );
-  }
-}
+        <BrowserRouter>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/accueil' component={Home} />
+              <Route path='/profile' component={Profile} />
+              <Route path='/:ownerName/repos/:repoName' component={Repo} />
+              <Route component={Error404} />
+            </Switch>
+          </BrowserRouter>
+          );
+          }
+          }
 
 export default App;
