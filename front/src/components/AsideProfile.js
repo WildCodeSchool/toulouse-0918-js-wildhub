@@ -20,9 +20,9 @@ class AsideProfile extends Component {
     getProfile = () => {
         fetch('https://api.github.com/users/EvaSpessotto')
             .then(results  =>  results.json()) 
-            .then(profile  => {
+            .then(profileList  => {
                 this.setState({
-                    profileInfos: profile
+                    profileInfos: profileList
                 });
             });
     } 
@@ -41,6 +41,7 @@ class AsideProfile extends Component {
             img: nodejs
         }
     ]
+
     
     return (
         <Row className="justify-content-center">
@@ -48,7 +49,7 @@ class AsideProfile extends Component {
                 <img src={this.state.profileInfos.avatar_url} alt="" className="profile-pic img-fluid z-depth-1 rounded mb-3"/>
                 <div className="profile-infos">
                     <h1 className="profile-name" >{this.state.profileInfos.name}</h1>
-
+                    
                     <p className="profile-location">{this.state.profileInfos.location}</p>
                     
                     <p className="profile-blog"><a href={'/blog/' + this.state.profileInfos.blog} target="_blank">{this.state.profileInfos.blog}</a></p>
@@ -60,7 +61,7 @@ class AsideProfile extends Component {
             <Col xs='12' className="mb-3 profile-desc">
                 <h5>A propos de moi</h5>
                 <div className="desc">
-                    <p>{this.state.profileInfos.bio}</p>
+                     <p>{this.state.profileInfos.bio}</p>
                 </div>
             </Col>
 
