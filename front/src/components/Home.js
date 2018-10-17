@@ -44,7 +44,7 @@ class Home extends Component {
                     </Row>
                   </Container>
                 </header>
-                <Container fluid className="under-accueil">
+                <Container fluid className="under-accueil p-0">
                   <Parallax  bgImage={image1} strength={600}>
                     <div className="parallax-div"> </div>
                   </Parallax>
