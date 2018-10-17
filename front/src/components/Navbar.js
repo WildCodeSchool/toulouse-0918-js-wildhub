@@ -20,9 +20,21 @@ class Navbar extends Component {
 
     }
 
+    scrollable = () => {
+        if(this.state.isOpen){
+            document.body.style.overflow = 'hidden';
+        }
+        else{
+            document.body.style.overflow = 'auto';
+        }
+    }
+
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
         const toggler = this.state.isOpen ? 'times' : 'bars';
+
+        this.scrollable();
+
         return (
             <div className="navigation">
                 <nav className="navbar navbar-light bg-dark text-light fixed-top">
@@ -35,34 +47,37 @@ class Navbar extends Component {
                         <NavLink to='/' className='navbar-brand'>
                             <img src={img} alt="logo" />
                         </NavLink>
+                        <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
                         <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
                         <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
-                        <NavLink to="/" className='nav-item d-none d-md-inline'>Se Connecter</NavLink>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
-                        <NavLink to="/explore" className='nav-item'>
+
+                        <NavLink onClick={this.handleClick} to="/" className="nav-item">
+                            <Fa icon="home mr-2" />
+                            {"Accueil"}
+                        </NavLink>
+
+                        <NavLink onClick={this.handleClick} to="/explore" className='nav-item'>
                             <Fa icon="book mr-2" />
                             {"Explorer"}
                         </NavLink>
 
-                        <NavLink to="/team" className='nav-item'>
+
+                        <NavLink onClick={this.handleClick} to="/team" className='nav-item'>
+
                             <Fa icon="users mr-2" />
                             {"La Team"}
                         </NavLink>
 
-                        <NavLink to="/profile" className='nav-item'>
+                        <NavLink onClick={this.handleClick} to="/profile" className='nav-item'>
                             <Fa icon="folder-open mr-2" />
                             {"Mes Dépôts"}
                         </NavLink>
 
-                        <NavLink to="/settings" className='nav-item'>
+                        <NavLink onClick={this.handleClick} to="/settings" className='nav-item'>
                             <Fa icon="cog mr-2" />
                             {"Paramètres"}
-                        </NavLink>
-
-                        <NavLink to="/" className="nav-item">
-                            <Fa icon="sign-in mr-2" />
-                            {"Se Connecter"}
                         </NavLink>
                     </div>
                 </nav>

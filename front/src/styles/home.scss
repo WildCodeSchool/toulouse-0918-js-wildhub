@@ -1,5 +1,4 @@
-#homePage{
-
+#home-page{
   header{
     background-image: url("../images/img-2.jpg");
     background-size: cover;
@@ -34,16 +33,16 @@
       }
   }
 
-main{
+.under-accueil{
   overflow-x: hidden;
 
   .parallax-div{
     height: 80vh;
-    
+
   }
   .mainPresentation{
     background-color: #262626;
-    
+
     h2{
       font-family: "Gotham";
     }
@@ -51,9 +50,13 @@ main{
       font-family: "SourceSans";
       font-size: 1.1em;
     }
+    .mainPresentation{
+      background-color: rgb(26,26,26);
+    }
   }
+
 }
-    
+
 
 @keyframes spin {
     100% {
