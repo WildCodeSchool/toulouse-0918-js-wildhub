@@ -1,9 +1,8 @@
-#homePage{
+#home-page{
   header{
     background-image: url("../images/img-2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-
       .mainAccueil{
             min-height: calc(100vh - 56px);
 
@@ -33,7 +32,17 @@
             }
       }
   }
-  .under-accueil{
+
+.under-accueil{
+  overflow-x: hidden;
+
+  .parallax-div{
+    height: 80vh;
+
+  }
+  .mainPresentation{
+    background-color: #262626;
+
     h2{
       font-family: "Gotham";
     }
@@ -48,9 +57,11 @@
 
 }
 
+
 @keyframes spin {
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
   }
+}
