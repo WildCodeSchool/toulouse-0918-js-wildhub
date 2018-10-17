@@ -22,9 +22,7 @@ class App extends Component {
   }
 
   render() {
-    if(this.state.loading){
-        return <Loading />;
-    }
+
 
     return (
         <BrowserRouter>

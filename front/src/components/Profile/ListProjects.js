@@ -14,7 +14,6 @@ class Projet extends Component{
 
     render() {
       let isSelect = this.state.isRepoSelect;
-      let countIdSpan = -1;
       const reposList = this.props.getReposList;
 
         return (

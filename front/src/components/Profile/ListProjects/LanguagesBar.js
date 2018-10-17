@@ -4,7 +4,7 @@ import langColors from '../../../data/colors.js';
 
 class LanguagesBar extends Component {
   render() {
-    let sumCarac = 0, countIdSpan = 0;
+    let sumCarac = 0, countIdSpan = -1;
     const { repo, idx } = this.props;
     let langArr = [];
 
@@ -19,7 +19,7 @@ class LanguagesBar extends Component {
 
           {
               langArr.map((lanSingleArr, index) => {
-                  countIdSpan += 1
+                  countIdSpan++;
                   return(
                       <Fragment key={index}>
                           <span

@@ -6,6 +6,7 @@ import imgAccueil1 from '../images/img-accueil1.jpg'
 import imgAccueil2 from '../images/img-accueil2.jpg'
 import {NavLink} from 'react-router-dom';
 import { Container, Row, Col, Button, Fa } from 'mdbreact';
+import GitHubLogin from 'react-github-login';
 
 class Home extends Component {
     render() {
@@ -33,6 +34,7 @@ class Home extends Component {
                                 <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
                               </span>
                             </Button>
+
                           </NavLink>
                         </div>
                       </Col>
