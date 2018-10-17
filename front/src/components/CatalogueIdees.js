@@ -47,7 +47,11 @@ class CatalogueIdees extends Component {
 
                       {
                         repos.map((repo, index) =>
-                          <DisplayRepoCatalogue repo={repo} index={index}/>
+                          <DisplayRepoCatalogue
+                            repo={repo}
+                            key={index}
+                            name={repo.name}
+                          />
                         )
                       }
 

@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 class DisplayRepoCatalogue extends Component {
   render() {
-    const { name, description, created_at, updated_at, html_url, owner } = this.props.repo
-    const { key } = this.props
+    const {description, created_at, updated_at, html_url, owner } = this.props.repo
+    const { key, repo, name } = this.props
     return(
       <Col xs='12' lg='4' className="mx-auto mb-5">
           <Card className="repoCard">
@@ -55,7 +55,7 @@ class DisplayRepoCatalogue extends Component {
                       Dernière activitée le {updated_at}
                   </small>
               </CardFooter>
-              <LanguagesBar repo={this.props.repo} idx={key} />
+              <LanguagesBar repo={repo} key={key} name={name}/>
           </Card>
       </Col>
     )
