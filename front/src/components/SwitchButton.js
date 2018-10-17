@@ -16,15 +16,16 @@ class SwitchButton extends React.Component {
     }
 	
 	componentWillMount () {
-		this.setState( { isChecked: this.props.isChecked } );
+        this.setState( { isChecked: this.props.isChecked } );
+        
 	}
 
     
-    handleChange = () =>{
+    handleChange = () => {
 		this.setState( { 
             isChecked: !this.state.isChecked 
         } );
-        loadCSS('../styles/light/lightTheme.scss')
+        loadCSS(this.state.isChecked ? `/dark/darkTheme.css` : `/light/lightTheme.css`);
     }
 
     render () {
