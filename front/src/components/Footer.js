@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Container, Row, Col, Fa } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
 
