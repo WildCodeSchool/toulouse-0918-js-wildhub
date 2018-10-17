@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import img from '../images/logo-light.png';
-import { Fa } from 'mdbreact';
+import { Fa} from 'mdbreact';
 import { NavLink } from 'react-router-dom';
+import SwitchButton from './SwitchButton';
 
 class Navbar extends Component {
 
@@ -9,7 +10,7 @@ class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: false
+            isOpen: false,
         };
     }
 
@@ -19,6 +20,7 @@ class Navbar extends Component {
         });
 
     }
+
 
     scrollable = () => {
         if(this.state.isOpen){
@@ -44,15 +46,18 @@ class Navbar extends Component {
                     <Fa icon={toggler} size='lg' />
                 </span>
                     <div className="nav-links d-flex justify-content-start align-items-center">
+                    
                         <NavLink to='/' className='navbar-brand'>
                             <img src={img} alt="logo" />
                         </NavLink>
-                        <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
-                        <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
-                        <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
+                        <div className="d-none d-md-inline">
+                            <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
+                            <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
+                            <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
+                            <SwitchButton />
+                        </div>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
-
                         <NavLink onClick={this.handleClick} to="/" className="nav-item">
                             <Fa icon="home mr-2" />
                             {"Accueil"}
@@ -62,7 +67,6 @@ class Navbar extends Component {
                             <Fa icon="book mr-2" />
                             {"Explorer"}
                         </NavLink>
-
 
                         <NavLink onClick={this.handleClick} to="/team" className='nav-item'>
 
@@ -79,6 +83,7 @@ class Navbar extends Component {
                             <Fa icon="cog mr-2" />
                             {"Paramètres"}
                         </NavLink>
+                        <SwitchButton />
                     </div>
                 </nav>
             </div>)
