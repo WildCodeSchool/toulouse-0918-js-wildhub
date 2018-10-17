@@ -6,7 +6,14 @@ import imgAccueil1 from '../images/img-accueil1.jpg'
 import imgAccueil2 from '../images/img-accueil2.jpg'
 import {NavLink} from 'react-router-dom';
 import { Button, Fa } from 'mdbreact';
+import { Parallax } from "react-parallax";
 
+const image1 =
+  "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a34afeffc0b1dc2552ba82d61ea37204&auto=format&fit=crop&w=1650&q=80";
+const image2= 
+"https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+const image3=
+"https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
 class Home extends Component {
     render() {
         return (
@@ -37,39 +44,33 @@ class Home extends Component {
                           </div>
                       </div>
                   </header>
-                  <div className="container-fluid under-accueil">
-                      <div className="row pt-5 pb-5">
-                          <div className="col-md-6 mx-auto text-center pt-5 pb-5">
-                              <img className="img-fluid rounded z-depth-1" src={imgAccueil2} alt="placeHolder"></img>
-                          </div>
-                          <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                              <h2>Utilisez Wild Hub !</h2>
-                              <p>
-                                  {"Un espace de partage sans limites pour tous les élèves de la Wild Code School. La plateforme Wild Hub rassemble tous les outils pour mettre en avant vos projets personnels."}
-                          </p>
-                          </div>
-                      </div>
+                 
+                <main>                    
+                    <Parallax  bgImage={image1} strength={600}>
+                      <div className="parallax-div"> </div>
+                    </Parallax>
+
                       <div className="row pt-5 pb-5 mainPresentation">
                           <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                              <h2 className="text-white">{"La Plateforme d'échange des Wilders !"}</h2>
-                              <p className="text-white">
-                                  {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
-                          </p>
-                          </div>
-                          <div className="col-md-6 mx-auto text-center pb-5 pt-5">
-                              <img className="img-fluid rounded z-depth-1" src={imgAccueil1}  alt="placeHolder"></img>
-                          </div>
-                      </div>
-                      <div className="row pt-5 pb-5 mr-5 ml-5">
-                          <div className="col-12 mx-auto text-center pb-5">
-                              <img className="img-fluid rounded z-depth-1" src="https://via.placeholder.com/350x350" alt="placeHolder"></img>
-                          </div>
-                          <div className="col-12 mx-auto text-center pr-5 pl-5">
-                              <p>{"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea eius voluptatum perspiciatis magni quisquam inventore velit repudiandae culpa nesciunt ex ipsa totam, quae nam beatae odit quod, sed iusto aliquid!In delectus iure architecto nesciunt reiciendis alias aliquid dolorem, natus quas placeat nemo, voluptatibus autem ducimus rem officiis aperiam laudantium itaque molestiae saepe eveniet, nostrum totam molestias eum. Consectetur, dolorem."}</p>
+                            <img className="img-fluid rounded z-depth-1" src={image2}  alt="placeHolder"></img>
+                            <div className="mt-5">
+                                <h2 className="text-white">{"La Plateforme d'échange des Wilders !"}</h2>
+                                <p className="text-white">
+                                    {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
+                                </p>
+                            </div>
                           </div>
                       </div>
+
+                      <Parallax bgImage={image1} strength={600} >
+                        <div className="parallax-div"></div>
+                      </Parallax>
+                </main>
+     
+
+
                   </div>
-                </div>
+                  
                 <Footer />
             </div>
         );

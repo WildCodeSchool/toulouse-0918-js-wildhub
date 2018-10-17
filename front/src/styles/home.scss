@@ -1,8 +1,10 @@
 #homePage{
+
   header{
     background-image: url("../images/img-2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    
     margin-top: 60px;
 
       .mainAccueil{
@@ -34,7 +36,17 @@
             }
       }
   }
-  .under-accueil{
+
+main{
+  overflow-x: hidden;
+
+  .parallax-div{
+    height: 80vh;
+    
+  }
+  .mainPresentation{
+    background-color: #262626;
+    
     h2{
       font-family: "Gotham";
     }
@@ -42,10 +54,10 @@
       font-family: "SourceSans";
       font-size: 1.1em;
     }
-    .mainPresentation{
-      background-color: rgb(26,26,26);
-    }
   }
+}
+    
+   
   
 }
 
