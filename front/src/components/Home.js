@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar'
-import Footer from './Footer'
 import img from '../images/logo-accueil.png'
 import imgAccueil1 from '../images/img-accueil1.jpg'
 import imgAccueil2 from '../images/img-accueil2.jpg'
@@ -10,9 +8,7 @@ import { Container, Row, Col, Button, Fa } from 'mdbreact';
 class Home extends Component {
     render() {
         return (
-            <div id='home-page'>
-              <Navbar />
-                <div id="homePage">
+            <main id='home-page'>
                 <header>
                   <Container fluid>
                     <Row className="mainAccueil align-items-center">
@@ -71,10 +67,7 @@ class Home extends Component {
                         </Col>
                     </Row>
                 </Container>
-
-                </div>
-                <Footer />
-            </div>
+            </main>
         );
     }
 }

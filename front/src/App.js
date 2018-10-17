@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Loading from './components/Loading';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Repo from './components/Profile/ListProjects/Repo';
@@ -26,16 +28,20 @@ class App extends Component {
     }
 
     return (
-        <BrowserRouter>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/accueil' component={Home} />
-              <Route path='/profile' component={Profile} />
-              <Route path='/:ownerName/repos/:repoName' component={Repo} />
-              <Route path='/team' component={Team} />
-              <Route component={Error404} />
-            </Switch>
-        </BrowserRouter>
+    <BrowserRouter>
+        <Fragment>
+          <Navbar />
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path='/accueil' component={Home} />
+                <Route path='/profile' component={Profile} />
+                <Route path='/:ownerName/repos/:repoName' component={Repo} />
+                <Route path='/team' component={Team} />
+                <Route component={Error404} />
+              </Switch>
+          <Footer />
+        </Fragment>
+    </BrowserRouter>
     );
   }
 

@@ -53,27 +53,27 @@ class Navbar extends Component {
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
 
-                        <NavLink to="/" className="nav-item">
+                        <NavLink onClick={this.handleClick} to="/" className="nav-item">
                             <Fa icon="home mr-2" />
                             {"Accueil"}
                         </NavLink>
 
-                        <NavLink to="/explore" className='nav-item'>
+                        <NavLink onClick={this.handleClick} to="/explore" className='nav-item'>
                             <Fa icon="book mr-2" />
                             {"Explorer"}
                         </NavLink>
 
-                        <NavLink to="/team" className='nav-item'>
+                        <NavLink onClick={this.handleClick} to="/team" className='nav-item'>
                             <Fa icon="users mr-2" />
                             {"La Team"}
                         </NavLink>
 
-                        <NavLink to="/profile" className='nav-item'>
+                        <NavLink onClick={this.handleClick} to="/profile" className='nav-item'>
                             <Fa icon="folder-open mr-2" />
                             {"Mes Dépôts"}
                         </NavLink>
 
-                        <NavLink to="/settings" className='nav-item'>
+                        <NavLink onClick={this.handleClick} to="/settings" className='nav-item'>
                             <Fa icon="cog mr-2" />
                             {"Paramètres"}
                         </NavLink>
