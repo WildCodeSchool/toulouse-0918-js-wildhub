@@ -1,0 +1,27 @@
+#homePage{
+  header{
+    background-image: url("../images/img-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+      .mainAccueil{
+            min-height: calc(100vh - 56px);
+
+            .logo{
+              &:hover{
+                    animation: spin linear infinite 2s;
+              }
+            }
+      }
+  }
+  .mainPresentation{
+        background-color: rgb(26,26,26);
+  }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+  }

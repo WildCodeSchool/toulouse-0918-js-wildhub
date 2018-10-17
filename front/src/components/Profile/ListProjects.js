@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import ReactTooltip from 'react-tooltip';
 import { Row, Col, Card, CardHeader, CardTitle, CardBody, CardFooter, Button, Fa } from 'mdbreact';
-import langColors from '../data/colors.js';
+import langColors from '../../data/colors.js';
 
 
 class Projet extends Component{
@@ -32,7 +32,7 @@ class Projet extends Component{
       if (!isSelect) {
         return (
 
-          <Row id='list-projects'>
+          <Row>
             {reposList.map( (repo, index) => {
                 let langArr = [];
                 let sumCarac = 0;
@@ -158,12 +158,14 @@ class Projet extends Component{
                     </div>
 
                     <div className='mb-5'>
-                      <h4>Liens vers le dépot GitHub</h4>
-                      <a
+                    <Button outline color='blue-grey' size='sm'>
+                        <a
                         href={html_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                      >{html_url}</a>
+                        className='text-dark'
+                        >Voir sur github</a>
+                    </Button>
                     </div>
 
                  </CardBody>

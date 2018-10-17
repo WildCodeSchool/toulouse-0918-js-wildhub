@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import "../styles/AsideProfile.css";
-import html from "../images/icons/html.png";
-import js from "../images/icons/js.png";
-import nodejs from "../images/icons/nodejs.png";
+import html from "../../images/icons/html.png";
+import js from "../../images/icons/js.png";
+import nodejs from "../../images/icons/nodejs.png";
 import { Row, Col } from 'mdbreact';
 
 class AsideProfile extends Component {
@@ -19,13 +18,13 @@ class AsideProfile extends Component {
 
     getProfile = () => {
         fetch('https://api.github.com/users/EvaSpessotto')
-            .then(results  =>  results.json()) 
+            .then(results  =>  results.json())
             .then(profile  => {
                 this.setState({
                     profileInfos: profile
                 });
             });
-    } 
+    }
 
 
   render() {
@@ -41,7 +40,7 @@ class AsideProfile extends Component {
             img: nodejs
         }
     ]
-    
+
     return (
         <Row className="justify-content-center">
             <Col xs='12' className="mb-3">
@@ -50,10 +49,10 @@ class AsideProfile extends Component {
                     <h1 className="profile-name" >{this.state.profileInfos.name}</h1>
 
                     <p className="profile-location">{this.state.profileInfos.location}</p>
-                    
-                    <p className="profile-blog"><a href={'/blog/' + this.state.profileInfos.blog} target="_blank">{this.state.profileInfos.blog}</a></p>
-                    
-                    
+
+                    <p className="profile-blog"><a href={'/blog/' + this.state.profileInfos.blog} rel="noopener noreferrer" target="_blank">{this.state.profileInfos.blog}</a></p>
+
+
                 </div>
             </Col>
 
@@ -73,7 +72,7 @@ class AsideProfile extends Component {
                 </ul>
             </Col>
 
-            
+
         </Row>
     );
   }
