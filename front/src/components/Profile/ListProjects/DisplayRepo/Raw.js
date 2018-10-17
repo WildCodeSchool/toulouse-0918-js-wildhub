@@ -41,7 +41,7 @@ class Raw extends Component {
 
     axios.get(file, {
     headers: {
-      Authorization: `Bearer ${'6915ea5a6bdf7bfb42a54a7e66c9d42ee1c74ef6'}`
+      Authorization: `Bearer ${token}`
     }
   })
       .then(response => {

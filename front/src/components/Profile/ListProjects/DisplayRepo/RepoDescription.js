@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import token from '../../../config';
+import token from '../../../../config';
 import ReactTooltip from 'react-tooltip';
-import Raw from './DisplayCode/Raw';
-import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter, Button, Fa } from 'mdbreact';
+import Raw from './Raw';
+import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter, Fa } from 'mdbreact';
 
-class Repo extends Component {
+class RepoDescription extends Component {
 
   constructor(props){
     super(props);
@@ -15,7 +15,7 @@ class Repo extends Component {
   }
 
   componentDidMount() {
-    const { ownerName, repoName } = this.props.match.params;
+    const { ownerName, repoName } = this.props;
     fetch(`https://api.github.com/repos/${ownerName}/${repoName}`, {
       headers: {
         Authorization: `Bearer ${token}`
@@ -41,9 +41,8 @@ class Repo extends Component {
   }
 
   render() {
-    const { repoName } = this.props.match.params;
-    const { name, html_url, description, created_at, updated_at, url } = this.state.repo;
-    const readmeObj = this.state.files.filter(x=>x.name==='README.md')
+    const { name, html_url, description, created_at, updated_at } = this.state.repo;
+    const readmeObj = this.state.files.filter(readme => readme.name === 'README.md')
     return (
       <Container>
 
@@ -105,4 +104,4 @@ class Repo extends Component {
   }
 }
 
-export default Repo;
+export default RepoDescription;

@@ -6,10 +6,10 @@ class Footer extends Component {
     render() {
         return (
             <footer>
-              <Container fluid className="bg-dark text-light text-center pt-5 pb-5">
+              <Container fluid className="bg-dark text-light text-center pt-4 pb-3">
                   <Row>
-                      <Col style={{fontSize: '20px'}}>
-                          <p>Made with <Fa icon="heart" className="text-danger" /> by <NavLink to='/team' className='text-white'><u>wildHub team</u></NavLink></p>
+                      <Col >
+                          <p>Made with <Fa icon="heart" className="text-danger" /> by <NavLink to='/team' className='text-white'><u><span className="fedra-text">wild</span>Hub team</u></NavLink></p>
                       </Col>
                   </Row>
               </Container>

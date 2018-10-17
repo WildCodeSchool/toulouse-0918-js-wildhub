@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from "react";
+import React, { Component } from "react";
 import { Row } from 'mdbreact';
 import DisplayRepoCard from './ListProjects/DisplayRepoCard';
 
@@ -13,22 +13,17 @@ class Projet extends Component{
     }
 
     render() {
-      let isSelect = this.state.isRepoSelect;
       const reposList = this.props.getReposList;
 
         return (
           <Row>
-            {reposList.map( (repo, index) => {
-                let langArr = [];
-                let sumCarac = 0;
-
-                return(
+            {reposList.map( (repo, index) =>
                   <DisplayRepoCard
                     repo={repo}
                     key={index}
                   />
                 )
-            })}
+            }
             </Row>
         );
     }

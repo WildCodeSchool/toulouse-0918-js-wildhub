@@ -62,11 +62,22 @@ code {
 /* //////////////////// FIN TYPOS /////////////////////////////////// */
 
 #root{
+  min-height: 100vh;
   padding-top: 66px;
+  display: flex;
+  flex-direction: column;
+
+  main{
+    flex: 1;
+  }
+
 }
 
 footer{
     font-family: "Gotham";
+    u{
+        text-decoration: none;
+    }
   .fedra-text{
       font-family: "Fedra";
   }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
 import AsideProfile from './Profile/AsideProfile';
 import ListProjects from './Profile/ListProjects';
-import Footer from './Footer';
 import { Container, Row, Col } from 'mdbreact';
 import token from '../config';
 
@@ -49,25 +47,21 @@ class Profile extends Component {
 
     render() {
         return (
-            <div id='profile-page'>
-                <Navbar />
-                <main>
-                  <Container>
-                      <Row>
-                          <Col xs='12' lg='3' id='aside-profile' className='my-5'>
-                             { this.state.reposList.length > 0
-                             ? <AsideProfile  />
-                             : ''
-                          }
-                          </Col>
-                          <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
-                              <ListProjects getReposList={this.state.reposList} />
-                          </Col>
-                      </Row>
-                  </Container>
-              </main>
-              <Footer />
-            </div>
+              <main id='profile-page'>
+                <Container>
+                    <Row>
+                        <Col xs='12' lg='3' id='aside-profile' className='my-5'>
+                           { this.state.reposList.length > 0
+                           ? <AsideProfile  />
+                           : ''
+                        }
+                        </Col>
+                        <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
+                            <ListProjects getReposList={this.state.reposList} />
+                        </Col>
+                    </Row>
+                </Container>
+            </main>
         );
     }
 }
