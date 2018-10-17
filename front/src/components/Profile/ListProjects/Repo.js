@@ -1,80 +1,19 @@
-import React, { Component } from 'react';
-import token from '../../../config';
-import ReactTooltip from 'react-tooltip';
-import Raw from './DisplayCode/Raw';
-import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter, Button, Fa } from 'mdbreact';
+import React, { Component, Fragment } from 'react';
+import RepoDescription from './RepoDescription';
+import Navbar from '../../Navbar';
+import Footer from '../../Footer';
 
 class Repo extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      repo: {}
-    }
-  }
-
-  componentDidMount() {
-    const { ownerName, repoName } = this.props.match.params;
-    fetch(`https://api.github.com/repos/${ownerName}/${repoName}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(results  =>  results.json())
-        .then(repo => {
-          this.setState({
-            repo: repo
-          })
-        });
-  }
-
   render() {
-    const { repoName } = this.props.match.params;
-    const { name, html_url, description, created_at, updated_at, url } = this.state.repo;
+    const { ownerName, repoName } = this.props.match.params;
     return (
-      <Container>
-        <Row>
-          <Col>
-            <Card>
-              <CardTitle>
-                <div>{ name }</div>
-              </CardTitle>
-              <CardBody>
-                <a
-                  href={ html_url }
-                  target='_blank'
-                  rel="noopener noreferrer"
-                  className="ghIcon"
-                  data-tip data-for={`tip-repo-1`}
-                >
-                  <Fa icon="github"/>
-                </a>
-                <ReactTooltip
-                  id={`tip-repo-1`}
-                  place="left"
-                  type="dark"
-                  effect="solid"
-                >
-                  Voir dans GitHub
-                </ReactTooltip>
-                <div>{ description }</div>
-              </CardBody>
-
-
-            {/*Affichage du README RAW COLOR SYNTAX*/}
-              {url && <Raw url={ url } />}
-
-              <CardFooter>
-                <div>
-                  { created_at }
-                  { updated_at }
-                </div>
-              </CardFooter>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    );
+      <Fragment>
+        <Navbar/>
+        <RepoDescription ownerName={ownerName} repoName={repoName}/>
+        <Footer/>
+      </Fragment>
+    )
   }
 }
 

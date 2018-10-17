@@ -4,12 +4,9 @@
     background-image: url("../images/img-2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    
-    margin-top: 60px;
-
       .mainAccueil{
             min-height: calc(100vh - 56px);
-            
+
             .logo{
               width: 100px;
               &:hover{
@@ -57,9 +54,6 @@ main{
   }
 }
     
-   
-  
-}
 
 @keyframes spin {
     100% {
@@ -67,3 +61,4 @@ main{
         transform: rotate(360deg);
     }
   }
+}

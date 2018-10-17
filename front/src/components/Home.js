@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import Navbar from './Navbar'
 import Footer from './Footer'
 import img from '../images/logo-accueil.png'
-import imgAccueil1 from '../images/img-accueil1.jpg'
-import imgAccueil2 from '../images/img-accueil2.jpg'
 import {NavLink} from 'react-router-dom';
 import { Button, Fa } from 'mdbreact';
 import { Parallax } from "react-parallax";
+
 
 const image1 =
   "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a34afeffc0b1dc2552ba82d61ea37204&auto=format&fit=crop&w=1650&q=80";
