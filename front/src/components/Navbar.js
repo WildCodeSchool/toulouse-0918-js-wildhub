@@ -25,7 +25,7 @@ class Navbar extends Component {
         const toggler = this.state.isOpen ? 'times' : 'bars';
         return (
             <div className="navigation">
-                <nav className="navbar navbar-light bg-dark text-light">
+                <nav className="navbar navbar-light bg-dark text-light fixed-top">
                 <span
                     onClick={this.handleClick}
                     className="toggle-nav">
