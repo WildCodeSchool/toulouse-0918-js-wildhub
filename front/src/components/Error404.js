@@ -11,7 +11,7 @@ class Error404 extends Component {
                 <Row className="align-items-center h-100">
                   <div className="p-3">
                     <h1>{"La page que vous cherchez n'existe pas"}</h1>
-                    <NavLink to="/"><Button color="elegant">Retour à l'accueil</Button></NavLink>
+                    <NavLink to="/"><Button color="elegant">{"Retour à l'accueil"}</Button></NavLink>
                   </div>
                 </Row>
               </Container>
