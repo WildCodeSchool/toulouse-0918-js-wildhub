@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import RepoDescription from './RepoDescription';
-import Navbar from '../../Navbar';
-import Footer from '../../Footer';
+import Navbar from '../../../Navbar';
+import Footer from '../../../Footer';
 
 class Repo extends Component {
 

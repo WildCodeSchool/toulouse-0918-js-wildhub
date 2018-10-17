@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import token from '../../../config';
+import token from '../../../../config';
 import ReactTooltip from 'react-tooltip';
-import Raw from './DisplayCode/Raw';
+import Raw from './Raw';
 import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter, Fa } from 'mdbreact';
 
 class RepoDescription extends Component {

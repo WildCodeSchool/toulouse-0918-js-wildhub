@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Loading from './components/Loading';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import Repo from './components/Profile/ListProjects/Repo';
+import Repo from './components/Profile/ListProjects/DisplayRepo/Repo';
 import Error404 from './components/Error404';
 import Team from './components/Team';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';

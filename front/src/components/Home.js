@@ -4,7 +4,7 @@ import Footer from './Footer'
 import img from '../images/logo-accueil.png'
 import imgAccueil1 from '../images/img-accueil1.jpg'
 import imgAccueil2 from '../images/img-accueil2.jpg'
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Container, Row, Col, Button, Fa } from 'mdbreact';
 
 class Home extends Component {

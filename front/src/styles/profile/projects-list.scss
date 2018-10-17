@@ -17,18 +17,19 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                
-                
+
+
                 .repo-name{
                     margin-bottom: 0;
                     font-size: 1.3em;
                     font-family: "Gotham";
+                    color: #3e3e3e;
 
                     h4{
                         width: 85%;
                         text-overflow: clip;
                     }
-                   
+
                 }
 
                 .ghIcon {
@@ -38,7 +39,7 @@
                     &:hover{
                         text-shadow: 0 0 0.35em #AAA;
                         color: #2e2e2e;
-                        
+
                     }
                 }
 
