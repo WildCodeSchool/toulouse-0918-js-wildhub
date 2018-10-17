@@ -5,6 +5,7 @@ import Profile from './components/Profile';
 import Repo from './components/Profile/ListProjects/Repo';
 import Error404 from './components/Error404';
 import Team from './components/Team';
+import CatalogueIdees from './components/CatalogueIdees';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
               <Route path='/profile' component={Profile} />
               <Route path='/:ownerName/repos/:repoName' component={Repo} />
               <Route path='/team' component={Team} />
+              <Route path="/explore" component={CatalogueIdees} />
               <Route component={Error404} />
             </Switch>
           </BrowserRouter>
