@@ -1,38 +1,19 @@
 import React, { Component, Fragment } from 'react';
-import token from '../../../config';
+import RepoDescription from './RepoDescription';
+import Navbar from '../../Navbar';
+import Footer from '../../Footer';
 
 class Repo extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      repo: []
-    }
-  }
-
-  componentDidMount() {
-    const { ownerName, repoName } = this.props.match.params;
-    fetch(`https://api.github.com/repos/${ownerName}/${repoName}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(results  =>  results.json())
-        .then(repo => {
-          this.setState({
-            repo: repo
-          })
-        });
-  }
-
   render() {
-    const { repoName } = this.props.match.params;
-    const { name } = this.state.repo;
+    const { ownerName, repoName } = this.props.match.params;
     return (
       <Fragment>
-        <div>{name}</div>
+        <Navbar/>
+        <RepoDescription ownerName={ownerName} repoName={repoName}/>
+        <Footer/>
       </Fragment>
-    );
+    )
   }
 }
 

@@ -28,34 +28,45 @@
 ::-webkit-resizer{
     width: 20px;
 }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* //////////////////// TYPOS /////////////////////////////////// */
+/* TYPO POUR LES TITRES */
+@font-face {
+  font-family: 'Gotham';
+  src: url("../fonts/Gotham-Bold.otf");
+  src: local('Gotham'),
+          url('../fonts/Gotham-Bold.otf');
+}
+
+/* TYPO POUR LE TEXTE */
+@font-face{
+  font-family: 'SourceSans';
+  src: url("../fonts/SourceSansPro-Light_0.ttf");
+  src: local('SourceSans'),
+          url('../fonts/SourceSansPro-Light_0.ttf');
+}
+
+/* TYPO EN PIXEL */
+@font-face{
+  font-family: 'Fedra';
+  src: url("../fonts/Fedra09-Normal.otf");
+  src: local('Fedra'),
+          url('../fonts/Fedra09-Normal.otf')
+}
+/* //////////////////// FIN TYPOS /////////////////////////////////// */
+
+#root{
+  padding-top: 66px;
+}
+
+footer{
+    font-family: "Gotham";
+  .fedra-text{
+      font-family: "Fedra";
   }
-  
-  /* //////////////////// TYPOS /////////////////////////////////// */
-  /* TYPO POUR LES TITRES */
-  @font-face {
-    font-family: 'Gotham';
-    src: url("../fonts/Gotham-Bold.otf");
-    src: local('Gotham'), 
-            url('../fonts/Gotham-Bold.otf');
-  }
-  
-  /* TYPO POUR LE TEXTE */
-  @font-face{
-    font-family: 'SourceSans';
-    src: url("../fonts/SourceSansPro-Light_0.ttf");
-    src: local('SourceSans'), 
-            url('../fonts/SourceSansPro-Light_0.ttf');
-  }
-  
-  /* TYPO EN PIXEL */
-  @font-face{
-    font-family: 'Fedra';
-    src: url("../fonts/Fedra09-Normal.otf");
-    src: local('Fedra'), 
-            url('../fonts/Fedra09-Normal.otf')
-  }
-  /* //////////////////// FIN TYPOS /////////////////////////////////// */
+}

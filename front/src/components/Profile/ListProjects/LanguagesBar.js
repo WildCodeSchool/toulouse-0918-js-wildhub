@@ -5,7 +5,7 @@ import langColors from '../../../data/colors.js';
 class LanguagesBar extends Component {
   render() {
     let sumCarac = 0, countIdSpan = 0;
-    const { repo, idx } = this.props;
+    const { repo } = this.props;
     let langArr = [];
 
     Object.entries(repo.language_stat).map(([key, value]) => {
