@@ -24,7 +24,7 @@ class DisplayRepoCard extends Component {
 
           <CardBody>
             <div className="repo-title">
-            <NavLink to={`${repo.owner.login}/repos/${repo.name}`} className="repo-name">
+            <NavLink to={`/users/${repo.owner.login}/repos/${repo.name}`} className="repo-name">
               <CardTitle>{repo.name}</CardTitle>
             </NavLink>
 
