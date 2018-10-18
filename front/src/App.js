@@ -35,12 +35,12 @@ class App extends Component {
           <Navbar />
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/accueil' component={Home} />
+                <Route exact path='/home' component={Home} />
                 <Route exact path='/explore' component={CatalogueIdees} />
-                <Route path='/users' component={Profile} />
-                <Route path='/:ownerName/repos/:repoName' component={Repo} />
-                <Route path='/explore/:ownerName/repos/:repoName' component={RepoExplore} />
-                <Route path='/team' component={Team} />
+                <Route exact path='/explore/:ownerName/repos/:repoName' component={RepoExplore} />
+                <Route exact path='/users' component={Profile} />
+                <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
+                <Route exact path='/team' component={Team} />
                 <Route component={Error404} />
               </Switch>
           <Footer />

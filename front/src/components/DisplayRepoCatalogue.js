@@ -36,8 +36,7 @@ class DisplayRepoCatalogue extends Component {
                   </div>
 
 
-
-                  <Link to='/profile' className='repo-owner'>
+                  <Link to={`/users/${owner.login}`} className='repo-owner'>
                     <h6>{owner.login}</h6>
                   </Link>
 
