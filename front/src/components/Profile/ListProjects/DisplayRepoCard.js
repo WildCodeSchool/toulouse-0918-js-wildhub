@@ -24,8 +24,8 @@ class DisplayRepoCard extends Component {
 
           <CardBody>
             <div className="repo-title">
-            <Link to={`${repo.owner.login}/repos/${repo.name}`}>
-              <CardTitle className="repo-name">{repo.name}</CardTitle>
+            <Link to={`${repo.owner.login}/repos/${repo.name}`} className="repo-name">
+              <CardTitle>{repo.name}</CardTitle>
             </Link>
 
             <a
