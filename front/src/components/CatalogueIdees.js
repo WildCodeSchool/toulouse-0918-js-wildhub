@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import Navbar from './Navbar';
 import ReactTooltip from 'react-tooltip';
 import { Container, Row, Col, Card, CardBody, CardTitle, CardFooter, Fa } from 'mdbreact';
 import DisplayRepoCatalogue from './DisplayRepoCatalogue';
@@ -31,7 +30,6 @@ class CatalogueIdees extends Component {
         const { repos } = this.state;
         return (
             <Fragment>
-                <Navbar />
                 <main id="explore-page">
                 <Container className='py-5'>
                     <Row className="align-items-center">

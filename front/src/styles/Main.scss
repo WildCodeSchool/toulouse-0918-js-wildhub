@@ -26,6 +26,14 @@
     background: -webkit-linear-gradient(top, rgba(#5600ff, .9) 0%,rgba(#ff0000, .7) 50%,rgba(#00ff28, .5) 100%);
 }
 
+::-webkit-scrollbar-thumb:horizontal{
+    background: -webkit-linear-gradient(left, rgba(#5600ff, .6) 0%,rgba(#ff0000, .4) 50%,rgba(#00ff28, .2) 100%);
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover{
+    background: -webkit-linear-gradient(left, rgba(#5600ff, .9) 0%,rgba(#ff0000, .7) 50%,rgba(#00ff28, .5) 100%);
+}
+
 ::-webkit-resizer{
     width: 20px;
 }

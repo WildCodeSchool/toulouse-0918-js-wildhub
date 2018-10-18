@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import RepoDescription from './RepoDescription';
-import Navbar from '../../../Navbar';
-import Footer from '../../../Footer';
 
 class Repo extends Component {
 
@@ -9,9 +7,7 @@ class Repo extends Component {
     const { ownerName, repoName } = this.props.match.params;
     return (
       <Fragment>
-        <Navbar/>
         <RepoDescription ownerName={ownerName} repoName={repoName}/>
-        <Footer/>
       </Fragment>
     )
   }
