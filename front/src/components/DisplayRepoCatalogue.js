@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 
 class DisplayRepoCatalogue extends Component {
   render() {
-    const { description, created_at, updated_at, html_url, owner } = this.props.repo
-    const { key, repo, name } = this.props
+    const {description, created_at, updated_at, html_url, owner } = this.props.repo;
+    const { key, repo, name } = this.props;
     return(
       <Col xs='12' lg='4' className="mx-auto mb-5">
           <Card className="repoCard">
               <CardBody>
                   <div className="repo-title">
-                    <Link to={`${owner.login}/repos/${name}`}>
-                      <CardTitle className="repo-name">{name}</CardTitle>
+                    <Link to={`${owner.login}/repos/${name}`} className="repo-name">
+                      <CardTitle>{name}</CardTitle>
                     </Link>
 
                     <a
@@ -37,8 +37,8 @@ class DisplayRepoCatalogue extends Component {
 
 
 
-                  <Link to='/profile'>
-                    <h5>{owner.login}</h5>
+                  <Link to='/profile' className='repo-owner'>
+                    <h6>{owner.login}</h6>
                   </Link>
 
                   <hr />
@@ -58,7 +58,7 @@ class DisplayRepoCatalogue extends Component {
 
             {/*Le problème de l'affichage du span vient probablement de la manière dont est importé le repo dans la BDD, décalage key/value*/}
               <LanguagesBar repo={repo} key={key} name={name}/>
-              
+
           </Card>
       </Col>
     )

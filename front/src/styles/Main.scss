@@ -2,7 +2,8 @@
 @import 'home';
 @import 'navbar';
 @import 'profile';
-@import 'explore';
+@import 'repos';
+@import 'error';
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -77,6 +78,7 @@ code {
 
   main{
     flex: 1;
+    background: #fcfcfc;
   }
 
 }

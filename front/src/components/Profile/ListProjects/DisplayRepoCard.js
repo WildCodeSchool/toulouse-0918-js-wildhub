@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import LanguagesBar from './LanguagesBar';
 import ReactTooltip from 'react-tooltip';
 import { Col, Card, CardBody, CardTitle, CardFooter, Fa } from 'mdbreact';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 class DisplayRepoCard extends Component {
@@ -24,9 +24,9 @@ class DisplayRepoCard extends Component {
 
           <CardBody>
             <div className="repo-title">
-            <Link to={`${repo.owner.login}/repos/${repo.name}`}>
-              <CardTitle className="repo-name">{repo.name}</CardTitle>
-            </Link>
+            <NavLink to={`${repo.owner.login}/repos/${repo.name}`} className="repo-name">
+              <CardTitle>{repo.name}</CardTitle>
+            </NavLink>
 
             <a
               href={repo.html_url}
