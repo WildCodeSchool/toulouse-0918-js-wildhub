@@ -1,55 +1,17 @@
 import React, { Component } from 'react';
-import token from '../../../../config';
 import ReactTooltip from 'react-tooltip';
 import Raw from './Raw';
 import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter, Fa } from 'mdbreact';
 
 class RepoDescription extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      repo: {},
-      files: [],
-    }
-  }
-
-  componentDidMount() {
-    const { ownerName, repoName } = this.props;
-    fetch(`https://api.github.com/repos/${ownerName}/${repoName}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
-      .then(results  =>  results.json())
-        .then(repo => {
-          this.setState({
-            repo: repo
-          })
-        });
-        fetch(`https://api.github.com/repos/${ownerName}/${repoName}/contents`, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-          .then(results  =>  results.json())
-          .then(files => {
-            this.setState({
-              files: files
-            })
-          })
-  }
-
   render() {
-    const { name, html_url, description, created_at, updated_at } = this.state.repo;
-    const readmeObj = this.state.files.filter(readme => readme.name === 'README.md')
+    const { name, html_url, description, created_at, updated_at } = this.props.repo;
+    const { files } = this.props;
+    const readmeObj = files.filter(readme => readme.name === 'README.md')
     return (
-      <Container>
 
-        <Row>
-
-          <Col>
-
+        <Col xs='12' lg='8' className='mr-auto'>
             <Card>
 
               <CardTitle>
@@ -76,10 +38,8 @@ class RepoDescription extends Component {
                 </ReactTooltip>
                 <div>{ description }</div>
 
-
-                {/*Affichage du README RAW COLOR SYNTAX*/}
                 {
-                  this.state.files.length &&
+                  files.length && readmeObj.length &&
                   <Raw readmeObj={readmeObj[0]}/>
                 }
 
@@ -94,12 +54,7 @@ class RepoDescription extends Component {
               </CardFooter>
 
             </Card>
-
           </Col>
-
-        </Row>
-
-      </Container>
     );
   }
 }

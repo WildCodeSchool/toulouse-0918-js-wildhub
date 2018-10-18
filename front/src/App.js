@@ -24,7 +24,9 @@ class App extends Component {
   }
 
   render() {
-
+    if(this.state.loading){
+        return <Loading />;
+    }
 
     return (
     <BrowserRouter>
@@ -34,7 +36,7 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route path='/accueil' component={Home} />
                 <Route path='/explore' component={CatalogueIdees} />
-                <Route path='/profile' component={Profile} />
+                <Route path='/users' component={Profile} />
                 <Route path='/:ownerName/repos/:repoName' component={Repo} />
                 <Route path='/team' component={Team} />
                 <Route component={Error404} />

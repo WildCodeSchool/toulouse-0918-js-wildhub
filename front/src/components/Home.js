@@ -32,7 +32,7 @@ class Home extends Component {
                           <p className="text-white fedra-text mt-5">Bonne visite !</p>
                         </div>
                         <div className="pt-5 pb-5">
-                          <NavLink to='/profile' className='text-white'>
+                          <NavLink to='/users' className='text-white'>
                             <Button variant='contained' color='mdb' className="black-text">
                               <span style={{verticalAlign: 'middle'}}>
                                 Se connecter

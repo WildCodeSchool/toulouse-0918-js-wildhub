@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, Row, Button } from 'mdbreact';
-import '../styles/error.scss';
 
 class Error404 extends Component {
     render(){
