@@ -13,7 +13,7 @@ class DisplayRepoCatalogue extends Component {
           <Card className="repoCard">
               <CardBody>
                   <div className="repo-title">
-                    <Link to={`${owner.login}/repos/${name}`} className="repo-name">
+                    <Link to={`/explore/${owner.login}/repos/${name}`} className="repo-name">
                       <CardTitle>{name}</CardTitle>
                     </Link>
 
