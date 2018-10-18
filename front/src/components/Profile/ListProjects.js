@@ -21,6 +21,7 @@ class Projet extends Component{
                   <DisplayRepoCard
                     repo={repo}
                     key={index}
+                    name={repo.name}
                   />
                 )
             }

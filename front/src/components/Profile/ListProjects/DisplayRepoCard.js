@@ -15,7 +15,7 @@ class DisplayRepoCard extends Component {
 
   render() {
 
-    const { repo, key } = this.props;
+    const { repo, key, name } = this.props;
 
     return(
       <Col md='6' className='mb-4'>
@@ -60,7 +60,7 @@ class DisplayRepoCard extends Component {
             </small>
           </CardFooter>
 
-          <LanguagesBar repo={repo} idx={key} />
+          <LanguagesBar repo={repo} key={key} name={name}/>
 
         </Card>
 

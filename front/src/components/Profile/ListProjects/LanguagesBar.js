@@ -5,7 +5,7 @@ import langColors from '../../../data/colors.js';
 class LanguagesBar extends Component {
   render() {
     let sumCarac = 0, countIdSpan = 0;
-    const { repo } = this.props;
+    const { repo, key, name } = this.props;
     let langArr = [];
 
     Object.entries(repo.language_stat).map(([key, value]) => {
@@ -19,17 +19,17 @@ class LanguagesBar extends Component {
 
           {
               langArr.map((lanSingleArr, index) => {
-                  countIdSpan++;
+                  countIdSpan += 1
                   return(
                       <Fragment key={index}>
                           <span
                               style={{width: (lanSingleArr[1] / sumCarac)*100 + '%',
                               background: langColors[lanSingleArr[0]]
                               }}
-                              data-tip data-for={`tip-lang-${countIdSpan}`}
+                              data-tip data-for={`tip-lang-${name}-${countIdSpan}`}
                           ></span>
                           <ReactTooltip
-                              id={`tip-lang-${countIdSpan}`}
+                              id={`tip-lang-${name}-${countIdSpan}`}
                               place="top"
                               type="dark"
                               effect="float"
