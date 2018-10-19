@@ -18,11 +18,7 @@ class Repo extends Component {
     const { ownerName, repoName } = this.props.match.params;
     const { repo, files } = this.state;
 
-    fetch(`https://api.github.com/repos/${ownerName}/${repoName}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
+    fetch(`https://wildhub.ssd1.ovh/api/users/${ownerName}/${repoName}`)
       .then(results  =>  results.json())
         .then(repo => {
           this.setState({
@@ -48,7 +44,7 @@ class Repo extends Component {
     return (
       <main id='repo-page'>
         <Container className='py-5'>
-          <Row>
+          <Row className='flex-column-reverse flex-lg-row'>
             <RepoDescription repo={repo} files={files} ownerName={ownerName} repoName={repoName}/>
             <AsideRepo ownerName={ownerName} repo={repo}/>
           </Row>

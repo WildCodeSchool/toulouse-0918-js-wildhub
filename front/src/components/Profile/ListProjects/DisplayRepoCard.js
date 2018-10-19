@@ -24,27 +24,27 @@ class DisplayRepoCard extends Component {
 
           <CardBody>
             <div className="repo-title">
-            <NavLink to={`/users/${repo.owner.login}/repos/${repo.name}`} className="repo-name">
-              <CardTitle>{repo.name}</CardTitle>
-            </NavLink>
+                <NavLink to={`/users/${repo.owner.login}/repos/${repo.name}`} className="repo-name">
+                  <CardTitle>{repo.name}</CardTitle>
+                </NavLink>
 
-            <a
-              href={repo.html_url}
-              target='_blank'
-              rel="noopener noreferrer"
-              className="ghIcon"
-              data-tip data-for={`tip-repo-${key}`}
-            >
-              <Fa icon="github"/>
-            </a>
-            <ReactTooltip
-              id={`tip-repo-${key}`}
-              place="left"
-              type="dark"
-              effect="solid"
-            >
-              Voir dans GitHub
-            </ReactTooltip>
+                <a
+                  href={repo.html_url}
+                  target='_blank'
+                  rel="noopener noreferrer"
+                  className="ghIcon"
+                  data-tip data-for={`tip-repo-${key}`}
+                >
+                  <Fa icon="github"/>
+                </a>
+                <ReactTooltip
+                  id={`tip-repo-${key}`}
+                  place="left"
+                  type="dark"
+                  effect="solid"
+                >
+                  Voir dans GitHub
+                </ReactTooltip>
             </div>
 
             <hr/>
@@ -56,7 +56,7 @@ class DisplayRepoCard extends Component {
 
           <CardFooter>
             <small className='text-muted font-italic'>
-              {`Dernière activité le ${repo.updated_at}`}
+              { `Dernière activité le ${new Date(repo.updated_at).toLocaleDateString('fr-FR')}` }
             </small>
           </CardFooter>
 

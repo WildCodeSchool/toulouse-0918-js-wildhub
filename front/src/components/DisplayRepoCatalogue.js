@@ -48,10 +48,7 @@ class DisplayRepoCatalogue extends Component {
               </CardBody>
               <CardFooter>
                   <small className='text-muted font-italic'>
-                      Créé le {created_at}
-                  </small>
-                  <small className='text-muted font-italic'>
-                      Dernière activitée le {updated_at}
+                      { `Dernière activité le ${new Date(updated_at).toLocaleDateString('fr-FR')}` }
                   </small>
               </CardFooter>
 
