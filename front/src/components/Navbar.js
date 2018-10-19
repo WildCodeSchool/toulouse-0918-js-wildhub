@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import img from '../images/logo-light.png';
-import { Fa} from 'mdbreact';
+import { Fa, Button } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
+import { css } from 'emotion';
+import styled from 'react-emotion';
 
 class Navbar extends Component {
 
@@ -20,7 +22,6 @@ class Navbar extends Component {
 
     }
 
-
     scrollable = () => {
         if(this.state.isOpen){
             document.body.style.overflow = 'hidden';
@@ -29,6 +30,8 @@ class Navbar extends Component {
             document.body.style.overflow = 'auto';
         }
     }
+
+
 
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
@@ -53,6 +56,8 @@ class Navbar extends Component {
                             <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
                             <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
                             <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
+
+                            <Button className="px-3 py-2">Light Mode</Button>
                         </div>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
