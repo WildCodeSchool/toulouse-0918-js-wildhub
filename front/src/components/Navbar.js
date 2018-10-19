@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import img from '../images/logo-light.png';
 import { Fa, Button } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
-import { css } from 'emotion';
-import styled from 'react-emotion';
 
 class Navbar extends Component {
 
@@ -12,6 +10,7 @@ class Navbar extends Component {
         super(props);
         this.state = {
             isOpen: false,
+
         };
     }
 
@@ -31,7 +30,7 @@ class Navbar extends Component {
         }
     }
 
-
+ 
 
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
@@ -56,8 +55,6 @@ class Navbar extends Component {
                             <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
                             <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
                             <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
-
-                            <Button className="px-3 py-2">Light Mode</Button>
                         </div>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
@@ -86,6 +83,8 @@ class Navbar extends Component {
                             <Fa icon="cog mr-2" />
                             {"Paramètres"}
                         </NavLink>
+
+                        
                     </div>
                 </nav>
             </div>)
