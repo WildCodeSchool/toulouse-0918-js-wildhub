@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import img from '../images/logo-light.png';
 import { Fa} from 'mdbreact';
 import { NavLink } from 'react-router-dom';
-import SwitchButton from './SwitchButton';
 
 class Navbar extends Component {
 
@@ -54,7 +53,6 @@ class Navbar extends Component {
                             <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
                             <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
                             <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
-                            <SwitchButton />
                         </div>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
@@ -83,7 +81,6 @@ class Navbar extends Component {
                             <Fa icon="cog mr-2" />
                             {"Paramètres"}
                         </NavLink>
-                        <SwitchButton />
                     </div>
                 </nav>
             </div>)
