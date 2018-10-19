@@ -5,13 +5,16 @@ import { Parallax } from "react-parallax";
 import { Container, Row, Col, Button, Fa } from 'mdbreact';
 
 
+const images = {
+  image1: "https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  image2: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  image3: "https://images.pexels.com/photos/517884/pexels-photo-517884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  image4: "https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  image5: "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+}
 
-const image1 =
-  "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a34afeffc0b1dc2552ba82d61ea37204&auto=format&fit=crop&w=1650&q=80";
-const image2=
-"https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-const image3=
-"https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+
+
 
 
 class Home extends Component {
@@ -44,14 +47,15 @@ class Home extends Component {
                     </Row>
                   </Container>
                 </header>
+
                 <Container fluid className="under-accueil p-0">
-                  <Parallax  bgImage={image1} strength={600}>
+                  <Parallax  bgImage={images.image1} strength={600}>
                     <div className="parallax-div"> </div>
                   </Parallax>
 
                     <div className="row pt-5 pb-5 mainPresentation">
                         <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                          <img className="img-fluid rounded z-depth-1" src={image2}  alt="placeHolder"></img>
+                          <img className="img-fluid rounded z-depth-1" src={images.image2}  alt="placeHolder"></img>
                           <div className="mt-5">
                               <h2 className="text-white">{"La Plateforme d'échange des Wilders !"}</h2>
                               <p className="text-white">
@@ -61,7 +65,23 @@ class Home extends Component {
                         </div>
                     </div>
 
-                    <Parallax bgImage={image1} strength={600} >
+                    <Parallax bgImage={images.image3} strength={600} >
+                      <div className="parallax-div"></div>
+                    </Parallax>
+
+                    <div className="row pt-5 pb-5 mainPresentation">
+                        <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
+                          <img className="img-fluid rounded z-depth-1" src={images.image4}  alt="placeHolder"></img>
+                          <div className="mt-5">
+                              <h2 className="text-white">{"La Plateforme d'échange des Wilders !"}</h2>
+                              <p className="text-white">
+                                  {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
+                              </p>
+                          </div>
+                        </div>
+                    </div>
+
+                    <Parallax bgImage={images.image5} strength={600} >
                       <div className="parallax-div"></div>
                     </Parallax>
                 </Container>
