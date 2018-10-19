@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import img from '../images/logo-light.png';
 import { Fa, Button } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
+import styled from 'react-emotion';
 
 class Navbar extends Component {
 
@@ -30,12 +31,13 @@ class Navbar extends Component {
         }
     }
 
- 
+    
 
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
         const toggler = this.state.isOpen ? 'times' : 'bars';
 
+       
         this.scrollable();
 
         return (

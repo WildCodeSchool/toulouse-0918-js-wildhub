@@ -6,6 +6,7 @@ import { Container, Row, Col, Button, Fa } from 'mdbreact';
 import styled from 'react-emotion';
 import blackLogo from '../images/loading.png';
 import whiteLogo from '../images/logo-accueil.png';
+
 // Images pour le parallax
 const images = {
   image1: "https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -18,31 +19,43 @@ const images = {
 
 // Style de la div qui va changer de thème
 const MainPresentation = styled('div')(
-  {transition: 'ease-in-out 0.3s'},
+ 
   props => ({
     backgroundColor: props.bgColor,
     color: props.color
   })
 )
 
+const Title = styled('h2')(
+  {
+    fontFamily: "Gotham"
+  },
+)
+
+const Text = styled('p')(
+  {
+    fontFamily: "SourceSans"
+  },
+)
+
 // Propriétés du theme dark
 const darkThemeProps = {
   nameTheme: 'Dark Theme', 
+  iconeTheme: 'fa fa-moon-o',
   bgColorButton: 'black', 
   bgColor: '#262626', 
   color: 'white',
   logo: whiteLogo
- 
 }
 
 // Propriétés du theme light
 const lightThemeProps = {
   nameTheme: 'Light Theme', 
+  iconeTheme: 'fa fa-sun-o',
   bgColorButton: 'white', 
   bgColor: 'white', 
   color: 'black',
-  logo: blackLogo
-
+  logo: blackLogo,
 }
 
 class Home extends Component {
@@ -50,7 +63,7 @@ class Home extends Component {
     constructor(props){
       super(props);
       this.state = {
-        darkTheme: true,
+        darkTheme: true
       }
     }
 
@@ -70,10 +83,12 @@ class Home extends Component {
                   onClick={this.changeTheme} 
                   bgColor={themeProps.bgColorButton} 
                   color={themeProps.bgColorButton} 
-                  style={{ position:'fixed', zIndex:"10"}}
+                  style={{ position:'fixed', zIndex:"10", borderRadius: '100px' }}
+                  className="py-3 px-4"
                 >
-                  {themeProps.nameTheme}
+                  <i className={themeProps.iconeTheme} aria-hidden="true"></i>
                 </Button>
+                
                 <header>
                   <Container fluid>
                     <Row className="mainAccueil align-items-center">
@@ -81,11 +96,13 @@ class Home extends Component {
                         <div className="pt-5">
                           <img className="img-fluid logo mt-5" src={themeProps.logo} alt="logo" />
                         </div>
+
                         <MainPresentation color={themeProps.color}  className="pt-5">
-                          <h1 className="pb-3" >{"Bienvenue sur WildHub !"}</h1>
-                          <p className="text-left">{"Wild Hub est un outil de partage de projets personnels à disposition des actuels et anciens élèves de la Wild Code School. Après une simple inscription, partagez votre code sur l'espace dédié par l'intermédiaire de Git Hub. Vous ne souhaitez pas vous inscrire sur Wild Hub? Pas de problèmes, vous pourrez quand même consulter les projets diffusés par les Wilders."}</p>
-                          <p className="fedra-text mt-5">Bonne visite !</p>
+                          <Title className="pb-3" >{"Bienvenue sur WildHub !"}</Title>
+                          <Text className="text-left">{"Wild Hub est un outil de partage de projets personnels à disposition des actuels et anciens élèves de la Wild Code School. Après une simple inscription, partagez votre code sur l'espace dédié par l'intermédiaire de Git Hub. Vous ne souhaitez pas vous inscrire sur Wild Hub? Pas de problèmes, vous pourrez quand même consulter les projets diffusés par les Wilders."}</Text>
+                          <Text className="fedra-text mt-5">Bonne visite !</Text>
                         </MainPresentation>
+                        
                         <div className="pt-5 pb-5">
                           <NavLink to='/profile' className='text-white'>
                             <Button variant='contained' bgColor={themeProps.bgColor} color={themeProps.color} >
@@ -102,7 +119,7 @@ class Home extends Component {
                 </header>
 
                 <Container fluid className="under-accueil p-0">
-                  <Parallax  bgImage={images.image1} strength={600}>
+                  <Parallax bgImage={images.image1} strength={600}>
                     <div className="parallax-div"> </div>
                   </Parallax>
 
@@ -114,10 +131,10 @@ class Home extends Component {
                         <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
                           <img className="img-fluid rounded z-depth-1" src={images.image2}  alt="placeHolder"></img>
                           <div className="mt-5">
-                              <h2>{"La Plateforme d'échange des Wilders !"}</h2>
-                              <p>
+                              <Title>{"La Plateforme d'échange des Wilders !"}</Title>
+                              <Text>
                                   {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
-                              </p>
+                              </Text>
                           </div>
                         </div>
                     </MainPresentation>
@@ -134,10 +151,10 @@ class Home extends Component {
                         <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
                           <img className="img-fluid rounded z-depth-1" src={images.image4}  alt="placeHolder"></img>
                           <div className="mt-5">
-                              <h2>{"La Plateforme d'échange des Wilders !"}</h2>
-                              <p>
+                              <Title>{"La Plateforme d'échange des Wilders !"}</Title>
+                              <Text>
                                   {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
-                              </p>
+                              </Text>
                           </div>
                         </div>
                     </MainPresentation>

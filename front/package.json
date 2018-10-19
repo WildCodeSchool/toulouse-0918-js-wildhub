@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "emotion": "^9.2.12",
+    "emotion-theming": "^9.2.9",
     "fg-loadcss": "^2.0.1",
     "mdbreact": "^4.8.1",
     "node-sass": "^4.9.3",

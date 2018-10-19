@@ -9,37 +9,43 @@ import Error404 from './components/Error404';
 import Team from './components/Team';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+
+
 class App extends Component {
   state = {
     loading: true
   }
 
+  // Loader
   componentDidMount (){
     setTimeout(() => {
       this.setState({
-        loading: false
+        loading: false,
       })
     }, 2000);
   }
+
+  
 
   render() {
     if(this.state.loading){
         return <Loading />;
     }
 
+
     return (
     <BrowserRouter>
         <Fragment>
-          <Navbar />
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route path='/accueil' component={Home} />
-                <Route path='/profile' component={Profile} />
-                <Route path='/:ownerName/repos/:repoName' component={Repo} />
-                <Route path='/team' component={Team} />
-                <Route component={Error404} />
-              </Switch>
-          <Footer />
+            <Navbar />
+                <Switch>
+                  <Route exact path='/' component={Home} />
+                  <Route path='/accueil' component={Home} />
+                  <Route path='/profile' component={Profile} />
+                  <Route path='/:ownerName/repos/:repoName' component={Repo} />
+                  <Route path='/team' component={Team} />
+                  <Route component={Error404} />
+                </Switch>
+            <Footer />
         </Fragment>
     </BrowserRouter>
     );
