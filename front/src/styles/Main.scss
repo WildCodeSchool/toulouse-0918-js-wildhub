@@ -4,6 +4,7 @@
 @import 'profile';
 @import 'repos';
 @import 'error';
+@import 'scrollBtn';
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -69,6 +70,37 @@ code {
           url('../fonts/Fedra09-Normal.otf')
 }
 /* //////////////////// FIN TYPOS /////////////////////////////////// */
+
+@mixin dark-gradient(){
+    background: -webkit-linear-gradient(top, #121212 0%, #212121 100%);
+}
+
+.grad-dark{
+    @include dark-gradient();
+}
+
+// .to-top-btn{
+//     position: fixed;
+//     bottom: 1em;
+//     right: 1em;
+//     padding: 1em!important;
+//     line-height: 0!important;
+//     background: #222!important;
+//     color: white!important;
+//     z-index: 2;
+//     opacity: 0;
+//     cursor: pointer;
+//     transition: all .5s ease-out;
+//
+//     &.show{
+//         opacity: 1;
+//     }
+//
+//     i{
+//         padding: .5em;
+//         line-height: 0;
+//     }
+// }
 
 #root{
   min-height: 100vh;

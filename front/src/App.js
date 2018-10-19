@@ -8,19 +8,36 @@ import Repo from './components/Profile/ListProjects/DisplayRepo/Repo';
 import Error404 from './components/Error404';
 import Team from './components/Team';
 import CatalogueIdees from './components/CatalogueIdees';
+import ScrollBtn from './components/ScrollBtn';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   state = {
-    loading: true
+    loading: true,
+    scrolled: false
   }
 
   componentDidMount (){
     setTimeout(() => {
-      this.setState({
+        this.setState({
         loading: false
       })
     }, 2000);
+
+    window.addEventListener('scroll', this.scrollHandler);
+  }
+
+  scrollHandler = () => {
+      const scrolled =
+        window.pageYOffset > 250
+        ? true
+        : false;
+
+      this.setState({
+          scrolled: scrolled
+      })
+
+      console.log(this.state.scrolled);
   }
 
   render() {
@@ -28,20 +45,23 @@ class App extends Component {
         return <Loading />;
     }
 
+    const scrolled = this.state.scrolled ? 'show' : '';
+
     return (
     <BrowserRouter>
         <Fragment>
           <Navbar />
-              <Switch>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/home' component={Home} />
-                <Route exact path='/explore' component={CatalogueIdees} />
-                <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
-                <Route exact path='/users' component={Profile} />
-                <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
-                <Route exact path='/team' component={Team} />
-                <Route component={Error404} />
-              </Switch>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/explore' component={CatalogueIdees} />
+            <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
+            <Route exact path='/users' component={Profile} />
+            <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
+            <Route exact path='/team' component={Team} />
+            <Route component={Error404} />
+          </Switch>
+          <ScrollBtn state={scrolled} />
           <Footer />
         </Fragment>
     </BrowserRouter>

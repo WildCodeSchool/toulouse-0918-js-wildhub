@@ -6,7 +6,7 @@ class Footer extends Component {
     render() {
         return (
             <footer>
-              <Container fluid className="bg-dark text-light text-center pt-4 pb-3">
+              <Container fluid className="grad-dark text-light text-center pt-4 pb-3">
                   <Row>
                       <Col >
                           <p>Made with <Fa icon="heart" className="text-danger" /> by <NavLink to='/team' className='text-white'><u><span className="fedra-text">wild</span>Hub team</u></NavLink></p>

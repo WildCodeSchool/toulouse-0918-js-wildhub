@@ -48,9 +48,9 @@
                         width: 100%;
                     }
                 }
-                
+
             }
-            
+
             &:hover{
                 color: #f1f1f1;
             }
@@ -71,11 +71,11 @@
             @media screen and (min-width: 768px){
                 display: none;
             }
-        
+
             &.open{
                 right: 0;
             }
-        
+
             a{
                 margin: 8px 32px;
                 display: inline-block;
@@ -97,6 +97,6 @@
 
         }
     }
-    
-    
+
+
 }

@@ -37,7 +37,7 @@ class Navbar extends Component {
 
         return (
             <div className="navigation">
-                <nav className="navbar navbar-light bg-dark text-light fixed-top">
+                <nav className="navbar navbar-light grad-dark text-light fixed-top">
                 <span
                     onClick={this.handleClick}
                     className="toggle-nav">
@@ -47,13 +47,13 @@ class Navbar extends Component {
                         <NavLink to='/' className='navbar-brand'>
                             <img src={img} alt="logo" />
                         </NavLink>
-                        <NavLink to="/home" className='nav-item d-none d-md-inline'>Accueil</NavLink>
+                        <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
                         <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
                         <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
 
-                        <NavLink onClick={this.handleClick} to="/home" className="nav-item">
+                        <NavLink onClick={this.handleClick} to="/" className="nav-item">
                             <Fa icon="home mr-2" />
                             {"Accueil"}
                         </NavLink>
