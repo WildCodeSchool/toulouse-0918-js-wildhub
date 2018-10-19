@@ -11,23 +11,29 @@ import RepoExplore from './components/RepoExplore';
 import CatalogueIdees from './components/CatalogueIdees';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+
+
 class App extends Component {
   state = {
     loading: true
   }
 
+  // Loader
   componentDidMount (){
     setTimeout(() => {
       this.setState({
-        loading: false
+        loading: false,
       })
     }, 2000);
   }
+
+
 
   render() {
     if(this.state.loading){
         return <Loading />;
     }
+
 
     return (
     <BrowserRouter>
