@@ -46,7 +46,7 @@ class App extends Component {
                 <Route exact path='/home' component={Home} />
                 <Route exact path='/explore' component={Explore} />
                 <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
-                <Route exact path='/users' component={Profile} />
+                <Route exact path='/users/:username' component={Profile} />
                 <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
                 <Route exact path='/team' component={Team} />
                 <Route component={Error404} />

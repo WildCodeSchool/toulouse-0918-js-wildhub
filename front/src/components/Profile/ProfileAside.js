@@ -14,11 +14,12 @@ class ProfileAside extends Component {
     }
 
     componentDidMount = () => {
-        this.getProfile();
+      this.getProfile();
     }
 
     getProfile = () => {
-        fetch('https://api.github.com/users/EvaSpessotto', {
+      const { username } = this.props;
+        fetch(`https://api.github.com/users/${username}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

@@ -18,7 +18,8 @@ class Profile extends Component {
     }
 
     getRepos = () => {
-      fetch ('https://api.github.com/users/EvaSpessotto/repos', {
+      const { username } = this.props.match.params;
+      fetch (`https://api.github.com/users/${username}/repos`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -46,13 +47,14 @@ class Profile extends Component {
     }
 
     render() {
+      const { username } = this.props.match.params;
         return (
               <main id='profile-page'>
                 <Container>
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            { this.state.reposList.length > 0
-                           ? <ProfileAside  />
+                           ? <ProfileAside username={username}  />
                            : ''
                         }
                         </Col>

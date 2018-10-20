@@ -63,13 +63,20 @@ class Home extends Component {
     constructor(props){
       super(props);
       this.state = {
-        darkTheme: true
+        darkTheme: true,
+        username: ''
       }
     }
 
     changeTheme = () => {
       this.setState({
         darkTheme: !this.state.darkTheme
+      })
+    }
+
+    getUsername = (e) => {
+      this.setState({
+        username: e.target.value
       })
     }
 
@@ -104,15 +111,28 @@ class Home extends Component {
                         </MainPresentation>
 
                         <div className="pt-5 pb-5">
-                          <NavLink to='/users' className='text-white'>
+
+                          <form action={`/users/${this.state.username}`} className='form-row'>
+                            <Col md='6' className='mx-auto'>
+                              <input
+                                name="username"
+                                id="username"
+                                type="text"
+                                onChange={this.getUsername}
+                              />
+                            </Col>
+                          </form>
+
+
+                          <NavLink to={`/users/${this.state.username}`} className='text-white'>
                             <Button variant='contained' bgColor={themeProps.bgColor} color={themeProps.color} >
                               <span style={{verticalAlign: 'middle'}}>
                                 Se connecter
                                 <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
                               </span>
                             </Button>
-
                           </NavLink>
+
                         </div>
                       </Col>
                     </Row>

@@ -17,7 +17,13 @@ class Repo extends Component {
   componentDidMount() {
     const { ownerName, repoName } = this.props.match.params;
 
-    fetch(`https://wildhub.ssd1.ovh/api/users/${ownerName}/${repoName}`)
+    (window.location.href.includes('/explore/'))
+    ? fetch(`https://wildhub.ssd1.ovh/api/users/${ownerName}/${repoName}`)
+    : fetch(`https://api.github.com/repos/${ownerName}/${repoName}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(results  =>  results.json())
         .then(repo => {
           this.setState({
@@ -40,7 +46,7 @@ class Repo extends Component {
   render() {
     const { ownerName, repoName } = this.props.match.params;
     const { repo, files } = this.state;
-    
+
     return (
       <main id='repo-page'>
         <Container className='py-5'>
