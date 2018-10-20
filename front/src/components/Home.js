@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import img from '../images/logo-accueil.png'
+// import img from '../images/logo-accueil.png';
 import {NavLink} from 'react-router-dom';
 import { Parallax } from "react-parallax";
 import { Container, Row, Col, Button, Fa } from 'mdbreact';
 import styled from 'react-emotion';
 import blackLogo from '../images/loading.png';
-import whiteLogo from '../images/logo-accueil.png';
+// import whiteLogo from '../images/logo-accueil.png';
 
 // Images pour le parallax
 const images = {

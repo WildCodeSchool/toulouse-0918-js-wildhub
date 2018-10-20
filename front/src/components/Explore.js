@@ -1,9 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import ReactTooltip from 'react-tooltip';
-import { Container, Row, Col, Card, CardBody, CardTitle, CardFooter, Fa } from 'mdbreact';
-import DisplayRepoCatalogue from './DisplayRepoCatalogue';
+import {
+    Container,
+    Row,
+    Col
+} from 'mdbreact';
+import RepoCard from './RepoCard';
 
-class CatalogueIdees extends Component {
+class Explore extends Component {
 
     constructor(props) {
       super(props);
@@ -28,6 +31,7 @@ class CatalogueIdees extends Component {
 
     render() {
         const { repos } = this.state;
+
         return (
             <Fragment>
                 <main id="explore-page">
@@ -45,7 +49,7 @@ class CatalogueIdees extends Component {
 
                       {
                         repos.map((repo, index) =>
-                          <DisplayRepoCatalogue
+                          <RepoCard
                             repo={repo}
                             key={index}
                             name={repo.name}
@@ -62,4 +66,4 @@ class CatalogueIdees extends Component {
     }
 }
 
-export default CatalogueIdees;
+export default Explore;

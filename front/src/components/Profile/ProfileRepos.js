@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Row } from 'mdbreact';
-import DisplayRepoCard from './ListProjects/DisplayRepoCard';
+import RepoCard from '../RepoCard';
 
-class Projet extends Component{
+class ProfileRepos extends Component{
 
     constructor(props) {
         super(props);
@@ -17,10 +17,11 @@ class Projet extends Component{
 
         return (
           <Row>
-            {reposList.map( (repo, index) =>
-                  <DisplayRepoCard
+            {reposList.map( (repo, idx) =>
+                  <RepoCard
+                    key={idx}
                     repo={repo}
-                    key={index}
+                    idx={idx}
                     name={repo.name}
                   />
                 )
@@ -30,4 +31,4 @@ class Projet extends Component{
     }
 }
 
-export default Projet;
+export default ProfileRepos;

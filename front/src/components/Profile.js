@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AsideProfile from './Profile/AsideProfile';
-import ListProjects from './Profile/ListProjects';
+import ProfileAside from './Profile/ProfileAside';
+import ProfileRepos from './Profile/ProfileRepos';
 import { Container, Row, Col } from 'mdbreact';
 import token from '../config';
 
@@ -52,12 +52,12 @@ class Profile extends Component {
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            { this.state.reposList.length > 0
-                           ? <AsideProfile  />
+                           ? <ProfileAside  />
                            : ''
                         }
                         </Col>
                         <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
-                            <ListProjects getReposList={this.state.reposList} />
+                            <ProfileRepos getReposList={this.state.reposList} />
                         </Col>
                     </Row>
                 </Container>

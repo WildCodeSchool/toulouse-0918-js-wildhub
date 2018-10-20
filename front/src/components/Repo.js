@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RepoDescription from './Profile/ListProjects/DisplayRepo/RepoDescription';
-import AsideRepo from './Profile/ListProjects/DisplayRepo/AsideRepo';
-import { Container, Row, Col } from 'mdbreact';
+import { Container, Row } from 'mdbreact';
 import token from '../config';
+import RepoDetails from './Repo/RepoDetails';
+import RepoAside from './Repo/RepoAside';
 
 class Repo extends Component {
 
@@ -16,7 +16,6 @@ class Repo extends Component {
 
   componentDidMount() {
     const { ownerName, repoName } = this.props.match.params;
-    const { repo, files } = this.state;
 
     fetch(`https://wildhub.ssd1.ovh/api/users/${ownerName}/${repoName}`)
       .then(results  =>  results.json())
@@ -41,12 +40,13 @@ class Repo extends Component {
   render() {
     const { ownerName, repoName } = this.props.match.params;
     const { repo, files } = this.state;
+    
     return (
       <main id='repo-page'>
         <Container className='py-5'>
           <Row className='flex-column-reverse flex-lg-row'>
-            <RepoDescription repo={repo} files={files} ownerName={ownerName} repoName={repoName}/>
-            <AsideRepo ownerName={ownerName} repo={repo}/>
+            <RepoDetails repo={repo} files={files} ownerName={ownerName} repoName={repoName} />
+            <RepoAside ownerName={ownerName} repo={repo} />
           </Row>
         </Container>
       </main>

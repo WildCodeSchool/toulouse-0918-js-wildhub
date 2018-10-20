@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Col, Card, CardTitle, CardBody } from 'mdbreact';
-import LanguagesList from '../LanguagesList';
+import LangList from './LangList';
 
-class AsideRepo extends Component {
+class RepoAside extends Component {
 
   render() {
 
     const { ownerName, repo } = this.props;
-    const { language_stat, created_at, updated_at, owner, name } = repo;
+    const { language_stat, created_at, updated_at, owner } = repo;
 
     return(
 
@@ -31,18 +31,18 @@ class AsideRepo extends Component {
 
                 <div className='text-muted pl-2'>
                   <small>
-                      { `Crée le ${new Date(created_at).toLocaleDateString('fr-FR')}` }
+                      {created_at && `Crée le ${new Date(created_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </div>
                 <div className='text-muted pl-2'>
                   <small>
-                      { `Dernière activité le ${new Date(updated_at).toLocaleDateString('fr-FR')}` }
+                      {updated_at && `Dernière activité le ${new Date(updated_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </div>
 
                 {
                   language_stat &&
-                  <LanguagesList repo={repo} name={name}/>
+                  <LangList repo={repo} />
                 }
 
               </div>
@@ -56,4 +56,4 @@ class AsideRepo extends Component {
   }
 }
 
-export default AsideRepo;
+export default RepoAside;
