@@ -1,3 +1,5 @@
+import jg_pic from '../images/team/jg_pic.jpeg';
+
 const TeamMembers = [
     {
         name: 'Eva Spessotto',
@@ -17,7 +19,7 @@ const TeamMembers = [
         social: [
             {
                 name: 'GitHub',
-                link: '',
+                link: 'https://github.com/Julien-sans',
                 icon: 'github'
             }
         ],
@@ -29,7 +31,7 @@ const TeamMembers = [
         social: [
             {
                 name: 'GitHub',
-                link: '',
+                link: 'https://github.com/NelsonHui123',
                 icon: 'github'
             }
         ],
@@ -45,6 +47,11 @@ const TeamMembers = [
                 icon: 'github'
             },
             {
+                name: 'CodePen',
+                link: 'https://codepen.io/Jules_Grenier/',
+                icon: 'codepen'
+            },
+            {
                 name: 'Twitter',
                 link: 'https://twitter.com/JulesGrenier_',
                 icon: 'twitter'
@@ -55,7 +62,7 @@ const TeamMembers = [
                 icon: 'linkedin'
             }
         ],
-        avatar: 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+        avatar: jg_pic
     }
 ]
 
