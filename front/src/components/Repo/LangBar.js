@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import ReactTooltip from 'react-tooltip';
-import langColors from '../data/colors.js';
+import langColors from '../../data/colors.js';
 
 class LangBar extends Component {
     render() {

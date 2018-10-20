@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row } from 'mdbreact';
-import RepoCard from '../RepoCard';
+import RepoCard from '../Repo/RepoCard';
 
 class ProfileRepos extends Component{
 

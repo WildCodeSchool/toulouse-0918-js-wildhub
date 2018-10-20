@@ -4,7 +4,7 @@ import {
     Row,
     Col
 } from 'mdbreact';
-import RepoCard from './RepoCard';
+import RepoCard from './Repo/RepoCard';
 
 class Explore extends Component {
 
