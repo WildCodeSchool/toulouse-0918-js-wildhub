@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row } from 'mdbreact';
-import token from '../config';
+import {token} from '../settings';
 import RepoDetails from './Repo/RepoDetails';
 import RepoAside from './Repo/RepoAside';
 

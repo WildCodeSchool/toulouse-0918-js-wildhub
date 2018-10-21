@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import GitHubLogin from 'react-github-login';
 // import img from '../images/logo-accueil.png';
 import {NavLink} from 'react-router-dom';
 import { Parallax } from "react-parallax";
@@ -6,6 +7,7 @@ import { Container, Row, Col, Button, Fa } from 'mdbreact';
 import styled from 'react-emotion';
 import blackLogo from '../images/loading.png';
 // import whiteLogo from '../images/logo-accueil.png';
+import { clientId, redirectUri } from '../settings';
 
 // Images pour le parallax
 const images = {
@@ -82,7 +84,9 @@ class Home extends Component {
 
     render() {
       // Renvoie les propriété de l'objet darkThemeProps ou lightThemeProps selon le sate
-      const themeProps = this.state.darkTheme ? darkThemeProps : lightThemeProps
+      const themeProps = this.state.darkTheme ? darkThemeProps : lightThemeProps;
+
+      console.log(this.props)
 
         return (
             <main id='home-page'>
@@ -112,26 +116,22 @@ class Home extends Component {
 
                         <div className="pt-5 pb-5">
 
-                          <form action={`/users/${this.state.username}`} className='form-row'>
-                            <Col md='6' className='mx-auto'>
-                              <input
-                                name="username"
-                                id="username"
-                                type="text"
-                                onChange={this.getUsername}
-                              />
-                            </Col>
-                          </form>
-
-
-                          <NavLink to={`/users/${this.state.username}`} className='text-white'>
-                            <Button variant='contained' bgColor={themeProps.bgColor} color={themeProps.color} >
-                              <span style={{verticalAlign: 'middle'}}>
+                          {
+                            this.props.login
+                            ? ''
+                            : <GitHubLogin
+                              className="btn btn-primary"
+                              scope="user:email,public_repo"
+                              clientId={clientId}
+                              redirectUri={`${redirectUri}/users/${this.props.login}`}
+                              onSuccess={this.props.handleLoginSuccess}
+                              onFailure={this.props.handleLoginFailure}
+                              children={<span style={{verticalAlign: 'middle'}}>
                                 Se connecter
                                 <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
-                              </span>
-                            </Button>
-                          </NavLink>
+                              </span>}
+                            />
+                          }
 
                         </div>
                       </Col>

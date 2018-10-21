@@ -1,4 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
+import jwtDecode from 'jwt-decode';
+import { apiUrl } from './settings';
+import { githubAxios, apiAxios } from './axiosInstances';
+
 import Loading from './components/Loading';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -8,17 +14,80 @@ import Error404 from './components/Error404';
 import Team from './components/Team';
 import Repo from './components/Repo';
 import Explore from './components/Explore';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 
 class App extends Component {
   constructor(props){
       super(props);
+
+      const {
+        jwt,
+        login,
+        id,
+        accessToken
+      } = this.getStoredAuthData();
+
       this.state = {
-        loading: true
+        loading: true,
+        jwt,
+        login,
+        id,
+        accessToken
       }
-  }
+  };
+
+  getStoredAuthData() {
+    const jwt = localStorage.getItem('jwt');
+
+    if (!jwt) {
+      return { jwt: '', login: '', id: 0, accessToken: '' };
+    }
+
+    const { login, id, accessToken } = jwtDecode(jwt);
+    this.setupAxiosInstances(accessToken, jwt);
+
+    return { jwt, login, id, accessToken };
+  };
+
+  setupAxiosInstances(accessToken, jwt) {
+
+    Object.assign(githubAxios.defaults, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+
+    Object.assign(apiAxios.defaults, {
+      headers: {
+        Authorization: `Bearer ${jwt}`
+      }
+    });
+  };
+
+  updateStateOnSuccess = ({ token }) => {
+    const { accessToken, login, id } = jwtDecode(token);
+    console.log('decoded jwt', accessToken, login, id);
+    localStorage.setItem('jwt', token);
+
+    this.setupAxiosInstances(accessToken, token);
+    this.setState({
+      jwt: token, accessToken, login, id
+    });
+  };
+
+  handleLoginSuccess = ({ code }) => axios.post(`${apiUrl}/api/github/code`, {
+    code
+  })
+    .then(response => response.data)
+    .then(this.updateStateOnSuccess);
+
+  handleLoginFailure = response => console.error(response);
+
+  handleResetState = () => {
+    localStorage.removeItem('jwt');
+    this.setState({ jwt: '', login: '', id: 0, accessToken: '' })
+  };
 
   // Loader
   componentDidMount (){
@@ -36,13 +105,26 @@ class App extends Component {
         return <Loading />;
     }
 
+    const { login } = this.state;
 
     return (
     <BrowserRouter>
         <Fragment>
-          <Navbar />
+          <Navbar
+            handleResetState={this.handleResetState}
+            handleLoginSuccess={this.handleLoginSuccess}
+            handleLoginFailure={this.handleLoginFailure}
+            login={login}
+          />
               <Switch>
-                <Route exact path='/' component={Home} />
+                {/* <Route exact path='/' component={Home} /> */}
+                <Route exact path='/'
+                  render={props => <Home
+                    handleLoginSuccess={this.handleLoginSuccess}
+                    handleLoginFailure={this.handleLoginFailure}
+                    login={login}
+                  />}
+                />
                 <Route exact path='/home' component={Home} />
                 <Route exact path='/explore' component={Explore} />
                 <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
