@@ -45,7 +45,7 @@ const darkThemeProps = {
   bgColorButton: 'black', 
   bgColor: '#262626', 
   color: 'white',
-  logo: whiteLogo
+  logo: whiteLogo,
 }
 
 // Propriétés du theme light
@@ -90,10 +90,10 @@ class Home extends Component {
                 </Button>
                 
                 <header>
-                  <Container fluid>
+                  <Container fluid >
                     <Row className="mainAccueil align-items-center">
                       <Col xs='10' md='8' lg='6' className="mx-auto text-center">
-                        <div className="pt-5">
+                        <div className="pt-5" >
                           <img className="img-fluid logo mt-5" src={themeProps.logo} alt="logo" />
                         </div>
 
