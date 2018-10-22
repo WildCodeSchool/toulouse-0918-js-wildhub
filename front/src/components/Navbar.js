@@ -4,14 +4,19 @@ import { Fa, Button } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
 import styled from 'react-emotion';
 
+
+const Nav = styled('nav')(
+    props => ({
+      backgroundColor: props.bgColor,
+      color: props.color
+    })
+  )
+
 class Navbar extends Component {
-
-
     constructor(props) {
         super(props);
         this.state = {
             isOpen: false,
-
         };
     }
 
@@ -19,7 +24,6 @@ class Navbar extends Component {
         this.setState({
             isOpen: !this.state.isOpen
         });
-
     }
 
     scrollable = () => {
@@ -30,33 +34,37 @@ class Navbar extends Component {
             document.body.style.overflow = 'auto';
         }
     }
-
     
-
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
         const toggler = this.state.isOpen ? 'times' : 'bars';
 
-       
         this.scrollable();
 
         return (
             <div className="navigation">
-                <nav className="navbar navbar-light bg-dark text-light fixed-top">
-                <span
-                    onClick={this.handleClick}
-                    className="toggle-nav">
-                    <Fa icon={toggler} size='lg' />
-                </span>
+                <Nav className="navbar text-light fixed-top" bgColor={this.props.theme.bgColor}>
+                    <span
+                        onClick={this.handleClick}
+                        className="toggle-nav">
+                        <Fa icon={toggler} size='lg' />
+                    </span>
                     <div className="nav-links d-flex justify-content-start align-items-center">
                     
                         <NavLink to='/' className='navbar-brand'>
-                            <img src={img} alt="logo" />
+                            <img src={this.props.theme.logoNav}  alt="logo" />
                         </NavLink>
                         <div className="d-none d-md-inline">
                             <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
                             <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
                             <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
+                            <Button 
+                                onClick={this.props.changeTheme}
+                                bgColor={this.props.theme.bgColorButton} 
+                                color={this.props.theme.color} 
+                            >
+                                {this.props.theme.nameTheme}
+                            </Button>
                         </div>
                     </div>
                     <div id="mySidenav" className={"sidenav " + isOpen}>
@@ -85,10 +93,8 @@ class Navbar extends Component {
                             <Fa icon="cog mr-2" />
                             {"Paramètres"}
                         </NavLink>
-
-                        
                     </div>
-                </nav>
+                </Nav>
             </div>)
     }
 }
