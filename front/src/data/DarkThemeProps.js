@@ -6,11 +6,13 @@ import whiteLogoNav from '../images/logo-light.png'
 const DarkThemeProps = {
     nameTheme: 'Dark Theme', 
     iconeTheme: 'fa fa-moon-o',
-    bgColorButton: 'black', 
-    bgColor: '#262626', 
+    bgColorButton: 'white', 
+    bgColorDiv: '#262626', 
+    bgColor: 'black',
     color: 'white',
     logo: whiteLogo,
     logoNav: whiteLogoNav,
+    filter: 'brightness(40%)'
   }
 
 export default DarkThemeProps;

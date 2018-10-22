@@ -63,7 +63,8 @@ class Navbar extends Component {
                                 bgColor={this.props.theme.bgColorButton} 
                                 color={this.props.theme.color} 
                             >
-                                {this.props.theme.nameTheme}
+                                <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
+                                                    
                             </Button>
                         </div>
                     </div>
@@ -93,6 +94,14 @@ class Navbar extends Component {
                             <Fa icon="cog mr-2" />
                             {"Paramètres"}
                         </NavLink>
+                        <Button 
+                                onClick={this.props.changeTheme}
+                                bgColor={this.props.theme.bgColorButton} 
+                                color={this.props.theme.color} 
+                            >
+                                <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
+                                                    
+                        </Button>
                     </div>
                 </Nav>
             </div>)

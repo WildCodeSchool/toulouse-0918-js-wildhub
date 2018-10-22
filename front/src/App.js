@@ -32,8 +32,6 @@ class App extends Component {
       isDarkTheme: !this.state.isDarkTheme
     })
   }
- 
-  
 
   render() {
     if(this.state.loading){
@@ -51,7 +49,7 @@ class App extends Component {
                   <Route path='/accueil' component={Home} />
                   <Route path='/profile' component={Profile} />
                   <Route path='/:ownerName/repos/:repoName' component={Repo} />
-                  <Route path='/team' component={Team} />
+                  <Route path='/team' render={() => <Team theme={theme} />}/>
                   <Route component={Error404} />
                 </Switch>
             <Footer theme={theme} />

@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import { Container, Row, Col, Button, Fa } from 'mdbreact';
-import img from '../images/logo-accueil.png'
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
 import styled from 'react-emotion';
-import blackLogo from '../images/loading.png';
-import whiteLogo from '../images/logo-accueil.png';
-
 
 
 // Style de la div qui va changer de thème
@@ -18,16 +14,26 @@ const MainPresentation = styled('div')(
   })
 )
 
+// Titres des présentations
 const Title = styled('h2')(
-  {
-    fontFamily: "Gotham"
-  },
+    {
+      fontFamily: "Gotham"
+    },
 )
 
+// Texte des présentations
 const Text = styled('p')(
   {
-    fontFamily: "SourceSans"
+      fontFamily: "SourceSans"
   },
+)  
+
+const Header = styled('header')(
+  props => ({
+    backgroundColor: props.bgColor,
+    color: props.color,
+    filter: props.filter
+  })
 )
 
 
@@ -50,11 +56,11 @@ class Home extends Component {
       
         return (
             <main id='home-page'>
-                <header>
+                <Header filter={this.props.theme.filter}>
                   <Container fluid >
                     <Row className="mainAccueil align-items-center">
                       <Col xs='10' md='8' lg='6' className="mx-auto text-center">
-                        <div className="pt-5" >
+                        <div className="pt-5">
                           <img className="img-fluid logo mt-5" src={this.props.theme.logo} alt="logo" />
                         </div>
 
@@ -77,7 +83,7 @@ class Home extends Component {
                       </Col>
                     </Row>
                   </Container>
-                </header>
+                </Header>
 
                 <Container fluid className="under-accueil p-0">
                   <Parallax bgImage={ParallaxImages.image1} strength={600}>
@@ -85,7 +91,7 @@ class Home extends Component {
                   </Parallax>
 
                     <MainPresentation 
-                      bgColor={this.props.theme.bgColor} 
+                      bgColor={this.props.theme.bgColorDiv} 
                       color={this.props.theme.color}
                       className="py-5 row"
                     >
@@ -105,7 +111,7 @@ class Home extends Component {
                     </Parallax>
 
                     <MainPresentation 
-                      bgColor={this.props.theme.bgColor} 
+                      bgColor={this.props.theme.bgColorDiv} 
                       color={this.props.theme.color}
                       className="py-5 row"
                     >
