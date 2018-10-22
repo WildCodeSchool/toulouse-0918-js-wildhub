@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
-import img from '../images/logo-accueil.png'
 import {NavLink} from 'react-router-dom';
-import { Parallax } from "react-parallax";
 import { Container, Row, Col, Button, Fa } from 'mdbreact';
 import styled from 'react-emotion';
 import blackLogo from '../images/loading.png';
 import whiteLogo from '../images/logo-accueil.png';
-
-// Images pour le parallax
-const images = {
-  image1: "https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  image2: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  image3: "https://images.pexels.com/photos/517884/pexels-photo-517884.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  image4: "https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  image5: "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-}
+import { Parallax } from "react-parallax";
+import ParallaxImages from '../data/ParallaxImages.js';
 
 
 // Style de la div qui va changer de thème
@@ -119,7 +110,7 @@ class Home extends Component {
                 </header>
 
                 <Container fluid className="under-accueil p-0">
-                  <Parallax bgImage={images.image1} strength={600}>
+                  <Parallax bgImage={ParallaxImages.image1} strength={600}>
                     <div className="parallax-div"> </div>
                   </Parallax>
 
@@ -129,7 +120,7 @@ class Home extends Component {
                       className="py-5 row"
                     >
                         <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                          <img className="img-fluid rounded z-depth-1" src={images.image2}  alt="placeHolder"></img>
+                          <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
                           <div className="mt-5">
                               <Title>{"La Plateforme d'échange des Wilders !"}</Title>
                               <Text>
@@ -139,7 +130,7 @@ class Home extends Component {
                         </div>
                     </MainPresentation>
 
-                    <Parallax bgImage={images.image3} strength={600} >
+                    <Parallax bgImage={ParallaxImages.image3} strength={600} >
                       <div className="parallax-div"></div>
                     </Parallax>
 
@@ -149,7 +140,7 @@ class Home extends Component {
                       className="py-5 row"
                     >
                         <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                          <img className="img-fluid rounded z-depth-1" src={images.image4}  alt="placeHolder"></img>
+                          <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image4}  alt="placeHolder"></img>
                           <div className="mt-5">
                               <Title>{"La Plateforme d'échange des Wilders !"}</Title>
                               <Text>
@@ -159,7 +150,7 @@ class Home extends Component {
                         </div>
                     </MainPresentation>
 
-                    <Parallax bgImage={images.image5} strength={600} >
+                    <Parallax bgImage={ParallaxImages.image5} strength={600} >
                       <div className="parallax-div"></div>
                     </Parallax>
                 </Container>
