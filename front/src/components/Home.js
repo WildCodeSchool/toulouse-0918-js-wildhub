@@ -123,7 +123,7 @@ class Home extends Component {
                               className="btn btn-primary"
                               scope="user:email,public_repo"
                               clientId={clientId}
-                              redirectUri={`${redirectUri}/users/${this.props.login}`}
+                              redirectUri={redirectUri}
                               onSuccess={this.props.handleLoginSuccess}
                               onFailure={this.props.handleLoginFailure}
                               children={<span style={{verticalAlign: 'middle'}}>

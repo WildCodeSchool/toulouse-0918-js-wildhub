@@ -10,6 +10,18 @@ class ProfileRepos extends Component{
             selectedRepo: {}
         }
 
+        this.postRepo = this.postRepo.bind(this)
+    }
+
+    postRepo(repo) {
+      fetch('https://wildhub.ssd1.ovh/api/projects', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(repo)
+      } )
     }
 
     render() {
@@ -23,6 +35,7 @@ class ProfileRepos extends Component{
                     repo={repo}
                     idx={idx}
                     name={repo.name}
+                    postRepo={() => this.postRepo(repo)}
                   />
                 )
             }

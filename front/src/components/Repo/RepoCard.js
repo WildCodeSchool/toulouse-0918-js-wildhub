@@ -15,18 +15,18 @@ class RepoCard extends Component {
     render() {
 
         const { repo, idx, name } = this.props;
-        
+
         return(
             <Col md='6' className='mb-4'>
-      
+
               <Card className="repoCard">
-      
+
                 <CardBody>
                   <div className="repo-title">
                       <NavLink to={`/users/${repo.owner.login}/repos/${repo.name}`} className="repo-name">
                         <CardTitle>{repo.name}</CardTitle>
                       </NavLink>
-      
+
                       <a
                         href={repo.html_url}
                         target='_blank'
@@ -49,24 +49,31 @@ class RepoCard extends Component {
                   <NavLink to={`/users/${repo.owner.login}`} className='repo-owner'>
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
-      
+
+                  <button
+                    onClick={this.props.postRepo}
+                    className="btn-btn-elegent btn-sm"
+                  >
+                    Send the sauce
+                  </button>
+
                   <hr/>
-      
+
                   <small className='text-muted'>
                     {repo.description}
                   </small>
                 </CardBody>
-      
+
                 <CardFooter>
                   <small className='text-muted font-italic'>
                     { `Dernière activité le ${new Date(repo.updated_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </CardFooter>
-      
+
                 <LangBar repo={repo} key={idx} name={name}/>
-      
+
               </Card>
-      
+
             </Col>
         );
     }

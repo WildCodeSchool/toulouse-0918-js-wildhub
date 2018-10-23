@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { apiUrl } from './settings';
@@ -73,7 +73,7 @@ class App extends Component {
     this.setupAxiosInstances(accessToken, token);
     this.setState({
       jwt: token, accessToken, login, id
-    });
+    }, () => this.props.history.push(`/users/${login}`));
   };
 
   handleLoginSuccess = ({ code }) => axios.post(`${apiUrl}/api/github/code`, {
@@ -108,37 +108,35 @@ class App extends Component {
     const { login } = this.state;
 
     return (
-    <BrowserRouter>
-        <Fragment>
-          <Navbar
-            handleResetState={this.handleResetState}
-            handleLoginSuccess={this.handleLoginSuccess}
-            handleLoginFailure={this.handleLoginFailure}
-            login={login}
-          />
-              <Switch>
-                {/* <Route exact path='/' component={Home} /> */}
-                <Route exact path='/'
-                  render={props => <Home
-                    handleLoginSuccess={this.handleLoginSuccess}
-                    handleLoginFailure={this.handleLoginFailure}
-                    login={login}
-                  />}
-                />
-                <Route exact path='/home' component={Home} />
-                <Route exact path='/explore' component={Explore} />
-                <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
-                <Route exact path='/users/:username' component={Profile} />
-                <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
-                <Route exact path='/team' component={Team} />
-                <Route component={Error404} />
-              </Switch>
-          <Footer />
-        </Fragment>
-    </BrowserRouter>
+      <Fragment>
+        <Navbar
+          handleResetState={this.handleResetState}
+          handleLoginSuccess={this.handleLoginSuccess}
+          handleLoginFailure={this.handleLoginFailure}
+          login={login}
+        />
+            <Switch>
+              {/* <Route exact path='/' component={Home} /> */}
+              <Route exact path='/'
+                render={props => <Home
+                  handleLoginSuccess={this.handleLoginSuccess}
+                  handleLoginFailure={this.handleLoginFailure}
+                  login={login}
+                />}
+              />
+              <Route exact path='/home' component={Home} />
+              <Route exact path='/explore' component={Explore} />
+              <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
+              <Route exact path='/users/:username' component={Profile} />
+              <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
+              <Route exact path='/team' component={Team} />
+              <Route component={Error404} />
+            </Switch>
+        <Footer />
+      </Fragment>
     );
   }
 
 }
 
-export default App;
+export default withRouter(App);
