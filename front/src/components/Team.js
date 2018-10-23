@@ -2,14 +2,46 @@ import React, { Component, Fragment } from 'react';
 import { Container, Row, Col, Card, Fa } from 'mdbreact';
 import TeamMembers from '../data/TeamMembers';
 import '../styles/team.scss';
+import styled from 'react-emotion';
+import { css } from 'emotion';
+
+const Bg = styled('main')(
+  props => ({
+    backgroundColor: props.bgColor,
+    color: props.color
+  })
+)
+
+// Titres des présentations
+const Title = styled('h2')(
+  {
+    fontFamily: "Gotham"
+  },
+  props => ({
+    backgroundColor: props.bgColor,
+    color: props.color
+  })
+)
+
+// Texte des présentations
+const Text = styled('p')(
+  {
+    fontFamily: "SourceSans"
+  },
+  props => ({
+    backgroundColor: props.bgColor,
+    color: props.color
+  })
+) 
+
 
 class Team extends Component {
     render() {
-        return (
-            <main id='team-page'>
+           return (
+            <Bg id='team-page' bgColor={this.props.theme.bgColorDiv} >
               <Container className='text-center pt-5 pb-5'>
-                <h2 className="font-weight-bold my-5">WidHub team</h2>
-                <p className="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+                <Title color={this.props.theme.color} className="font-weight-bold my-5">WidHub team</Title>
+                <Text color={this.props.theme.color} className="w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</Text>
 
                 <Row className='align-items-center pt-4 pb-4'>
                   {
@@ -18,9 +50,9 @@ class Team extends Component {
                         const { name, job, social, avatar } = member;
                         return(
                           <Col key={key} lg="3" md="6" sm='8' className="mb-lg-0 mb-5 mx-auto">
-                            <Card className='pt-4 pb-2'>
+                            <Card className="pt-4" bgColor={this.props.theme.bgColor}>
                               <img src={avatar} className="rounded-circle w-50 mx-auto z-depth-1 img-fluid" alt={name}/>
-                              <h5 className="font-weight-bold mt-4 mb-3">{name}</h5>
+                              <h5 className="font-weight-bold mt-4 mb-3" >{name}</h5>
                               <p className="grey-text">{job}</p>
 
                               <ul className='team-members p-0'>
@@ -47,7 +79,7 @@ class Team extends Component {
                   }
                 </Row>
               </Container>
-            </main>
+            </Bg>
         );
     }
 }

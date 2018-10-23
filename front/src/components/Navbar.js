@@ -5,21 +5,27 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Button,
   Fa
 } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
-// import styled from 'react-emotion';
+import styled from 'react-emotion';
 import GitHubLogin from 'react-github-login';
 import { clientId, redirectUri } from '../settings';
 
+
+const Nav = styled('nav')(
+    props => ({
+      backgroundColor: props.bgColor,
+      color: props.color
+    })
+  )
+
 class Navbar extends Component {
-
-
     constructor(props) {
         super(props);
         this.state = {
             isOpen: false,
-
         };
     }
 
@@ -27,7 +33,6 @@ class Navbar extends Component {
         this.setState({
             isOpen: !this.state.isOpen
         });
-
     }
 
     disconnect = () => {
@@ -44,8 +49,6 @@ class Navbar extends Component {
         }
     }
 
-
-
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
         const toggler = this.state.isOpen ? 'times' : 'bars';
@@ -55,21 +58,29 @@ class Navbar extends Component {
 
         return (
             <div className="navigation">
-                <nav className="navbar navbar-light bg-dark text-light fixed-top">
-                <span
-                    onClick={this.handleClick}
-                    className="toggle-nav">
-                    <Fa icon={toggler} size='lg' />
-                </span>
+                <Nav className="navbar text-light fixed-top" bgColor={this.props.theme.bgColor}>
+                    <span
+                        onClick={this.handleClick}
+                        className="toggle-nav">
+                        <Fa icon={toggler} size='lg' />
+                    </span>
                     <div className="nav-links d-flex justify-content-start align-items-center w-100">
 
                         <NavLink to='/' className='navbar-brand'>
-                            <img src={img} alt="logo" />
+                            <img src={this.props.theme.logoNav}  alt="logo" />
                         </NavLink>
                         <div className="d-none d-md-flex align-items-center w-100">
                             <NavLink to="/" className='nav-item'>Accueil</NavLink>
                             <NavLink to="/explore" className='nav-item'>Explorer</NavLink>
                             <NavLink to="/team" className='nav-item'>La Team</NavLink>
+                            <Button
+                                onClick={this.props.changeTheme}
+                                bgColor={this.props.theme.bgColorButton}
+                                color={this.props.theme.color}
+                            >
+                                <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
+
+                            </Button>
                             {
                               this.props.login
                               ? <Dropdown className='ml-auto'>
@@ -144,12 +155,20 @@ class Navbar extends Component {
                               </span>}
                             />
                         }
+                        <NavLink onClick={this.handleClick} to="/settings" className='nav-item'>
+                            <Fa icon="cog mr-2" />
+                            {"Paramètres"}
+                        </NavLink>
+                        <Button
+                                onClick={this.props.changeTheme}
+                                bgColor={this.props.theme.bgColorButton}
+                                color={this.props.theme.color}
+                            >
+                                <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
 
-
-
-
+                        </Button>
                     </div>
-                </nav>
+                </Nav>
             </div>)
     }
 }

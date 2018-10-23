@@ -14,6 +14,8 @@ import Error404 from './components/Error404';
 import Team from './components/Team';
 import Repo from './components/Repo';
 import Explore from './components/Explore';
+import DarkThemeProps from './data/DarkThemeProps';
+import LightThemeProps from './data/LightThemeProps';
 
 
 
@@ -30,6 +32,7 @@ class App extends Component {
 
       this.state = {
         loading: true,
+        isDarkTheme: true,
         jwt,
         login,
         id,
@@ -98,14 +101,19 @@ class App extends Component {
     }, 2000);
   }
 
-
+  changeTheme = () => {
+    this.setState({
+      isDarkTheme: !this.state.isDarkTheme
+    })
+  }
 
   render() {
     if(this.state.loading){
         return <Loading />;
     }
 
-    const { login } = this.state;
+    const { login, isDarkTheme } = this.state;
+    const theme = isDarkTheme ? DarkThemeProps : LightThemeProps
 
     return (
       <Fragment>
@@ -114,25 +122,27 @@ class App extends Component {
           handleLoginSuccess={this.handleLoginSuccess}
           handleLoginFailure={this.handleLoginFailure}
           login={login}
+          isDarkTheme={this.state.isDarkTheme}
+          changeTheme={this.changeTheme}
+          theme={theme}
         />
             <Switch>
-              {/* <Route exact path='/' component={Home} /> */}
               <Route exact path='/'
-                render={props => <Home
+                render={() => <Home
                   handleLoginSuccess={this.handleLoginSuccess}
                   handleLoginFailure={this.handleLoginFailure}
                   login={login}
+                  theme={theme}
                 />}
               />
-              <Route exact path='/home' component={Home} />
               <Route exact path='/explore' component={Explore} />
               <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
               <Route exact path='/users/:username' component={Profile} />
               <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
-              <Route exact path='/team' component={Team} />
+              <Route path='/team' render={() => <Team theme={theme} />}/>
               <Route component={Error404} />
             </Switch>
-        <Footer />
+        <Footer theme={theme} />
       </Fragment>
     );
   }
