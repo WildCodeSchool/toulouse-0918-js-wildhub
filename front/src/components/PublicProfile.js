@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ProfileAside from './Profile/ProfileAside';
 import ProfileRepos from './Profile/ProfileRepos';
 import { Container, Row, Col } from 'mdbreact';
-import {token} from '../settings';
 
 
 class PublicProfile extends Component {

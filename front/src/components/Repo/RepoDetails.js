@@ -35,7 +35,7 @@ class RepoDetails extends Component {
 
     render() {
         const { name, html_url, description } = this.props.repo;
-        const { repoName, ownerName } = this.props;
+        const { repoName } = this.props;
         const nameOfRepo = name ? name : repoName;
         const { files } = this.props;
 

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'mdbreact';
 import {token} from '../../settings';
-import html from "../../images/icons/html.png";
-import js from "../../images/icons/js.png";
-import nodejs from "../../images/icons/nodejs.png";
 
 class ProfileAside extends Component {
     constructor(props){

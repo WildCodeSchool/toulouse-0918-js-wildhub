@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import GitHubLogin from 'react-github-login';
-// import img from '../images/logo-accueil.png';
-import {NavLink} from 'react-router-dom';
-import { Container, Row, Col, Button, Fa } from 'mdbreact';
+import { Container, Row, Col, Fa } from 'mdbreact';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
 import styled from 'react-emotion';
