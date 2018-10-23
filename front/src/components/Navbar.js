@@ -54,7 +54,7 @@ class Navbar extends Component {
                         <NavLink to='/' className='navbar-brand'>
                             <img src={this.props.theme.logoNav}  alt="logo" />
                         </NavLink>
-                        <div className="d-none d-md-inline">
+                        <div className="d-none d-md-inline-block">
                             <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
                             <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
                             <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
@@ -62,6 +62,7 @@ class Navbar extends Component {
                                 onClick={this.props.changeTheme}
                                 bgColor={this.props.theme.bgColorButton} 
                                 color={this.props.theme.color} 
+                                className="btn-theme px-3 py-2"
                             >
                                 <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
                                                     
@@ -97,7 +98,8 @@ class Navbar extends Component {
                         <Button 
                                 onClick={this.props.changeTheme}
                                 bgColor={this.props.theme.bgColorButton} 
-                                color={this.props.theme.color} 
+                                color={this.props.theme.color}
+                                
                             >
                                 <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
                                                     
