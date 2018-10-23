@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import token from '../../../../config';
+import {token} from '../../settings';
 import Prism from 'prismjs';
 import axios from 'axios';
 require('prismjs/components/prism-jsx');

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import GitHubLogin from 'react-github-login';
+// import img from '../images/logo-accueil.png';
 import {NavLink} from 'react-router-dom';
 import { Container, Row, Col, Button, Fa } from 'mdbreact';
 import { Parallax } from "react-parallax";
@@ -36,6 +38,31 @@ const Header = styled('header')(
   })
 )
 
+const Text = styled('p')(
+  {
+    fontFamily: "SourceSans"
+  },
+)
+
+// Propriétés du theme dark
+const darkThemeProps = {
+  nameTheme: 'Dark Theme',
+  iconeTheme: 'fa fa-moon-o',
+  bgColorButton: 'black',
+  bgColor: '#262626',
+  color: 'white',
+  logo: blackLogo
+}
+
+// Propriétés du theme light
+const lightThemeProps = {
+  nameTheme: 'Light Theme',
+  iconeTheme: 'fa fa-sun-o',
+  bgColorButton: 'white',
+  bgColor: 'white',
+  color: 'black',
+  logo: blackLogo,
+}
 
 class Home extends Component {
 
@@ -63,9 +90,10 @@ class Home extends Component {
                               <span style={{verticalAlign: 'middle'}}>
                                 Se connecter
                                 <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
-                              </span>
-                            </Button>
-                          </NavLink>
+                              </span>}
+                            />
+                          }
+
                         </div>
                       </Col>
                     </Row>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'mdbreact';
+import {token} from '../../settings';
 import html from "../../images/icons/html.png";
 import js from "../../images/icons/js.png";
 import nodejs from "../../images/icons/nodejs.png";
-import { Row, Col } from 'mdbreact';
-import token from '../../config';
 
-class AsideProfile extends Component {
+class ProfileAside extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -14,11 +14,12 @@ class AsideProfile extends Component {
     }
 
     componentDidMount = () => {
-        this.getProfile();
+      this.getProfile();
     }
 
     getProfile = () => {
-        fetch('https://api.github.com/users/EvaSpessotto', {
+      const { username } = this.props;
+        fetch(`https://api.github.com/users/${username}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -83,4 +84,4 @@ class AsideProfile extends Component {
   }
 }
 
-export default AsideProfile;
+export default ProfileAside;

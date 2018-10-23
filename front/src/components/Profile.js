@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AsideProfile from './Profile/AsideProfile';
-import ListProjects from './Profile/ListProjects';
+import ProfileAside from './Profile/ProfileAside';
+import ProfileRepos from './Profile/ProfileRepos';
 import { Container, Row, Col } from 'mdbreact';
-import token from '../config';
+import {token} from '../settings';
 
 
 class Profile extends Component {
@@ -18,7 +18,8 @@ class Profile extends Component {
     }
 
     getRepos = () => {
-      fetch ('https://api.github.com/users/EvaSpessotto/repos', {
+      const { username } = this.props.match.params;
+      fetch (`https://api.github.com/users/${username}/repos`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -46,18 +47,19 @@ class Profile extends Component {
     }
 
     render() {
+      const { username } = this.props.match.params;
         return (
               <main id='profile-page'>
                 <Container>
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            { this.state.reposList.length > 0
-                           ? <AsideProfile  />
+                           ? <ProfileAside username={username}  />
                            : ''
                         }
                         </Col>
                         <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
-                            <ListProjects getReposList={this.state.reposList} />
+                            <ProfileRepos getReposList={this.state.reposList} />
                         </Col>
                     </Row>
                 </Container>
