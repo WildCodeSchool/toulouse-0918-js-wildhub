@@ -39,19 +39,6 @@ const Header = styled('header')(
 
 class Home extends Component {
 
-    constructor(props){
-      super(props);
-      this.state = {
-        isDarkTheme: true
-      }
-    }
-
-    changeTheme = () => {
-      this.setState({
-        isDarkTheme: !this.state.isDarkTheme
-      })
-    }
-
     render() {
       
         return (
