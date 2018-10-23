@@ -11,6 +11,17 @@ class ProfileRepos extends Component{
         }
     }
 
+    postRepoExplore(repo) {
+      fetch('https://wildhub.ssd1.ovh/api/projects', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(repo)
+      } )
+    }
+
     render() {
       const reposList = this.props.getReposList;
 
@@ -22,6 +33,7 @@ class ProfileRepos extends Component{
                     repo={repo}
                     idx={idx}
                     name={repo.name}
+                    postRepoExplore={() => this.postRepoExplore(repo)}
                   />
                 )
             }

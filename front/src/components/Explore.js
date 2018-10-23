@@ -31,7 +31,6 @@ class Explore extends Component {
     }
 
     postRepoExplore(repo) {
-      console.log(repo.active);
       (repo.active !== 1) ? repo.active = 1 : repo.active = 0;
       fetch('https://wildhub.ssd1.ovh/api/projects', {
         method: 'POST',
