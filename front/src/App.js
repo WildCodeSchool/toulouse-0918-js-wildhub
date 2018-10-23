@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import PublicProfile from './components/PublicProfile';
 import Error404 from './components/Error404';
 import Team from './components/Team';
 import Repo from './components/Repo';
@@ -126,8 +127,8 @@ class App extends Component {
               />
               <Route exact path='/home' component={Home} />
               <Route exact path='/explore' component={Explore} />
-              <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
-              <Route exact path='/users/:username' component={Profile} />
+              <Route exact path='/users/:username/' component={PublicProfile} />
+              <Route exact path='/users/:username/gh-repos' component={Profile} />
               <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
               <Route exact path='/team' component={Team} />
               <Route component={Error404} />

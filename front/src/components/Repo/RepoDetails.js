@@ -38,7 +38,8 @@ class RepoDetails extends Component {
         const { repoName, ownerName } = this.props;
         const nameOfRepo = name ? name : repoName;
         const { files } = this.props;
-        const readmeObj = files.filter(readme => readme.name === 'README.md');
+
+        const readmeObj = this.props.files.length && files.filter(readme => readme.name === 'README.md');
 
         return (
 
