@@ -1,40 +1,39 @@
 import React, { Component, Fragment } from "react";
-import img from '../images/logo-light.png';
-<<<<<<< HEAD
-import { Fa, Button } from 'mdbreact';
-import { NavLink } from 'react-router-dom';
 import styled from 'react-emotion';
-=======
+import { css } from 'emotion';
 import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  Fa
+  Fa,
+  Button
 } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
-// import styled from 'react-emotion';
+
 import GitHubLogin from 'react-github-login';
 import { clientId, redirectUri } from '../settings';
->>>>>>> github_login
 
 
-const Nav = styled('nav')(
+const Nav = styled('nav')({
+    transition: 'all 0.3s ease-in-out 0s'
+},
     props => ({
       backgroundColor: props.bgColor,
-      color: props.color
     })
-  )
+)
+
+const SideNav = styled('div')(
+    props => ({
+      backgroundColor: props.bgColor,
+    })
+)
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isOpen: false,
-<<<<<<< HEAD
-=======
-
->>>>>>> github_login
         };
     }
 
@@ -57,24 +56,18 @@ class Navbar extends Component {
             document.body.style.overflow = 'auto';
         }
     }
-<<<<<<< HEAD
+
     
-=======
 
 
-
->>>>>>> github_login
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
         const toggler = this.state.isOpen ? 'times' : 'bars';
-
-
         this.scrollable();
 
         return (
             <div className="navigation">
-<<<<<<< HEAD
-                <Nav className="navbar text-light fixed-top" bgColor={this.props.theme.bgColor}>
+                <Nav className="navbar text-light fixed-top" bgColor={this.props.theme.bgColor} >
                     <span
                         onClick={this.handleClick}
                         className="toggle-nav">
@@ -82,24 +75,15 @@ class Navbar extends Component {
                     </span>
                     <div className="nav-links d-flex justify-content-start align-items-center">
                     
-=======
-                <nav className="navbar navbar-light bg-dark text-light fixed-top">
-                <span
-                    onClick={this.handleClick}
-                    className="toggle-nav">
-                    <Fa icon={toggler} size='lg' />
-                </span>
-                    <div className="nav-links d-flex justify-content-start align-items-center w-100">
-
->>>>>>> github_login
                         <NavLink to='/' className='navbar-brand'>
                             <img src={this.props.theme.logoNav}  alt="logo" />
                         </NavLink>
-<<<<<<< HEAD
-                        <div className="d-none d-md-inline-block">
-                            <NavLink to="/" className='nav-item d-none d-md-inline'>Accueil</NavLink>
-                            <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
-                            <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
+                        <div className="d-none d-md-flex align-items-center w-100">
+
+                            <NavLink to="/" className={ `nav-item text-${this.props.theme.colorNavLink}`} >Accueil</NavLink>
+
+                            <NavLink to="/explore" className={ `nav-item text-${this.props.theme.colorNavLink}`} >Explorer</NavLink>
+                            <NavLink to="/team" className={ `nav-item text-${this.props.theme.colorNavLink}`} >La Team</NavLink>
                             <Button 
                                 onClick={this.props.changeTheme}
                                 bgColor={this.props.theme.bgColorButton} 
@@ -109,11 +93,6 @@ class Navbar extends Component {
                                 <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
                                                     
                             </Button>
-=======
-                        <div className="d-none d-md-flex align-items-center w-100">
-                            <NavLink to="/" className='nav-item'>Accueil</NavLink>
-                            <NavLink to="/explore" className='nav-item'>Explorer</NavLink>
-                            <NavLink to="/team" className='nav-item'>La Team</NavLink>
                             {
                               this.props.login
                               ? <Dropdown className='ml-auto'>
@@ -143,21 +122,23 @@ class Navbar extends Component {
                                   </span>}
                                 />
                             }
->>>>>>> github_login
+                            
                         </div>
                     </div>
-                    <div id="mySidenav" className={"sidenav " + isOpen}>
-                        <NavLink onClick={this.handleClick} to="/" className="nav-item">
+
+
+                    <SideNav id="mySidenav" className={"sidenav " + isOpen} bgColor={this.props.theme.bgColor}>
+                        <NavLink onClick={this.handleClick} to="/" className={ `nav-item text-${this.props.theme.colorNavLink}`}>
                             <Fa icon="home mr-2" />
                             {"Accueil"}
                         </NavLink>
 
-                        <NavLink onClick={this.handleClick} to="/explore" className='nav-item'>
+                        <NavLink onClick={this.handleClick} to="/explore" className={ `nav-item text-${this.props.theme.colorNavLink}`}>
                             <Fa icon="wpexplorer mr-2" />
                             {"Explorer"}
                         </NavLink>
 
-                        <NavLink onClick={this.handleClick} to="/team" className='nav-item'>
+                        <NavLink onClick={this.handleClick} to="/team" className={ `nav-item text-${this.props.theme.colorNavLink}`}>
 
                             <Fa icon="users mr-2" />
                             {"La Team"}
@@ -166,12 +147,12 @@ class Navbar extends Component {
                         {
                           this.props.login
                           ? <Fragment>
-                              <NavLink onClick={this.handleClick} to={`/users/${this.props.login}`} className='nav-item'>
+                              <NavLink onClick={this.handleClick} to={`/users/${this.props.login}`} className={ `nav-item text-${this.props.theme.colorNavLink}`}>
                                 <Fa icon="book mr-2" />
                                 {"Mon Profil"}
                               </NavLink>
 
-                              <NavLink onClick={this.disconnect} to="/" className='nav-item'>
+                              <NavLink onClick={this.disconnect} to="/" className={ `nav-item text-${this.props.theme.colorNavLink}`}>
                                   <Fa icon='sign-out' /> Déconnexion
                               </NavLink>
                             </Fragment>
@@ -189,27 +170,16 @@ class Navbar extends Component {
                               </span>}
                             />
                         }
-
-
-
-
-<<<<<<< HEAD
-                        <NavLink onClick={this.handleClick} to="/settings" className='nav-item'>
-                            <Fa icon="cog mr-2" />
-                            {"Paramètres"}
-                        </NavLink>
                         <Button 
-                                onClick={this.props.changeTheme}
-                                bgColor={this.props.theme.bgColorButton} 
-                                color={this.props.theme.color}
-                                
+                            onClick={this.props.changeTheme}
+                            bgColor={this.props.theme.bgColorButton} 
+                            color={this.props.theme.color}
                             >
-                                <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
+                            <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
                                                     
                         </Button>
-=======
->>>>>>> github_login
-                    </div>
+
+                    </SideNav>
                 </Nav>
             </div>)
     }

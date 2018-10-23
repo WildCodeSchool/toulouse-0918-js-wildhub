@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import GitHubLogin from 'react-github-login';
-// import img from '../images/logo-accueil.png';
-import {NavLink} from 'react-router-dom';
 import { Container, Row, Col, Button, Fa } from 'mdbreact';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
 import styled from 'react-emotion';
+
+import { clientId, redirectUri } from '../settings';
 
 
 // Style de la div qui va changer de thème
@@ -33,44 +33,14 @@ const Text = styled('p')(
 const Header = styled('header')(
   props => ({
     backgroundColor: props.bgColor,
-    color: props.color,
-    filter: props.filter
   })
 )
 
-const Text = styled('p')(
-  {
-    fontFamily: "SourceSans"
-  },
-)
-
-// Propriétés du theme dark
-const darkThemeProps = {
-  nameTheme: 'Dark Theme',
-  iconeTheme: 'fa fa-moon-o',
-  bgColorButton: 'black',
-  bgColor: '#262626',
-  color: 'white',
-  logo: blackLogo
-}
-
-// Propriétés du theme light
-const lightThemeProps = {
-  nameTheme: 'Light Theme',
-  iconeTheme: 'fa fa-sun-o',
-  bgColorButton: 'white',
-  bgColor: 'white',
-  color: 'black',
-  logo: blackLogo,
-}
-
 class Home extends Component {
-
     render() {
-      
         return (
             <main id='home-page'>
-                <Header filter={this.props.theme.filter}>
+                <Header bgColor={this.props.theme.bgColorDiv} >
                   <Container fluid >
                     <Row className="mainAccueil align-items-center">
                       <Col xs='10' md='8' lg='6' className="mx-auto text-center">
@@ -83,11 +53,20 @@ class Home extends Component {
                           <Text className="text-left">{"Wild Hub est un outil de partage de projets personnels à disposition des actuels et anciens élèves de la Wild Code School. Après une simple inscription, partagez votre code sur l'espace dédié par l'intermédiaire de Git Hub. Vous ne souhaitez pas vous inscrire sur Wild Hub? Pas de problèmes, vous pourrez quand même consulter les projets diffusés par les Wilders."}</Text>
                           <Text className="fedra-text mt-5">Bonne visite !</Text>
                         </MainPresentation>
-                        
+
                         <div className="pt-5 pb-5">
-                          <NavLink to='/profile' className='text-white'>
-                            <Button variant='contained' bgColor={this.props.theme.bgColor} color={this.props.theme.color} >
-                              <span style={{verticalAlign: 'middle'}}>
+
+                          {
+                            this.props.login
+                            ? ''
+                            : <GitHubLogin
+                              className="btn btn-primary"
+                              scope="user:email,public_repo"
+                              clientId={clientId}
+                              redirectUri={redirectUri}
+                              onSuccess={this.props.handleLoginSuccess}
+                              onFailure={this.props.handleLoginFailure}
+                              children={<span style={{verticalAlign: 'middle'}}>
                                 Se connecter
                                 <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
                               </span>}

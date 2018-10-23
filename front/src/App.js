@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
@@ -15,6 +14,10 @@ import Error404 from './components/Error404';
 import Team from './components/Team';
 import Repo from './components/Repo';
 import Explore from './components/Explore';
+
+import DarkThemeProps from './data/DarkThemeProps';
+import LightThemeProps from './data/LightThemeProps';
+
 
 
 class App extends Component {

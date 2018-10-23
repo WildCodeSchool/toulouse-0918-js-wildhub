@@ -17,7 +17,7 @@
             font-size: 1em;
             position: relative;
             text-decoration: none;
-            color: #818181;
+            // color: #818181;
             transition: 0.3s;
 
             &.navbar-brand{
@@ -51,12 +51,10 @@
                 
             }
             
-            &:hover{
-                color: #f1f1f1;
-            }
+            // &:hover{
+            //     color: #f1f1f1;
+            // }
         }
-
-
         .btn-theme{
             border-radius: 120px;
         }
@@ -68,7 +66,7 @@
             z-index: 1;
             top: 0;
             right: -250px;
-            background-color: #111;
+            // background-color: #111;
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
