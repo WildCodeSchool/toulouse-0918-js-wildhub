@@ -13,6 +13,7 @@ class Explore extends Component {
       this.state = {
         repos: []
       }
+      this.postRepoExplore = this.postRepoExplore.bind(this)
     }
 
     componentDidMount(){
@@ -27,6 +28,19 @@ class Explore extends Component {
                     repos: repos
                 });
             });
+    }
+
+    postRepoExplore(repo) {
+      console.log(repo.active);
+      (repo.active !== 1) ? repo.active = 1 : repo.active = 0;
+      fetch('https://wildhub.ssd1.ovh/api/projects', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(repo)
+      } )
     }
 
     render() {
@@ -53,6 +67,7 @@ class Explore extends Component {
                             repo={repo}
                             key={index}
                             name={repo.name}
+                            postRepoExplore={() => this.postRepoExplore(repo)}
                           />
                         )
                       }

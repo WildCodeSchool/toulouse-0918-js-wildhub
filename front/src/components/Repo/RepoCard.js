@@ -49,9 +49,9 @@ class RepoCard extends Component {
                   <NavLink to={`/users/${repo.owner.login}`} className='repo-owner'>
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
-
+                  {console.log('yo', this.props)}
                   <button
-                    onClick={this.props.postRepo}
+                    onClick={this.props.postRepoExplore}
                     className="btn-btn-elegent btn-sm"
                   >
                     Send the sauce
