@@ -10,6 +10,16 @@ const TeamMembers = [
                 name: 'GitHub',
                 link: 'https://github.com/EvaSpessotto',
                 icon: 'github'
+            },
+            {
+                name: 'CodePen',
+                link: 'https://codepen.io/evakattz/',
+                icon: 'codepen'
+            },
+            {
+                name: 'linkedIn',
+                link: 'https://www.linkedin.com/in/eva-spessotto-9878b2144/',
+                icon: 'linkedin'
             }
         ],
         avatar: es_pic

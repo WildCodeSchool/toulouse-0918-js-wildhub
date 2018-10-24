@@ -52,11 +52,26 @@ class Explore extends Component {
             <Fragment>
                 <main id="explore-page" className={`${this.props.theme.bgColorDiv} text-${this.props.theme.colorNavLink}`}>
                 <Container fluid className="p-0">
-                    <Parallax bgImage={ParallaxImages.image1} strength={600} style={{ position: 'fixed'}}>
+                    <Parallax bgImage={ParallaxImages.image6} strength={600} renderLayer={percentage => (
+                        <div>
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    background: `rgba(0, 0, 0, ${percentage * 1})`,
+                                    left: "50%",
+                                    top: "50%",
+                                    borderRadius: "50%",
+                                    transform: "translate(-50%,-50%)",
+                                    width: percentage * 400,
+                                    height: percentage * 400
+                                }}
+                            />
+                        </div>
+                    )}>
                         <Row className="align-items-center">
-                            <Col xs='12' className="head-explore mx-auto text-center p-0">
-                                <h2 className="text-center text-white " >Projets des Wilders</h2>
-                                <div  className="mx-auto mb-2 bg-light" style={{ height: '5px', width: '300px', borderRadius: '2px'}}  />
+                            <Col xs='12' className="head-explore mx-auto p-0">
+                                <h2 className="text-center text-white" >Projets des Wilders</h2>
+                                <div  className="mx-auto mt-4 bg-white" style={{ height: '5px', width: '300px', borderRadius: '2px'}}  />
                             </Col>
                         </Row>
                     </Parallax>
@@ -79,6 +94,8 @@ class Explore extends Component {
                 </Container>
                 </main>
             </Fragment>
+
+            
         );
     }
 }
