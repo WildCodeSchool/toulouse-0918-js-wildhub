@@ -37,7 +37,8 @@ class ProfileAside extends Component {
             <Col xs='12' className="mb-3">
                 <img src={this.state.profileInfos.avatar_url} alt="" className="profile-pic img-fluid z-depth-1 rounded mb-3"/>
                 <div className="profile-infos">
-                    <h1 className="profile-name" >{this.state.profileInfos.name}</h1>
+                    <h1 className="profile-name" >{this.state.profileInfos.login}</h1>
+                    <h5 className="profile-login px-2" >{this.state.profileInfos.name}</h5>
 
                     <p className="profile-location px-2">{this.state.profileInfos.location}</p>
 

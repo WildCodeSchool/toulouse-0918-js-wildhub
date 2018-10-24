@@ -10,11 +10,12 @@ import {
 } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
 import LangBar from './LangBar';
+import SwitchBtn from './SwitchBtn';
 
 class RepoCard extends Component {
     render() {
 
-        const { repo, idx, name } = this.props;
+        const { repo, idx, name, isActive } = this.props;
 
         return(
             <Col md='4' className='mb-4'>
@@ -48,12 +49,8 @@ class RepoCard extends Component {
                   <NavLink to={`/users/${repo.owner.login}`} className={`repo-owner text-${this.props.theme.colorNavLink}`}>
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
-                  {/* <button
-                    onClick={this.props.postRepoExplore}
-                    className="btn-btn-elegent btn-sm"
-                  >
-                    Send the sauce
-                  </button> */}
+
+                  <SwitchBtn isActive={isActive} />
 
                   <hr/>
 
