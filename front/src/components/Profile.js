@@ -63,6 +63,12 @@ class Profile extends Component {
             repo.id
             )
           )
+          .then(reposActive => {
+            if (!reposActive.length) {
+              return [-1]
+            }
+            return reposActive
+          })
             .then(idArr =>
               this.setState({
                 idActives: idArr
@@ -87,15 +93,16 @@ class Profile extends Component {
                         }
                         </Col>
                         <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
-                        
+
                         {
+
                           idActives.length &&
-                          <ProfileRepos
-                            getReposList={this.state.reposList}
-                            username={ login }
-                            urlUsername={ username }
-                            idActives={ idActives }
-                          />
+                            <ProfileRepos
+                              getReposList={this.state.reposList}
+                              username={ login }
+                              urlUsername={ username }
+                              idActives={ idActives }
+                            />
 
                         }
 
