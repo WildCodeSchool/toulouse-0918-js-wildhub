@@ -137,8 +137,8 @@ class App extends Component {
                 />}
               />
               <Route exact path='/explore' component={Explore} />
-              <Route exact path='/users/:username/' component={PublicProfile} />
-              <Route exact path='/users/:username/gh-repos' component={Profile} />
+              <Route exact path='/users/:username/' render={(props) => <PublicProfile {...props} login={login} />} />
+              <Route exact path='/users/:username/gerer-mes-repos' render={(props) => <Profile {...props} login={login} />} />
               <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
               <Route path='/team' render={() => <Team theme={theme} />}/>
               <Route component={Error404} />
