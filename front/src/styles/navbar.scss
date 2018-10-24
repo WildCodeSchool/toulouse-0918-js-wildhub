@@ -61,7 +61,6 @@
       font-size: 1em;
       position: relative;
       text-decoration: none;
-      color: #818181;
       transition: 0.3s;
 
       &.navbar-brand{
@@ -97,10 +96,6 @@
           }
 
       }
-
-      &:hover{
-          color: #f1f1f1;
-      }
   }
 }
 
@@ -111,7 +106,6 @@
     z-index: 1;
     top: 0;
     right: -250px;
-    background-color: #111;
     overflow-x: hidden;
     transition: 0.5s;
     padding: 4em 2em;
@@ -131,12 +125,7 @@
       font-size: 1em;
       position: relative;
       text-decoration: none;
-      color: #818181;
       transition: 0.3s;
-
-      &:hover{
-        color: #f1f1f1;
-      }
     }
 
     .theme-toggler{

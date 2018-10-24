@@ -75,7 +75,6 @@ class Home extends Component {
                             ? ''
                             : <GitHubLogin
                               className={`btn ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
-                              className="btn"
                               bgColor={this.props.theme.bgColor}
                               color={this.props.theme.color}
                               scope="user:email,public_repo"
