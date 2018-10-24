@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import PublicProfile from './components/PublicProfile';
 import Error404 from './components/Error404';
 import Team from './components/Team';
 import Repo from './components/Repo';
@@ -33,6 +34,7 @@ class App extends Component {
 
       this.state = {
         loading: true,
+        isDarkTheme: true,
         jwt,
         login,
         id,
@@ -113,9 +115,9 @@ class App extends Component {
         return <Loading />;
     }
 
-    const { login } = this.state;
-    const theme = this.state.isDarkTheme ? DarkThemeProps : LightThemeProps
-    
+    const { login, isDarkTheme } = this.state;
+    const theme = isDarkTheme ? DarkThemeProps : LightThemeProps
+
     return (
       <Fragment>
         <Navbar
@@ -123,29 +125,27 @@ class App extends Component {
           handleLoginSuccess={this.handleLoginSuccess}
           handleLoginFailure={this.handleLoginFailure}
           login={login}
-          isDarkTheme={this.state.isDarkTheme} 
-          changeTheme={this.changeTheme} 
+          isDarkTheme={this.state.isDarkTheme}
+          changeTheme={this.changeTheme}
           theme={theme}
         />
             <Switch>
-              {/* <Route exact path='/' component={Home} /> */}
               <Route exact path='/'
-                render={props => <Home
+                render={() => <Home
                   handleLoginSuccess={this.handleLoginSuccess}
                   handleLoginFailure={this.handleLoginFailure}
                   login={login}
                   theme={theme}
                 />}
               />
-              <Route exact path='/home' component={Home} />
               <Route exact path='/explore' component={Explore} />
-              <Route exact path='/explore/:ownerName/repos/:repoName' component={Repo} />
-              <Route exact path='/users/:username' component={Profile} />
+              <Route exact path='/users/:username/' component={PublicProfile} />
+              <Route exact path='/users/:username/gh-repos' component={Profile} />
               <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
               <Route path='/team' render={() => <Team theme={theme} />}/>
               <Route component={Error404} />
             </Switch>
-          <Footer theme={theme} />
+        <Footer theme={theme} />
       </Fragment>
     );
   }

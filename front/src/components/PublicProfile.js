@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import ProfileAside from './Profile/ProfileAside';
 import ProfileRepos from './Profile/ProfileRepos';
 import { Container, Row, Col } from 'mdbreact';
-import {token} from '../settings';
 
 
-class Profile extends Component {
+class PublicProfile extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -19,32 +18,13 @@ class Profile extends Component {
 
     getRepos = () => {
       const { username } = this.props.match.params;
-      fetch (`https://api.github.com/users/${username}/repos`, {
+      fetch (`https://wildhub.ssd1.ovh/api/users/${username}/projects`, {
         headers: {
-          Authorization: `Bearer ${token}`
-          
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`
         }
       })
-
       .then(result => result.json())
-
-      .then(repoArr => {
-          const promises = repoArr.map(
-            repoSingle => fetch(repoSingle.languages_url, {
-              headers: {
-                Authorization: `Bearer ${token}`
-              }
-            })
-
-              .then(result => result.json())
-          )
-
-          return Promise.all(promises)
-            .then(languages => languages.map(
-              (language, idx) => Object.assign(repoArr[idx], {language_stat: language})
-            ))
-            .then(repos => this.setState({reposList:repos}))
-      })
+      .then(repoArr => this.setState({reposList:repoArr}))
     }
 
     render() {
@@ -54,10 +34,7 @@ class Profile extends Component {
                 <Container>
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
-                           { this.state.reposList.length > 0
-                           ? <ProfileAside username={username}  />
-                           : ''
-                        }
+                           <ProfileAside username={username}  />
                         </Col>
                         <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
                             <ProfileRepos getReposList={this.state.reposList} />
@@ -69,4 +46,4 @@ class Profile extends Component {
     }
 }
 
-export default Profile;
+export default PublicProfile;

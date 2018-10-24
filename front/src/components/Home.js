@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GitHubLogin from 'react-github-login';
-import { Container, Row, Col, Button, Fa } from 'mdbreact';
+import { Container, Row, Col, Fa } from 'mdbreact';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
 import styled from 'react-emotion';
@@ -28,7 +28,7 @@ const Text = styled('p')(
   {
       fontFamily: "SourceSans"
   },
-)  
+)
 
 const Header = styled('header')(
   props => ({
@@ -37,7 +37,21 @@ const Header = styled('header')(
 )
 
 class Home extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        username: ''
+      }
+    }
+
+    getUsername = (e) => {
+      this.setState({
+        username: e.target.value
+      })
+    }
+
     render() {
+
         return (
             <main id='home-page'>
                 <Header bgColor={this.props.theme.bgColorDiv} >
@@ -61,6 +75,9 @@ class Home extends Component {
                             ? ''
                             : <GitHubLogin
                               className={`btn ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
+                              className="btn"
+                              bgColor={this.props.theme.bgColor}
+                              color={this.props.theme.color}
                               scope="user:email,public_repo"
                               clientId={clientId}
                               redirectUri={redirectUri}
@@ -84,8 +101,8 @@ class Home extends Component {
                     <div className="parallax-div"> </div>
                   </Parallax>
 
-                    <MainPresentation 
-                      bgColor={this.props.theme.bgColorDiv} 
+                    <MainPresentation
+                      bgColor={this.props.theme.bgColorDiv}
                       color={this.props.theme.color}
                       className="py-5 row"
                     >
@@ -104,8 +121,8 @@ class Home extends Component {
                       <div className="parallax-div"></div>
                     </Parallax>
 
-                    <MainPresentation 
-                      bgColor={this.props.theme.bgColorDiv} 
+                    <MainPresentation
+                      bgColor={this.props.theme.bgColorDiv}
                       color={this.props.theme.color}
                       className="py-5 row"
                     >

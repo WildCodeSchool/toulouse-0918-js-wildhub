@@ -1,105 +1,145 @@
-.navigation{
-    .navbar{
+.navbar{
 
-        .toggle-nav{
-            position: absolute;
-            right: 1rem;
-            cursor: pointer;
-            z-index: 10;
+  .toggle-nav{
+      position: absolute;
+      right: 1rem;
+      cursor: pointer;
+      z-index: 10;
 
-            @media screen and (min-width: 768px){
-                display: none;
-            }
-        }
+      @media screen and (min-width: 768px){
+          display: none;
+      }
+  }
 
-        a{
-            font-family: "Gotham";
-            font-size: 1em;
-            position: relative;
-            text-decoration: none;
-            // color: #818181;
-            transition: 0.3s;
+  .btn-login{
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 60px;
+    border-radius: 0;
+    box-shadow: none;
 
-            &.navbar-brand{
-                &:hover{
-                    filter: brightness(70%);
-                }
-            }
-
-            &.nav-item{
-                margin: 0 1em;
-
-                &::after{
-                    content: "";
-                    position: absolute;
-                    width: 0;
-                    height: 3px;
-                    margin: auto;
-                    bottom: -5px;
-                    left: 0;
-                    right: 0;
-                    background: linear-gradient(to left, #5600ff 0%,#ff0000 50%,#00ff28 100%);
-                    transition: all 0.3s ease-in-out 0s;
-                }
-
-                &:hover{
-
-                    &::after{
-                        width: 100%;
-                    }
-                }
-                
-            }
-            
-            // &:hover{
-            //     color: #f1f1f1;
-            // }
-        }
-        .btn-theme{
-            border-radius: 120px;
-        }
-
-        .sidenav{
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            right: -250px;
-            // background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-
-            @media screen and (min-width: 768px){
-                display: none;
-            }
-        
-            &.open{
-                right: 0;
-            }
-        
-            a{
-                margin: 8px 32px;
-                display: inline-block;
-            }
-
-            .closebtn{
-                position: absolute;
-                top: 0;
-                right: 25px;
-                font-size: 36px;
-                margin-left: 50px;
-                cursor: pointer;
-                color: #818181;
-
-                &:hover{
-                    color: #f1f1f1;
-                }
-            }
-
-        }
+    &:active, &:focus{
+      box-shadow: none;
     }
-    
-    
+  }
+
+  .dropdown-toggle{
+    text-transform: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 60px;
+    font-size: 1em;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .dropdown-menu{
+    background: #000;
+    border-radius: 0;
+
+    .dropdown-item{
+      color: #818181;
+
+      &:hover, &:active, &:focus{
+        background: #3e3e3e;
+        color: #f1f1f1;
+        outline: none;
+      }
+    }
+  }
+
+  .theme-toggler{
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  a{
+      font-family: "Gotham";
+      font-size: 1em;
+      position: relative;
+      text-decoration: none;
+      color: #818181;
+      transition: 0.3s;
+
+      &.navbar-brand{
+          &:hover{
+              filter: brightness(70%);
+          }
+      }
+
+      &.nav-item{
+          margin: 0 1em;
+          height: 60px;
+          display: flex;
+          align-items: center;
+
+          &::after{
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 3px;
+              margin: auto;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background: linear-gradient(to left, #5600ff 0%,#ff0000 50%,#00ff28 100%);
+              transition: all 0.3s ease-in-out 0s;
+          }
+
+          &:hover{
+
+              &::after{
+                  width: 100%;
+              }
+          }
+
+      }
+
+      &:hover{
+          color: #f1f1f1;
+      }
+  }
+
+  .sidenav{
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: -250px;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+
+      @media screen and (min-width: 768px){
+          display: none;
+      }
+
+      &.open{
+          right: 0;
+      }
+
+      a{
+          margin: 8px 32px;
+          display: inline-block;
+      }
+
+      .closebtn{
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+          cursor: pointer;
+          color: #818181;
+
+          &:hover{
+              color: #f1f1f1;
+          }
+      }
+
+  }
 }

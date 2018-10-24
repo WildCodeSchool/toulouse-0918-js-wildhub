@@ -15,10 +15,10 @@
             // filter: brightness(30%);
             z-index: -1;
           }
-             
-          
+
+
           .mainAccueil{
-            min-height: calc(100vh - 56px);
+            min-height: calc(100vh - 60px);
 
             .logo{
               width: 100px;
@@ -55,7 +55,6 @@
 
   }
   .mainPresentation{
-    
     h2{
       font-family: "Gotham";
     }
@@ -63,7 +62,6 @@
       font-family: "SourceSans";
       font-size: 1.1em;
     }
-    
   }
 
 }
