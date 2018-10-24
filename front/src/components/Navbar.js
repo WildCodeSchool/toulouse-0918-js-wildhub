@@ -61,7 +61,8 @@ class Navbar extends Component {
         this.scrollable();
 
         return (
-          <Nav className="navbar text-light fixed-top py-0" bgColor={this.props.theme.bgColor}>
+          <Fragment>
+            <Nav className="navbar text-light fixed-top py-0" bgColor={this.props.theme.bgColor}>
               <span
                   onClick={this.handleClick}
                   className="toggle-nav">
@@ -127,63 +128,62 @@ class Navbar extends Component {
 
                   </div>
               </div>
-              <div id="mySidenav" className={"sidenav " + isOpen}>
-                  <NavLink onClick={this.handleClick} to="/" className="nav-item">
-                      <Fa icon="home mr-2" />
-                      {"Accueil"}
-                  </NavLink>
+            </Nav>
 
-                  <NavLink onClick={this.handleClick} to="/explore" className='nav-item'>
-                      <Fa icon="wpexplorer mr-2" />
-                      {"Explorer"}
-                  </NavLink>
+            <div id="mySidenav" className={"sidenav " + isOpen}>
+              <NavLink onClick={this.handleClick} to="/" className="sidenav-item">
+                  <Fa icon="home mr-2" />
+                  {"Accueil"}
+              </NavLink>
 
-                  <NavLink onClick={this.handleClick} to="/team" className='nav-item'>
+              <NavLink onClick={this.handleClick} to="/explore" className='sidenav-item'>
+                  <Fa icon="wpexplorer mr-2" />
+                  {"Explorer"}
+              </NavLink>
 
-                      <Fa icon="users mr-2" />
-                      {"La Team"}
-                  </NavLink>
+              <NavLink onClick={this.handleClick} to="/team" className='sidenav-item'>
 
-                  {
-                    this.props.login
-                    ? <Fragment>
-                        <NavLink onClick={this.handleClick} to={`/users/${this.props.login}`} className='nav-item'>
-                          <Fa icon="book mr-2" />
-                          {"Mon Profil"}
-                        </NavLink>
+                  <Fa icon="users mr-2" />
+                  {"La Team"}
+              </NavLink>
 
-                        <NavLink onClick={this.disconnect} to="/" className='nav-item'>
-                            <Fa icon='sign-out' /> Déconnexion
-                        </NavLink>
-                      </Fragment>
+              {
+                this.props.login
+                ? <Fragment>
+                    <NavLink onClick={this.handleClick} to={`/users/${this.props.login}`} className='sidenav-item'>
+                      <Fa icon="book mr-2" />
+                      {"Mon Profil"}
+                    </NavLink>
 
-                    : <GitHubLogin
-                        className="btn btn-sm btn-primary"
-                        scope="user:email,public_repo"
-                        clientId={clientId}
-                        redirectUri={`${redirectUri}/users/${this.props.login}`}
-                        onSuccess={this.props.handleLoginSuccess}
-                        onFailure={this.props.handleLoginFailure}
-                        children={<span style={{verticalAlign: 'middle'}}>
-                          Se connecter
-                          <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
-                        </span>}
-                      />
-                  }
-                  <NavLink onClick={this.handleClick} to="/settings" className='nav-item'>
-                      <Fa icon="cog mr-2" />
-                      {"Paramètres"}
-                  </NavLink>
-                  <Button
-                          onClick={this.props.changeTheme}
-                          bgColor={this.props.theme.bgColorButton}
-                          color={this.props.theme.color}
-                      >
-                          <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
+                    <NavLink onClick={this.disconnect} to="/" className='sidenav-item'>
+                        <Fa icon='sign-out' /> Déconnexion
+                    </NavLink>
+                  </Fragment>
 
-                  </Button>
-              </div>
-          </Nav>
+                : <GitHubLogin
+                    className="btn btn-sm btn-primary"
+                    scope="user:email,public_repo"
+                    clientId={clientId}
+                    redirectUri={`${redirectUri}/users/${this.props.login}`}
+                    onSuccess={this.props.handleLoginSuccess}
+                    onFailure={this.props.handleLoginFailure}
+                    children={<span style={{verticalAlign: 'middle'}}>
+                      Se connecter
+                      <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
+                    </span>}
+                  />
+              }
+
+              <Button
+                className='theme-toggler'
+                onClick={this.props.changeTheme}
+                bgColor={this.props.theme.bgColorButton}
+                color={this.props.theme.color}
+              >
+                <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
+              </Button>
+            </div>
+          </Fragment>
         )
     }
 }
