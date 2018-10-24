@@ -72,13 +72,13 @@ class Navbar extends Component {
               </span>
               <div className="nav-links d-flex justify-content-start align-items-center w-100">
 
-                  <NavLink to='/' className='navbar-brand'>
+                  <NavLink exact to='/' className='navbar-brand'>
                       <img src={this.props.theme.logoNav}  alt="logo" />
                   </NavLink>
                   <div className="d-none d-md-flex flex-grow-1">
-                      <NavLink to="/" className={`nav-item text-${this.props.theme.colorNavLink}`} >Accueil</NavLink>
-                      <NavLink to="/explore" className={`nav-item text-${this.props.theme.colorNavLink}`} >Explorer</NavLink>
-                      <NavLink to="/team" className={`nav-item text-${this.props.theme.colorNavLink}`} >La Team</NavLink>
+                      <NavLink exact to="/" className={`nav-item text-${this.props.theme.colorNavLink}`} >Accueil</NavLink>
+                      <NavLink exact to="/explore" className={`nav-item text-${this.props.theme.colorNavLink}`} >Explorer</NavLink>
+                      <NavLink exact to="/team" className={`nav-item text-${this.props.theme.colorNavLink}`} >La Team</NavLink>
 
                       <div className="btn-grp d-flex align-items-center ml-auto">
                         {
@@ -92,15 +92,19 @@ class Navbar extends Component {
                                   {this.props.login}
                                 </DropdownToggle>
                                 <DropdownMenu right className={`${this.props.theme.color}`}>
-                                    <DropdownItem href={`/users/${this.props.login}`}>
+                                    <NavLink
+                                      className='dropdown-item'
+                                      to={`/users/${this.props.login}`}
+                                    >
                                       <Fa icon="book mr-2" /> {"Mon Profil"}
-                                    </DropdownItem>
-                                    <DropdownItem
-                                      href="/"
+                                    </NavLink>
+                                    <NavLink
+                                      to="/home"
+                                      className='dropdown-item'
                                       onClick={this.disconnect}
                                     >
                                       <Fa icon='sign-out' /> {"Déconnexion"}
-                                    </DropdownItem>
+                                    </NavLink>
                                 </DropdownMenu>
                               </Dropdown>
                           : <GitHubLogin
@@ -132,36 +136,35 @@ class Navbar extends Component {
               </Nav>
 
             <SideNav id="mySidenav" className={"sidenav z-depth-2 " + isOpen} bgColor={this.props.theme.bgColor} >
-                <NavLink onClick={this.handleClick} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                <NavLink exact onClick={this.handleClick} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
                     <Fa icon="home mr-2" />
                     {"Accueil"}
                 </NavLink>
 
-                <NavLink onClick={this.handleClick} to="/explore" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                <NavLink exact onClick={this.handleClick} to="/explore" className={`nav-item text-${this.props.theme.colorNavLink}`}>
                     <Fa icon="wpexplorer mr-2" />
                     {"Explorer"}
                 </NavLink>
 
-                <NavLink onClick={this.handleClick} to="/team" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                <NavLink exact onClick={this.handleClick} to="/team" className={`nav-item text-${this.props.theme.colorNavLink}`}>
 
                     <Fa icon="users mr-2" />
                     {"La Team"}
                 </NavLink>
 
-                <NavLink onClick={this.handleClick} to="/settings" className={`nav-item text-${this.props.theme.colorNavLink}`}>
-                    <Fa icon="cog mr-2" />
-                    {"Paramètres"}
-                </NavLink>
-
                 {
                   this.props.login
                   ? <Fragment>
-                      <NavLink onClick={this.handleClick} to={`/users/${this.props.login}`} className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                      <NavLink exact onClick={this.handleClick} to={`/users/${this.props.login}`} className={`nav-item text-${this.props.theme.colorNavLink}`}>
                         <Fa icon="book mr-2" />
                         {"Mon Profil"}
                       </NavLink>
 
-                      <NavLink onClick={this.disconnect} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                      <NavLink
+                        to="/home"
+                        onClick={this.disconnect}
+                        className={`nav-item text-${this.props.theme.colorNavLink}`}
+                      >
                           <Fa icon='sign-out' /> Déconnexion
                       </NavLink>
                     </Fragment>

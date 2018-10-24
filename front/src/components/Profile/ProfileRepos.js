@@ -35,14 +35,14 @@ class ProfileRepos extends Component{
               <Row className='mb-5'>
                 <Col xs='12' className='d-flex justify-content-center'>
 
-                  <NavLink to={`/users/${username}`}>
+                  <NavLink exact to={`/users/${username}`}>
                     <Button color="elegant">
                       Dépôts partagés
                     </Button>
                   </NavLink>
 
 
-                  <NavLink to={`/users/${username}/gerer-mes-repos`}>
+                  <NavLink exact to={`/users/${username}/gerer-mes-repos`}>
                     <Button color="elegant">
                       Gérer mes dépôts
                     </Button>

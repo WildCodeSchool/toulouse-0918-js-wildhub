@@ -45,10 +45,11 @@
     background: #000;
     border-radius: 0;
 
+
     .dropdown-item{
       color: #818181;
 
-      &:hover, &:active, &:focus{
+      &.active, &:hover, &:active, &:focus{
         background: #3e3e3e;
         color: #f1f1f1;
         outline: none;
@@ -88,7 +89,7 @@
               transition: all 0.3s ease-in-out 0s;
           }
 
-          &:hover{
+          &:hover, &.active{
 
               &::after{
                   width: 100%;
@@ -149,7 +150,7 @@
           transition: all 0.3s ease-in-out 0s;
       }
 
-      &:hover{
+      &:hover, &.active{
 
           &::after{
               width: 100%;
