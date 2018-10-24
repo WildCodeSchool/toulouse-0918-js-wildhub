@@ -51,7 +51,7 @@ class RepoCard extends Component {
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
 
-                  <SwitchBtn isActive={isActive} name={repo.owner.login} repoName={name}/>
+                  <SwitchBtn isActive={isActive} repo={repo} />
 
                   <hr/>
 
