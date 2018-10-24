@@ -51,7 +51,10 @@ class Repo extends Component {
       <main id='repo-page'>
         <Container className='py-5'>
           <Row className='flex-column-reverse flex-lg-row'>
-            <RepoDetails repo={repo} files={files} ownerName={ownerName} repoName={repoName} />
+            {
+              files.length &&
+              <RepoDetails repo={repo} files={files} ownerName={ownerName} repoName={repoName} />
+            }
             <RepoAside ownerName={ownerName} repo={repo} />
           </Row>
         </Container>
