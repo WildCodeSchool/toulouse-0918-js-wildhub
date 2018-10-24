@@ -1,11 +1,24 @@
-#homePage{
+#home-page{
   header{
-    background-image: url("../images/img-2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+      position: relative;
+          &::after{
+            left: 0;
+            top: 0;
+            background-image: url(https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-size: cover;
+            background-repeat: no-repeat;
+            // -webkit-filter: brightness(30%);
+            // filter: brightness(30%);
+            z-index: -1;
+          }
 
-      .mainAccueil{
-            min-height: calc(100vh - 56px);
+
+          .mainAccueil{
+            min-height: calc(100vh - 60px);
 
             .logo{
               width: 100px;
@@ -33,7 +46,16 @@
             }
       }
   }
-  .under-accueil{
+
+.under-accueil{
+  overflow-x: hidden;
+
+  .parallax-div{
+    height: 40vh;
+
+  }
+  .mainPresentation{
+
     h2{
       font-family: "Gotham";
     }
@@ -41,12 +63,11 @@
       font-family: "SourceSans";
       font-size: 1.1em;
     }
-    .mainPresentation{
-      background-color: rgb(26,26,26);
-    }
+
   }
 
 }
+
 
 @keyframes spin {
     100% {
@@ -54,3 +75,4 @@
         transform: rotate(360deg);
     }
   }
+}
