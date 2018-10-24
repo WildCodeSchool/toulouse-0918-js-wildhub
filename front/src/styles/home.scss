@@ -33,7 +33,7 @@
 
             p{
               font-family: "SourceSans";
-              font-size: 1.1em;
+              font-size: 1.2em;
             }
 
             .fedra-text{
@@ -47,24 +47,24 @@
       }
   }
 
-.under-accueil{
-  overflow-x: hidden;
+  .under-accueil{
+    overflow-x: hidden;
 
-  .parallax-div{
-    height: 40vh;
-
-  }
-  .mainPresentation{
     h2{
       font-family: "Gotham";
     }
+
     p{
       font-family: "SourceSans";
-      font-size: 1.1em;
+      font-size: 1.2em;
     }
-  }
 
-}
+    .parallax-div{
+      height: 40vh;
+
+    }
+
+  }
 
 
 @keyframes spin {

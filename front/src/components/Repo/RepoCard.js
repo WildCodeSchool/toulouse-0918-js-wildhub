@@ -17,14 +17,13 @@ class RepoCard extends Component {
         const { repo, idx, name } = this.props;
 
         return(
-            <Col md='6' className='mb-4'>
+            <Col md='4' className='mb-4'>
 
-              <Card className="repoCard">
-
-                <CardBody>
-                  <div className="repo-title">
+              <Card className={`repoCard ${this.props.theme.colorItems} `}>
+                <CardBody >
+                  <div className="repo-title ">
                       <NavLink to={`/users/${repo.owner.login}/repos/${repo.name}`} className="repo-name">
-                        <CardTitle>{repo.name}</CardTitle>
+                        <CardTitle className={`text-${this.props.theme.colorNavLink}`}>{repo.name}</CardTitle>
                       </NavLink>
 
                       <a
@@ -46,25 +45,25 @@ class RepoCard extends Component {
                       </ReactTooltip>
                   </div>
 
-                  <NavLink to={`/users/${repo.owner.login}`} className='repo-owner'>
+                  <NavLink to={`/users/${repo.owner.login}`} className={`repo-owner text-${this.props.theme.colorNavLink}`}>
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
-                  <button
+                  {/* <button
                     onClick={this.props.postRepoExplore}
                     className="btn-btn-elegent btn-sm"
                   >
                     Send the sauce
-                  </button>
+                  </button> */}
 
                   <hr/>
 
-                  <small className='text-muted'>
+                  <p className={`repo-description text-${this.props.theme.colorNavLink} `}>
                     {repo.description}
-                  </small>
+                  </p>
                 </CardBody>
 
-                <CardFooter>
-                  <small className='text-muted font-italic'>
+                <CardFooter className={`repoCard ${this.props.theme.colorItems} text-right`}>
+                  <small className={`font-italic text-${this.props.theme.colorNavLink} `}>
                     { `Dernière activité le ${new Date(repo.updated_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </CardFooter>

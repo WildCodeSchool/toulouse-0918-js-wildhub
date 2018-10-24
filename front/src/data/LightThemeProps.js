@@ -7,7 +7,7 @@ const LightThemeProps = {
     nameTheme: 'light', 
     iconeTheme: 'fa fa-sun-o',
     bgColorButton: '#262626', 
-    bgColorDiv: '#e0e0e0', 
+    bgColorDiv: 'grey lighten-2', 
     bgColor: 'white',
     color: 'black',
     logo: blackLogo,

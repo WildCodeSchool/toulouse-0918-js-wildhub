@@ -1,13 +1,15 @@
 #team-page{
-
-
     h2{
       font-family: "Gotham";
+      font-size: 2.5em;
+      span{
+        font-family: "Fedra";
+      }
     }
 
-    p{
+    .head-text{
       font-family: "SourceSans";
-      font-size: 1em;
+      font-size: 1.2em;
     }
 
     ul{

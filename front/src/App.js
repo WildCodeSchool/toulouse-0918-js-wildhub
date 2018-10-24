@@ -95,14 +95,14 @@ class App extends Component {
     this.setState({ jwt: '', login: '', id: 0, accessToken: '' })
   };
 
-  // Loader
-  componentDidMount (){
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-      })
-    }, 2000);
-  }
+  // // Loader
+  // componentDidMount (){
+  //   setTimeout(() => {
+  //     this.setState({
+  //       loading: false,
+  //     })
+  //   }, 2000);
+  // }
 
   changeTheme = () => {
     this.setState({
@@ -111,9 +111,9 @@ class App extends Component {
   }
 
   render() {
-    if(this.state.loading){
-        return <Loading />;
-    }
+    // if(this.state.loading){
+    //     return <Loading />;
+    // }
 
     const { login, isDarkTheme } = this.state;
     const theme = isDarkTheme ? DarkThemeProps : LightThemeProps
@@ -138,10 +138,10 @@ class App extends Component {
                   theme={theme}
                 />}
               />
-              <Route exact path='/explore' component={Explore} />
-              <Route exact path='/users/:username/' component={PublicProfile} />
-              <Route exact path='/users/:username/gh-repos' component={Profile} />
-              <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
+              <Route exact path='/explore' render={() => <Explore theme={theme} />}/>
+              <Route exact path='/users/:username/' render={() => <PublicProfile theme={theme} /> } />
+              <Route exact path='/users/:username/gh-repos' render={() => <Profile theme={theme} /> } />
+              <Route exact path='/users/:ownerName/repos/:repoName' render={() => <Repo theme={theme} />} />
               <Route path='/team' render={() => <Team theme={theme} />}/>
               <Route component={Error404} />
             </Switch>

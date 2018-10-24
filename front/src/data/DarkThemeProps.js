@@ -7,7 +7,7 @@ const DarkThemeProps = {
     nameTheme: 'dark', 
     iconeTheme: 'fa fa-moon-o',
     bgColorButton: 'white', 
-    bgColorDiv: '#262626', 
+    bgColorDiv: 'elegant-color',  
     bgColor: 'black',
     color: 'white',
     logo: whiteLogo,
