@@ -3,7 +3,7 @@ import html from "../../images/icons/html.png";
 import js from "../../images/icons/js.png";
 import nodejs from "../../images/icons/nodejs.png";
 import { Row, Col } from 'mdbreact';
-import token from '../../config';
+import {token} from '../../settings';
 
 class AsideProfile extends Component {
     constructor(props){

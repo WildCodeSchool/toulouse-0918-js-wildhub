@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import token from '../../../config';
+import {token} from '../../../settings';
 import ReactTooltip from 'react-tooltip';
 import Raw from './DisplayCode/Raw';
 import { Container, Row, Col, Card, CardTitle, CardBody, CardFooter, Fa } from 'mdbreact';

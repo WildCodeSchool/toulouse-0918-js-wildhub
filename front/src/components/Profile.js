@@ -4,7 +4,7 @@ import AsideProfile from './Profile/AsideProfile';
 import ListProjects from './Profile/ListProjects';
 import Footer from './Footer';
 import { Container, Row, Col } from 'mdbreact';
-import token from '../config';
+import {token} from '../settings';
 
 
 class Profile extends Component {
