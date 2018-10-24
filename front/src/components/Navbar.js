@@ -131,7 +131,7 @@ class Navbar extends Component {
               </div>
               </Nav>
 
-            <SideNav id="mySidenav" className={"sidenav " + isOpen} bgColor={this.props.theme.bgColor} >
+            <SideNav id="mySidenav" className={"sidenav z-depth-2 " + isOpen} bgColor={this.props.theme.bgColor} >
                 <NavLink onClick={this.handleClick} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
                     <Fa icon="home mr-2" />
                     {"Accueil"}
