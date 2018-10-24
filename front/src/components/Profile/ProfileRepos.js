@@ -26,7 +26,7 @@ class ProfileRepos extends Component{
 
     render() {
       const reposList = this.props.getReposList;
-      const { username, urlUsername, idActives } = this.props;
+      const { username, urlUsername, idActives, theme } = this.props;
 
         return (
           <Fragment>
@@ -65,6 +65,7 @@ class ProfileRepos extends Component{
                       name={repo.name}
                       postRepoExplore={() => this.postRepoExplore(repo)}
                       isActive={isActive}
+                      theme={theme}
                     />
                   )
                 }
