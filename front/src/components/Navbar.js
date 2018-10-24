@@ -62,7 +62,9 @@ class Navbar extends Component {
         this.scrollable();
 
         return (
-          <Nav className="navbar text-light fixed-top py-0" bgColor={this.props.theme.bgColor} >
+
+          <Fragment>
+            <Nav className="navbar text-light fixed-top py-0" bgColor={this.props.theme.bgColor} >
               <span
                   onClick={this.handleClick}
                   className={`toggle-nav text-${this.props.theme.colorNavLink}`}>
@@ -127,66 +129,69 @@ class Navbar extends Component {
 
                   </div>
               </div>
+              </Nav>
 
-              
-              <SideNav id="mySidenav" className={"sidenav " + isOpen} bgColor={this.props.theme.bgColor} >
-                  <NavLink onClick={this.handleClick} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
-                      <Fa icon="home mr-2" />
-                      {"Accueil"}
-                  </NavLink>
+            <SideNav id="mySidenav" className={"sidenav " + isOpen} bgColor={this.props.theme.bgColor} >
+                <NavLink onClick={this.handleClick} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                    <Fa icon="home mr-2" />
+                    {"Accueil"}
+                </NavLink>
 
-                  <NavLink onClick={this.handleClick} to="/explore" className={`nav-item text-${this.props.theme.colorNavLink}`}>
-                      <Fa icon="wpexplorer mr-2" />
-                      {"Explorer"}
-                  </NavLink>
+                <NavLink onClick={this.handleClick} to="/explore" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                    <Fa icon="wpexplorer mr-2" />
+                    {"Explorer"}
+                </NavLink>
 
-                  <NavLink onClick={this.handleClick} to="/team" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                <NavLink onClick={this.handleClick} to="/team" className={`nav-item text-${this.props.theme.colorNavLink}`}>
 
-                      <Fa icon="users mr-2" />
-                      {"La Team"}
-                  </NavLink>
+                    <Fa icon="users mr-2" />
+                    {"La Team"}
+                </NavLink>
 
-                  <NavLink onClick={this.handleClick} to="/settings" className={`nav-item text-${this.props.theme.colorNavLink}`}>
-                      <Fa icon="cog mr-2" />
-                      {"Paramètres"}
-                  </NavLink>
+                <NavLink onClick={this.handleClick} to="/settings" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                    <Fa icon="cog mr-2" />
+                    {"Paramètres"}
+                </NavLink>
 
-                  {
-                    this.props.login
-                    ? <Fragment>
-                        <NavLink onClick={this.handleClick} to={`/users/${this.props.login}`} className={`nav-item text-${this.props.theme.colorNavLink}`}>
-                          <Fa icon="book mr-2" />
-                          {"Mon Profil"}
-                        </NavLink>
+                {
+                  this.props.login
+                  ? <Fragment>
+                      <NavLink onClick={this.handleClick} to={`/users/${this.props.login}`} className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                        <Fa icon="book mr-2" />
+                        {"Mon Profil"}
+                      </NavLink>
 
-                        <NavLink onClick={this.disconnect} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
-                            <Fa icon='sign-out' /> Déconnexion
-                        </NavLink>
-                      </Fragment>
+                      <NavLink onClick={this.disconnect} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                          <Fa icon='sign-out' /> Déconnexion
+                      </NavLink>
+                    </Fragment>
 
-                    : <GitHubLogin
-                        className="btn btn-sm btn-primary"
-                        scope="user:email,public_repo"
-                        clientId={clientId}
-                        redirectUri={`${redirectUri}/users/${this.props.login}`}
-                        onSuccess={this.props.handleLoginSuccess}
-                        onFailure={this.props.handleLoginFailure}
-                        children={<span style={{verticalAlign: 'middle'}}>
-                          Se connecter
-                          <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
-                        </span>}
-                      />
-                  }
-                  <Button
-                    onClick={this.props.changeTheme}
-                    bgColor={this.props.theme.bgColorButton}
-                    color={this.props.theme.color}
-                    className='theme-toggler ml-5 text-center'
-                  >
-                    <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
-                  </Button>
-              </SideNav>
-          </Nav>
+                  : <GitHubLogin
+                      className={`btn btn-sm ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
+                      bgColor={this.props.theme.bgColor}
+                      color={this.props.theme.color}
+                      scope="user:email,public_repo"
+                      clientId={clientId}
+                      redirectUri={`${redirectUri}/users/${this.props.login}`}
+                      onSuccess={this.props.handleLoginSuccess}
+                      onFailure={this.props.handleLoginFailure}
+                      children={<span style={{verticalAlign: 'middle'}}>
+                        Se connecter
+                        <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
+                      </span>}
+                    />
+                }
+                <Button
+                  onClick={this.props.changeTheme}
+                  bgColor={this.props.theme.bgColorButton}
+                  color={this.props.theme.color}
+                  className='theme-toggler btn-sm'
+                >
+                  <i className={`mr-2 ${this.props.theme.iconeTheme}`} aria-hidden="true"></i>
+                  Theme
+                </Button>
+            </SideNav>
+        </Fragment>
         )
     }
 }
