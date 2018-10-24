@@ -7,15 +7,15 @@ class LangBar extends Component {
         let sumChar = 0, countIdSpan = 0;
         const { repo, name } = this.props;
         let langArr = [];
-    
+
         Object.entries(repo.language_stat).map(([key, value]) => {
             sumChar += value;
             langArr.push([key, value]);
             return null;
         })
-    
+
         return (
-            <div className="language-bar">
+            <div className="language-bar d-flex">
             {
                 langArr.map((singleLang, index) => {
                     countIdSpan += 1
@@ -37,7 +37,7 @@ class LangBar extends Component {
                             </ReactTooltip>
                         </Fragment>
                     )
-  
+
                 })
             }
             </div>
