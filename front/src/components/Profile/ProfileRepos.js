@@ -33,7 +33,7 @@ class ProfileRepos extends Component{
             {
               username === urlUsername &&
               <Row className='mb-5'>
-                <Col xs='12'>
+                <Col xs='12' className='d-flex justify-content-center'>
 
                   <NavLink to={`/users/${username}`}>
                     <Button color="elegant">
@@ -53,8 +53,9 @@ class ProfileRepos extends Component{
             }
 
             <Row>
-              {reposList.map( (repo, idx) =>
-                {
+              {!reposList.length > 0
+                ? <Col><p className="h6 text-center text-muted">{"Aucun dépôt n'est répertorié"}</p></Col>
+                : reposList.map( (repo, idx) =>{
                   const isActive = idActives && idActives.includes(repo.id)
 
                   return(
@@ -68,9 +69,7 @@ class ProfileRepos extends Component{
                       theme={theme}
                     />
                   )
-                }
-
-                  )
+                })
               }
             </Row>
           </Fragment>
