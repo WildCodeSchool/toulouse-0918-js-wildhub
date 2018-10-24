@@ -1,4 +1,5 @@
 import jg_pic from '../images/team/jg_pic.jpeg';
+import es_pic from '../images/team/es_pic.jpeg';
 
 const TeamMembers = [
     {
@@ -11,7 +12,7 @@ const TeamMembers = [
                 icon: 'github'
             }
         ],
-        avatar: 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+        avatar: es_pic
     },
     {
         name: 'Julien Sans',

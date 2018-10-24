@@ -95,10 +95,10 @@ class Navbar extends Component {
                             </Button>
                             {
                               this.props.login
-                              ? <Dropdown className='ml-auto'>
-                                    <DropdownToggle caret color='elegant'>{this.props.login} </DropdownToggle>
-                                    <DropdownMenu right className='bg-dark'>
-                                        <DropdownItem href={`/users/${this.props.login}`}>
+                              ? <Dropdown className='ml-auto '>
+                                    <DropdownToggle caret color={`${this.props.theme.color}`}>{this.props.login} </DropdownToggle>
+                                    <DropdownMenu right color={`${this.props.theme.color}`} >
+                                        <DropdownItem href={`/users/${this.props.login}`} >
                                           <Fa icon="book mr-2" /> {"Mon Profil"}
                                         </DropdownItem>
                                         <DropdownItem
@@ -110,7 +110,7 @@ class Navbar extends Component {
                                     </DropdownMenu>
                                   </Dropdown>
                               : <GitHubLogin
-                                  className="btn btn-sm btn-primary ml-auto"
+                              className={`btn ml-auto ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
                                   scope="user:email,public_repo"
                                   clientId={clientId}
                                   redirectUri={`${redirectUri}/users/${this.props.login}`}
@@ -174,6 +174,7 @@ class Navbar extends Component {
                             onClick={this.props.changeTheme}
                             bgColor={this.props.theme.bgColorButton} 
                             color={this.props.theme.color}
+                            className="btn-theme px-3 py-2"
                             >
                             <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
                                                     

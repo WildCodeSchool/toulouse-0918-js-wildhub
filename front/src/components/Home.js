@@ -60,7 +60,7 @@ class Home extends Component {
                             this.props.login
                             ? ''
                             : <GitHubLogin
-                              className="btn btn-primary"
+                              className={`btn ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
                               scope="user:email,public_repo"
                               clientId={clientId}
                               redirectUri={redirectUri}

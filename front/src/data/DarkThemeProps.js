@@ -14,7 +14,7 @@ const DarkThemeProps = {
     logoNav: whiteLogoNav,
     filter: 'brightness(40%)',
     colorNavLink: 'white',
-    sideNav: 'blue'
+    colorItems: 'grey darken-2'
 
   }
 
