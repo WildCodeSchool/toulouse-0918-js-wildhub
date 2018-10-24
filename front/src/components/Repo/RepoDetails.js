@@ -42,14 +42,11 @@ class RepoDetails extends Component {
         const readmeObj = this.props.files.length && files.filter(readme => readme.name === 'README.md');
 
         return (
-
             <Col xs='12' lg='8' className='mr-auto mb-5'>
-                <Card className='display-repo'>
-
+                <Card className={`display-repo ${this.props.theme.colorItems}`}>
                   <CardBody>
                     <div className="repo-title">
-                        <CardTitle className='mb-0'>{ nameOfRepo }</CardTitle>
-
+                        <CardTitle className={`mb-0 text-${this.props.theme.color}`}>{ nameOfRepo }</CardTitle>
                         <a
                           href={ html_url }
                           target='_blank'
@@ -68,11 +65,8 @@ class RepoDetails extends Component {
                           Voir dans GitHub
                         </ReactTooltip>
                     </div>
-
                     <hr />
-
-
-                    <div className='repo-desc'>{ description }</div>
+                    <div className={`repo-desc text-${this.props.theme.color}`}>{ description }</div>
 
                     {
                       files.length &&
@@ -80,17 +74,15 @@ class RepoDetails extends Component {
                         return(
                           (file.type === 'dir') ?
                           <div key={idx} onClick={() => this.developDir(file.name)}>{file.name}</div> :
-                          <div key={idx}>{file.name}</div>
+                          <div className={`text-${this.props.theme.color}`} key={idx}>{file.name}</div>
                         )
                       })
                     }
 
                     {
                       files.length && readmeObj.length &&
-                      <Raw readmeObj={readmeObj[0]}/>
+                      <Raw theme={this.props.theme} readmeObj={readmeObj[0]}/>
                     }
-
-
                   </CardBody>
                 </Card>
               </Col>

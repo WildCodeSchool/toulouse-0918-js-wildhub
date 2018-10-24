@@ -19,14 +19,12 @@ class RepoCard extends Component {
 
         return(
             <Col md='4' className='mb-4'>
-
               <Card className={`repoCard ${this.props.theme.colorItems} `}>
                 <CardBody >
                   <div className="repo-title ">
                       <NavLink to={`/users/${repo.owner.login}/repos/${repo.name}`} className="repo-name">
                         <CardTitle className={`text-${this.props.theme.colorNavLink}`}>{repo.name}</CardTitle>
                       </NavLink>
-
                       <a
                         href={repo.html_url}
                         target='_blank'
@@ -50,7 +48,7 @@ class RepoCard extends Component {
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
 
-                  <SwitchBtn isActive={isActive} />
+                  <SwitchBtn theme={this.props.theme} isActive={isActive} />
 
                   <hr/>
 
@@ -60,7 +58,7 @@ class RepoCard extends Component {
                 </CardBody>
 
                 <CardFooter className={`repoCard ${this.props.theme.colorItems} text-right`}>
-                  <small className={`font-italic text-${this.props.theme.colorNavLink} `}>
+                  <small className={`text-${this.props.theme.colorNavLink} `} style={{fontFamily: 'SourceSans', fontSize: '0.9em'}}>
                     { `Dernière activité le ${new Date(repo.updated_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </CardFooter>
