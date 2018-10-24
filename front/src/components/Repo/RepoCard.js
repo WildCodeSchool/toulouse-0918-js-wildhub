@@ -48,7 +48,7 @@ class RepoCard extends Component {
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
 
-                  <SwitchBtn theme={this.props.theme} isActive={isActive} />
+                  <SwitchBtn theme={this.props.theme} isActive={isActive} repo={repo} />
 
                   <hr/>
 
