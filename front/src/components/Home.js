@@ -96,15 +96,15 @@ class Home extends Component {
                       
                     )}
                   >
-                    <div style={{ height: '100vh' }}>
+                    <div style={{ minHeight: '100vh' }}>
                       <Row className="mainAccueil align-items-center">
                         <Col xs='10' md='8' lg='6' className="mx-auto text-center">
                         
-                          <div style={{marginTop: '100px'}}>
-                            <div className={`pt-2 text-${this.props.theme.color} `} style={{background: `${this.props.theme.bgHome}`}}>
+                          <div className="header-wrapper" style={{background: `${this.props.theme.bgHome}`}}>
+                            <div className={`pt-2 text-${this.props.theme.color} `} >
                               <img className="img-fluid logo mt-5" src={this.props.theme.logo} alt="logo" />
                             </div>
-                            <div className={`p-5 text-${this.props.theme.color}`} style={{background: `${this.props.theme.bgHome}`}}>
+                            <div className={`p-5 text-${this.props.theme.color}`} >
                               <h1 className="pb-3" >{"Bienvenue sur WildHub !"}</h1>
                               <p className="text-left">{"Wild Hub est une plateforme de partage qui rassemble les projets personnels des anciens et actuels élèves de la Wild Code School."}</p>
                               <p className="fedra-text mt-5">Bonne visite !</p>

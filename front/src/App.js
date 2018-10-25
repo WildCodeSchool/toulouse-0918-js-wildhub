@@ -31,15 +31,16 @@ class App extends Component {
         id,
         accessToken
       } = this.getStoredAuthData();
-
+      
+      const theme = localStorage.getItem("isDarkTheme")
+     
       this.state = {
         loading: true,
-        isDarkTheme: true,
+        isDarkTheme: theme !== "false",
         jwt,
         login,
         id,
         accessToken,
-        isDarkTheme: true
       }
   };
 
@@ -95,26 +96,27 @@ class App extends Component {
     this.setState({ jwt: '', login: '', id: 0, accessToken: '' })
   };
 
-  // // Loader
-  // componentDidMount (){
-  //   setTimeout(() => {
-  //     this.setState({
-  //       loading: false,
-  //     })
-  //   }, 2000);
-  // }
+  // Loader
+  componentDidMount (){
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+      })
+    }, 2000);
+  }
+
 
   changeTheme = () => {
+    console.log(localStorage.getItem("isDarkTheme"))
+    const wasDarkTheme = localStorage.getItem("isDarkTheme") !== "false"
+    localStorage.setItem("isDarkTheme", !wasDarkTheme)
     this.setState({
-      isDarkTheme: !this.state.isDarkTheme
+      isDarkTheme: !wasDarkTheme
     })
   }
 
   render() {
-    // if(this.state.loading){
-    //     return <Loading />;
-    // }
-
+    
     const { login, isDarkTheme } = this.state;
     const theme = isDarkTheme ? DarkThemeProps : LightThemeProps
 

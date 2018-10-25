@@ -21,31 +21,39 @@
           .mainAccueil{
             min-height: calc(100vh - 60px);
 
-            .logo{
-              width: 100px;
-              &:hover{
-                    animation: spin linear infinite 2s;
+            .header-wrapper{
+              margin-top: 100px;
+              border-radius: 10px;
+
+              .logo{
+                width: 100px;
+                &:hover{
+                      animation: spin linear infinite 2s;
+                }
               }
+  
+              h1{
+                font-family: "Gotham";
+              }
+  
+              p{
+                font-family: "SourceSans";
+                font-size: 1.3em;
+                font-weight: 600;
+              }
+  
+              .fedra-text{
+                font-family: "Fedra";
+                font-size: 1.5em;
+              }
+  
+              .black-text{
+                font-family: "Gotham";
+              }
+
             }
 
-            h1{
-              font-family: "Gotham";
-            }
-
-            p{
-              font-family: "SourceSans";
-              font-size: 1.3em;
-              font-weight: 600;
-            }
-
-            .fedra-text{
-              font-family: "Fedra";
-              font-size: 1.5em;
-            }
-
-            .black-text{
-              font-family: "Gotham";
-            }
+            
       }
   }
 
