@@ -72,9 +72,6 @@ class RepoDetails extends Component {
 
 
     render() {
-        console.log('props', this.props.files);
-        console.log('state', this.state.files);
-        console.log('goBack', this.state.goBackPathArr);
         const { name, html_url, description } = this.props.repo;
         const { repoName } = this.props;
         const nameOfRepo = name ? name : repoName;

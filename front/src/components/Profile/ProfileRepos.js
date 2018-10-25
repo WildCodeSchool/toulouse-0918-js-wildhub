@@ -23,7 +23,6 @@ class ProfileRepos extends Component{
     render() {
       const reposList = this.props.getReposList;
       const { username, urlUsername, idActives, theme } = this.props;
-      console.log(this.props)
 
         return (
           <Fragment>
@@ -33,8 +32,8 @@ class ProfileRepos extends Component{
                 <Col xs='12' className='d-flex justify-content-center'>
 
                   <NavLink exact to={`/users/${username}`}>
-                    <Button 
-                      bgColor={this.props.theme.bgColor} 
+                    <Button
+                      bgColor={this.props.theme.bgColor}
                       color={this.props.theme.color}
                       className="mr-3"
                     >
@@ -44,8 +43,8 @@ class ProfileRepos extends Component{
 
 
                   <NavLink exact to={`/users/${username}/gerer-mes-repos`}>
-                    <Button 
-                      bgColor={this.props.theme.bgColor} 
+                    <Button
+                      bgColor={this.props.theme.bgColor}
                       color={this.props.theme.color}
                       className="ml-3"
                     >
