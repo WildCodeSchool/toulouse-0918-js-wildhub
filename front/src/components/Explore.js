@@ -31,6 +31,12 @@ class Explore extends Component {
             });
     }
 
+    getByLanguage = (language) => {
+      fetch(`https://wildhub.ssd1.ovh/api/projects/by-language/${language}`)
+      .then(response => response.json())
+      .then(repos => this.setState({ repos: repos }))
+    }
+
     postRepoExplore(repo) {
       (repo.active !== 1) ? repo.active = 1 : repo.active = 0;
       fetch('https://wildhub.ssd1.ovh/api/projects', {
@@ -61,7 +67,7 @@ class Explore extends Component {
                     <Row>
                       <Col xs="12" className="mx-auto pb-5">
                         <Filtre className="pb-5"
-                          repo={repos}
+                          getByLanguage={this.getByLanguage}
                         />
                       </Col>
                     </Row>
