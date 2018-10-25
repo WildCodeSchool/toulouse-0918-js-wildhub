@@ -44,11 +44,15 @@ class RepoCard extends Component {
                       </ReactTooltip>
                   </div>
 
+
                   <NavLink to={`/users/${repo.owner.login}`} className={`repo-owner text-${this.props.theme.colorNavLink}`}>
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
 
-                  <SwitchBtn theme={this.props.theme} isActive={isActive} repo={repo} />
+                  {
+                    window.location.href.endsWith('/gerer-mes-repos') &&
+                    <SwitchBtn theme={this.props.theme} isActive={isActive} repo={repo} />
+                  }
 
                   <hr/>
 
