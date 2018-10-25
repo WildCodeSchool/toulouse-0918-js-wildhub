@@ -44,9 +44,17 @@ class ProfileAside extends Component {
                         <p>{this.state.profileInfos.bio}</p>
                     </div>
 
-                    <span><i className="fa fa-map-marker mr-2" style={{color: `${this.props.theme.color}`}} aria-hidden="true"></i><span  className={`profile-location px-2 text-${this.props.theme.color}`}>{this.state.profileInfos.location}</span></span>
+                    <span>
+                        <i className="fa fa-map-marker mr-2" style={{color: `${this.props.theme.color}`}} aria-hidden="true"></i>
+                        <span  className={`profile-location px-2 text-${this.props.theme.color}`}>{this.state.profileInfos.location}</span>
+                    </span>
                     <br></br>
-                    <span><i className="fa fa-external-link mr-2" style={{color: `${this.props.theme.color}`}} aria-hidden="true"></i><span className={`profile-blog px-2 text-${this.props.theme.color}`}><a href={'/blog/' + this.state.profileInfos.blog} rel="noopener noreferrer" target="_blank">{this.state.profileInfos.blog}</a></span></span>
+                    <span>
+                        <i className="fa fa-external-link mr-2" style={{color: `${this.props.theme.color}`}} aria-hidden="true"></i>
+                        <span className="profile-blog px-2" >
+                            <a  className={`${this.props.theme.colorLink}-text`} href={'/blog/' + this.state.profileInfos.blog} rel="noopener noreferrer" target="_blank">{this.state.profileInfos.blog}</a>
+                        </span>
+                    </span>
                 </div>
             </Col>
         </Row>

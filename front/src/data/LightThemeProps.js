@@ -14,6 +14,7 @@ const LightThemeProps = {
     logoNav: blackLogoNav,
     filter: 'brightness(80%)',
     colorNavLink: 'dark',
-    colorItems: 'grey lighten-1'
+    colorItems: 'grey lighten-1',
+    colorLink: 'red'
   }
 export default LightThemeProps;

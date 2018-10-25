@@ -155,16 +155,12 @@ class Navbar extends Component {
                 {
                   this.props.login
                   ? <Fragment>
-                      <NavLink exact onClick={this.handleClick} to={`/users/${this.props.login}`} className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                      <a href={`/users/${this.props.login}`} onClick={this.handleClick} className={`nav-item text-${this.props.theme.colorNavLink}`}>
                         <Fa icon="book mr-2" />
                         {"Mon Profil"}
-                      </NavLink>
+                      </a>
 
-                      <NavLink
-                        to="/home"
-                        onClick={this.disconnect}
-                        className={`nav-item text-${this.props.theme.colorNavLink}`}
-                      >
+                      <NavLink to="/" onClick={this.disconnect} className={`nav-item text-${this.props.theme.colorNavLink}`}>
                           <Fa icon='sign-out' /> Déconnexion
                       </NavLink>
                     </Fragment>
