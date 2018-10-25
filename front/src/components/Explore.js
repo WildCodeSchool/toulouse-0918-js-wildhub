@@ -6,6 +6,7 @@ import {
 } from 'mdbreact';
 import RepoCard from './Repo/RepoCard';
 import Filtre from './Filtre'
+import octocat_filtre from '../images/octocat_filtre.png'
 
 class Explore extends Component {
 
@@ -60,7 +61,6 @@ class Explore extends Component {
                         <Col xs='12' className="mx-auto mb-5 text-center">
                             <h2 className="text-left">Projets des Wilders</h2>
                             <div style={{ height: '8px', background: 'blue' }}  />
-
                         </Col>
                     </Row>
 
@@ -75,7 +75,9 @@ class Explore extends Component {
                     <Row className="mt-3" >
 
                       {
-                        repos.map((repo, index) =>
+                        repos.length
+                       ?
+                         repos.map((repo, index) =>
                           <RepoCard
                             repo={repo}
                             key={index}
@@ -83,8 +85,14 @@ class Explore extends Component {
                             postRepoExplore={() => this.postRepoExplore(repo)}
                           />
                         )
+                        :
+                        <div className="mx-auto text-center">
+                          <div className="mx-auto text-center">
+                            <img fluid src={octocat_filtre} className="octocat_filtre" alt="octocat" />
+                          </div>
+                          <div className="text-align-center" style={{ fontSize: '1.5rem' }}>Aucun repository de ce langage n'est actuellement disponible !</div>
+                        </div>
                       }
-
 
                     </Row>
                 </Container>
