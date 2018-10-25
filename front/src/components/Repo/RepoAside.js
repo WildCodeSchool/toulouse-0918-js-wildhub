@@ -21,18 +21,18 @@ class RepoAside extends Component {
                   <img src='https://avatars1.githubusercontent.com/u/39422372?v=4' alt={ownerName} className='mr-3' />
                 }
 
-                <CardTitle className='mt-3'>{ ownerName }</CardTitle>
+                <CardTitle className='mt-3' style={{fontFamily: 'Gotham'}}>{ ownerName }</CardTitle>
               </div>
 
               <div className={`repo-infos text-${this.props.theme.color}`}>
-                <h6>Détails du dépôt</h6>
+                <h6 style={{fontFamily: 'Gotham', fontSize: '1em'}}>Détails du dépôt</h6>
                 <div className={`pl-2 text-${this.props.theme.color}`}>
-                  <small>
+                  <small style={{fontFamily: 'SourceSans', fontSize: '1em'}}>
                       {created_at && `Crée le ${new Date(created_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </div>
                 <div className={`pl-2 text-${this.props.theme.color}`}>
-                  <small>
+                  <small style={{fontFamily: 'SourceSans', fontSize: '1em'}}>
                       {updated_at && `Dernière activité le ${new Date(updated_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </div>
