@@ -11,7 +11,7 @@ class RepoAside extends Component {
 
     return(
 
-      <Col xs='12' lg='3' className='ml-auto mb-5'>
+      <Col xs='12' lg='4' className='ml-auto mb-5'>
 
         <Card>
             <CardBody className={`rounded ${this.props.theme.colorItems}`}>
