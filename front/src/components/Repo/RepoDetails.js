@@ -20,7 +20,7 @@ class RepoDetails extends Component {
         goBackPathArr: []
       }
       this.developDir = this.developDir.bind(this)
-      //this.goBackInTree = this.goBackInTree.bind(this)
+      this.goBackInTree = this.goBackInTree.bind(this)
     }
 
     developDir(dirPath) {
@@ -33,31 +33,35 @@ class RepoDetails extends Component {
         .then(results => results.json())
         .then(files => this.setState({
           files: files,
-          //bug     goBackPathArr: this.state.goBackPathArr.push(dirPath)
+          goBackPathArr: [...this.state.goBackPathArr, dirPath]
         }))
     }
 
-//BUG    // goBackInTree(dirPath) {
-    //   console.log("yo")
-    //   const temp = this.state.goBackPathArr.slice(0);
-    //   temp = temp.slice(0, -1);
-    //   const { repoName, ownerName } = this.props;
-    //   fetch(`https://api.github.com/repos/${ownerName}/${repoName}/contents/${dirPath}?ref=master`, {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`
-    //     }
-    //   })
-    //     .then(results => results.json())
-    //     .then(files => this.setState({
-    //       files: files,
-    //       goBackPathArr: this.state.goBackPathArr.slice(0, -1)
-    //     }))
-    // }
+    goBackInTree() {
+      const temp = [...this.state.goBackPathArr];
+      temp.splice(-1,1)
+      const last = temp[temp.length -1]
+      const { repoName, ownerName } = this.props;
+      const urlFetch = temp.length ? `https://api.github.com/repos/${ownerName}/${repoName}/contents/${last}?ref=master` :
+      `https://api.github.com/repos/${ownerName}/${repoName}/contents`
+
+      fetch(urlFetch, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(results => results.json())
+        .then(files => this.setState({
+          files: files,
+          goBackPathArr: temp
+        }))
+    }
 
 
     render() {
         console.log('props', this.props.files);
         console.log('state', this.state.files);
+        console.log('goBack', this.state.goBackPathArr);
         const { name, html_url, description } = this.props.repo;
         const { repoName } = this.props;
         const nameOfRepo = name ? name : repoName;
@@ -94,12 +98,14 @@ class RepoDetails extends Component {
 
                     <hr />
 
-
                     <div className='repo-desc'>{ description }</div>
-                    <Button color="elegant" onClick={() => this.goBackInTree(this.state.goBackPathArr[-1])}>
-                      Retour (BUG)
-                    </Button>
-                    {console.log(this.state.files)}
+
+                    {
+                      this.state.goBackPathArr.length
+                      ? <Fa icon="arrow-circle-left" onClick={this.goBackInTree}/>
+                      : ''
+                    }
+
                     {
                       this.props.files && this.props.files.length && this.state.files && this.state.files.length &&
                       this.state.files.map((file, idx) => {
