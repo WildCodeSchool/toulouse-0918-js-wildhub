@@ -22,7 +22,7 @@ class Explore extends Component {
       this.getExplore();
     }
 
-    getExplore() {
+    getExplore = () => {
         fetch('https://wildhub.ssd1.ovh/api/projects')
             .then(results  =>  results.json())
             .then(repos  => {
@@ -68,6 +68,7 @@ class Explore extends Component {
                       <Col xs="12" className="mx-auto pb-5">
                         <Filtre className="pb-5"
                           getByLanguage={this.getByLanguage}
+                          getExplore={this.getExplore}
                         />
                       </Col>
                     </Row>
