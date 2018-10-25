@@ -1,5 +1,6 @@
 import jg_pic from '../images/team/jg_pic.jpeg';
 import es_pic from '../images/team/es_pic.jpeg';
+import octocat from '../images/team/octocat.png'
 
 const TeamMembers = [
     {
@@ -44,9 +45,15 @@ const TeamMembers = [
                 name: 'GitHub',
                 link: 'https://github.com/NelsonHui123',
                 icon: 'github'
+            },
+
+            {
+                name: 'CodePen',
+                link: 'https://codepen.io/JacquesChiracSC2/',
+                icon: 'codepen'
             }
         ],
-        avatar: 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+        avatar: octocat
     },
     {
         name: 'Jules Grenier',

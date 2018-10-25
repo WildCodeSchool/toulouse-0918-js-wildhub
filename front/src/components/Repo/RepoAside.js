@@ -18,7 +18,7 @@ class RepoAside extends Component {
               <div className={`owner-infos text-${this.props.theme.color}`}>
                 {
                   owner &&
-                  <img src='https://avatars1.githubusercontent.com/u/39422372?v=4' alt={ownerName} className='mr-3' />
+                  <img src={owner.avatar_url} alt={ownerName} className='mr-3' />
                 }
 
                 <CardTitle className='mt-3'>{ ownerName }</CardTitle>
