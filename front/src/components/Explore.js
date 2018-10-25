@@ -5,6 +5,7 @@ import {
     Col
 } from 'mdbreact';
 import RepoCard from './Repo/RepoCard';
+import Filtre from './Filtre'
 
 class Explore extends Component {
 
@@ -57,6 +58,13 @@ class Explore extends Component {
                         </Col>
                     </Row>
 
+                    <Row>
+                      <Col xs="12" className="mx-auto pb-5">
+                        <Filtre className="pb-5"
+                          repo={repos}
+                        />
+                      </Col>
+                    </Row>
 
                     <Row className="mt-3" >
 
