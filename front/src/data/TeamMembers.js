@@ -45,6 +45,12 @@ const TeamMembers = [
                 name: 'GitHub',
                 link: 'https://github.com/NelsonHui123',
                 icon: 'github'
+            },
+
+            {
+                name: 'CodePen',
+                link: 'https://codepen.io/JacquesChiracSC2/',
+                icon: 'codepen'
             }
         ],
         avatar: octocat
