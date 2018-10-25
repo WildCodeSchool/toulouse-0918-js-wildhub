@@ -52,10 +52,17 @@ class Repo extends Component {
       <main id='repo-page' className={`${this.props.theme.bgColorDiv}`}>
         <Container className='py-5'>
           <Row className='flex-column-reverse flex-lg-row'>
+
             {
               files.length &&
               <RepoDetails theme={this.props.theme} repo={repo} files={files} ownerName={ownerName} repoName={repoName} />
             }
+
+            {
+              !files.length &&
+              <RepoDetails theme={this.props.theme} repo={repo} files={files} ownerName={ownerName} repoName={repoName} />
+            }
+
             <RepoAside theme={this.props.theme} ownerName={ownerName} repo={repo} />
           </Row>
         </Container>

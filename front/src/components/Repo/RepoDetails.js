@@ -128,8 +128,9 @@ class RepoDetails extends Component {
                     }
 
                     {
-                      this.props.files && this.props.files.length && readmeObj.length &&
+                      this.props.files && this.props.files.length && readmeObj.length ?
                       <Raw theme={this.props.theme} readmeObj={readmeObj[0]}/>
+                      : ''
                     }
                   </CardBody>
                 </Card>
