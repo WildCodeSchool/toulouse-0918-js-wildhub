@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Card, CardTitle, CardBody } from 'mdbreact';
+import { NavLink } from 'react-router-dom';
 import LangList from './LangList';
 
 class RepoAside extends Component {
@@ -21,7 +22,9 @@ class RepoAside extends Component {
                   <img src={owner.avatar_url} alt={ownerName} className='mr-3' />
                 }
 
-                <CardTitle className='mt-3' style={{fontFamily: 'Gotham'}}>{ ownerName }</CardTitle>
+                <NavLink to={`/users/${ownerName}`} style={{color: '#3e3e3e'}}>
+                    <CardTitle className='mt-3' style={{fontFamily: 'Gotham'}}>{ ownerName }</CardTitle>
+                </NavLink>
               </div>
 
               <div className={`repo-infos text-${this.props.theme.color}`}>
