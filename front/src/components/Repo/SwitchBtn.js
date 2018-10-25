@@ -13,9 +13,21 @@ export default class SwitchBtn extends Component {
   }
 
   handleSwitch(){
+
     this.setState({
       isActive: !this.state.isActive
     })
+
+    const { repo } = this.props;
+
+      fetch(`https://wildhub.ssd1.ovh/api/projects`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(repo)
+      })
   }
 
   render(){

@@ -130,7 +130,7 @@ class App extends Component {
           theme={theme}
         />
             <Switch>
-              <Route exact path='/'
+              <Route exact path='(/|/home)'
                 render={() => <Home
                   handleLoginSuccess={this.handleLoginSuccess}
                   handleLoginFailure={this.handleLoginFailure}

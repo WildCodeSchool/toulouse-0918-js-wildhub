@@ -63,6 +63,12 @@ class Profile extends Component {
             repo.id
             )
           )
+          .then(reposActive => {
+            if (!reposActive.length) {
+              return [-1]
+            }
+            return reposActive
+          })
             .then(idArr =>
               this.setState({
                 idActives: idArr
@@ -72,7 +78,7 @@ class Profile extends Component {
     }
 
     render() {
-      const { login } = this.props;
+      const { login, theme } = this.props;
       const { username } = this.props.match.params;
       const { idActives } = this.state;
 
@@ -82,20 +88,22 @@ class Profile extends Component {
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            { this.state.reposList.length > 0
-                           ? <ProfileAside username={ username }  />
+                           ? <ProfileAside username={ username } theme={theme}  />
                            : ''
                         }
                         </Col>
                         <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
-                        
+
                         {
+
                           idActives.length &&
-                          <ProfileRepos
-                            getReposList={this.state.reposList}
-                            username={ login }
-                            urlUsername={ username }
-                            idActives={ idActives }
-                          />
+                            <ProfileRepos
+                              getReposList={this.state.reposList}
+                              username={ login }
+                              urlUsername={ username }
+                              idActives={ idActives }
+                              theme={theme}
+                            />
 
                         }
 

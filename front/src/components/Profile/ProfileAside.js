@@ -38,7 +38,7 @@ class ProfileAside extends Component {
                 <img src={this.state.profileInfos.avatar_url} alt="" className="profile-pic img-fluid z-depth-1 rounded mb-3"/>
                 <div className="profile-infos">
                     <h1 className="profile-name" >{this.state.profileInfos.login}</h1>
-                    <h5 className="profile-login px-2" >{this.state.profileInfos.name}</h5>
+                    <h4 className="profile-login px-2" >{this.state.profileInfos.name}</h4>
 
                     <p className="profile-location px-2">{this.state.profileInfos.location}</p>
 
@@ -48,12 +48,14 @@ class ProfileAside extends Component {
                 </div>
             </Col>
 
-            <Col xs='12' className="mb-3 profile-desc">
+            { this.state.profileInfos.bio &&
+              <Col xs='12' className="mb-3 profile-desc">
                 <h5>A propos de moi</h5>
                 <div className="desc">
                     <p className='px-2'>{this.state.profileInfos.bio}</p>
                 </div>
-            </Col>
+              </Col>
+            }
 
         </Row>
     );

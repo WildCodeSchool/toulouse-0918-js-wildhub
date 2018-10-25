@@ -18,7 +18,7 @@ class RepoCard extends Component {
         const { repo, idx, name, isActive } = this.props;
 
         return(
-            <Col md='4' className='mb-4'>
+            <Col md='6' className='mb-4'>
               <Card className={`repoCard ${this.props.theme.colorItems} `}>
                 <CardBody >
                   <div className="repo-title ">
@@ -48,7 +48,7 @@ class RepoCard extends Component {
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
 
-                  <SwitchBtn theme={this.props.theme} isActive={isActive} />
+                  <SwitchBtn theme={this.props.theme} isActive={isActive} repo={repo} />
 
                   <hr/>
 

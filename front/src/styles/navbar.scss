@@ -45,10 +45,11 @@
     background: #000;
     border-radius: 0;
 
+
     .dropdown-item{
       color: #818181;
 
-      &:hover, &:active, &:focus{
+      &.active, &:hover, &:active, &:focus{
         background: #3e3e3e;
         color: #f1f1f1;
         outline: none;
@@ -88,7 +89,7 @@
               transition: all 0.3s ease-in-out 0s;
           }
 
-          &:hover{
+          &:hover, &.active{
 
               &::after{
                   width: 100%;
@@ -100,6 +101,9 @@
 }
 
 .sidenav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     height: 100%;
     width: 250px;
     position: fixed;
@@ -118,20 +122,48 @@
         right: 0;
     }
 
-    a{
-      padding: .75em 0;
-      display: block;
+    button{
+      margin: .75em 0;
+    }
+
+    .nav-item{
+      padding: .75em .75em .75em 0;
+      display: inline-block;
       font-family: "Gotham";
       font-size: 1em;
       position: relative;
       text-decoration: none;
       transition: 0.3s;
+
+
+
+      &::after{
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 3px;
+          margin: auto;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to left, #5600ff 0%,#ff0000 50%,#00ff28 100%);
+          transition: all 0.3s ease-in-out 0s;
+      }
+
+      &:hover, &.active{
+
+          &::after{
+              width: 100%;
+          }
+      }
+
     }
 
     .theme-toggler{
       margin: 1em 0;
-      height: 40px;
-      width: 40px;
+      height: 36px;
+      width: 150px;
+      border-radius: .125em;
     }
 
     .closebtn{
