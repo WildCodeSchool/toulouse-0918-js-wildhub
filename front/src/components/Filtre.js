@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import filtres from '../styles/filtres.css'
+import React, { Component } from 'react';
+import filtres from '../styles/filtres.scss'
 import Autosuggest from 'react-autosuggest';
-import { Container, Row, Col } from 'mdbreact';
 import colors from '../data/colors';
 
 const languages = Object.keys(colors);
@@ -46,13 +45,13 @@ class Filtre extends Component {
 
     const { value, suggestions } = this.state;
     const inputProps = {
-      placeholder: "Exemple 'JavaScript'",
+      placeholder: "Ex: 'JavaScript'",
       value,
       onChange: this.onChange
     };
 
     return (
-      <Fragment>
+      <div className='filter'>
         <div className="filter-text text-center mb-3">Trier par langages</div>
           <Autosuggest
             suggestions={suggestions}
@@ -64,7 +63,7 @@ class Filtre extends Component {
             inputProps={inputProps}
             style={{border: "none"}}
           />
-        </Fragment>
+        </div>
       )
     }
   }

@@ -85,7 +85,7 @@ class Explore extends Component {
                     </Parallax>
                 </ Container >
 
-                <Container className='py-5'>
+                <Container className='py-5 filter'>
                     <Row>
                       <Col lg="3" xs="6" className="mx-auto text-center pb-5">
                         <Filtre className="pb-5 border-0"

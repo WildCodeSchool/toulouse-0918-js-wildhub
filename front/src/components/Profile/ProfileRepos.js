@@ -27,6 +27,7 @@ class ProfileRepos extends Component{
     render() {
       const reposList = this.props.getReposList;
       const { username, urlUsername, idActives, theme } = this.props;
+      console.log(this.props)
 
         return (
           <Fragment>
