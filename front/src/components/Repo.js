@@ -41,6 +41,7 @@ class Repo extends Component {
               files: files
             })
           })
+          .then(this.props.resetLoading(false))
   }
 
   render() {
