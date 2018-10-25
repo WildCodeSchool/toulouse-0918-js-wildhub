@@ -141,7 +141,7 @@ class RepoDetails extends Component {
 
                     {
                       this.props.files && this.props.files.length && this.state.fileCode ?
-                      <div id='codeReadme' className='p-3 mt-3 rounded' style={{background: 'white'}}>
+                      <div id='codeReadme' className='p-3 mt-3 rounded grey lighten-3'>
                         <Raw theme={this.props.theme} readmeObj={this.state.fileCode[0]}/>
                       </div>
                       : ''
