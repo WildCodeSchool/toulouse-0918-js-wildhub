@@ -83,12 +83,12 @@ class Profile extends Component {
       const { idActives } = this.state;
 
         return (
-              <main id='profile-page'>
+              <main id='profile-page' className={`${this.props.theme.bgColorDiv}`}>
                 <Container>
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            { this.state.reposList.length > 0
-                           ? <ProfileAside username={ username } theme={theme}  />
+                           ? <ProfileAside username={ username } theme={this.props.theme}  />
                            : ''
                         }
                         </Col>
@@ -102,7 +102,7 @@ class Profile extends Component {
                               username={ login }
                               urlUsername={ username }
                               idActives={ idActives }
-                              theme={theme}
+                              theme={this.props.theme}
                             />
 
                         }

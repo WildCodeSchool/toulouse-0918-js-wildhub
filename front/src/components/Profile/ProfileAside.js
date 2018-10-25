@@ -37,26 +37,18 @@ class ProfileAside extends Component {
             <Col xs='12' className="mb-3">
                 <img src={this.state.profileInfos.avatar_url} alt="" className="profile-pic img-fluid z-depth-1 rounded mb-3"/>
                 <div className="profile-infos">
-                    <h1 className="profile-name" >{this.state.profileInfos.login}</h1>
-                    <h4 className="profile-login px-2" >{this.state.profileInfos.name}</h4>
+                    <h1 className={`profile-name text-${this.props.theme.color}`} >{this.state.profileInfos.login}</h1>
+                    <h5 className={`profile-login mb-4 text-${this.props.theme.color}`}>{this.state.profileInfos.name}</h5>
 
-                    <p className="profile-location px-2">{this.state.profileInfos.location}</p>
+                    <div className={`desc mb-4 text-${this.props.theme.color}`}>
+                        <p>{this.state.profileInfos.bio}</p>
+                    </div>
 
-                    <p className="profile-blog px-2"><a href={'/blog/' + this.state.profileInfos.blog} rel="noopener noreferrer" target="_blank">{this.state.profileInfos.blog}</a></p>
-
-
+                    <span><i className="fa fa-map-marker mr-2" style={{color: `${this.props.theme.color}`}} aria-hidden="true"></i><span  className={`profile-location px-2 text-${this.props.theme.color}`}>{this.state.profileInfos.location}</span></span>
+                    <br></br>
+                    <span><i className="fa fa-external-link mr-2" style={{color: `${this.props.theme.color}`}} aria-hidden="true"></i><span className={`profile-blog px-2 text-${this.props.theme.color}`}><a href={'/blog/' + this.state.profileInfos.blog} rel="noopener noreferrer" target="_blank">{this.state.profileInfos.blog}</a></span></span>
                 </div>
             </Col>
-
-            { this.state.profileInfos.bio &&
-              <Col xs='12' className="mb-3 profile-desc">
-                <h5>A propos de moi</h5>
-                <div className="desc">
-                    <p className='px-2'>{this.state.profileInfos.bio}</p>
-                </div>
-              </Col>
-            }
-
         </Row>
     );
   }
