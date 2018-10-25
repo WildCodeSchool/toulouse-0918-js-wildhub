@@ -80,7 +80,7 @@ class Profile extends Component {
     }
 
     render() {
-      const { login, theme } = this.props;
+      const { login } = this.props;
       const { username } = this.props.match.params;
       const { idActives } = this.state;
 

@@ -9,10 +9,6 @@ import RepoCard from '../Repo/RepoCard';
 
 class ProfileRepos extends Component{
 
-    constructor(props) {
-        super(props);
-    }
-
     postRepoExplore(repo) {
       fetch('https://wildhub.ssd1.ovh/api/projects', {
         method: 'POST',

@@ -2,21 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Container, Row, Col, Card, Fa } from 'mdbreact';
 import TeamMembers from '../data/TeamMembers';
 import '../styles/team.scss';
-import styled from 'react-emotion';
-import { css } from 'emotion';
 
-
-
-// Texte des présentations
-const Text = styled('p')(
-  {
-    fontFamily: "SourceSans"
-  },
-  props => ({
-    backgroundColor: props.bgColorDiv,
-    color: props.color
-  })
-)
 
 
 class Team extends Component {

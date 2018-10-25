@@ -1,11 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import {
     Col,
     Card,
     CardBody,
     CardTitle,
-    Fa,
-    Button
+    Fa
 } from 'mdbreact';
 import ReactTooltip from 'react-tooltip';
 import Raw from './Raw';
