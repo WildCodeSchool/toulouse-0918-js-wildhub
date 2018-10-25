@@ -21,6 +21,7 @@ class Explore extends Component {
 
     componentDidMount(){
       this.getExplore();
+      this.props.resetLoading(false);
     }
 
     getExplore() {
@@ -47,7 +48,6 @@ class Explore extends Component {
 
     render() {
         const { repos } = this.state;
-
         return (
             <Fragment>
                 <main id="explore-page" className={`${this.props.theme.bgColorDiv} text-${this.props.theme.colorNavLink}`}>
@@ -95,7 +95,7 @@ class Explore extends Component {
                 </main>
             </Fragment>
 
-            
+
         );
     }
 }

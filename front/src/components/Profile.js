@@ -17,14 +17,16 @@ class Profile extends Component {
         this.getReposActive = this.getReposActive.bind(this);
     }
 
-    componentWillMount = () => {
-      this.getRepos();
-      this.getReposActive();
+    componentDidMount(){
+      Promise.all([
+        this.getRepos(),
+        this.getReposActive()
+      ]).then(this.props.resetLoading(false))
     }
 
     getRepos() {
       const username = this.props.login;
-      fetch (`https://api.github.com/users/${username}/repos`, {
+      return fetch (`https://api.github.com/users/${username}/repos`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -53,7 +55,7 @@ class Profile extends Component {
 
     getReposActive() {
       const username = this.props.login;
-      fetch (`https://wildhub.ssd1.ovh/api/users/${username}/projects`, {
+      return fetch (`https://wildhub.ssd1.ovh/api/users/${username}/projects`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('jwt')}`
         }

@@ -36,15 +36,28 @@ class Navbar extends Component {
         };
     }
 
-    handleClick = () => {
+    resetLoading = () => {
+      this.props.loading(true);
+    }
+
+
+    handleSideNav = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
     }
 
+    handleClick = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+        this.resetLoading();
+    }
+
     disconnect = () => {
       this.props.handleResetState();
-      this.handleClick()
+      this.resetLoading();
+      this.handleClick();
     }
 
     scrollable = () => {
@@ -66,19 +79,45 @@ class Navbar extends Component {
           <Fragment>
             <Nav className="navbar text-light fixed-top py-0" bgColor={this.props.theme.bgColor} >
               <span
-                  onClick={this.handleClick}
+                  onClick={this.handleSideNav}
                   className={`toggle-nav text-${this.props.theme.colorNavLink}`}>
                   <Fa icon={toggler} size='lg' />
               </span>
               <div className="nav-links d-flex justify-content-start align-items-center w-100">
 
-                  <NavLink exact to='/' className='navbar-brand'>
-                      <img src={this.props.theme.logoNav}  alt="logo" />
+                  <NavLink
+                    exact to='/'
+                    className='navbar-brand'
+                    onClick={this.resetLoading}
+                  >
+                    <img src={this.props.theme.logoNav}  alt="logo" />
                   </NavLink>
+
                   <div className="d-none d-md-flex flex-grow-1">
-                      <NavLink exact to="/" className={`nav-item text-${this.props.theme.colorNavLink}`} >Accueil</NavLink>
-                      <NavLink exact to="/explore" className={`nav-item text-${this.props.theme.colorNavLink}`} >Explorer</NavLink>
-                      <NavLink exact to="/team" className={`nav-item text-${this.props.theme.colorNavLink}`} >La Team</NavLink>
+
+                      <NavLink
+                        exact to="/"
+                        className={`nav-item text-${this.props.theme.colorNavLink}`}
+                        onClick={this.resetLoading}
+                      >
+                        Accueil
+                      </NavLink>
+
+                      <NavLink
+                        exact to="/explore"
+                        className={`nav-item text-${this.props.theme.colorNavLink}`}
+                        onClick={this.resetLoading}
+                      >
+                        Explorer
+                      </NavLink>
+
+                      <NavLink
+                        exact to="/team"
+                        className={`nav-item text-${this.props.theme.colorNavLink}`}
+                        onClick={this.resetLoading}
+                      >
+                        La Team
+                      </NavLink>
 
                       <div className="btn-grp d-flex align-items-center ml-auto">
                         {
@@ -95,6 +134,7 @@ class Navbar extends Component {
                                     <NavLink
                                       className='dropdown-item'
                                       to={`/users/${this.props.login}`}
+                                      onClick={this.resetLoading}
                                     >
                                       <Fa icon="book mr-2" /> {"Mon Profil"}
                                     </NavLink>
@@ -108,13 +148,15 @@ class Navbar extends Component {
                                 </DropdownMenu>
                               </Dropdown>
                           : <GitHubLogin
+                              onClick={this.resetLoading}
                               className={`btn btn-login my-0 mx-3 ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
                               scope="user:email,public_repo"
                               clientId={clientId}
                               redirectUri={`${redirectUri}/users/${this.props.login}`}
                               onSuccess={this.props.handleLoginSuccess}
                               onFailure={this.props.handleLoginFailure}
-                              children={<span style={{verticalAlign: 'middle'}}>
+                              children={<span style={{verticalAlign: 'middle'}}
+                            >
                                 Se connecter
                                 <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
                               </span>}
@@ -136,17 +178,29 @@ class Navbar extends Component {
               </Nav>
 
             <SideNav id="mySidenav" className={"sidenav z-depth-2 " + isOpen} bgColor={this.props.theme.bgColor} >
-                <NavLink exact onClick={this.handleClick} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                <NavLink
+                  onClick={this.handleClick}
+                  exact to="/"
+                  className={`nav-item text-${this.props.theme.colorNavLink}`}
+                >
                     <Fa icon="home mr-2" />
                     {"Accueil"}
                 </NavLink>
 
-                <NavLink exact onClick={this.handleClick} to="/explore" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                <NavLink
+                  onClick={this.handleClick}
+                  exact to="/explore"
+                  className={`nav-item text-${this.props.theme.colorNavLink}`}
+                >
                     <Fa icon="wpexplorer mr-2" />
                     {"Explorer"}
                 </NavLink>
 
-                <NavLink exact onClick={this.handleClick} to="/team" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                <NavLink
+                  onClick={this.handleClick}
+                  exact to="/team"
+                  className={`nav-item text-${this.props.theme.colorNavLink}`}
+                >
 
                     <Fa icon="users mr-2" />
                     {"La Team"}

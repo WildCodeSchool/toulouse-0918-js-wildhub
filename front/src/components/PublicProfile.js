@@ -12,8 +12,9 @@ class PublicProfile extends Component {
         };
     }
 
-    componentWillMount = () => {
+    componentDidMount(){
       this.getRepos();
+      this.props.resetLoading(false);
     }
 
     getRepos = () => {

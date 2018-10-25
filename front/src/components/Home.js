@@ -20,8 +20,12 @@ class Home extends Component {
       })
     }
 
-    render() {
 
+    componentDidMount(){
+      this.props.resetLoading(false);
+    }
+
+    render() {
         return (
             <main id='home-page'>
                 <header >

@@ -7,6 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1100;
+    background: black;
 
     .circles {
         width: 160px;
