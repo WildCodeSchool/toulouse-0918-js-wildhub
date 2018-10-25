@@ -68,3 +68,8 @@ body {
 .react-autosuggest__suggestion--highlighted {
   background-color: #ddd;
 }
+
+.octocat_filtre{
+  width: 300px;
+  height: auto;
+}

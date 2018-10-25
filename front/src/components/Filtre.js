@@ -19,6 +19,7 @@ class Filtre extends Component {
   }
 
   onChange = (event, { newValue, method }) => {
+    if(newValue.length === 0){ this.props.getExplore() }
     this.setState({
       value: newValue
     });
@@ -53,14 +54,15 @@ class Filtre extends Component {
     return (
       <Fragment>
         <span>Trier par langages</span>
-        <Autosuggest
-          suggestions={suggestions}
-          onSuggestionSelected={this.onSuggestionSelected}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          getSuggestionValue={getSuggestionValue}
-          renderSuggestion={renderSuggestion}
-          inputProps={inputProps} />
+          <Autosuggest
+            suggestions={suggestions}
+            onSuggestionSelected={this.onSuggestionSelected}
+            onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+            getSuggestionValue={getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            inputProps={inputProps}
+          />
         </Fragment>
       )
     }
