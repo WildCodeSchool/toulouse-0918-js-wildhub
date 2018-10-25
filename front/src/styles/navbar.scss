@@ -1,0 +1,183 @@
+.theme-toggler{
+  padding: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.navbar{
+  height: 60px;
+
+  .toggle-nav{
+      position: absolute;
+      right: 1rem;
+      cursor: pointer;
+      z-index: 10;
+
+      @media screen and (min-width: 768px){
+          display: none;
+      }
+  }
+
+  .btn-login{
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 60px;
+    border-radius: 0;
+    box-shadow: none;
+
+    &:active, &:focus{
+      box-shadow: none;
+    }
+  }
+
+  .dropdown-toggle{
+    text-transform: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 60px;
+    font-size: 1em;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .dropdown-menu{
+    background: #000;
+    border-radius: 0;
+
+
+    .dropdown-item{
+      color: #818181;
+
+      &.active, &:hover, &:active, &:focus{
+        background: #3e3e3e;
+        color: #f1f1f1;
+        outline: none;
+      }
+    }
+  }
+
+  a{
+      font-family: "Gotham";
+      font-size: 1em;
+      position: relative;
+      text-decoration: none;
+      transition: 0.3s;
+
+      &.navbar-brand{
+          &:hover{
+              filter: brightness(70%);
+          }
+      }
+
+      &.nav-item{
+          margin: 0 1em;
+          height: 60px;
+          display: flex;
+          align-items: center;
+
+          &::after{
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 5px;
+              margin: auto;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background: linear-gradient(90deg, rgba(0,11,255,1) 0%, rgba(0,255,186,1) 18%, rgba(93,245,0,1) 33%, rgba(255,242,9,1) 51%, rgba(255,0,0,1) 68%, rgba(241,0,255,1) 84%, rgba(0,11,255,1) 100%);
+              transition: all 0.3s ease-in-out 0s;
+          }
+
+          &:hover, &.active{
+
+              &::after{
+                  width: 100%;
+              }
+          }
+
+      }
+  }
+}
+
+.sidenav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: -250px;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 4em 2em;
+
+    @media screen and (min-width: 768px){
+        display: none;
+    }
+
+    &.open{
+        right: 0;
+    }
+
+    button{
+      margin: .75em 0;
+    }
+
+    .nav-item{
+      padding: .75em .75em .75em 0;
+      display: inline-block;
+      font-family: "Gotham";
+      font-size: 1em;
+      position: relative;
+      text-decoration: none;
+      transition: 0.3s;
+
+
+
+      &::after{
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 3px;
+          margin: auto;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(to left, #5600ff 0%,#ff0000 50%,#00ff28 100%);
+          transition: all 0.3s ease-in-out 0s;
+      }
+
+      &:hover, &.active{
+
+          &::after{
+              width: 100%;
+          }
+      }
+
+    }
+
+    .theme-toggler{
+      margin: 1em 0;
+      height: 36px;
+      width: 150px;
+      border-radius: .125em;
+    }
+
+    .closebtn{
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        cursor: pointer;
+        color: #818181;
+
+        &:hover{
+            color: #f1f1f1;
+        }
+    }
+
+}

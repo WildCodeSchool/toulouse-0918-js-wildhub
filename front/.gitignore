@@ -2,6 +2,7 @@
 
 yarn.lock
 package-lock.json
+settings.js
 
 # dependencies
 /node_modules
