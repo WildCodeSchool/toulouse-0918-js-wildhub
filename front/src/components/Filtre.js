@@ -53,7 +53,7 @@ class Filtre extends Component {
 
     return (
       <Fragment>
-        <span>Trier par langages</span>
+        <div className="filter-text text-center mb-3">Trier par langages</div>
           <Autosuggest
             suggestions={suggestions}
             onSuggestionSelected={this.onSuggestionSelected}
@@ -62,6 +62,7 @@ class Filtre extends Component {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
+            style={{border: "none"}}
           />
         </Fragment>
       )

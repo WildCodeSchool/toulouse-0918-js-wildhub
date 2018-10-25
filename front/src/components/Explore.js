@@ -87,8 +87,8 @@ class Explore extends Component {
 
                 <Container className='py-5'>
                     <Row>
-                      <Col xs="12" className="mx-auto pb-5">
-                        <Filtre className="pb-5"
+                      <Col lg="3" xs="6" className="mx-auto text-center pb-5">
+                        <Filtre className="pb-5 border-0"
                           getByLanguage={this.getByLanguage}
                           getExplore={this.getExplore}
                         />

@@ -1,5 +1,6 @@
-body {
-  font-family: Helvetica, sans-serif;
+.filter-text {
+  font-family: "Fedra";
+  font-size: 1.2em;
 }
 
 .react-autosuggest__container {
