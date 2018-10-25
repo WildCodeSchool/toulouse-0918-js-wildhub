@@ -8,6 +8,7 @@ import RepoCard from './Repo/RepoCard';
 import '../styles/explore.scss';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
+import Filtre from './Filtre';
 
 class Explore extends Component {
 
@@ -32,6 +33,12 @@ class Explore extends Component {
                     repos: repos
                 });
             });
+    }
+
+    getByLanguage = (language) => {
+      fetch(`https://wildhub.ssd1.ovh/api/projects/by-language/${language}`)
+      .then(response => response.json())
+      .then(repos => this.setState({ repos: repos }))
     }
 
     postRepoExplore(repo) {
@@ -79,6 +86,14 @@ class Explore extends Component {
                 </ Container >
 
                 <Container className='py-5'>
+                  <Row>
+                    <Col xs="12" className="mx-auto pb-5">
+                      <Filtre className="pb-5"
+                        getByLanguage={this.getByLanguage}
+                      />
+                    </Col>
+                  </Row>
+                  
                     <Row className="mt-3" >
                       {
                         repos.map((repo, index) =>
