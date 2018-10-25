@@ -4,7 +4,6 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { apiUrl } from './settings';
 import { githubAxios, apiAxios } from './axiosInstances';
-
 import Loading from './components/Loading';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -15,7 +14,7 @@ import Error404 from './components/Error404';
 import Team from './components/Team';
 import Repo from './components/Repo';
 import Explore from './components/Explore';
-
+import ScrollBtn from './components/ScrollBtn';
 import DarkThemeProps from './data/DarkThemeProps';
 import LightThemeProps from './data/LightThemeProps';
 
@@ -41,6 +40,7 @@ class App extends Component {
         login,
         id,
         accessToken,
+        scrolled: false
       }
   };
 
@@ -117,9 +117,23 @@ class App extends Component {
       : document.body.style.overflow = '';
   }
 
+  scrollHandler = () => {
+    const scrolled =
+      window.pageYOffset > 250
+      ? true
+      : false;
+
+    this.setState({
+        scrolled: scrolled
+    })
+
+    console.log(this.state.scrolled);
+}
+
   render() {
     const { login, isDarkTheme } = this.state;
     const theme = isDarkTheme ? DarkThemeProps : LightThemeProps;
+    window.addEventListener('scroll', this.scrollHandler);
     this.noScroll();
 
     return (
@@ -176,6 +190,8 @@ class App extends Component {
               />
 
             </Switch>
+
+        <ScrollBtn state={this.state.scrolled} />
         <Footer theme={theme} />
       </Fragment>
     );
