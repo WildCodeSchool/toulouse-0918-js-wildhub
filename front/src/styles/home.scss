@@ -1,5 +1,5 @@
 #home-page{
-  background-image: url('https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  // background-image: url('https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
 
   header{
       position: relative;
@@ -34,12 +34,13 @@
 
             p{
               font-family: "SourceSans";
-              font-size: 1.2em;
+              font-size: 1.3em;
+              font-weight: 600;
             }
 
             .fedra-text{
               font-family: "Fedra";
-              font-size: 1.3em;
+              font-size: 1.5em;
             }
 
             .black-text{

@@ -15,8 +15,10 @@ const DarkThemeProps = {
     filter: 'brightness(40%)',
     colorNavLink: 'white',
     colorItems: 'grey darken-2',
-    colorLink: 'yellow'
-
+    colorLink: 'yellow',
+    bgHome: 'rgba(0, 0, 0, 0.7)',
+    colorCircle1: 'rgba(0, 0, 0, ',
+    colorCircle2: 'rgba(255, 255, 255, ',
   }
 
 export default DarkThemeProps;
