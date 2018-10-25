@@ -39,7 +39,6 @@ class App extends Component {
         login,
         id,
         accessToken,
-        isDarkTheme: true
       }
   };
 
@@ -107,9 +106,16 @@ class App extends Component {
     })
   }
 
+  noScroll = () => {
+      this.state.loading
+      ? document.body.style.overflow = 'hidden'
+      : document.body.style.overflow = '';
+  }
+
   render() {
-    const { loading, login, isDarkTheme } = this.state;
+    const { login, isDarkTheme } = this.state;
     const theme = isDarkTheme ? DarkThemeProps : LightThemeProps;
+    this.noScroll();
 
     return (
       <Fragment>
