@@ -9,6 +9,7 @@ import '../styles/explore.scss';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
 import Filtre from './Filtre';
+import octocat_filtre from '../images/octocat_filtre.png'
 
 class Explore extends Component {
 
@@ -25,7 +26,7 @@ class Explore extends Component {
       this.props.resetLoading(false);
     }
 
-    getExplore() {
+    getExplore = () => {
         fetch('https://wildhub.ssd1.ovh/api/projects')
             .then(results  =>  results.json())
             .then(repos  => {
@@ -59,8 +60,7 @@ class Explore extends Component {
             <Fragment>
                 <main id="explore-page" className={`${this.props.theme.bgColorDiv} text-${this.props.theme.colorNavLink}`}>
                 <Container fluid className="p-0">
-                    <div className={`${this.props.theme.bgColorDiv}`} style={{height: '100px'}}></div>
-                    <Parallax bgImage={ParallaxImages.image6} strength={600} renderLayer={percentage => (
+                    <Parallax bgImage={ParallaxImages.image6} strength={800} renderLayer={percentage => (
                         <div>
                             <div
                                 style={{
@@ -86,17 +86,20 @@ class Explore extends Component {
                 </ Container >
 
                 <Container className='py-5'>
-                  <Row>
-                    <Col xs="12" className="mx-auto pb-5">
-                      <Filtre className="pb-5"
-                        getByLanguage={this.getByLanguage}
-                      />
-                    </Col>
-                  </Row>
-                  
+                    <Row>
+                      <Col xs="12" className="mx-auto pb-5">
+                        <Filtre className="pb-5"
+                          getByLanguage={this.getByLanguage}
+                          getExplore={this.getExplore}
+                        />
+                      </Col>
+                    </Row>
+
                     <Row className="mt-3" >
                       {
-                        repos.map((repo, index) =>
+                        repos.length
+                       ?
+                         repos.map((repo, index) =>
                           <RepoCard
                             theme={this.props.theme}
                             repo={repo}
@@ -105,6 +108,13 @@ class Explore extends Component {
                             postRepoExplore={() => this.postRepoExplore(repo)}
                           />
                         )
+                        :
+                        <div className="mx-auto text-center">
+                          <div className="mx-auto text-center">
+                            <img fluid src={octocat_filtre} className="octocat_filtre" alt="octocat" />
+                          </div>
+                          <div className="text-align-center" style={{ fontSize: '1.5rem' }}>Aucun repository de ce langage n'est actuellement disponible !</div>
+                        </div>
                       }
                     </Row>
                 </Container>
