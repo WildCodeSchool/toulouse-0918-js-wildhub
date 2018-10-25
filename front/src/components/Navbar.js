@@ -148,20 +148,15 @@ class Navbar extends Component {
                     {"La Team"}
                 </NavLink>
 
-                <NavLink onClick={this.handleClick} to="/settings" className={`nav-item text-${this.props.theme.colorNavLink}`}>
-                    <Fa icon="cog mr-2" />
-                    {"Paramètres"}
-                </NavLink>
-
                 {
                   this.props.login
                   ? <Fragment>
-                      <NavLink onClick={this.handleClick} to={`/users/${this.props.login}`} className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                      <a href={`/users/${this.props.login}`} onClick={this.handleClick} className={`nav-item text-${this.props.theme.colorNavLink}`}>
                         <Fa icon="book mr-2" />
                         {"Mon Profil"}
-                      </NavLink>
+                      </a>
 
-                      <NavLink onClick={this.disconnect} to="/" className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                      <NavLink to="/" onClick={this.disconnect} className={`nav-item text-${this.props.theme.colorNavLink}`}>
                           <Fa icon='sign-out' /> Déconnexion
                       </NavLink>
                     </Fragment>
