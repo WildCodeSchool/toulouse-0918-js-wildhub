@@ -32,7 +32,7 @@ class PublicProfile extends Component {
       const { login, theme } = this.props;
       const { username } = this.props.match.params;
         return (
-              <main id='profile-page'>
+              <main id='profile-page' className={`${this.props.theme.bgColorDiv}`}>
                 <Container>
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>

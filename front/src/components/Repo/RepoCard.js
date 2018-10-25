@@ -18,7 +18,7 @@ class RepoCard extends Component {
         const { repo, idx, name, isActive } = this.props;
 
         return(
-            <Col md='6' className='mb-4'>
+            <Col  md='6' className='mb-4'>
               <Card className={`repoCard ${this.props.theme.colorItems} `}>
                 <CardBody >
                   <div className="repo-title ">
@@ -32,11 +32,11 @@ class RepoCard extends Component {
                         className="ghIcon"
                         data-tip data-for={`tip-repo-${idx}`}
                       >
-                        <Fa icon="github"/>
+                        <Fa icon="github" style={{color: `${this.props.theme.color}`}}/>
                       </a>
                       <ReactTooltip
                         id={`tip-repo-${idx}`}
-                        place="left"
+                        place="top"
                         type="dark"
                         effect="solid"
                       >

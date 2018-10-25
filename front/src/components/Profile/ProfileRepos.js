@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import {
   Row,
   Col,
-  Button
+  Button,
 } from 'mdbreact';
 import { NavLink, withRouter } from "react-router-dom"
 import RepoCard from '../Repo/RepoCard';
@@ -36,25 +36,32 @@ class ProfileRepos extends Component{
                 <Col xs='12' className='d-flex justify-content-center'>
 
                   <NavLink exact to={`/users/${username}`}>
-                    <Button color="elegant">
+                    <Button 
+                      bgColor={this.props.theme.bgColor} 
+                      color={this.props.theme.color}
+                      className="mr-3"
+                    >
                       Dépôts partagés
                     </Button>
                   </NavLink>
 
 
                   <NavLink exact to={`/users/${username}/gerer-mes-repos`}>
-                    <Button color="elegant">
+                    <Button 
+                      bgColor={this.props.theme.bgColor} 
+                      color={this.props.theme.color}
+                      className="ml-3"
+                    >
                       Gérer mes dépôts
                     </Button>
                   </NavLink>
-
                 </Col>
               </Row>
             }
 
             <Row>
               {!reposList.length > 0
-                ? <Col><p className="h6 text-center text-muted">{"Aucun dépôt n'est répertorié"}</p></Col>
+                ? <Col><p className="h6 text-center text-muted" style={{fontFamily: "Gotham"}}>{"Aucun dépôt n'est répertorié"}</p></Col>
                 : reposList.map( (repo, idx) =>{
                   const isActive = idActives && idActives.includes(repo.id)
 

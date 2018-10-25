@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
     Col,
     Card,
@@ -73,7 +73,7 @@ class RepoDetails extends Component {
                 <Card className={`display-repo ${this.props.theme.colorItems}`}>
                   <CardBody>
                     <div className="repo-title">
-                        <CardTitle className={`mb-0 text-${this.props.theme.color}`}>{ nameOfRepo }</CardTitle>
+                        <CardTitle className={`mb-0 text-${this.props.theme.color}`} style={{fontFamily: 'Gotham'}}>{ nameOfRepo }</CardTitle>
                         <a
                           href={ html_url }
                           target='_blank'
@@ -81,7 +81,7 @@ class RepoDetails extends Component {
                           className="ghIcon"
                           data-tip data-for={`tip-repo-1`}
                         >
-                          <Fa icon="github"/>
+                          <Fa icon="github" style={{color: `${this.props.theme.color}`}}/>
                         </a>
                         <ReactTooltip
                           id={`tip-repo-1`}
@@ -91,13 +91,19 @@ class RepoDetails extends Component {
                         >
                           Voir dans GitHub
                         </ReactTooltip>
+
                     </div>
                     <hr />
-                    <div className={`repo-desc text-${this.props.theme.color}`}>{ description }</div>
+                    <div
+                      className={`repo-desc mb-4 text-${this.props.theme.color}`}
+                      style={{fontFamily: 'SourceSans', fontSize: '1.2em'}}
+                    >
+                      { description }
+                    </div>
 
                     {
                       this.state.goBackPathArr.length
-                      ? <Fa icon="arrow-circle-left" onClick={this.goBackInTree}/>
+                      ? <Fa icon="arrow-circle-left" onClick={this.goBackInTree} style={{color: `${this.props.theme.color}`, cursor: 'pointer'}}/>
                       : ''
                     }
 
@@ -106,10 +112,17 @@ class RepoDetails extends Component {
                       this.state.files.map((file, idx) => {
                         return(
                           (file.type === 'dir') ?
-                          <div className='text-primary' key={idx} onClick={() => this.developDir(file.path)}>{file.name}</div> :
-                          <div key={idx}>{file.name}</div>
-                          // <div key={idx} onClick={() => this.developDir(file.name)}>{file.name}</div> :
-                          // <div className={`text-${this.props.theme.color}`} key={idx}>{file.name}</div>
+                          <div >
+                            <Fa icon="folder" style={{color: `${this.props.theme.color}`, cursor: 'pointer'}}/>
+                            <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans', cursor: 'pointer'}}  key={idx} onClick={() => this.developDir(file.path)}>{file.name}</span>
+                          </div>
+                          :
+                          <div >
+                            <Fa icon="file-code-o" style={{color: `${this.props.theme.color}`}}/>
+                            <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans'}} key={idx}>{file.name}</span>
+                          </div>
+
+
                         )
                       })
                     }
