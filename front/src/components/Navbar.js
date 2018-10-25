@@ -211,7 +211,7 @@ class Navbar extends Component {
                         {"Mon Profil"}
                       </a>
 
-                      <NavLink to="/" onClick={this.disconnect} className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                      <NavLink to="/home" onClick={this.disconnect} className={`nav-item text-${this.props.theme.colorNavLink}`}>
                           <Fa icon='sign-out' /> Déconnexion
                       </NavLink>
                     </Fragment>
