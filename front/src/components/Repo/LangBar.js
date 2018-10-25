@@ -15,7 +15,7 @@ class LangBar extends Component {
         })
 
         return (
-            <div className="language-bar d-flex">
+            <div className="language-bar">
             {
                 langArr.map((singleLang, index) => {
                     countIdSpan += 1
