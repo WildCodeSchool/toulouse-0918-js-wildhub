@@ -131,7 +131,7 @@ class RepoDetails extends Component {
                           :
                           <div onClick={() => this.changeCode(file)}>
                             <Fa icon="file-code-o" style={{color: `${this.props.theme.color}`}}/>
-                            <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans'}} key={idx}>{file.name}</span>
+                            <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans', cursor: 'pointer'}} key={idx}>{file.name}</span>
                           </div>
 
 
@@ -141,7 +141,9 @@ class RepoDetails extends Component {
 
                     {
                       this.props.files && this.props.files.length && this.state.fileCode ?
-                      <Raw theme={this.props.theme} readmeObj={this.state.fileCode[0]}/>
+                      <div id='codeReadme' className='p-3 mt-3 rounded' style={{background: 'white'}}>
+                        <Raw theme={this.props.theme} readmeObj={this.state.fileCode[0]}/>
+                      </div>
                       : ''
                     }
                   </CardBody>

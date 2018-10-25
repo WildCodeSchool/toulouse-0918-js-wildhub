@@ -5,6 +5,9 @@ import axios from 'axios';
 require('prismjs/components/prism-jsx');
 require('prismjs/themes/prism.css');
 
+const ReactMarkdown = require('react-markdown')
+
+
 const languagesMap = {
   js: 'jsx',
   md: 'markdown',
@@ -73,7 +76,9 @@ class Raw extends Component {
     const {code, language} = this.state
 
     return (
-      <div>{code && getCode(code, language)}</div>
+      language === 'markdown'
+      ? <ReactMarkdown source={code} />
+      : <div>{code && getCode(code, language)}</div>
     )
   }
 
