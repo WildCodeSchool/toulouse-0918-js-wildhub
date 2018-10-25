@@ -19,15 +19,12 @@ class RepoCard extends Component {
 
         return(
             <Col md='6' className='mb-4'>
-
-              <Card className="repoCard">
-
-                <CardBody>
-                  <div className="repo-title">
+              <Card className={`repoCard ${this.props.theme.colorItems} `}>
+                <CardBody >
+                  <div className="repo-title ">
                       <NavLink to={`/users/${repo.owner.login}/repos/${repo.name}`} className="repo-name">
-                        <CardTitle>{repo.name}</CardTitle>
+                        <CardTitle className={`text-${this.props.theme.colorNavLink}`}>{repo.name}</CardTitle>
                       </NavLink>
-
                       <a
                         href={repo.html_url}
                         target='_blank'
@@ -47,21 +44,21 @@ class RepoCard extends Component {
                       </ReactTooltip>
                   </div>
 
-                  <NavLink to={`/users/${repo.owner.login}`} className='repo-owner'>
+                  <NavLink to={`/users/${repo.owner.login}`} className={`repo-owner text-${this.props.theme.colorNavLink}`}>
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
 
-                  <SwitchBtn isActive={isActive} repo={repo} />
+                  <SwitchBtn theme={this.props.theme} isActive={isActive} repo={repo} />
 
                   <hr/>
 
-                  <small className='text-muted'>
+                  <p className={`repo-description text-${this.props.theme.colorNavLink} `}>
                     {repo.description}
-                  </small>
+                  </p>
                 </CardBody>
 
-                <CardFooter>
-                  <small className='text-muted font-italic'>
+                <CardFooter className={`repoCard ${this.props.theme.colorItems} text-right`}>
+                  <small className={`text-${this.props.theme.colorNavLink} `} style={{fontFamily: 'SourceSans', fontSize: '0.9em'}}>
                     { `Dernière activité le ${new Date(repo.updated_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </CardFooter>

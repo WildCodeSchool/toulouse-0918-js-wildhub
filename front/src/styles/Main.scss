@@ -20,20 +20,20 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: -webkit-linear-gradient(top, rgba(#5600ff, .6) 0%,rgba(#ff0000, .4) 50%,rgba(#00ff28, .2) 100%);
+    background: -webkit-linear-gradient(top, rgba(3,72,191, .9) 0%, rgba(41,255,9, .7) 53%, rgba(255,19,0, .5) 100%);
     border-radius: .25em;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: -webkit-linear-gradient(top, rgba(#5600ff, .9) 0%,rgba(#ff0000, .7) 50%,rgba(#00ff28, .5) 100%);
+    background: -webkit-linear-gradient(top, rgba(3,72,191,1) 0%, rgba(41,255,9,1) 53%, rgba(255,19,0,1) 100%);
 }
 
 ::-webkit-scrollbar-thumb:horizontal{
-    background: -webkit-linear-gradient(left, rgba(#5600ff, .6) 0%,rgba(#ff0000, .4) 50%,rgba(#00ff28, .2) 100%);
+    background: -webkit-linear-gradient(left, rgba(3,72,191, .9) 0%, rgba(41,255,9, .7) 53%, rgba(255,19,0, .5) 100%);
 }
 
 ::-webkit-scrollbar-thumb:horizontal:hover{
-    background: -webkit-linear-gradient(left, rgba(#5600ff, .9) 0%,rgba(#ff0000, .7) 50%,rgba(#00ff28, .5) 100%);
+    background: -webkit-linear-gradient(left, rgba(3,72,191,1) 0%, rgba(41,255,9,1) 53%, rgba(255,19,0,1) 100%);
 }
 
 ::-webkit-resizer{
@@ -79,19 +79,18 @@ code {
 
   main{
     flex: 1;
-    background: #fcfcfc;
+    // background: #fcfcfc;
   }
 
 }
 
 footer{
     font-family: "Gotham";
-    a{
-        color: #ffffff;
-    }
+
     u{
         text-decoration: none;
     }
+
   .fedra-text{
       font-family: "Fedra";
   }

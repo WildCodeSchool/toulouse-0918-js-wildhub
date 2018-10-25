@@ -1,13 +1,22 @@
 #team-page{
 
-
+    background-image: url('https://images.pexels.com/photos/29435/landscape-sky-night-stars-29435.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    
     h2{
       font-family: "Gotham";
+      font-size: 2.5em;
+      span{
+        font-family: "Fedra";
+      }
+
     }
 
-    p{
+    .head-text{
       font-family: "SourceSans";
-      font-size: 1em;
+      font-size: 1.5em;
     }
 
     ul{
@@ -19,7 +28,7 @@
         margin: 0 .5em;
 
         a{
-          color: #2e2e2e;
+          color: black;
           font-size: 1.15em;
         }
       }

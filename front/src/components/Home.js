@@ -3,39 +3,8 @@ import GitHubLogin from 'react-github-login';
 import { Container, Row, Col, Fa } from 'mdbreact';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
-import styled from 'react-emotion';
 import { clientId, redirectUri } from '../settings';
 
-
-// Style de la div qui va changer de thème
-const MainPresentation = styled('div')(
-  props => ({
-    backgroundColor: props.bgColor,
-    color: props.color
-  })
-)
-
-// Titres des présentations
-const Title = styled('h2')(
-    {
-      fontFamily: "Gotham"
-    },
-)
-
-// Texte des présentations
-const Text = styled('p')(
-  {
-      fontFamily: "SourceSans"
-  },
-)
-
-const Header = styled('header')(
-  props => ({
-    backgroundColor: props.bgColor,
-    color: props.color,
-    filter: props.filter
-  })
-)
 
 class Home extends Component {
     constructor(props){
@@ -55,19 +24,20 @@ class Home extends Component {
 
         return (
             <main id='home-page'>
-                <Header filter={this.props.theme.filter}>
+                <header >
                   <Container fluid >
                     <Row className="mainAccueil align-items-center">
                       <Col xs='10' md='8' lg='6' className="mx-auto text-center">
+
                         <div className="pt-5">
                           <img className="img-fluid logo mt-5" src={this.props.theme.logo} alt="logo" />
                         </div>
 
-                        <MainPresentation color={this.props.theme.color}  className="pt-5">
-                          <Title className="pb-3" >{"Bienvenue sur WildHub !"}</Title>
-                          <Text className="text-left">{"Wild Hub est un outil de partage de projets personnels à disposition des actuels et anciens élèves de la Wild Code School. Après une simple inscription, partagez votre code sur l'espace dédié par l'intermédiaire de Git Hub. Vous ne souhaitez pas vous inscrire sur Wild Hub? Pas de problèmes, vous pourrez quand même consulter les projets diffusés par les Wilders."}</Text>
-                          <Text className="fedra-text mt-5">Bonne visite !</Text>
-                        </MainPresentation>
+                        <div className={`pt-5 text-${this.props.theme.color}`} >
+                          <h1 className="pb-3" >{"Bienvenue sur WildHub !"}</h1>
+                          <p className="text-left">{"Wild Hub est une plateforme de partage qui rassemble les projets personnels des anciens et actuels élèves de la Wild Code School."}</p>
+                          <p className="fedra-text mt-5">Bonne visite !</p>
+                        </div >
 
                         <div className="pt-5 pb-5">
 
@@ -75,7 +45,7 @@ class Home extends Component {
                             this.props.login
                             ? ''
                             : <GitHubLogin
-                              className="btn"
+                              className={`btn ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
                               bgColor={this.props.theme.bgColor}
                               color={this.props.theme.color}
                               scope="user:email,public_repo"
@@ -94,52 +64,44 @@ class Home extends Component {
                       </Col>
                     </Row>
                   </Container>
-                </Header>
+                </header>
 
                 <Container fluid className="under-accueil p-0">
                   <Parallax bgImage={ParallaxImages.image1} strength={600}>
                     <div className="parallax-div"> </div>
                   </Parallax>
 
-                    <MainPresentation
-                      bgColor={this.props.theme.bgColorDiv}
-                      color={this.props.theme.color}
-                      className="py-5 row"
-                    >
-                        <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                          <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
-                          <div className="mt-5">
-                              <Title>{"La Plateforme d'échange des Wilders !"}</Title>
-                              <Text>
-                                  {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
-                              </Text>
-                          </div>
+                  <div className={`py-5 row text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
+                      <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
+                        <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
+                        <div className="mt-5">
+                            <h2>{"Envie de booster tes projets ?"}</h2>
+                            <p>
+                                {"WildHub est une plateforme qui permet de partager tes projets personnels depuis GiHub.Tu peux sélectionner les projets que tu souhaite partager afin qu'ils apparaissent dans l'explorateur. Ainsi tous les Wilders pourront voir tes projets et éventuellement t'aider ou collaborer avec toi grâce au chat !"}
+                            </p>
                         </div>
-                    </MainPresentation>
+                      </div>
+                  </div>
 
-                    <Parallax bgImage={ParallaxImages.image3} strength={600} >
-                      <div className="parallax-div"></div>
-                    </Parallax>
+                  <Parallax bgImage={ParallaxImages.image3} strength={600} >
+                    <div className="parallax-div"></div>
+                  </Parallax>
 
-                    <MainPresentation
-                      bgColor={this.props.theme.bgColorDiv}
-                      color={this.props.theme.color}
-                      className="py-5 row"
-                    >
-                        <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                          <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image4}  alt="placeHolder"></img>
-                          <div className="mt-5">
-                              <Title>{"La Plateforme d'échange des Wilders !"}</Title>
-                              <Text>
-                                  {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
-                              </Text>
-                          </div>
+                  <div className={`py-5 row text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
+                      <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
+                        <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image4}  alt="placeHolder"></img>
+                        <div className="mt-5">
+                            <h2 >{"La Plateforme d'échange des Wilders !"}</h2>
+                            <p>
+                                {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
+                            </p>
                         </div>
-                    </MainPresentation>
+                      </div>
+                  </div>
 
-                    <Parallax bgImage={ParallaxImages.image5} strength={600} >
-                      <div className="parallax-div"></div>
-                    </Parallax>
+                  <Parallax bgImage={ParallaxImages.image5} strength={600} >
+                    <div className="parallax-div"></div>
+                  </Parallax>
                 </Container>
             </main>
         );

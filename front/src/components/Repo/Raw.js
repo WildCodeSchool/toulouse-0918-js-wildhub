@@ -58,7 +58,6 @@ class Raw extends Component {
     const {code, language} = this.state
 
     return (
-
       <div>{code && getCode(code, language)}</div>
     )
   }

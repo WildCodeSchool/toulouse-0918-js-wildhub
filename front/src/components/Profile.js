@@ -78,7 +78,7 @@ class Profile extends Component {
     }
 
     render() {
-      const { login } = this.props;
+      const { login, theme } = this.props;
       const { username } = this.props.match.params;
       const { idActives } = this.state;
 
@@ -88,7 +88,7 @@ class Profile extends Component {
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            { this.state.reposList.length > 0
-                           ? <ProfileAside username={ username }  />
+                           ? <ProfileAside username={ username } theme={theme}  />
                            : ''
                         }
                         </Col>
@@ -102,6 +102,7 @@ class Profile extends Component {
                               username={ login }
                               urlUsername={ username }
                               idActives={ idActives }
+                              theme={theme}
                             />
 
                         }

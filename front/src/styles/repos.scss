@@ -4,7 +4,7 @@
     border: none;
     transition: all .125s ease-out;
 
-    &:hover{
+    &:hover:not(.card-footer){
         box-shadow: 0 0 0.75em #8e8e8e;
     }
 
@@ -22,19 +22,18 @@
                 font-size: 1.3em;
                 font-family: "Gotham";
                 color: #3e3e3e;
-                width: 85%;
+                width: 100%;
                 text-overflow: clip;
 
-                &:hover{
-                  color: #2c67a4;
-                  text-shadow: 0 0 0.25em #BBB;
-                }
+                // &:hover{
+                //   text-shadow: 0 0 0.10em #BBB;
+                // }
 
             }
 
             .ghIcon {
                 font-size: 20px;
-                color: #222;
+                color: black;
 
                 &:hover{
                     text-shadow: 0 0 0.25em #BBB;
@@ -53,16 +52,17 @@
           color: #6e6e6e;
           width: 85%;
           text-overflow: clip;
+          font-family: "Fedra";
+          font-size: 1.2em;
 
           &:hover{
-            color: #2c67a4;
-            text-shadow: 0 0 0.25em #BBB;
+            text-decoration: line-through;
           }
         }
 
-        .text-muted{
-            font-family: "SourceSans";
-            font-size: 1.1em;
+        .repo-description{
+            font-family: 'SourceSans';
+            font-size: 1.2em;
         }
     }
 
@@ -72,10 +72,6 @@
         border-bottom-left-radius: .25em;
         border-bottom-right-radius: .25em;
 
-        .text-muted{
-            font-family: "SourceSans";
-            font-size: 0.9em;
-        }
     }
 
     .language-bar{

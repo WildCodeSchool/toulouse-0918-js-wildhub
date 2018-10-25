@@ -40,7 +40,7 @@ export default class SwitchBtn extends Component {
           <input type="checkbox" checked={isActive} onChange={this.handleSwitch} />
           <span className="slider round" />
         </label>
-        <span className="text-muted repoState pl-2"><small>{repoSate}</small></span>
+        <span className={`repoState pl-2 text-${this.props.theme.color}`}><small>{repoSate}</small></span>
       </div>
     )
   }

@@ -9,16 +9,21 @@ const Foo = styled('footer')(
       backgroundColor: props.bgColor,
       color: props.color
     })
-  )
+)
+const LinkText = styled('u')(
+props => ({
+    color: props.color
+})
+)
 
 class Footer extends Component {
     render() {
         return (
-            <Foo bgColor={this.props.theme.bgColor} color={this.props.theme.color}>
+            <Foo bgColor={this.props.theme.bgColor} color={this.props.theme.color} >
               <Container fluid className="text-center pt-4 pb-3" >
                   <Row>
                       <Col >
-                          <p>Made with <Fa icon="heart" className="text-danger" /> by <NavLink to='/team'><u><span className="fedra-text">wild</span>Hub team</u></NavLink></p>
+                          <p>Made with <Fa icon="heart" className="text-danger" /> by <NavLink to='/team' ><LinkText color={this.props.theme.color} ><span className="fedra-text">wild</span>Hub team</LinkText></NavLink></p>
                       </Col>
                   </Row>
               </Container>

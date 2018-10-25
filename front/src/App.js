@@ -15,6 +15,7 @@ import Error404 from './components/Error404';
 import Team from './components/Team';
 import Repo from './components/Repo';
 import Explore from './components/Explore';
+
 import DarkThemeProps from './data/DarkThemeProps';
 import LightThemeProps from './data/LightThemeProps';
 
@@ -37,7 +38,8 @@ class App extends Component {
         jwt,
         login,
         id,
-        accessToken
+        accessToken,
+        isDarkTheme: true
       }
   };
 
@@ -93,14 +95,14 @@ class App extends Component {
     this.setState({ jwt: '', login: '', id: 0, accessToken: '' })
   };
 
-  // Loader
-  componentDidMount (){
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-      })
-    }, 2000);
-  }
+  // // Loader
+  // componentDidMount (){
+  //   setTimeout(() => {
+  //     this.setState({
+  //       loading: false,
+  //     })
+  //   }, 2000);
+  // }
 
   changeTheme = () => {
     this.setState({
@@ -109,9 +111,9 @@ class App extends Component {
   }
 
   render() {
-    if(this.state.loading){
-        return <Loading />;
-    }
+    // if(this.state.loading){
+    //     return <Loading />;
+    // }
 
     const { login, isDarkTheme } = this.state;
     const theme = isDarkTheme ? DarkThemeProps : LightThemeProps
@@ -136,11 +138,11 @@ class App extends Component {
                   theme={theme}
                 />}
               />
-              <Route exact path='/explore' component={Explore} />
-              <Route exact path='/users/:username/' render={(props) => <PublicProfile {...props} login={login} />} />
-              <Route exact path='/users/:username/gerer-mes-repos' render={(props) => <Profile {...props} login={login} />} />
-              <Route exact path='/users/:ownerName/repos/:repoName' component={Repo} />
-              <Route path='/team' render={() => <Team theme={theme} />}/>
+              <Route exact path='/explore' render={(props) => <Explore {...props} theme={theme} />}/>
+              <Route exact path='/users/:username/' render={(props) => <PublicProfile {...props} login={login} theme={theme}/>} />
+              <Route exact path='/users/:username/gerer-mes-repos' render={(props) => <Profile {...props} login={login} theme={theme} />} />
+              <Route exact path='/users/:ownerName/repos/:repoName' render={(props) => <Repo {...props} theme={theme} />} />
+              <Route path='/team' render={(props) => <Team {...props} theme={theme} />}/>
               <Route component={Error404} />
             </Switch>
         <Footer theme={theme} />
