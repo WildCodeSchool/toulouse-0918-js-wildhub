@@ -26,13 +26,28 @@ class Raw extends Component {
     super(props);
     this.state = {
       code: '',
-      language: ''
+      language: '',
+      fileObj: this.props.readmeObj
+
     }
   }
 
   componentDidMount() {
     this.fetchFile(this.props.readmeObj.url)
   }
+
+  static getDerivedStateFromProps(props, state) {
+    return props.readmeObj.url === state.fileObj.url
+      ? null
+      : {fileObj: props.readmeObj }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.fileObj.url !== this.state.fileObj.url) {
+      this.fetchFile(this.state.fileObj.url)
+    }
+  }
+
 
 
   fetchFile(file) {

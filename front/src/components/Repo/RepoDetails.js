@@ -17,10 +17,11 @@ class RepoDetails extends Component {
       super(props);
       this.state = {
         files: this.props.files,
-        goBackPathArr: []
+        goBackPathArr: [],
       }
       this.developDir = this.developDir.bind(this)
       this.goBackInTree = this.goBackInTree.bind(this)
+      this.changeCode = this.changeCode.bind(this)
     }
 
     developDir(dirPath) {
@@ -57,6 +58,19 @@ class RepoDetails extends Component {
         }))
     }
 
+    changeCode(file) {
+      this.setState({
+        fileCode: [file]
+      })
+    }
+
+    componentDidMount() {
+        const readmeObj = this.props.files.length && this.props.files.filter(readme => readme.name === 'README.md');
+        this.setState({
+          fileCode : readmeObj
+        })
+    }
+
 
     render() {
         console.log('props', this.props.files);
@@ -65,8 +79,6 @@ class RepoDetails extends Component {
         const { name, html_url, description } = this.props.repo;
         const { repoName } = this.props;
         const nameOfRepo = name ? name : repoName;
-
-        const readmeObj = this.props.files.length && this.props.files.filter(readme => readme.name === 'README.md');
 
         return (
             <Col xs='12' lg='8' className='mr-auto mb-5'>
@@ -117,7 +129,7 @@ class RepoDetails extends Component {
                             <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans', cursor: 'pointer'}}  key={idx} onClick={() => this.developDir(file.path)}>{file.name}</span>
                           </div>
                           :
-                          <div >
+                          <div onClick={() => this.changeCode(file)}>
                             <Fa icon="file-code-o" style={{color: `${this.props.theme.color}`}}/>
                             <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans'}} key={idx}>{file.name}</span>
                           </div>
@@ -128,8 +140,8 @@ class RepoDetails extends Component {
                     }
 
                     {
-                      this.props.files && this.props.files.length && readmeObj.length ?
-                      <Raw theme={this.props.theme} readmeObj={readmeObj[0]}/>
+                      this.props.files && this.props.files.length && this.state.fileCode ?
+                      <Raw theme={this.props.theme} readmeObj={this.state.fileCode[0]}/>
                       : ''
                     }
                   </CardBody>
