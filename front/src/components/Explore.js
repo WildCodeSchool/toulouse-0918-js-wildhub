@@ -61,7 +61,7 @@ class Explore extends Component {
             <Fragment>
                 <main id="explore-page" className={`${this.props.theme.bgColorDiv} text-${this.props.theme.colorNavLink}`}>
                 <Container fluid className="p-0">
-                    <Parallax bgImage={ParallaxImages.image6} strength={800} renderLayer={percentage => (
+                    <Parallax bgImage={ParallaxImages.image6} strength={600} renderLayer={percentage => (
                         <div>
                             <div
                                 style={{
