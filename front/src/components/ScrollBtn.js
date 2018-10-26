@@ -10,8 +10,37 @@ class ScrollBtn extends Component {
     }
 
     scrollToTop(){
-        window.scroll(0, 0);
+        // window.scroll(0, 0);
+        let currentYOffset = window.pageYOffset;
+        let initYOffset = currentYOffset
+
+        const intervalId = setInterval(function(){
+            currentYOffset -= initYOffset*0.05; 
+            document.body.scrollTop = currentYOffset ;
+            document.documentElement.scrollTop = currentYOffset;
+          
+              if(window.pageYOffset === 0){
+                clearInterval(intervalId);
+              }
+        }, 5);
+
     }
+
+    // topFunction() {
+        
+    //     initYOffset = currentYOffset;
+      
+    //     var intervalId = setInterval(function(){
+    //     currentYOffset -= initYOffset*0.05; 
+    //     document.body.scrollTop = currentYOffset ;
+    //     document.documentElement.scrollTop = currentYOffset;
+      
+    //       if(self.pageYOffset == 0){
+    //         clearInterval(intervalId);
+    //       }
+    //     }, 20);
+      
+    //   } 
 
 
 
