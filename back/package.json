@@ -7,6 +7,6 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "morgan": "^1.9.1",
-    "wildhub-backend": "^0.2.0"
+    "wildhub-backend": "^0.3.0"
   }
 }
