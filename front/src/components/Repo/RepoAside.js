@@ -22,7 +22,7 @@ class RepoAside extends Component {
                   <img src={owner.avatar_url} alt={ownerName} className='mr-3' />
                 }
 
-                <NavLink to={`/users/${ownerName}`} style={{color: '#3e3e3e'}}>
+                <NavLink to={`/users/${ownerName}`} style={{color: this.props.theme.color}}>
                     <CardTitle className='mt-3' style={{fontFamily: 'Gotham'}}>{ ownerName }</CardTitle>
                 </NavLink>
               </div>
