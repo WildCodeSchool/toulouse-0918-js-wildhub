@@ -122,10 +122,10 @@ class Home extends Component {
 
                 <Container fluid className="under-accueil p-0"> 
                   <div className={`py-5 row d-flex justify-content-center align-items-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
-                      <div className="col-lg-5">
+                      <div className="col-lg-5 col-11">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
                       </div>
-                      <div className="col-lg-4 mt-5">
+                      <div className="col-lg-4 col-11 mt-5">
                         <h2>{"Comment ça fonctionne ?"}</h2>
                         <p>
                             {"Tu ne veux pas te connecter pour le moment? Aucun problème, tu peux accéder aux projets partagés ici en allant dans l’onglet “Explorer” et ainsi naviguer de dépôts en dépôts comme bon te semble."}
@@ -141,7 +141,7 @@ class Home extends Component {
                   </Parallax>
 
                   <div className={`py-5 row text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
-                      <div className="col-md-6 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
+                      <div className="col-md-6 col-11 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image4}  alt="placeHolder"></img>
                         <div className="mt-5">
                             <h2 >{"La Plateforme d'échange des Wilders !"}</h2>

@@ -78,7 +78,7 @@ class Explore extends Component {
                         </div>
                     )}>
                         <Row className="align-items-center">
-                            <Col xs='12' className="head-explore mx-auto p-0">
+                            <Col xs='11' className="head-explore mx-auto p-0">
                                 <h2 className="text-center text-white" >Projets des Wilders</h2>
                                 <div  className="mx-auto mt-4 bg-white" style={{ height: '5px', width: '300px', borderRadius: '2px'}}  />
                             </Col>
