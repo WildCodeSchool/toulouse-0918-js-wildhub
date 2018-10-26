@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'mdbreact';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
-import Draggable from 'react-draggable';
+// import Draggable from 'react-draggable';
 
 
 class Home extends Component {
@@ -100,7 +100,7 @@ class Home extends Component {
                   >
                     <div style={{ minHeight: '100vh' }}>
                       <Row className="mainAccueil align-items-center">
-                        <Draggable>
+                        {/* <Draggable> */}
                           <Col xs='10' md='8' lg='6' className="mx-auto text-center">
 
                             <div className="header-wrapper" style={{background: `${this.props.theme.bgHome}`}}>
@@ -115,7 +115,7 @@ class Home extends Component {
 
                             </div>
                           </Col>
-                        </Draggable>
+                        {/* </Draggable> */}
                       </Row>
                     </div>
                   </Parallax>
