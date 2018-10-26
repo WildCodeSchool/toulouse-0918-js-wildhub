@@ -1,6 +1,7 @@
 import jg_pic from '../images/team/jg_pic.jpeg';
 import es_pic from '../images/team/es_pic.jpeg';
 import octocat from '../images/team/octocat.png'
+import js_pic from '../images/team/julien_projet2.jpg'
 
 const TeamMembers = [
     {
@@ -33,9 +34,19 @@ const TeamMembers = [
                 name: 'GitHub',
                 link: 'https://github.com/Julien-sans',
                 icon: 'github'
-            }
+            },
+            {
+                name: 'linkedIn',
+                link: 'https://fr.linkedin.com/in/julien-sans-a54b07a4',
+                icon: 'linkedin'
+            },
+            {
+                name: 'Twitter',
+                link: 'https://twitter.com/JulienS35443694',
+                icon: 'twitter'
+            },
         ],
-        avatar: 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+        avatar: js_pic
     },
     {
         name: 'Nelson Hui',

@@ -103,11 +103,11 @@ class Home extends Component {
                         {/* <Draggable> */}
                           <Col xs='10' md='8' lg='6' className="mx-auto text-center">
                             <div className="header-wrapper" style={{background: `${this.props.theme.bgHome}`}}>
-                              <div className={`pt-2 text-${this.props.theme.color} `} >
+                              <div className={`pt-2 mb-5 text-${this.props.theme.color} `} >
                                 <img className="img-fluid logo mt-5" src={this.props.theme.logo} alt="logo" />
                               </div>
                               <div className={`px-5 pb-3 text-${this.props.theme.color}`} >
-                                <h1 className="pb-3" >{"Bienvenue sur WildHub !"}</h1>
+                                <h1 className="pb-2" >{"Bienvenue sur WildHub !"}</h1>
                                 <p className="text-center py-4">{"WildHub est un site dédié aux développeurs de la Wild Code School, anciens comme actuels. Sur cette nouvelle plateforme tu vas pouvoir partager tes projets personnels afin de leur donner de la visibilité et éventuellement collaborer avec d’autres développeurs de la Wild Code School. Pas besoin de te créer un compte, utilise simplement tes identifiants GitHub pour te connecter sur ce site !"}</p>
                                 <p className="fedra-text mt-3">Bonne visite !</p>
                               </div >
