@@ -17,6 +17,7 @@ class RepoDetails extends Component {
       this.state = {
         files: this.props.files,
         goBackPathArr: [],
+        fileCode: []
       }
       this.developDir = this.developDir.bind(this)
       this.goBackInTree = this.goBackInTree.bind(this)
@@ -136,7 +137,7 @@ class RepoDetails extends Component {
                     }
 
                     {
-                      this.props.files && this.props.files.length && this.state.fileCode ?
+                      this.props.files && this.props.files.length && this.state.fileCode.length ?
                       <div id='codeReadme' className='p-3 mt-3 rounded' style={{background: "#f6f2ef"}}>
                         <Raw theme={this.props.theme} readmeObj={this.state.fileCode[0]}/>
                       </div>
