@@ -16,9 +16,9 @@ class Team extends Component {
          return (
           <main id='team-page' className={`${this.props.theme.bgColorDiv}`} >
             <Container className='text-center pt-4 pb-5'>
-              <h2 className={`font-weight-bold my-5 text-white`} >La fine équipe</h2>
-              <p className={`head-text w-responsive mx-auto mb-2 text-white`} >« L’esprit d’équipe… C’est des mecs qui sont une équipe, ils ont un esprit ! Alors, ils partagent ! » </p>
-              <p className={`head-text w-responsive mb-5 text-right font-italic text-white`}>- Coluche</p>
+                <h2 className={`font-weight-bold my-5 text-white`} >La fine équipe</h2>
+                <p className={`head-text w-responsive mx-auto mb-2 text-white`} >« L’esprit d’équipe… C’est des mecs qui sont une équipe, ils ont un esprit ! Alors, ils partagent ! » </p>
+                <p className={`head-text w-responsive mb-5 text-right font-italic text-white`}>- Coluche</p>
               <Row className='align-items-center pt-4 pb-4'>
                 {
                   TeamMembers.map(((member, key) =>
