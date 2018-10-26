@@ -84,7 +84,7 @@ class Explore extends Component {
                             </Col>
                         </Row>
                     </Parallax>
-                </ Container >
+                </Container >
 
                 <Container className='py-5 filter'>
                     <Row>
