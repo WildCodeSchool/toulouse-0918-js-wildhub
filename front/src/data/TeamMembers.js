@@ -1,6 +1,6 @@
 import jg_pic from '../images/team/jg_pic.jpeg';
 import es_pic from '../images/team/es_pic.jpeg';
-import octocat from '../images/team/octocat.png'
+import nh_pic from '../images/team/nh_pic.jpg'
 import js_pic from '../images/team/julien_projet2.jpg'
 
 const TeamMembers = [
@@ -64,7 +64,7 @@ const TeamMembers = [
                 icon: 'codepen'
             }
         ],
-        avatar: octocat
+        avatar: nh_pic
     },
     {
         name: 'Jules Grenier',

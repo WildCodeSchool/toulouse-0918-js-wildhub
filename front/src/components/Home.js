@@ -120,7 +120,7 @@ class Home extends Component {
                   </Container>
                 </header>
 
-                <Container fluid className="under-accueil p-0"> 
+                <Container fluid className="under-accueil p-0">
                   <div className={`py-5 row d-flex justify-content-center align-items-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
                       <div className="col-lg-5 col-11">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
@@ -131,7 +131,7 @@ class Home extends Component {
                             {"Tu ne veux pas te connecter pour le moment? Aucun problème, tu peux accéder aux projets partagés ici en allant dans l’onglet “Explorer” et ainsi naviguer de dépôts en dépôts comme bon te semble."}
                         </p>
                         <p>
-                            {"Tu veux te connecter ? Aucun problème, tu peux accéder à ta session grâce à GitHub. Une fois connecté tu trouveras sur ton profil tous tes dépôts et choisir ceux que tu souhaite rendre publiques. Les dépôts partagés apparaissent tous dans l’explorateur de projets."}
+                            {"Tu veux te connecter ? Aucun problème, tu peux accéder à ta session grâce à GitHub. Une fois connecté tu trouveras sur ton profil tous tes dépôts et choisir ceux que tu souhaites rendre publics. Les dépôts partagés apparaissent tous dans l’explorateur de projets."}
                         </p>
                         </div>
                   </div>
