@@ -4,7 +4,6 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
   Button,
   Fa
 } from 'mdbreact';

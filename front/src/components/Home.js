@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import GitHubLogin from 'react-github-login';
-import { Container, Row, Col, Fa } from 'mdbreact';
+import { Container, Row, Col } from 'mdbreact';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
-import { clientId, redirectUri } from '../settings';
 import Draggable from 'react-draggable';
 
 

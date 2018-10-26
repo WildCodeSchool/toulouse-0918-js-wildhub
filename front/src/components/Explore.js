@@ -24,6 +24,7 @@ class Explore extends Component {
     componentDidMount(){
       this.getExplore();
       this.props.resetLoading(false);
+      document.title = "Explorer";
     }
 
     getExplore = () => {

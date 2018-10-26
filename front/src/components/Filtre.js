@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import filtres from '../styles/filtres.scss'
+import '../styles/filtres.scss';
 import Autosuggest from 'react-autosuggest';
 import colors from '../data/colors';
 

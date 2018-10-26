@@ -16,6 +16,7 @@ class Repo extends Component {
 
   componentDidMount() {
     const { ownerName, repoName } = this.props.match.params;
+    document.title = `${repoName} - ${ownerName}`;
 
     (window.location.href.includes('/explore/'))
     ? fetch(`https://wildhub.ssd1.ovh/api/users/${ownerName}/${repoName}`)

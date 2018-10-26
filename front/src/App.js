@@ -74,7 +74,6 @@ class App extends Component {
 
   updateStateOnSuccess = ({ token }) => {
     const { accessToken, login, id } = jwtDecode(token);
-    console.log('decoded jwt', accessToken, login, id);
     localStorage.setItem('jwt', token);
 
     this.setupAxiosInstances(accessToken, token);
@@ -103,7 +102,6 @@ class App extends Component {
   }
 
   changeTheme = () => {
-    console.log(localStorage.getItem("isDarkTheme"))
     const wasDarkTheme = localStorage.getItem("isDarkTheme") !== "false"
     localStorage.setItem("isDarkTheme", !wasDarkTheme)
     this.setState({
@@ -127,7 +125,6 @@ class App extends Component {
         scrolled: scrolled
     })
 
-    console.log(this.state.scrolled);
 }
 
   render() {
