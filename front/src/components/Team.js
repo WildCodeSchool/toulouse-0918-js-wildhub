@@ -9,6 +9,7 @@ class Team extends Component {
 
   componentDidMount(){
     this.props.resetLoading(false);
+    document.title = "La Team";
   }
 
   render() {

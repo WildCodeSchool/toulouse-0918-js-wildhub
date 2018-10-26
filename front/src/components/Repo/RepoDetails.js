@@ -120,12 +120,12 @@ class RepoDetails extends Component {
                       this.state.files.map((file, idx) => {
                         return(
                           (file.type === 'dir') ?
-                          <div >
+                          <div key={idx}>
                             <Fa icon="folder" style={{color: `${this.props.theme.color}`, cursor: 'pointer'}}/>
                             <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans', cursor: 'pointer'}}  key={idx} onClick={() => this.developDir(file.path)}>{file.name}</span>
                           </div>
                           :
-                          <div onClick={() => this.changeCode(file)}>
+                          <div key={idx} onClick={() => this.changeCode(file)}>
                             <Fa icon="file-code-o" style={{color: `${this.props.theme.color}`}}/>
                             <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans', cursor: 'pointer'}} key={idx}>{file.name}</span>
                           </div>

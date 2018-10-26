@@ -15,6 +15,7 @@ class PublicProfile extends Component {
     componentDidMount(){
       this.getRepos();
       this.props.resetLoading(false);
+      document.title = this.props.match.params.username;
     }
 
     getRepos = () => {
