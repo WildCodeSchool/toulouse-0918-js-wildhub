@@ -84,7 +84,7 @@ class Explore extends Component {
                             </Col>
                         </Row>
                     </Parallax>
-                </Container >
+                </Container>
 
                 <Container className='py-5 filter'>
                     <Row>
@@ -112,7 +112,7 @@ class Explore extends Component {
                         :
                         <div className="mx-auto text-center">
                           <div className="mx-auto text-center">
-                            <img fluid src={octocat_filtre} className="octocat_filtre" alt="octocat" />
+                            <img fluid='true' src={octocat_filtre} className="octocat_filtre" alt="octocat" />
                           </div>
                           <div className="text-align-center" style={{ fontSize: '1.5rem' }}>Aucun repository de ce langage n'est actuellement disponible !</div>
                         </div>
