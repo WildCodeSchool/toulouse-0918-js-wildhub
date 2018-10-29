@@ -159,7 +159,7 @@ class App extends Component {
 
               <Route
                 exact path='/explore'
-                render={(props) => <Explore {...props} theme={theme} resetLoading={this.resetLoading} />}
+                render={(props) => <Explore {...props} theme={theme} accessToken={this.state.accessToken} resetLoading={this.resetLoading} />}
               />
 
               <Route
@@ -174,7 +174,7 @@ class App extends Component {
 
               <Route
                 exact path='/users/:ownerName/repos/:repoName'
-                render={(props) => <Repo {...props} theme={theme} resetLoading={this.resetLoading}/>}
+                render={(props) => <Repo {...props} theme={theme} accessToken={this.state.accessToken} resetLoading={this.resetLoading}/>}
               />
 
               <Route

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {token} from '../../settings';
+// import {token} from '../../settings';
 import Prism from 'prismjs';
 import axios from 'axios';
 require('prismjs/components/prism-jsx');
@@ -30,19 +30,19 @@ class Raw extends Component {
     this.state = {
       code: '',
       language: '',
-      fileObj: this.props.readmeObj
+      fileObj: this.props.fileContent
 
     }
   }
 
   componentDidMount() {
-    this.fetchFile(this.props.readmeObj.url)
+    this.fetchFile(this.props.fileContent.url);
   }
 
   static getDerivedStateFromProps(props, state) {
-    return props.readmeObj.url === state.fileObj.url
+    return props.fileContent.url === state.fileObj.url
       ? null
-      : {fileObj: props.readmeObj }
+      : {fileObj: props.fileContent }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -59,7 +59,7 @@ class Raw extends Component {
 
     axios.get(file, {
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${this.props.accessToken}`
     }
   })
       .then(response => {
@@ -73,7 +73,7 @@ class Raw extends Component {
   }
 
   render() {
-    const {code, language} = this.state
+    const {code, language} = this.state;
 
     return (
       language === 'markdown'

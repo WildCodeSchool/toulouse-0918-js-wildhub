@@ -4,31 +4,38 @@ import {
     Card,
     CardBody,
     CardTitle,
+    Dropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem,
     Fa
 } from 'mdbreact';
 import ReactTooltip from 'react-tooltip';
 import Raw from './Raw';
-import {token} from '../../settings';
 
 class RepoDetails extends Component {
 
     constructor(props) {
       super(props);
       this.state = {
-        files: this.props.files,
+        files: [],
         goBackPathArr: [],
-        fileCode: []
+        fileCode: [],
+        activeBranch: this.props.repo.default_branch,
+        branchesList: []
       }
-      this.developDir = this.developDir.bind(this)
-      this.goBackInTree = this.goBackInTree.bind(this)
-      this.changeCode = this.changeCode.bind(this)
+      this.developDir = this.developDir.bind(this);
+      this.goBackInTree = this.goBackInTree.bind(this);
+      this.changeCode = this.changeCode.bind(this);
+      this.setActiveBranch = this.setActiveBranch.bind(this);
     }
 
     developDir(dirPath) {
-      const { repoName, ownerName } = this.props;
-      fetch(`https://api.github.com/repos/${ownerName}/${repoName}/contents/${dirPath}?ref=master`, {
+      const { repoName, ownerName, accessToken } = this.props;
+      const { activeBranch } = this.state;
+      fetch(`https://api.github.com/repos/${ownerName}/${repoName}/contents/${dirPath}?ref=${activeBranch}`, {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${accessToken}`
         }
       })
         .then(results => results.json())
@@ -41,14 +48,15 @@ class RepoDetails extends Component {
     goBackInTree() {
       const temp = [...this.state.goBackPathArr];
       temp.splice(-1,1)
-      const last = temp[temp.length -1]
-      const { repoName, ownerName } = this.props;
-      const urlFetch = temp.length ? `https://api.github.com/repos/${ownerName}/${repoName}/contents/${last}?ref=master` :
-      `https://api.github.com/repos/${ownerName}/${repoName}/contents`
+      const previous = temp[temp.length -1]
+      const { repoName, ownerName, accessToken } = this.props;
+      const { activeBranch } = this.state;
+      const urlFetch = temp.length ? `https://api.github.com/repos/${ownerName}/${repoName}/contents/${previous}?ref=${activeBranch}` :
+      `https://api.github.com/repos/${ownerName}/${repoName}/contents?ref=${activeBranch}`
 
       fetch(urlFetch, {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${accessToken}`
         }
       })
         .then(results => results.json())
@@ -65,18 +73,48 @@ class RepoDetails extends Component {
     }
 
     componentDidMount() {
-        const readmeObj = this.props.files.length && this.props.files.filter(readme => readme.name === 'README.md');
+      const { repoName, ownerName, accessToken } = this.props;
+
+      fetch(`https://api.github.com/repos/${ownerName}/${repoName}/branches`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      })
+      .then(results => results.json())
+      .then(branch =>
         this.setState({
-          fileCode : readmeObj
+            branchesList: branch
+          })
+      );
+
+      fetch(`https://api.github.com/repos/${ownerName}/${repoName}/contents/${this.state.activeBranch}`, {
+        headers: {
+          Authorization: `Bearer ${this.props.accessToken}`
+        }
+      })
+      .then(results  =>  results.json())
+      .then(files => {
+        this.setState({
+          files: files
         })
+        const readmeObj = this.state.files.length && this.state.files.filter(readme => readme.name === 'README.md');
+        this.setState({
+          fileCode: readmeObj
+        });
+      })
+    }
+
+    setActiveBranch(e){
+      e.preventDefault();
+      this.setState({activeBranch: e.target.textContent})
     }
 
 
     render() {
         const { name, html_url, description } = this.props.repo;
         const { repoName } = this.props;
+        const { branchesList, activeBranch } = this.state;
         const nameOfRepo = name ? name : repoName;
-
         return (
             <Col xs='12' lg='8' className='mr-auto mb-5'>
                 <Card className={`display-repo ${this.props.theme.colorItems}`}>
@@ -102,6 +140,21 @@ class RepoDetails extends Component {
                         </ReactTooltip>
 
                     </div>
+                    {console.log(this.props.repo.default_branch)}
+                    {
+                      branchesList && activeBranch &&
+                      <Dropdown>
+                        <DropdownToggle caret color="primary" className='mx-0'>{`branche: ${activeBranch}`}</DropdownToggle>
+                        <DropdownMenu>
+                          {
+                            branchesList.map((branch, idx) => (
+                              <DropdownItem key={idx} href="#" onClick={this.setActiveBranch}>{branch.name}</DropdownItem>
+                            ))
+                          }
+                        </DropdownMenu>
+                      </Dropdown>
+                    }
+
                     <hr />
                     <div
                       className={`repo-desc mb-4 text-${this.props.theme.color}`}
@@ -117,7 +170,7 @@ class RepoDetails extends Component {
                     }
 
                     {
-                      this.props.files && this.props.files.length && this.state.files && this.state.files.length &&
+                      this.state.files && this.state.files.length &&
                       this.state.files.map((file, idx) => {
                         return(
                           (file.type === 'dir') ?
@@ -137,9 +190,9 @@ class RepoDetails extends Component {
                     }
 
                     {
-                      this.props.files && this.props.files.length && this.state.fileCode.length ?
+                      this.state.fileCode.length ?
                       <div id='codeReadme' className='p-3 mt-3 rounded' style={{background: "#f6f2ef"}}>
-                        <Raw theme={this.props.theme} readmeObj={this.state.fileCode[0]}/>
+                        <Raw theme={this.props.theme} accessToken={this.props.accessToken} fileContent={this.state.fileCode[0]}/>
                       </div>
                       : ''
                     }

@@ -38,7 +38,7 @@ class ProfileAside extends Component {
     if(!regexLink1.test(externLink) || !regexLink2.test(externLink)) {
       externLink = `http://${this.state.profileInfos.blog}`;
     }
-    console.log(externLink, this.state.profileInfos.blog)
+    
     return (
         <Row className="justify-content-center">
             <Col xs='12' className="mb-3">
