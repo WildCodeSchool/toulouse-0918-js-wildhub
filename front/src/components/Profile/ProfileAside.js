@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'mdbreact';
-import {token} from '../../settings';
+// import {token} from '../../settings';
 
 class ProfileAside extends Component {
     constructor(props){
@@ -18,7 +18,7 @@ class ProfileAside extends Component {
       const { username } = this.props;
         fetch(`https://api.github.com/users/${username}`, {
           headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${this.props.accessToken}`
           }
         })
             .then(results  =>  results.json())
@@ -32,6 +32,13 @@ class ProfileAside extends Component {
 
   render() {
 
+    const regexLink1 = /(https:\/\/+)/;
+    const regexLink2 = /(http:\/\/+)/;
+    let externLink = this.state.profileInfos.blog;
+    if(!regexLink1.test(externLink) || !regexLink2.test(externLink)) {
+      externLink = `http://${this.state.profileInfos.blog}`;
+    }
+    console.log(externLink, this.state.profileInfos.blog)
     return (
         <Row className="justify-content-center">
             <Col xs='12' className="mb-3">
@@ -54,13 +61,13 @@ class ProfileAside extends Component {
                             <span  className={`profile-location px-2 text-${this.props.theme.color}`}>{this.state.profileInfos.location}</span>
                         </div>
                     }
-                    
+
                     {
                         this.state.profileInfos.blog &&
                         <div>
                             <i className="fa fa-external-link mr-2" style={{color: `${this.props.theme.color}`}} aria-hidden="true"></i>
                             <span className="profile-blog px-2" >
-                                <a  className={`${this.props.theme.colorLink}-text`} href={'https://' + this.state.profileInfos.blog} rel="noopener noreferrer" target="_blank">{this.state.profileInfos.blog}</a>
+                                <a  className={`${this.props.theme.colorLink}-text`} href={externLink} rel="noopener noreferrer" target="_blank">{this.state.profileInfos.blog}</a>
                             </span>
                         </div>
                     }

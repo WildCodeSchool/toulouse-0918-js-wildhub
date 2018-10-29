@@ -164,12 +164,12 @@ class App extends Component {
 
               <Route
                 exact path='/users/:username/'
-                render={(props) => <PublicProfile {...props} login={login} theme={theme} resetLoading={this.resetLoading}/>}
+                render={(props) => <PublicProfile {...props} login={login} accessToken={this.state.accessToken} theme={theme} resetLoading={this.resetLoading}/>}
 
               />
 
               <Route exact path='/users/:username/gerer-mes-repos'
-                render={(props) => <Profile {...props} login={login} theme={theme} resetLoading={this.resetLoading} />}
+                render={(props) => <Profile {...props} login={login} accessToken={this.state.accessToken} theme={theme} resetLoading={this.resetLoading} />}
               />
 
               <Route

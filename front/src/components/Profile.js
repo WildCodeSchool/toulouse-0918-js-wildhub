@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProfileAside from './Profile/ProfileAside';
 import ProfileRepos from './Profile/ProfileRepos';
 import { Container, Row, Col } from 'mdbreact';
-import {token} from '../settings';
+// import {token} from '../settings';
 
 
 class Profile extends Component {
@@ -28,7 +28,7 @@ class Profile extends Component {
       const username = this.props.login;
       return fetch (`https://api.github.com/users/${username}/repos`, {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${this.props.accessToken}`
         }
       })
 
@@ -38,7 +38,7 @@ class Profile extends Component {
           const promises = repoArr.map(
             repoSingle => fetch(repoSingle.languages_url, {
               headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${this.props.accessToken}`
               }
             })
 
@@ -90,7 +90,7 @@ class Profile extends Component {
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            { this.state.reposList.length > 0
-                           ? <ProfileAside username={ username } theme={this.props.theme}  />
+                           ? <ProfileAside username={ username } theme={this.props.theme} accessToken={this.props.accessToken}  />
                            : ''
                         }
                         </Col>
@@ -105,6 +105,7 @@ class Profile extends Component {
                               urlUsername={ username }
                               idActives={ idActives }
                               theme={this.props.theme}
+                              accessToken={this.props.accessToken}
                             />
 
                         }

@@ -37,7 +37,7 @@ class PublicProfile extends Component {
                 <Container>
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
-                           <ProfileAside username={ username } theme={theme} />
+                           <ProfileAside username={ username } theme={theme} accessToken={this.props.accessToken} />
                         </Col>
                         <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
                             <ProfileRepos
