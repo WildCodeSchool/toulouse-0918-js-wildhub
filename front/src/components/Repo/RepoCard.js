@@ -36,7 +36,7 @@ class RepoCard extends Component {
                       </a>
                       <ReactTooltip
                         id={`tip-repo-${idx}`}
-                        place="top"
+                        place="left"
                         type="dark"
                         effect="solid"
                       >
