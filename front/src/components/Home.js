@@ -101,7 +101,7 @@ class Home extends Component {
                     <div style={{ minHeight: '100vh' }}>
                       <Row className="mainAccueil align-items-center">
                         {/* <Draggable> */}
-                          <Col xs='10' md='8' lg='6' className="mx-auto text-center">
+                          <Col xs='10' lg='7' className="mx-auto my-5 text-center">
                             <div className="header-wrapper" style={{background: `${this.props.theme.bgHome}`}}>
                               <div className={`pt-2 mb-5 text-${this.props.theme.color} `} >
                                 <img className="img-fluid logo mt-5" src={this.props.theme.logo} alt="logo" />
@@ -121,11 +121,11 @@ class Home extends Component {
                 </header>
 
                 <Container fluid className="under-accueil p-0">
-                  <div className={`py-5 row d-flex justify-content-center align-items-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
-                      <div className="col-lg-5 col-11">
+                  <div className={`py-5 row d-flex justify-content-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
+                      <div className="col-lg-5 col-md-8 col-11 py-5">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
                       </div>
-                      <div className="col-lg-4 col-11 mt-5">
+                      <div className="col-lg-4 col-md-8 col-11 py-5">
                         <h2>{"Comment ça fonctionne ?"}</h2>
                         <p>
                             {"Tu ne veux pas te connecter pour le moment? Aucun problème, tu peux accéder aux projets partagés ici en allant dans l’onglet “Explorer” et ainsi naviguer de dépôts en dépôts comme bon te semble."}
@@ -141,7 +141,7 @@ class Home extends Component {
                   </Parallax>
 
                   <div className={`py-5 row text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
-                      <div className="col-md-6 col-11 mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
+                      <div className="col-lg-6 col-md-8 col-11 mx-auto text-center d-flex flex-column align-self-center py-5">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image4}  alt="placeHolder"></img>
                         <div className="mt-5">
                             <h2 >{"La Plateforme d'échange des Wilders !"}</h2>
@@ -151,10 +151,6 @@ class Home extends Component {
                         </div>
                       </div>
                   </div>
-
-                  <Parallax bgImage={ParallaxImages.image5} strength={600} >
-                    <div className="parallax-div"></div>
-                  </Parallax>
                 </Container>
             </main>
         );
