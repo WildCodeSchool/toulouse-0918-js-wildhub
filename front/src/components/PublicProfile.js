@@ -39,7 +39,7 @@ class PublicProfile extends Component {
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            <ProfileAside username={ username } theme={theme} accessToken={this.props.accessToken} />
                         </Col>
-                        <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
+                        <Col xs='12' lg='9' id='projects-list' className='ml-auto my-5'>
                             <ProfileRepos
                               getReposList={ this.state.reposList }
                               username={ login }

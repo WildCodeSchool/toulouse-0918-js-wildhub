@@ -94,7 +94,7 @@ class Profile extends Component {
                            : ''
                         }
                         </Col>
-                        <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
+                        <Col xs='12' lg='9' id='projects-list' className='ml-auto my-5'>
 
                         {
 
