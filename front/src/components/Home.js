@@ -121,11 +121,11 @@ class Home extends Component {
                 </header>
 
                 <Container fluid className="under-accueil p-0">
-                  <div className={`py-5 row d-flex justify-content-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
-                      <div className="col-lg-5 col-md-8 col-11 py-5">
+                  <Row className={`py-5 justify-content-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
+                      <Col xs='11' md='8' lg='5' className="py-5">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
-                      </div>
-                      <div className="col-lg-4 col-md-8 col-11 py-5">
+                      </Col>
+                      <Col xs='11' md='8' lg='4' className="py-5">
                         <h2>{"Comment ça fonctionne ?"}</h2>
                         <p>
                             {"Tu ne veux pas te connecter pour le moment? Aucun problème, tu peux accéder aux projets partagés ici en allant dans l’onglet “Explorer” et ainsi naviguer de dépôts en dépôts comme bon te semble."}
@@ -133,15 +133,15 @@ class Home extends Component {
                         <p>
                             {"Tu veux te connecter ? Aucun problème, tu peux accéder à ta session grâce à GitHub. Une fois connecté tu trouveras sur ton profil tous tes dépôts et pourras choisir ceux que tu souhaites rendre publics. Les dépôts partagés apparaissent tous dans l’explorateur de projets."}
                         </p>
-                        </div>
-                  </div>
+                        </Col>
+                  </Row>
 
                   <Parallax bgImage={ParallaxImages.image3} strength={600} >
                     <div className="parallax-div"></div>
                   </Parallax>
 
-                  <div className={`py-5 row text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
-                      <div className="col-lg-6 col-md-8 col-11 mx-auto text-center d-flex flex-column align-self-center py-5">
+                  <Row className={`py-5 text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
+                      <Col xs='11' md='8' lg='6' className="mx-auto d-flex flex-column align-self-center py-5">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image4}  alt="placeHolder"></img>
                         <div className="mt-5">
                             <h2 >{"La Plateforme d'échange des Wilders !"}</h2>
@@ -149,8 +149,8 @@ class Home extends Component {
                                 {"WildHub est une plateforme de partage mais aussi d’échange et d’entraide, n’hésite pas à contacter un Wilder si son projet t’intéresse, vous pourrez peut-être collaborer !"}
                             </p>
                         </div>
-                      </div>
-                  </div>
+                      </Col>
+                  </Row>
                 </Container>
             </main>
         );
