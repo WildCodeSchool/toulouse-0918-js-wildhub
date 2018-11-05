@@ -121,7 +121,7 @@ class Home extends Component {
                 </header>
 
                 <Container fluid className="under-accueil p-0">
-                  <Row className={`py-5 justify-content-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
+                  <Row className={`py-5 justify-content-center align-items-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
                       <Col xs='11' md='8' lg='5' className="py-5">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
                       </Col>
