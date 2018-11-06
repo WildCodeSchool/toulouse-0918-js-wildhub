@@ -1,6 +1,6 @@
-import jg_pic from '../images/team/jg_pic.jpeg';
+import jg_pic from '../images/team/jg_pic.png';
 import es_pic from '../images/team/es_pic.jpeg';
-import nh_pic from '../images/team/nh_pic.jpg'
+import nh_pic from '../images/team/nh_pic.png'
 import js_pic from '../images/team/julien_projet2.jpg'
 
 const TeamMembers = [
