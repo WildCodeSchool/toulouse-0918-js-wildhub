@@ -12,6 +12,7 @@ import {
 } from 'mdbreact';
 import ReactTooltip from 'react-tooltip';
 import Raw from './Raw';
+import '../../styles/repo/repo-details.scss';
 
 class RepoDetails extends Component {
 
@@ -87,7 +88,7 @@ class RepoDetails extends Component {
           })
       );
 
-      fetch(`https://api.github.com/repos/${ownerName}/${repoName}/contents/${this.state.activeBranch}`, {
+      fetch(`https://api.github.com/repos/${ownerName}/${repoName}/contents`, {
         headers: {
           Authorization: `Bearer ${this.props.accessToken}`
         }
@@ -117,10 +118,10 @@ class RepoDetails extends Component {
         const nameOfRepo = name ? name : repoName;
         return (
             <Col xs='12' lg='8' className='mr-auto mb-5'>
-                <Card className={`display-repo ${this.props.theme.colorItems}`}>
+                <Card className='display-repo'>
                   <CardBody>
                     <div className="repo-title">
-                        <CardTitle className={`mb-0 text-${this.props.theme.color}`} style={{fontFamily: 'Gotham'}}>{ nameOfRepo }</CardTitle>
+                        <CardTitle className='mb-0' style={{fontFamily: 'Gotham'}}>{ nameOfRepo }</CardTitle>
                         <a
                           href={ html_url }
                           target='_blank'
@@ -128,7 +129,7 @@ class RepoDetails extends Component {
                           className="ghIcon"
                           data-tip data-for={`tip-repo-1`}
                         >
-                          <Fa icon="github" style={{color: `${this.props.theme.color}`}}/>
+                          <Fa icon="github"/>
                         </a>
                         <ReactTooltip
                           id={`tip-repo-1`}
@@ -157,42 +158,45 @@ class RepoDetails extends Component {
 
                     <hr />
                     <div
-                      className={`repo-desc mb-4 text-${this.props.theme.color}`}
+                      className='repo-desc mb-4'
                       style={{fontFamily: 'SourceSans', fontSize: '1.2em'}}
                     >
                       { description }
                     </div>
 
-                    {
-                      this.state.goBackPathArr.length
-                      ? <Fa icon="arrow-circle-left" onClick={this.goBackInTree} style={{color: `${this.props.theme.color}`, cursor: 'pointer'}}/>
-                      : ''
-                    }
+                    <div className="tree">
 
-                    {
-                      this.state.files && this.state.files.length &&
-                      this.state.files.map((file, idx) => {
-                        return(
-                          (file.type === 'dir') ?
-                          <div key={idx}>
-                            <Fa icon="folder" style={{color: `${this.props.theme.color}`, cursor: 'pointer'}}/>
-                            <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans', cursor: 'pointer'}}  key={idx} onClick={() => this.developDir(file.path)}>{file.name}</span>
-                          </div>
-                          :
-                          <div key={idx} onClick={() => this.changeCode(file)}>
-                            <Fa icon="file-code-o" style={{color: `${this.props.theme.color}`}}/>
-                            <span className={`repo-desc ml-2 text-${this.props.theme.color}`} style={{fontFamily: 'SourceSans', cursor: 'pointer'}} key={idx}>{file.name}</span>
-                          </div>
+                      {
+                        this.state.goBackPathArr.length
+                        ? <span className="previous"><Fa icon="arrow-circle-left" onClick={this.goBackInTree}/></span>
+                        : ''
+                      }
+
+                      {                        
+                        this.state.files && this.state.files.length &&
+                        this.state.files.map((file, idx) => {
+                          return(
+                            (file.type === 'dir') ?
+                            <span className='doc-link' key={idx}>
+                              <Fa icon="folder"/>
+                              <span className='repo-desc ml-2' style={{fontFamily: 'SourceSans'}}  key={idx} onClick={() => this.developDir(file.path)}>{file.name}</span>
+                            </span>
+                            :
+                            <span className='doc-link' key={idx} onClick={() => this.changeCode(file)}>
+                              <Fa icon="file-code-o"/>
+                              <span className='repo-desc ml-2' style={{fontFamily: 'SourceSans'}} key={idx}>{file.name}</span>
+                            </span>
 
 
-                        )
-                      })
-                    }
+                          )
+                        })
+                      }
+                    </div>
 
                     {
                       this.state.fileCode.length ?
-                      <div id='codeReadme' className='p-3 mt-3 rounded' style={{background: "#f6f2ef"}}>
-                        <Raw theme={this.props.theme} accessToken={this.props.accessToken} fileContent={this.state.fileCode[0]}/>
+                      <div className='fileCode p-3 mt-3 rounded'>
+                        <Raw accessToken={this.props.accessToken} fileContent={this.state.fileCode[0]}/>
                       </div>
                       : ''
                     }

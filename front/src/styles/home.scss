@@ -1,76 +1,122 @@
-#home-page{
-  // background-image: url('https://images.pexels.com/photos/373076/pexels-photo-373076.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+// Home page style
+@import './theme-colors';
 
-  header{
-      position: relative;
-          &::after{
-            left: 0;
-            top: 0;
-            content: "";
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background-size: cover;
-            background-repeat: no-repeat;
-            // -webkit-filter: brightness(30%);
-            // filter: brightness(30%);
-            z-index: -1;
-          }
+#root {
 
+  &.theme-dark {
+    #home-page {
 
-          .mainAccueil{
-            min-height: calc(100vh - 60px);
-
-            .header-wrapper{
-              margin-top: 10px;
-              border-radius: 10px;
-
-              .logo{
-                width: 100px;
-                &:hover{
-                      animation: spin linear infinite 2s;
-                }
-              }
-  
-              h1{
-                font-family: "Gotham";
-              }
-  
-              p{
-                font-family: "SourceSans";
-                font-size: 1.3em;
-                line-height: 1.4;
-                font-weight: 600;
-              }
-  
-              .fedra-text{
-                font-family: "Fedra";
-                font-size: 1.5em;
-              }
-  
-              .black-text{
-                font-family: "Gotham";
-              }
-
-            }
-
-            
+      header {
+        .header-wrapper {
+          background: rgba($dt_primary, .7);
+          color: $dt_text_primary;
+        }
       }
+
+      .under-accueil {
+        .row {
+          background: $dt_secondary;
+          color: $dt_text_primary;
+
+        }
+      }
+    }
   }
 
-  .under-accueil{
+  &.theme-light {
+    #home-page {
+
+      header {
+        .header-wrapper {
+          background: rgba($lt_secondary, .7);
+          color: $lt_text_primary;
+        }
+      }
+
+      .under-accueil {
+        .row {
+          background: $lt_secondary;
+          color: $lt_text_primary;
+
+        }
+      }
+    }
+  }
+
+}
+
+#home-page {
+
+  header {
+    position: relative;
+
+    &::after {
+      left: 0;
+      top: 0;
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+
+    .mainAccueil {
+      min-height: calc(100vh - 60px);
+
+      .header-wrapper {
+        margin-top: 10px;
+        border-radius: 10px;
+
+        .logo {
+          width: 100px;
+
+          &:hover {
+            animation: spin linear infinite 2s;
+          }
+        }
+
+        h1 {
+          font-family: "Gotham";
+        }
+
+        p {
+          font-family: "SourceSans";
+          font-size: 1.3em;
+          line-height: 1.4;
+          font-weight: 600;
+        }
+
+        .fedra-text {
+          font-family: "Fedra";
+          font-size: 1.5em;
+        }
+
+        .black-text {
+          font-family: "Gotham";
+        }
+
+      }
+
+
+    }
+  }
+
+  .under-accueil {
     overflow-x: hidden;
 
-    h2{
+    h2 {
       font-family: "Gotham";
     }
 
-    p{
+    p {
       font-family: "SourceSans";
       font-size: 1.2em;
     }
 
-    .parallax-div{
+    .parallax-div {
       height: 40vh;
 
     }
@@ -78,10 +124,10 @@
   }
 
 
-@keyframes spin {
+  @keyframes spin {
     100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
   }
 }

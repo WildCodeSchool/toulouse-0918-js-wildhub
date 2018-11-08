@@ -1,4 +1,149 @@
-.theme-toggler{
+@import './theme-colors';
+
+#root{
+
+  &.theme-dark{
+
+    .navbar{
+      background: $dt_primary;
+      color: $dt_text_secondary;
+
+      .nav-item{
+        color: $dt_text_tertiary;
+
+        &:hover, &.active{
+          color: $dt_text_primary;
+        }
+      }
+
+      .btn-login{
+        background: rgba($dt_secondary, .6)!important;
+        color: $dt_text_primary!important;
+      }
+
+      .theme-toggler{
+        background: $lt_secondary!important;
+        color: $lt_text_secondary!important;
+      }
+
+      .dropdown{
+        .dropdown-toggle{
+          background: rgba($dt_secondary, .6)!important;
+          color: $dt_text_secondary!important;
+        }
+
+        .dropdown-menu{
+          background: $dt_secondary!important;
+          color: $dt_text_secondary;
+
+          .dropdown-item{
+            color: $dt_text_tertiary;
+    
+            &:hover, &:focus{
+              background: $dt_tertiary;
+              color: $dt_text_primary;
+            }
+          }
+        }
+      }
+    }
+
+    .sidenav{
+      background: $dt_primary;
+
+      .nav-item{
+        color: $dt_text_tertiary;
+
+        &:hover, &.active{
+          color: $dt_text_primary;
+        }
+      }
+
+      .btn-login{
+        background: rgba($dt_secondary, .6)!important;
+        color: $dt_text_primary!important;
+      }
+
+      .theme-toggler{
+        background: $lt_secondary!important;
+        color: $lt_text_secondary!important;
+      }
+    }
+
+  }
+
+  &.theme-light{
+
+    .navbar{
+      background: $lt_secondary;
+      color: $lt_text_secondary;
+
+      .nav-item{
+        color: $lt_text_tertiary;
+
+        &:hover, &.active{
+          color: $lt_text_primary;
+        }
+      }
+
+      .btn-login{
+        background: $lt_tertiary!important;
+        color: $lt_text_primary!important;
+      }
+
+      .theme-toggler{
+        background: $dt_secondary!important;
+        color: $dt_text_secondary!important;
+      }
+
+      .dropdown{
+        .dropdown-toggle{
+          background: $lt_tertiary!important;
+          color: $lt_text_secondary!important;
+        }
+
+        .dropdown-menu{
+          background: $lt_secondary!important;
+          color: $lt_text_secondary;
+
+          .dropdown-item{
+            color: $lt_text_tertiary;
+    
+            &:hover, &:focus{
+              background: $lt_tertiary;
+              color: $lt_text_primary;
+            }
+          }
+        }
+      }
+    }
+
+    .sidenav{
+      background: $lt_primary;
+
+      .nav-item{
+        color: $lt_text_tertiary;
+
+        &:hover, &.active{
+          color: $lt_text_primary;
+        }
+      }
+
+      .btn-login{
+        background: $lt_secondary!important;
+        color: $lt_text_primary!important;
+      }
+
+      .theme-toggler{
+        background: $dt_secondary!important;
+        color: $dt_text_secondary!important;
+      }
+    }
+
+  }
+}
+
+.btn.theme-toggler{
   padding: 0;
   width: 50px;
   height: 50px;
@@ -42,7 +187,6 @@
   }
 
   .dropdown-menu{
-    background: #000;
     border-radius: 0;
 
 

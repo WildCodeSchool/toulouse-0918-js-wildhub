@@ -11,6 +11,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import LangBar from './LangBar';
 import SwitchBtn from './SwitchBtn';
+import '../../styles/repo/repo-card.scss';
 
 class RepoCard extends Component {
     render() {
@@ -19,11 +20,11 @@ class RepoCard extends Component {
 
         return(
             <Col  md='6' className='mb-4'>
-              <Card className={`repoCard ${this.props.theme.colorItems} `}>
+              <Card className='repo-card'>
                 <CardBody >
-                  <div className="repo-title ">
+                  <div className="repo-title">
                       <NavLink to={`/users/${repo.owner.login}/repos/${repo.name}`} className="repo-name">
-                        <CardTitle className={`text-${this.props.theme.colorNavLink}`}>{repo.name}</CardTitle>
+                        <CardTitle>{repo.name}</CardTitle>
                       </NavLink>
                       <a
                         href={repo.html_url}
@@ -32,7 +33,7 @@ class RepoCard extends Component {
                         className="ghIcon"
                         data-tip data-for={`tip-repo-${idx}`}
                       >
-                        <Fa icon="github" style={{color: `${this.props.theme.color}`}}/>
+                        <Fa icon="github"/>
                       </a>
                       <ReactTooltip
                         id={`tip-repo-${idx}`}
@@ -45,24 +46,24 @@ class RepoCard extends Component {
                   </div>
 
 
-                  <NavLink to={`/users/${repo.owner.login}`} className={`repo-owner text-${this.props.theme.colorNavLink}`}>
+                  <NavLink to={`/users/${repo.owner.login}`} className='repo-owner'>
                     <h6>{repo.owner.login}</h6>
                   </NavLink>
 
                   {
                     window.location.href.endsWith('/gerer-mes-repos') &&
-                    <SwitchBtn theme={this.props.theme} isActive={isActive} repo={repo} />
+                    <SwitchBtn isActive={isActive} repo={repo} />
                   }
 
                   <hr/>
 
-                  <p className={`repo-description text-${this.props.theme.colorNavLink} `}>
+                  <p className='repo-description'>
                     {repo.description}
                   </p>
                 </CardBody>
 
-                <CardFooter className={`repoCard ${this.props.theme.colorItems} text-right`}>
-                  <small className={`text-${this.props.theme.colorNavLink} `} style={{fontFamily: 'SourceSans', fontSize: '0.9em'}}>
+                <CardFooter className='text-right'>
+                  <small style={{fontFamily: 'SourceSans', fontSize: '0.9em'}}>
                     { `Dernière activité le ${new Date(repo.updated_at).toLocaleDateString('fr-FR')}` }
                   </small>
                 </CardFooter>

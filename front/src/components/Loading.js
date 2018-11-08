@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from '../images/logo-accueil.png'
+import '../styles/loading.scss';
 
 class Loading extends Component {
     render() {
         return (
-        <div className="wrap">
-            <img className="circles" src={logo} alt={logo} />
+        <div id="loading-screen">
+            <img className="logo" src={this.props.theme.logo} alt="" />
         </div>
   
         );

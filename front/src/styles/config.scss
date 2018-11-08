@@ -1,12 +1,3 @@
-@import 'loading';
-@import 'home';
-@import 'navbar';
-@import 'profile';
-@import 'repos';
-@import 'DisplayRepo';
-@import 'error';
-@import 'scrollBtn';
-
 ::-webkit-scrollbar {
     width: 10px;
 
@@ -83,16 +74,4 @@ code {
     // background: #fcfcfc;
   }
 
-}
-
-footer{
-    font-family: "Gotham";
-
-    u{
-        text-decoration: none;
-    }
-
-  .fedra-text{
-      font-family: "Fedra";
-  }
 }

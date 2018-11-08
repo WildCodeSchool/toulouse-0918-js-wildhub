@@ -22,7 +22,7 @@ class ProfileRepos extends Component{
 
     render() {
       const reposList = this.props.getReposList;
-      const { username, urlUsername, idActives, theme } = this.props;
+      const { username, urlUsername, idActives } = this.props;
 
         return (
           <Fragment>
@@ -33,8 +33,6 @@ class ProfileRepos extends Component{
 
                   <NavLink exact to={`/users/${username}`}>
                     <Button
-                      bgColor={this.props.theme.bgColor}
-                      color={this.props.theme.color}
                       className="mr-3"
                     >
                       Dépôts partagés
@@ -44,8 +42,6 @@ class ProfileRepos extends Component{
 
                   <NavLink exact to={`/users/${username}/gerer-mes-repos`}>
                     <Button
-                      bgColor={this.props.theme.bgColor}
-                      color={this.props.theme.color}
                       className="ml-3"
                     >
                       Gérer mes dépôts
@@ -69,7 +65,6 @@ class ProfileRepos extends Component{
                       name={repo.name}
                       postRepoExplore={() => this.postRepoExplore(repo)}
                       isActive={isActive}
-                      theme={theme}
                     />
                   )
                 })

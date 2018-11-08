@@ -1,4 +1,25 @@
-.btn-floating {
+@import '../theme-colors';
+
+#root{
+
+  &.theme-dark{
+    .btn-floating{
+      background: $lt_secondary!important;
+      color: $lt_text_secondary!important;
+    }
+  }
+
+  &.theme-light{
+    .btn-floating{
+      background: $dt_secondary!important;
+      color: $dt_text_secondary!important;
+    }
+  }
+
+}
+
+.btn{
+  &.btn-floating {
     -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     width: 47px;
@@ -21,7 +42,6 @@
         display: inline-block;
         width: inherit;
         text-align: center;
-        color: #fff;
         font-size: 1.25rem!important;
         line-height: 47px;
     }
@@ -35,4 +55,5 @@
             opacity: 1;
         }
     }
+}
 }

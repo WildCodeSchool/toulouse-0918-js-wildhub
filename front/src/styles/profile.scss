@@ -1,13 +1,86 @@
-#profile-page {
-    @import './profile/aside-profile';
+@import './theme-colors';
 
-    #projects-list{
-      a.active .btn{
-        // background: #78909c!important;
+#root{
 
-        transform: scale(1.2);
-        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  &.theme-dark{
+    #profile-page{
+      background: $dt_secondary;
+      color: $dt_text_secondary;
+    }
+
+    #projects-list {
+      a .btn {
+        background: $dt_primary!important;
+        color: $dt_text_secondary!important;
       }
     }
+  }
+
+  &.theme-light{
+    #profile-page{
+      background: $lt_primary;
+      color: $lt_text_secondary;
+    }
+
+    #projects-list {
+      a .btn {
+        background: $lt_secondary!important;
+        color: $lt_text_primary!important;
+      }
+    }
+  }
+
+}
+
+#profile-page {
+  #aside-profile {
+
+    .profile-infos {
+
+      .profile-name {
+        font-size: 2em;
+        font-family: "Gotham";
+      }
+
+      .profile-login {
+        font-family: "SourceSans";
+      }
+
+      .desc {
+        font-size: 1.2em;
+        font-family: "SourceSans";
+      }
+
+      .profile-location {
+        font-size: 1.2em;
+        font-family: "SourceSans";
+      }
+
+      .profile-blog a {
+        font-size: 1.2em;
+        font-family: "SourceSans";
+      }
+
+      @media (max-width: 992px) {
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 992px) {
+
+      .profile-pic {
+        width: 110px;
+        vertical-align: top;
+        margin-right: 1em;
+      }
+    }
+  }
+
+  #projects-list {
+    a.active .btn {
+
+      transform: scale(1.2);
+    }
+  }
 
 }

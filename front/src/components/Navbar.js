@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import styled from 'react-emotion';
 import {
   Dropdown,
   DropdownToggle,
@@ -10,22 +9,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import GitHubLogin from 'react-github-login';
 import { clientId, redirectUri } from '../settings';
-
-
-const Nav = styled('nav')({
-    transition: 'all 0.3s ease-in-out 0s'
-},
-    props => ({
-      backgroundColor: props.bgColor,
-    })
-)
-
-const SideNav = styled('div')(
-    props => ({
-        color: props.color,
-        backgroundColor: props.bgColor,
-    })
-)
+import '../styles/navigation.scss';
 
 class Navbar extends Component {
     constructor(props) {
@@ -73,10 +57,10 @@ class Navbar extends Component {
         return (
 
           <Fragment>
-            <Nav className="navbar text-light fixed-top py-0" bgColor={this.props.theme.bgColor} >
+            <div className="navbar fixed-top py-0">
               <span
                   onClick={this.handleSideNav}
-                  className={`toggle-nav text-${this.props.theme.colorNavLink}`}>
+                  className={`toggle-nav`}>
                   <Fa icon={toggler} size='lg' />
               </span>
               <div className="nav-links d-flex justify-content-start align-items-center w-100">
@@ -93,7 +77,7 @@ class Navbar extends Component {
 
                       <NavLink
                         exact to="/"
-                        className={`nav-item text-${this.props.theme.colorNavLink}`}
+                        className='nav-item'
                         onClick={this.resetLoading}
                       >
                         Accueil
@@ -101,7 +85,7 @@ class Navbar extends Component {
 
                       <NavLink
                         exact to="/explore"
-                        className={`nav-item text-${this.props.theme.colorNavLink}`}
+                        className='nav-item'
                         onClick={this.resetLoading}
                       >
                         Explorer
@@ -109,7 +93,7 @@ class Navbar extends Component {
 
                       <NavLink
                         exact to="/team"
-                        className={`nav-item text-${this.props.theme.colorNavLink}`}
+                        className='nav-item'
                         onClick={this.resetLoading}
                       >
                         La Team
@@ -122,7 +106,6 @@ class Navbar extends Component {
                                 <DropdownToggle
                                   caret
                                   className='my-0 mx-3'
-                                  color={`${this.props.theme.color}`}
                                 >
                                   {this.props.login}
                                 </DropdownToggle>
@@ -145,7 +128,7 @@ class Navbar extends Component {
                               </Dropdown>
                           : <GitHubLogin
                               onClick={this.resetLoading}
-                              className={`btn btn-login my-0 mx-3 ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
+                              className={`btn btn-login my-0 mx-3`}
                               scope="user:email,public_repo"
                               clientId={clientId}
                               redirectUri={`${redirectUri}/users/${this.props.login}`}
@@ -160,8 +143,6 @@ class Navbar extends Component {
                         }
                         <Button
                             onClick={this.props.changeTheme}
-                            bgColor={this.props.theme.bgColorButton}
-                            color={this.props.theme.color}
                             className='theme-toggler m-0'
                         >
                             <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
@@ -171,13 +152,13 @@ class Navbar extends Component {
 
                   </div>
               </div>
-              </Nav>
+              </div>
 
-            <SideNav id="mySidenav" className={"sidenav z-depth-2 " + isOpen} bgColor={this.props.theme.bgColor} >
+            <div id="mySidenav" className={"sidenav z-depth-2 " + isOpen}>
                 <NavLink
                   onClick={this.handleClick}
                   exact to="/"
-                  className={`nav-item text-${this.props.theme.colorNavLink}`}
+                  className='nav-item'
                 >
                     <Fa icon="home mr-2" />
                     {"Accueil"}
@@ -186,7 +167,7 @@ class Navbar extends Component {
                 <NavLink
                   onClick={this.handleClick}
                   exact to="/explore"
-                  className={`nav-item text-${this.props.theme.colorNavLink}`}
+                  className='nav-item'
                 >
                     <Fa icon="wpexplorer mr-2" />
                     {"Explorer"}
@@ -195,7 +176,7 @@ class Navbar extends Component {
                 <NavLink
                   onClick={this.handleClick}
                   exact to="/team"
-                  className={`nav-item text-${this.props.theme.colorNavLink}`}
+                  className='nav-item'
                 >
 
                     <Fa icon="users mr-2" />
@@ -205,19 +186,18 @@ class Navbar extends Component {
                 {
                   this.props.login
                   ? <Fragment>
-                      <a href={`/users/${this.props.login}`} onClick={this.handleClick} className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                      <a href={`/users/${this.props.login}`} onClick={this.handleClick} className='nav-item'>
                         <Fa icon="book mr-2" />
                         {"Mon Profil"}
                       </a>
 
-                      <NavLink to="/home" onClick={this.disconnect} className={`nav-item text-${this.props.theme.colorNavLink}`}>
+                      <NavLink to="/home" onClick={this.disconnect} className='nav-item'>
                           <Fa icon='sign-out' /> Déconnexion
                       </NavLink>
                     </Fragment>
 
                   : <GitHubLogin
-                      className={`btn btn-sm ${this.props.theme.color} text-${this.props.theme.nameTheme}`}
-                      bgColor={this.props.theme.bgColor}
+                      className={`btn btn-sm btn-login`}
                       color={this.props.theme.color}
                       scope="user:email,public_repo"
                       clientId={clientId}
@@ -232,14 +212,12 @@ class Navbar extends Component {
                 }
                 <Button
                   onClick={this.props.changeTheme}
-                  bgColor={this.props.theme.bgColorButton}
-                  color={this.props.theme.color}
                   className='theme-toggler btn-sm'
                 >
                   <i className={`mr-2 ${this.props.theme.iconeTheme}`} aria-hidden="true"></i>
                   Theme
                 </Button>
-            </SideNav>
+            </div>
         </Fragment>
         )
     }

@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'mdbreact';
 import { Parallax } from "react-parallax";
 import ParallaxImages from '../data/ParallaxImages.js';
 // import Draggable from 'react-draggable';
+import '../styles/home.scss';
 
 
 class Home extends Component {
@@ -28,13 +29,14 @@ class Home extends Component {
         return (
             <main id='home-page'>
                 <header>
-                  <Container fluid className={`p-0 ${this.props.theme.bgColorDiv}`}>
+                  <Container fluid className='p-0'>
                   <Parallax
                     bgImage={ParallaxImages.image1}
                     strength={400}
                     renderLayer={percentage => (
                       <div>
                         <div
+                          className='parallax-circle'
                           style={{
                             position: "absolute",
                             background: `${this.props.theme.colorCircle2} ${percentage * 1.5}`,
@@ -47,6 +49,7 @@ class Home extends Component {
                           }}
                         />
                         <div
+                          className='parallax-circle'
                           style={{
                             position: "absolute",
                             background: `${this.props.theme.colorCircle1} ${percentage * 1.5}`,
@@ -59,6 +62,7 @@ class Home extends Component {
                           }}
                         />
                         <div
+                          className='parallax-circle'
                           style={{
                             position: "absolute",
                             background: `${this.props.theme.colorCircle2} ${percentage * 1.5}`,
@@ -71,6 +75,7 @@ class Home extends Component {
                           }}
                         />
                         <div
+                          className='parallax-circle'
                           style={{
                             position: "absolute",
                             background: `${this.props.theme.colorCircle1} ${percentage * 1.5}`,
@@ -83,6 +88,7 @@ class Home extends Component {
                           }}
                         />
                          <div
+                          className='parallax-circle'
                           style={{
                             position: "absolute",
                             background: `${this.props.theme.colorCircle2} ${percentage * 1.5}`,
@@ -102,11 +108,11 @@ class Home extends Component {
                       <Row className="mainAccueil align-items-center">
                         {/* <Draggable> */}
                           <Col xs='10' lg='7' className="mx-auto my-5 text-center">
-                            <div className="header-wrapper" style={{background: `${this.props.theme.bgHome}`}}>
-                              <div className={`pt-2 mb-5 text-${this.props.theme.color} `} >
+                            <div className="header-wrapper">
+                              <div className={`pt-2 mb-5`} >
                                 <img className="img-fluid logo mt-5" src={this.props.theme.logo} alt="logo" />
                               </div>
-                              <div className={`px-5 pb-3 text-${this.props.theme.color}`} >
+                              <div className={`px-5 pb-3`} >
                                 <h1 className="pb-2" >{"Bienvenue sur WildHub !"}</h1>
                                 <p className="text-center py-4">{"WildHub est un site dédié aux développeurs de la Wild Code School, anciens comme actuels. Sur cette nouvelle plateforme tu vas pouvoir partager tes projets personnels afin de leur donner de la visibilité et éventuellement collaborer avec d’autres développeurs de la Wild Code School. Pas besoin de te créer un compte, utilise simplement tes identifiants GitHub pour te connecter sur ce site !"}</p>
                                 <p className="fedra-text mt-3">Bonne visite !</p>
@@ -121,7 +127,7 @@ class Home extends Component {
                 </header>
 
                 <Container fluid className="under-accueil p-0">
-                  <Row className={`py-5 justify-content-center align-items-center text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
+                  <Row className={`py-5 justify-content-center align-items-center`} >
                       <Col xs='11' md='8' lg='5' className="py-5">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
                       </Col>
@@ -140,7 +146,7 @@ class Home extends Component {
                     <div className="parallax-div"></div>
                   </Parallax>
 
-                  <Row className={`py-5 text-${this.props.theme.color} ${this.props.theme.bgColorDiv}`} >
+                  <Row className={`py-5`} >
                       <Col xs='11' md='8' lg='6' className="mx-auto d-flex flex-column align-self-center py-5">
                         <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image4}  alt="placeHolder"></img>
                         <div className="mt-5">

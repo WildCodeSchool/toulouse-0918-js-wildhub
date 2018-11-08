@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProfileAside from './Profile/ProfileAside';
 import ProfileRepos from './Profile/ProfileRepos';
 import { Container, Row, Col } from 'mdbreact';
+import '../styles/profile.scss';
 
 
 
@@ -85,12 +86,12 @@ class Profile extends Component {
       const { idActives } = this.state;
 
         return (
-              <main id='profile-page' className={`${this.props.theme.bgColorDiv}`}>
+              <main id='profile-page'>
                 <Container>
                     <Row>
                         <Col xs='12' lg='3' id='aside-profile' className='my-5'>
                            { this.state.reposList.length > 0
-                           ? <ProfileAside username={ username } theme={this.props.theme} accessToken={this.props.accessToken}  />
+                           ? <ProfileAside username={ username } accessToken={this.props.accessToken}  />
                            : ''
                         }
                         </Col>
@@ -104,7 +105,6 @@ class Profile extends Component {
                               username={ login }
                               urlUsername={ username }
                               idActives={ idActives }
-                              theme={this.props.theme}
                               accessToken={this.props.accessToken}
                             />
 

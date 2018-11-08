@@ -38,7 +38,7 @@ class Repo extends Component {
     const { repo } = this.state;
 
     return (
-      <main id='repo-page' className={`${this.props.theme.bgColorDiv}`}>
+      <main id='repo-page'>
         <Container className='py-5'>
           <Row className='flex-column-reverse flex-lg-row'>
 

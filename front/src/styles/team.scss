@@ -1,3 +1,43 @@
+@import './theme-colors';
+
+#root{
+
+  &.theme-dark{
+    #team-page{
+      .card{
+        background: $dt_secondary;
+        color: $dt_text_secondary;
+
+        a{
+          color: $dt_text_tertiary;
+
+          &:hover{
+            color: $dt_text_primary;
+          }
+        }
+      }
+    }
+  }
+
+  &.theme-light{
+    #team-page{
+      .card{
+        background: $lt_secondary;
+        color: $lt_text_secondary;
+
+        a{
+          color: $lt_text_tertiary;
+
+          &:hover{
+            color: $lt_text_primary;
+          }
+        }
+      }
+    }
+  }
+
+}
+
 #team-page{
 
     background-image: url('https://images.pexels.com/photos/29435/landscape-sky-night-stars-29435.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');

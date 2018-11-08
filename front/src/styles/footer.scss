@@ -1,0 +1,43 @@
+@import './theme-colors';
+
+#root{
+
+  &.theme-dark{
+    footer{
+      background: $dt_primary;
+      color: $dt_text_primary;
+
+      a{
+        color: $dt_text_tertiary;
+
+        &:hover{
+          color: $dt_text_primary;
+        }
+      }
+    }
+  }
+
+  &.theme-light{
+    footer{
+      background: $lt_primary;
+      color: $lt_text_primary;
+
+      a{
+        color: $lt_text_tertiary;
+
+        &:hover{
+          color: $lt_text_primary;
+        }
+      }
+    }
+  }
+
+}
+
+footer{
+  font-family: "Gotham";
+
+  .fedra-text{
+      font-family: "Fedra";
+  }
+}

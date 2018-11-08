@@ -1,5 +1,23 @@
-.wrap {
-    position: absolute;
+@import './theme-colors';
+
+#root{
+
+  &.theme-dark{
+    #loading-screen {
+      background: $dt_secondary;
+    }
+  }
+
+  &.theme-light{
+    #loading-screen {
+      background: $lt_secondary;
+    }
+  }
+
+}
+
+#loading-screen {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -8,9 +26,8 @@
     justify-content: center;
     align-items: center;
     z-index: 1100;
-    background: black;
 
-    .circles {
+    .logo {
         width: 160px;
         max-width: 70%;
         transform-origin: center;

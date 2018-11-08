@@ -59,7 +59,7 @@ class Explore extends Component {
         const { repos } = this.state;
         return (
             <Fragment>
-                <main id="explore-page" className={`${this.props.theme.bgColorDiv} text-${this.props.theme.colorNavLink}`}>
+                <main id="explore-page">
                 <Container fluid className="p-0">
                     <Parallax bgImage={ParallaxImages.image6} strength={600} renderLayer={percentage => (
                         <div>
@@ -102,7 +102,6 @@ class Explore extends Component {
                        ?
                          repos.map((repo, index) =>
                           <RepoCard
-                            theme={this.props.theme}
                             repo={repo}
                             key={index}
                             name={repo.name}

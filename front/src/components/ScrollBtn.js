@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Button, Fa } from 'mdbreact';
 import ReactTooltip from 'react-tooltip';
+import '../styles/buttons/scrollBtn.scss';
 
 class ScrollBtn extends Component {
     constructor(props){
@@ -52,7 +53,7 @@ class ScrollBtn extends Component {
             <Fragment>
                 <Button
                     tag='a'
-                    floating color="elegant"
+                    floating
                     className={`to-top-btn ${btnState}`}
                     data-tip data-for='scroll-top'
                     onClick={this.scrollToTop}

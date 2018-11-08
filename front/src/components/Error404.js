@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Container, Row, Col, Button } from 'mdbreact';
 
 import gif from '../images/gif/5LSi.gif';
+import '../styles/error.scss';
 
 class Error404 extends Component {
 

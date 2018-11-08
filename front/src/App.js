@@ -31,7 +31,7 @@ class App extends Component {
         accessToken
       } = this.getStoredAuthData();
 
-      const theme = localStorage.getItem("isDarkTheme")
+      const theme = localStorage.getItem("isDarkTheme");
 
       this.state = {
         loading: true,
@@ -42,7 +42,25 @@ class App extends Component {
         accessToken,
         scrolled: false
       }
+
+      const rootEl = document.getElementById('root');
+      const rootTheme = this.state.isDarkTheme
+      ? 'dark'
+      : 'light';
+      rootEl.className = `theme-${rootTheme}`;
   };
+
+  changeTheme = () => {
+    const wasDarkTheme = localStorage.getItem("isDarkTheme") !== "false"
+    localStorage.setItem("isDarkTheme", !wasDarkTheme)
+    this.setState({
+      isDarkTheme: !wasDarkTheme
+    });
+
+    const rootEl = document.getElementById('root');
+    const rootTheme = wasDarkTheme ? 'light' : 'dark';
+    rootEl.className = `theme-${rootTheme}`;
+  }
 
   getStoredAuthData() {
     const jwt = localStorage.getItem('jwt');
@@ -101,14 +119,6 @@ class App extends Component {
     }, 500)
   }
 
-  changeTheme = () => {
-    const wasDarkTheme = localStorage.getItem("isDarkTheme") !== "false"
-    localStorage.setItem("isDarkTheme", !wasDarkTheme)
-    this.setState({
-      isDarkTheme: !wasDarkTheme
-    })
-  }
-
   noScroll = () => {
       this.state.loading
       ? document.body.style.overflow = 'hidden'
@@ -135,7 +145,7 @@ class App extends Component {
 
     return (
       <Fragment>
-        {this.state.loading && <Loading />}
+        {this.state.loading && <Loading theme={theme} />}
         <Navbar
           handleResetState={this.handleResetState}
           handleLoginSuccess={this.handleLoginSuccess}

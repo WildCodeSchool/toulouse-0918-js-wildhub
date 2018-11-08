@@ -1,3 +1,22 @@
+@import './theme-colors';
+
+#root{
+
+  &.theme-dark{
+    #explore-page{
+      background: $dt_secondary;
+      color: $dt_text_secondary;
+    }
+  }
+
+  &.theme-light{
+    #explore-page{
+      background: $lt_primary;
+    }
+  }
+
+}
+
 #explore-page{
     .head-explore { 
         margin-top: 150px;
