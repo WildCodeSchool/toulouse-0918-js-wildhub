@@ -1,6 +1,6 @@
 # Wildhub, qu'est-ce que c'est ? 
 
-![WildHub Logo](https://www.casimages.com/i/181115052252551993.png.html)
+![WildHub Logo](https://nsa39.casimages.com/img/2018/11/15/181115052252551993.png)
 
 :tada: WildHub est un projet à destination des étudiants de la Wild Code School. Basé sur l'API de Github, il permet d'accéder à un espace personnel grâce à une authentification via GitHub et ensuite de séléctionner les projets que l'on souhaite partager entre Wilders. :tada:
 
