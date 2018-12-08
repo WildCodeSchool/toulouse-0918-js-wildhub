@@ -1,0 +1,15 @@
+{
+  "github": {
+    "clientId": "YOUR_GITHUB_CLIENT_ID",
+    "clientSecret": "YOUR_GITHUB_CLIENT_SECRET",
+    "redirectUri": "YOUR_OAUTH_APP_REDIRECT_URI"
+  },
+  "mysql": {
+    "host": "localhost",
+    "database": "YOUR_DB",
+    "user": "YOUR_DB_USER",
+    "password": "YOUR_DB_PASS"
+  },
+  "jwtSecret": "YOUR_JWT_SECRET",
+  "port": 5000
+}
