@@ -18,7 +18,7 @@ class Repo extends Component {
     document.title = `${repoName} - ${ownerName}`;
 
     (window.location.href.includes('/explore/'))
-    ? fetch(`https://wildhub.ssd1.ovh/api/users/${ownerName}/${repoName}`)
+    ? fetch(`https://wildhub.wild31.com/api/users/${ownerName}/${repoName}`)
     : fetch(`https://api.github.com/repos/${ownerName}/${repoName}`, {
       headers: {
         Authorization: `Bearer ${this.props.accessToken}`

@@ -20,7 +20,7 @@ class PublicProfile extends Component {
 
     getRepos = () => {
       const { username } = this.props.match.params;
-      fetch (`https://wildhub.ssd1.ovh/api/users/${username}/projects`, {
+      fetch (`https://wildhub.wild31.com/api/users/${username}/projects`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('jwt')}`
         }

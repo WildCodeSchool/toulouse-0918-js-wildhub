@@ -56,7 +56,7 @@ class Profile extends Component {
 
     getReposActive() {
       const username = this.props.login;
-      return fetch (`https://wildhub.ssd1.ovh/api/users/${username}/projects`, {
+      return fetch (`https://wildhub.wild31.com/api/users/${username}/projects`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('jwt')}`
         }

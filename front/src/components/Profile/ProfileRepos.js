@@ -10,7 +10,7 @@ import RepoCard from '../Repo/RepoCard';
 class ProfileRepos extends Component{
 
     postRepoExplore(repo) {
-      fetch('https://wildhub.ssd1.ovh/api/projects', {
+      fetch('https://wildhub.wild31.com/api/projects', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('jwt')}`,

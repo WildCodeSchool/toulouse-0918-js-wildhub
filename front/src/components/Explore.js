@@ -28,7 +28,7 @@ class Explore extends Component {
     }
 
     getExplore = () => {
-        fetch('https://wildhub.ssd1.ovh/api/projects')
+        fetch('https://wildhub.wild31.com/api/projects')
             .then(results  =>  results.json())
             .then(repos  => {
                 this.setState({
@@ -38,14 +38,14 @@ class Explore extends Component {
     }
 
     getByLanguage = (language) => {
-      fetch(`https://wildhub.ssd1.ovh/api/projects/by-language/${language}`)
+      fetch(`https://wildhub.wild31.com/api/projects/by-language/${language}`)
       .then(response => response.json())
       .then(repos => this.setState({ repos: repos }))
     }
 
     postRepoExplore(repo) {
       (repo.active !== 1) ? repo.active = 1 : repo.active = 0;
-      fetch('https://wildhub.ssd1.ovh/api/projects', {
+      fetch('https://wildhub.wild31.com/api/projects', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('jwt')}`,

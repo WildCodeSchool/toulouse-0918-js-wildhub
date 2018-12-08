@@ -20,7 +20,7 @@ export default class SwitchBtn extends Component {
 
     const { repo } = this.props;
 
-      fetch(`https://wildhub.ssd1.ovh/api/projects`, {
+      fetch(`https://wildhub.wild31.com/api/projects`, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${localStorage.getItem('jwt')}`,
