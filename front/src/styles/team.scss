@@ -1,36 +1,78 @@
-#team-page{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: #fcfcfc;
+@import './theme-colors';
 
-    main{
-        flex: 1;
+#root{
 
-        h2{
-          font-family: "Gotham";
-        }
+  &.theme-dark{
+    #team-page{
+      .card{
+        background: $dt_secondary;
+        color: $dt_text_secondary;
 
-        p{
-          font-family: "SourceSans";
-          font-size: 1em;
-        }
+        a{
+          color: $dt_text_tertiary;
 
-        ul{
-          display: flex;
-          justify-content: center;
-
-          li{
-            list-style: none;
-            margin: 0 .5em;
-
-            a{
-              color: #2e2e2e;
-              font-size: 1.15em;
-            }
+          &:hover{
+            color: $dt_text_primary;
           }
         }
+      }
+    }
+  }
+
+  &.theme-light{
+    #team-page{
+      .card{
+        background: $lt_secondary;
+        color: $lt_text_secondary;
+
+        a{
+          color: $lt_text_tertiary;
+
+          &:hover{
+            color: $lt_text_primary;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+#team-page{
+
+    background-image: url('https://images.pexels.com/photos/29435/landscape-sky-night-stars-29435.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    h2{
+      font-family: "Gotham";
+      font-size: 2.5em;
+      span{
+        font-family: "Fedra";
+
+      }
+
     }
 
+    .head-text{
+      font-family: "SourceSans";
+      font-size: 1.5em;
+    }
+
+    ul{
+      display: flex;
+      justify-content: center;
+
+      li{
+        list-style: none;
+        margin: 0 .5em;
+
+        a{
+          color: black;
+          font-size: 1.15em;
+        }
+      }
+    }
 
 }

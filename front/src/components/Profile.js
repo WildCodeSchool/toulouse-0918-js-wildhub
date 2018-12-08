@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
-import AsideProfile from './Profile/AsideProfile';
-import ListProjects from './Profile/ListProjects';
-import Footer from './Footer';
+import ProfileAside from './Profile/ProfileAside';
+import ProfileRepos from './Profile/ProfileRepos';
 import { Container, Row, Col } from 'mdbreact';
-import token from '../config';
+import '../styles/profile.scss';
+
 
 
 class Profile extends Component {
     constructor(props){
         super(props);
         this.state = {
-            reposList: []
+            reposList: [],
+            idActives: []
         };
+
+        this.getRepos = this.getRepos.bind(this);
+        this.getReposActive = this.getReposActive.bind(this);
     }
 
-    componentWillMount = () => {
-      this.getRepos();
+    componentDidMount(){
+      Promise.all([
+        this.getRepos(),
+        this.getReposActive()
+      ]).then(this.props.resetLoading(false))
     }
 
-    getRepos = () => {
-      fetch ('https://api.github.com/users/EvaSpessotto/repos', {
+    getRepos() {
+      const username = this.props.login;
+      return fetch (`https://api.github.com/users/${username}/repos`, {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${this.props.accessToken}`
         }
       })
 
@@ -32,7 +39,7 @@ class Profile extends Component {
           const promises = repoArr.map(
             repoSingle => fetch(repoSingle.languages_url, {
               headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${this.props.accessToken}`
               }
             })
 
@@ -47,27 +54,66 @@ class Profile extends Component {
       })
     }
 
+    getReposActive() {
+      const username = this.props.login;
+      return fetch (`https://wildhub.ssd1.ovh/api/users/${username}/projects`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`
+        }
+      })
+        .then(results => results.json())
+          .then(reposActive => reposActive.map(repo =>
+            repo.id
+            )
+          )
+          .then(reposActive => {
+            if (!reposActive.length) {
+              return [-1]
+            }
+            return reposActive
+          })
+            .then(idArr =>
+              this.setState({
+                idActives: idArr
+              })
+            )
+
+    }
+
     render() {
+      const { login } = this.props;
+      const { username } = this.props.match.params;
+      const { idActives } = this.state;
+
         return (
-            <div id='profile-page'>
-                <Navbar />
-                <main>
-                  <Container>
-                      <Row>
-                          <Col xs='12' lg='3' id='aside-profile' className='my-5'>
-                             { this.state.reposList.length > 0
-                             ? <AsideProfile  />
-                             : ''
-                          }
-                          </Col>
-                          <Col xs='12' lg='8' id='projects-list' className='ml-auto my-5'>
-                              <ListProjects getReposList={this.state.reposList} />
-                          </Col>
-                      </Row>
-                  </Container>
-              </main>
-              <Footer />
-            </div>
+              <main id='profile-page'>
+                <Container>
+                    <Row>
+                        <Col xs='12' lg='3' id='aside-profile' className='my-5'>
+                           { this.state.reposList.length > 0
+                           ? <ProfileAside username={ username } accessToken={this.props.accessToken}  />
+                           : ''
+                        }
+                        </Col>
+                        <Col xs='12' lg='9' id='projects-list' className='ml-auto my-5'>
+
+                        {
+
+                          idActives.length &&
+                            <ProfileRepos
+                              getReposList={this.state.reposList}
+                              username={ login }
+                              urlUsername={ username }
+                              idActives={ idActives }
+                              accessToken={this.props.accessToken}
+                            />
+
+                        }
+
+                        </Col>
+                    </Row>
+                </Container>
+            </main>
         );
     }
 }

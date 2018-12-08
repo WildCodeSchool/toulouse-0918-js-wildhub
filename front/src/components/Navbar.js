@@ -1,72 +1,225 @@
-import React, { Component } from "react";
-import img from '../images/logo-light.png';
-import { Fa } from 'mdbreact';
+import React, { Component, Fragment } from "react";
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  Button,
+  Fa
+} from 'mdbreact';
 import { NavLink } from 'react-router-dom';
+import GitHubLogin from 'react-github-login';
+import { clientId, redirectUri } from '../settings';
+import '../styles/navigation.scss';
 
 class Navbar extends Component {
-
-
     constructor(props) {
         super(props);
         this.state = {
-            isOpen: false
+            isOpen: false,
         };
+    }
+
+    resetLoading = () => {
+      this.props.loading(true);
+    }
+
+
+    handleSideNav = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
     }
 
     handleClick = () => {
         this.setState({
             isOpen: !this.state.isOpen
         });
+        this.resetLoading();
+    }
 
+    disconnect = () => {
+      this.props.handleResetState();
+      this.resetLoading();
+      this.handleClick();
+    }
+
+    scrollable = () => {
+        this.state.isOpen
+        ? document.body.style.overflow = 'hidden'
+        : document.body.style.overflow = '';
     }
 
     render() {
         const isOpen = this.state.isOpen ? 'open' : '';
         const toggler = this.state.isOpen ? 'times' : 'bars';
+        this.scrollable();
+
         return (
-            <div className="navigation">
-                <nav className="navbar navbar-light bg-dark text-light fixed-top">
-                <span
-                    onClick={this.handleClick}
-                    className="toggle-nav">
-                    <Fa icon={toggler} size='lg' />
-                </span>
-                    <div className="nav-links d-flex justify-content-start align-items-center">
-                        <NavLink to='/' className='navbar-brand'>
-                            <img src={img} alt="logo" />
-                        </NavLink>
-                        <NavLink to="/explore" className='nav-item d-none d-md-inline'>Explorer</NavLink>
-                        <NavLink to="/team" className='nav-item d-none d-md-inline'>La Team</NavLink>
-                        <NavLink to="/" className='nav-item d-none d-md-inline'>Se Connecter</NavLink>
-                    </div>
-                    <div id="mySidenav" className={"sidenav " + isOpen}>
-                        <NavLink to="/explore" className='nav-item'>
-                            <Fa icon="book mr-2" />
-                            {"Explorer"}
-                        </NavLink>
 
-                        <NavLink to="/team" className='nav-item'>
-                            <Fa icon="users mr-2" />
-                            {"La Team"}
-                        </NavLink>
+          <Fragment>
+            <div className="navbar fixed-top py-0">
+              <span
+                  onClick={this.handleSideNav}
+                  className={`toggle-nav`}>
+                  <Fa icon={toggler} size='lg' />
+              </span>
+              <div className="nav-links d-flex justify-content-start align-items-center w-100">
 
-                        <NavLink to="/profile" className='nav-item'>
-                            <Fa icon="folder-open mr-2" />
-                            {"Mes Dépôts"}
-                        </NavLink>
+                  <NavLink
+                    exact to='/'
+                    className='navbar-brand'
+                    onClick={this.resetLoading}
+                  >
+                    <img src={this.props.theme.logoNav}  alt="logo" />
+                  </NavLink>
 
-                        <NavLink to="/settings" className='nav-item'>
-                            <Fa icon="cog mr-2" />
-                            {"Paramètres"}
-                        </NavLink>
+                  <div className="d-none d-md-flex flex-grow-1">
 
-                        <NavLink to="/" className="nav-item">
-                            <Fa icon="sign-in mr-2" />
-                            {"Se Connecter"}
-                        </NavLink>
-                    </div>
-                </nav>
-            </div>)
+                      <NavLink
+                        exact to="/"
+                        className='nav-item'
+                        onClick={this.resetLoading}
+                      >
+                        Accueil
+                      </NavLink>
+
+                      <NavLink
+                        exact to="/explore"
+                        className='nav-item'
+                        onClick={this.resetLoading}
+                      >
+                        Explorer
+                      </NavLink>
+
+                      <NavLink
+                        exact to="/team"
+                        className='nav-item'
+                        onClick={this.resetLoading}
+                      >
+                        La Team
+                      </NavLink>
+
+                      <div className="btn-grp d-flex align-items-center ml-auto">
+                        {
+                          this.props.login
+                          ? <Dropdown>
+                                <DropdownToggle
+                                  caret
+                                  className='my-0 mx-3'
+                                >
+                                  {this.props.login}
+                                </DropdownToggle>
+                                <DropdownMenu right className={`${this.props.theme.color}`}>
+                                    <NavLink
+                                      className='dropdown-item'
+                                      to={`/users/${this.props.login}`}
+                                      onClick={this.resetLoading}
+                                    >
+                                      <Fa icon="book mr-2" /> {"Mon Profil"}
+                                    </NavLink>
+                                    <NavLink
+                                      to="/home"
+                                      className='dropdown-item'
+                                      onClick={this.disconnect}
+                                    >
+                                      <Fa icon='sign-out' /> {"Déconnexion"}
+                                    </NavLink>
+                                </DropdownMenu>
+                              </Dropdown>
+                          : <GitHubLogin
+                              onClick={this.resetLoading}
+                              className={`btn btn-login my-0 mx-3`}
+                              scope="user:email,public_repo"
+                              clientId={clientId}
+                              redirectUri={`${redirectUri}/users/${this.props.login}`}
+                              onSuccess={this.props.handleLoginSuccess}
+                              onFailure={this.props.handleLoginFailure}
+                              children={<span style={{verticalAlign: 'middle'}}
+                            >
+                                Se connecter
+                                <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
+                              </span>}
+                            />
+                        }
+                        <Button
+                            onClick={this.props.changeTheme}
+                            className='theme-toggler m-0'
+                        >
+                            <i className={this.props.theme.iconeTheme} aria-hidden="true"></i>
+
+                        </Button>
+                      </div>
+
+                  </div>
+              </div>
+              </div>
+
+            <div id="mySidenav" className={"sidenav z-depth-2 " + isOpen}>
+                <NavLink
+                  onClick={this.handleClick}
+                  exact to="/"
+                  className='nav-item'
+                >
+                    <Fa icon="home mr-2" />
+                    {"Accueil"}
+                </NavLink>
+
+                <NavLink
+                  onClick={this.handleClick}
+                  exact to="/explore"
+                  className='nav-item'
+                >
+                    <Fa icon="wpexplorer mr-2" />
+                    {"Explorer"}
+                </NavLink>
+
+                <NavLink
+                  onClick={this.handleClick}
+                  exact to="/team"
+                  className='nav-item'
+                >
+
+                    <Fa icon="users mr-2" />
+                    {"La Team"}
+                </NavLink>
+
+                {
+                  this.props.login
+                  ? <Fragment>
+                      <a href={`/users/${this.props.login}`} onClick={this.handleClick} className='nav-item'>
+                        <Fa icon="book mr-2" />
+                        {"Mon Profil"}
+                      </a>
+
+                      <NavLink to="/home" onClick={this.disconnect} className='nav-item'>
+                          <Fa icon='sign-out' /> Déconnexion
+                      </NavLink>
+                    </Fragment>
+
+                  : <GitHubLogin
+                      className={`btn btn-sm btn-login`}
+                      color={this.props.theme.color}
+                      scope="user:email,public_repo"
+                      clientId={clientId}
+                      redirectUri={`${redirectUri}/users/${this.props.login}`}
+                      onSuccess={this.props.handleLoginSuccess}
+                      onFailure={this.props.handleLoginFailure}
+                      children={<span style={{verticalAlign: 'middle'}}>
+                        Se connecter
+                        <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
+                      </span>}
+                    />
+                }
+                <Button
+                  onClick={this.props.changeTheme}
+                  className='theme-toggler btn-sm'
+                >
+                  <i className={`mr-2 ${this.props.theme.iconeTheme}`} aria-hidden="true"></i>
+                  Theme
+                </Button>
+            </div>
+        </Fragment>
+        )
     }
 }
 

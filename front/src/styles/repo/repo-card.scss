@@ -1,0 +1,142 @@
+@import '../theme-colors';
+
+#root {
+
+  &.theme-dark {
+    .repo-card {
+      background: $dt_tertiary;
+      color: $dt_text_secondary;
+
+      &:hover {
+        box-shadow: 0 0 .9em $dt_primary;
+      }
+
+      .repo-name, .repo-owner, .ghIcon{
+        color: $dt_text_primary;
+
+        &:hover{
+          color: $dt_text_tertiary;
+          text-shadow: 0 0 .25em $dt_primary;
+        }
+      }
+
+      .card-header,
+      .card-footer {
+        background: $dt_tertiary;
+      }
+    }
+  }
+
+  &.theme-light {
+    .repo-card {
+      background: $lt_secondary;
+      color: $lt_text_secondary;
+
+      &:hover {
+        box-shadow: 0 0 .9em $lt_tertiary;
+      }
+
+      .repo-name, .repo-owner, .ghIcon{
+        color: $lt_text_primary;
+
+        &:hover{
+          color: rgba($lt_text_tertiary, .6);
+          text-shadow: 0 0 .25em $lt_tertiary;
+        }
+      }
+
+      .card-header,
+      .card-footer {
+        background: $lt_secondary;
+      }
+    }
+  }
+
+}
+
+.repo-card {
+  position: relative;
+  height: 100%;
+  border: none;
+  transition: all .125s ease-out;
+
+  .card-body {
+    padding-bottom: 0;
+
+    .repo-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+
+      .repo-name {
+        margin-bottom: 0;
+        font-size: 1.3em;
+        font-family: "Gotham";
+        width: 100%;
+        text-overflow: clip;
+
+      }
+
+      .ghIcon {
+        font-size: 20px;
+      }
+
+      .__react_component_tooltip {
+        font-family: "Fedra";
+      }
+
+    }
+
+    .repo-owner {
+      width: 85%;
+      text-overflow: clip;
+      font-family: "Fedra";
+      font-size: 1.2em;
+    }
+
+    .repo-description {
+      font-family: 'SourceSans';
+      font-size: 1.2em;
+    }
+  }
+
+  .card-footer {
+    border-top: none;
+    border-bottom-left-radius: .25em;
+    border-bottom-right-radius: .25em;
+    max-height: 48px;
+
+  }
+
+  .language-bar {
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    overflow: hidden;
+    border-bottom-left-radius: .25em;
+    border-bottom-right-radius: .25em;
+
+    &>span {
+      display: inline-block;
+      height: 8px;
+      line-height: 0;
+      transition: all .15s ease-out;
+
+      &:hover {
+        height: 10px;
+      }
+    }
+  }
+
+}
+
+#codeReadme {
+  img {
+    max-width: 100%;
+  }
+}

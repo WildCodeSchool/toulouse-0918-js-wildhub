@@ -1,0 +1,45 @@
+@import '../theme-colors';
+
+#root{
+
+  &.theme-dark{
+    #repo-aside{
+      .card{
+        background: $dt_tertiary;
+        color: $dt_text_secondary;
+
+        .owner-infos{
+          a{
+            color: $dt_text_primary;
+    
+            &:hover{
+              color: $dt_text_tertiary;
+              text-shadow: 0 0 .25em $dt_primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.theme-light{
+    #repo-aside{
+      .card{
+        background: $lt_secondary;
+        color: $lt_text_secondary;
+
+        .owner-infos{
+          a{
+            color: $lt_text_primary;
+    
+            &:hover{
+              color: rgba($lt_text_tertiary, .6);
+              text-shadow: 0 0 .25em $lt_tertiary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

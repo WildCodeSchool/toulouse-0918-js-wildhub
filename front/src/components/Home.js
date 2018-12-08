@@ -1,82 +1,165 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar'
-import Footer from './Footer'
-import img from '../images/logo-accueil.png'
-import imgAccueil1 from '../images/img-accueil1.jpg'
-import imgAccueil2 from '../images/img-accueil2.jpg'
-import {NavLink} from 'react-router-dom';
-import { Container, Row, Col, Button, Fa } from 'mdbreact';
+import { Container, Row, Col } from 'mdbreact';
+import { Parallax } from "react-parallax";
+import ParallaxImages from '../data/ParallaxImages.js';
+// import Draggable from 'react-draggable';
+import '../styles/home.scss';
+
 
 class Home extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        username: ''
+      }
+    }
+
+    getUsername = (e) => {
+      this.setState({
+        username: e.target.value
+      })
+    }
+
+
+    componentDidMount(){
+      this.props.resetLoading(false);
+    }
+
     render() {
         return (
-            <div id='home-page'>
-              <Navbar />
-                <div id="homePage">
+            <main id='home-page'>
                 <header>
-                  <Container fluid>
-                    <Row className="mainAccueil align-items-center">
-                      <Col xs='10' md='8' lg='6' className="mx-auto text-center">
-                        <div className="pt-5">
-                          <img className="img-fluid logo mt-5" src={img} alt="logo" />
-                        </div>
-                        <div className="pt-5">
-                          <h1 className="text-white pb-3">{"Bienvenue sur WildHub !"}</h1>
-                          <p className="text-white text-left">{"Wild Hub est un outil de partage de projets personnels à disposition des actuels et anciens élèves de la Wild Code School. Après une simple inscription, partagez votre code sur l'espace dédié par l'intermédiaire de Git Hub. Vous ne souhaitez pas vous inscrire sur Wild Hub? Pas de problèmes, vous pourrez quand même consulter les projets diffusés par les Wilders."}</p>
-                          <p className="text-white fedra-text mt-5">Bonne visite !</p>
-                        </div>
-                        <div className="pt-5 pb-5">
-                          <NavLink to='/profile' className='text-white'>
-                            <Button variant='contained' color='mdb' className="black-text">
-                              <span style={{verticalAlign: 'middle'}}>
-                                Se connecter
-                                <Fa icon="github" className="ml-2" size="2x" style={{verticalAlign: 'middle'}}/>
-                              </span>
-                            </Button>
-                          </NavLink>
-                        </div>
-                      </Col>
-                    </Row>
+                  <Container fluid className='p-0'>
+                  <Parallax
+                    bgImage={ParallaxImages.image1}
+                    strength={400}
+                    renderLayer={percentage => (
+                      <div>
+                        <div
+                          className='parallax-circle'
+                          style={{
+                            position: "absolute",
+                            background: `${this.props.theme.colorCircle2} ${percentage * 1.5}`,
+                            left: "20%",
+                            top: "40%",
+                            borderRadius: "50%",
+                            transform: "translate(-50%,-50%)",
+                            width: percentage *500,
+                            height: percentage * 500
+                          }}
+                        />
+                        <div
+                          className='parallax-circle'
+                          style={{
+                            position: "absolute",
+                            background: `${this.props.theme.colorCircle1} ${percentage * 1.5}`,
+                            left: "20%",
+                            top: "25%",
+                            borderRadius: "50%",
+                            transform: "translate(-50%,-50%)",
+                            width: percentage * 200,
+                            height: percentage * 200
+                          }}
+                        />
+                        <div
+                          className='parallax-circle'
+                          style={{
+                            position: "absolute",
+                            background: `${this.props.theme.colorCircle2} ${percentage * 1.5}`,
+                            left: "75%",
+                            top: "75%",
+                            borderRadius: "50%",
+                            transform: "translate(-50%,-50%)",
+                            width: percentage * 400,
+                            height: percentage * 400
+                          }}
+                        />
+                        <div
+                          className='parallax-circle'
+                          style={{
+                            position: "absolute",
+                            background: `${this.props.theme.colorCircle1} ${percentage * 1.5}`,
+                            left: "85%",
+                            top: "25%",
+                            borderRadius: "50%",
+                            transform: "translate(-50%,-50%)",
+                            width: percentage * 300,
+                            height: percentage * 300
+                          }}
+                        />
+                         <div
+                          className='parallax-circle'
+                          style={{
+                            position: "absolute",
+                            background: `${this.props.theme.colorCircle2} ${percentage * 1.5}`,
+                            left: "90%",
+                            top: "25%",
+                            borderRadius: "50%",
+                            transform: "translate(-50%,-50%)",
+                            width: percentage * 150,
+                            height: percentage * 150
+                          }}
+                        />
+                      </div>
+
+                    )}
+                  >
+                    <div style={{ minHeight: '100vh' }}>
+                      <Row className="mainAccueil align-items-center">
+                        {/* <Draggable> */}
+                          <Col xs='10' lg='7' className="mx-auto my-5 text-center">
+                            <div className="header-wrapper">
+                              <div className={`pt-2 mb-5`} >
+                                <img className="img-fluid logo mt-5" src={this.props.theme.logo} alt="logo" />
+                              </div>
+                              <div className={`px-5 pb-3`} >
+                                <h1 className="pb-2" >{"Bienvenue sur WildHub !"}</h1>
+                                <p className="text-center py-4">{"WildHub est un site dédié aux développeurs de la Wild Code School, anciens comme actuels. Sur cette nouvelle plateforme tu vas pouvoir partager tes projets personnels afin de leur donner de la visibilité et éventuellement collaborer avec d’autres développeurs de la Wild Code School. Pas besoin de te créer un compte, utilise simplement tes identifiants GitHub pour te connecter sur ce site !"}</p>
+                                <p className="fedra-text mt-3">Bonne visite !</p>
+                              </div >
+                            </div>
+                          </Col>
+                        {/* </Draggable> */}
+                      </Row>
+                    </div>
+                  </Parallax>
                   </Container>
                 </header>
-                <Container fluid className="under-accueil">
-                    <Row className="pt-5 pb-5">
-                        <Col md='6' className="mx-auto text-center pt-5 pb-5">
-                            <img className="img-fluid rounded z-depth-1" src={imgAccueil2} alt="placeHolder"></img>
-                        </Col>
-                        <Col md='6' className="mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                        <h2>Utilisez Wild Hub !</h2>
-                        <p>
-                          {"Un espace de partage sans limites pour tous les élèves de la Wild Code School. La plateforme Wild Hub rassemble tous les outils pour mettre en avant vos projets personnels."}
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row className="pt-5 pb-5 mainPresentation">
-                        <Col md='6' className="mx-auto text-center d-flex flex-column align-self-center pr-5 pl-5">
-                            <h2 className="text-white">{"La Plateforme d'échange des Wilders !"}</h2>
-                            <p className="text-white">
-                                {"Wild Hub rassemble les codes écrits par les Wilders. Javascript, Java, PHP...toutes les langues parlées par les Wilders se retrouvent ici !"}
-                        </p>
-                      </Col>
-                        <Col md='6' className="mx-auto text-center pb-5 pt-5">
-                            <img className="img-fluid rounded z-depth-1" src={imgAccueil1}  alt="placeHolder"></img>
-                        </Col>
-                    </Row>
-                    <Row className="pt-5 pb-5 mr-5 ml-5">
-                        <Col xs='12' className="mx-auto text-center pb-5">
-                            <img className="img-fluid rounded z-depth-1" src="https://via.placeholder.com/350x350" alt="placeHolder"></img>
-                        </Col>
-                        <Col xs='12' className="mx-auto text-center pr-5 pl-5">
-                            <p>{"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea eius voluptatum perspiciatis magni quisquam inventore velit repudiandae culpa nesciunt ex ipsa totam, quae nam beatae odit quod, sed iusto aliquid!In delectus iure architecto nesciunt reiciendis alias aliquid dolorem, natus quas placeat nemo, voluptatibus autem ducimus rem officiis aperiam laudantium itaque molestiae saepe eveniet, nostrum totam molestias eum. Consectetur, dolorem."}</p>
-                        </Col>
-                    </Row>
-                </Container>
 
-                </div>
-                <Footer />
-            </div>
+                <Container fluid className="under-accueil p-0">
+                  <Row className={`py-5 justify-content-center align-items-center`} >
+                      <Col xs='11' md='8' lg='5' className="py-5">
+                        <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image2}  alt="placeHolder"></img>
+                      </Col>
+                      <Col xs='11' md='8' lg='4' className="py-5">
+                        <h2>{"Comment ça fonctionne ?"}</h2>
+                        <p>
+                            {"Tu ne veux pas te connecter pour le moment? Aucun problème, tu peux accéder aux projets partagés ici en allant dans l’onglet “Explorer” et ainsi naviguer de dépôts en dépôts comme bon te semble."}
+                        </p>
+                        <p>
+                            {"Tu veux te connecter ? Aucun problème, tu peux accéder à ta session grâce à GitHub. Une fois connecté tu trouveras sur ton profil tous tes dépôts et pourras choisir ceux que tu souhaites rendre publics. Les dépôts partagés apparaissent tous dans l’explorateur de projets."}
+                        </p>
+                        </Col>
+                  </Row>
+
+                  <Parallax bgImage={ParallaxImages.image3} strength={600} >
+                    <div className="parallax-div"></div>
+                  </Parallax>
+
+                  <Row className={`py-5`} >
+                      <Col xs='11' md='8' lg='6' className="mx-auto d-flex flex-column align-self-center py-5">
+                        <img className="img-fluid rounded z-depth-1" src={ParallaxImages.image4}  alt="placeHolder"></img>
+                        <div className="mt-5">
+                            <h2 >{"La Plateforme d'échange des Wilders !"}</h2>
+                            <p>
+                                {"WildHub est une plateforme de partage mais aussi d’échange et d’entraide, n’hésite pas à contacter un Wilder si son projet t’intéresse, vous pourrez peut-être collaborer !"}
+                            </p>
+                        </div>
+                      </Col>
+                  </Row>
+                </Container>
+            </main>
         );
     }
 }
-
 export default Home;

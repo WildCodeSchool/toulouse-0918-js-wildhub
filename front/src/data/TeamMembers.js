@@ -1,3 +1,8 @@
+import jg_pic from '../images/team/jg_pic.png';
+import es_pic from '../images/team/es_pic.jpeg';
+import nh_pic from '../images/team/nh_pic.png'
+import js_pic from '../images/team/julien_projet2.jpg'
+
 const TeamMembers = [
     {
         name: 'Eva Spessotto',
@@ -7,9 +12,19 @@ const TeamMembers = [
                 name: 'GitHub',
                 link: 'https://github.com/EvaSpessotto',
                 icon: 'github'
+            },
+            {
+                name: 'CodePen',
+                link: 'https://codepen.io/evakattz/',
+                icon: 'codepen'
+            },
+            {
+                name: 'linkedIn',
+                link: 'https://www.linkedin.com/in/eva-spessotto-9878b2144/',
+                icon: 'linkedin'
             }
         ],
-        avatar: 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+        avatar: es_pic
     },
     {
         name: 'Julien Sans',
@@ -17,11 +32,21 @@ const TeamMembers = [
         social: [
             {
                 name: 'GitHub',
-                link: '',
+                link: 'https://github.com/Julien-sans',
                 icon: 'github'
-            }
+            },
+            {
+                name: 'linkedIn',
+                link: 'https://fr.linkedin.com/in/julien-sans-a54b07a4',
+                icon: 'linkedin'
+            },
+            {
+                name: 'Twitter',
+                link: 'https://twitter.com/JulienS35443694',
+                icon: 'twitter'
+            },
         ],
-        avatar: 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+        avatar: js_pic
     },
     {
         name: 'Nelson Hui',
@@ -29,20 +54,31 @@ const TeamMembers = [
         social: [
             {
                 name: 'GitHub',
-                link: '',
+                link: 'https://github.com/NelsonHui123',
                 icon: 'github'
+            },
+
+            {
+                name: 'CodePen',
+                link: 'https://codepen.io/JacquesChiracSC2/',
+                icon: 'codepen'
             }
         ],
-        avatar: 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+        avatar: nh_pic
     },
     {
         name: 'Jules Grenier',
-        job: 'Développeur Front-End',
+        job: 'Développeur Full-Stack',
         social: [
             {
                 name: 'GitHub',
                 link: 'https://github.com/JulesGrenier',
                 icon: 'github'
+            },
+            {
+                name: 'CodePen',
+                link: 'https://codepen.io/Jules_Grenier/',
+                icon: 'codepen'
             },
             {
                 name: 'Twitter',
@@ -55,7 +91,7 @@ const TeamMembers = [
                 icon: 'linkedin'
             }
         ],
-        avatar: 'https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg'
+        avatar: jg_pic
     }
 ]
 
